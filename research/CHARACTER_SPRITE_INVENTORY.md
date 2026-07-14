@@ -4,6 +4,10 @@
 
 優先級：**P0**＝首個可玩替換版本必備；**P1**＝完整近戰／技能體驗；**P2**＝主體完成後處理。
 
+## 圖片瀏覽
+
+實際 GIF 分鏡依角色上傳於 [sprites/](sprites/)；每個目錄只含該主角色定義直接引用的圖檔。動作對照與檔名請以下表為準。
+
 | 角色 | 優先級 | 動作群組（anim） | 唯一 GIF 分鏡檔 | Frame 引用次數 | GIF 檔名（相對角色目錄） |
 |---|---|---|---:|---:|---|
 | guanyu | P0 | 基本移動<br><code>idle, run, turn, waiting, walk</code> | 18 | 30 | <code>idle001.gif</code><br><code>walk1.gif</code><br><code>walk2.gif</code><br><code>walk3.gif</code><br><code>walk4.gif</code><br><code>walk5.gif</code><br><code>walk6.gif</code><br><code>walk7.gif</code><br><code>walk8.gif</code><br><code>a1.GIF</code><br><code>a2.GIF</code><br><code>a3.GIF</code><br><code>a4.GIF</code><br><code>a5.GIF</code><br><code>a6.GIF</code><br><code>a7.GIF</code><br><code>a8.GIF</code><br><code>a9.GIF</code> |
