@@ -25,6 +25,30 @@
 3. 擴充 P1／P2 動作及騎乘、投射物等分離模型。
 4. 依建置文件製作 Linux、Windows、macOS 引擎發行版。
 
+## 分鏡總覽
+
+每張圖為該角色主定義直接引用的 GIF 第一幀；格子下方是原始檔名。完整動作對照請看[角色替換分鏡總表](research/CHARACTER_SPRITE_INVENTORY.md)。
+
+### 關羽
+
+![關羽分鏡總覽](research/contact-sheets/guanyu.png)
+
+### 趙雲
+
+![趙雲分鏡總覽](research/contact-sheets/zhaoyun.png)
+
+### 張飛
+
+![張飛分鏡總覽](research/contact-sheets/zhangfei.png)
+
+### 魏延
+
+![魏延分鏡總覽](research/contact-sheets/weiyan.png)
+
+### 黃忠
+
+![黃忠分鏡總覽](research/contact-sheets/huangzhong.png)
+
 ## 注意事項
 
 原始 `wof.pak` 是研究輸入，不要覆寫。它含有舊版封包細節；正式發行前應另行建立並驗證與目前 OpenBOR 引擎相容的模組封包。
