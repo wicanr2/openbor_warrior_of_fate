@@ -9,6 +9,7 @@
 | [角色替換分鏡總表](research/CHARACTER_SPRITE_INVENTORY.md) | 關羽、趙雲、張飛、魏延、黃忠的動作群組、GIF 分鏡、優先級與分離模型說明。美術替換工作從此開始。 |
 | [分鏡圖片](research/sprites/) | 五名主角色定義直接引用的 GIF 分鏡，依角色分目錄供 GitHub 預覽。 |
 | [跨平台建置與發行](docs/BUILD.md) | OpenBOR 引擎在 Linux、Windows、macOS 的原生編譯依賴、CMake 指令、產物位置與 PAK 放置位置。 |
+| [OpenBOR 引擎編譯手冊](docs/OPENBOR_COMPILATION.md) | 從取得原始碼到 Linux、Windows、macOS 原生編譯、產物驗證與疑難排解的完整交接文件。 |
 | [角色素材規格](docs/SPRITE_ART_SPEC.md) | GIF 洋紅透明鍵色 `#FF00FF`、畫布／檔名／調色盤規則，以及美術交付驗收清單。 |
 | [分鏡表產生器](scripts/generate-character-sprite-inventory.mjs) | 從解出的角色定義 `.txt` 重新統計分鏡表，避免人工維護 GIF 清單。 |
 
