@@ -6,6 +6,18 @@
 
 本輪已完整盤點目前 active 主線 Stage 1–3：`data/chars/boss` 有 43 個 model TXT，`models.txt` 的 boss-path 註冊中有 34 個可解析、14 個缺檔（`xiahoujie` 系列 5 個、`ECaller1`–`ECaller9` 9 個）。因此可以承諾現有四個主線 gate 的製作 scope，不能宣稱後期全遊戲 Boss 已盤齊。
 
+## 目前最優先的 Boss 工作隊列
+
+| 優先級 | 工作包 | 現況 | 先做的交付 |
+| --- | --- | --- | --- |
+| P1 | `zeon_boss`／夏亞有腳吉翁克 | overview 已有，67 張 runtime 閉包仍未完成 | 先補 `zeon_boss` 主體 48 張、`boss_hud.gif`、`char_pilot.gif`／`zeon_boss.txt`，再處理 projectile／debris 子模型 |
+| P1 | `xuchu`／玄鐵鎮壓機 | 只有設計 brief，未進 runtime  | 先定 `G0` 縮尺版 body、受傷／倒地、巨型主角機剪影與 `geometry-migration.json` 模板 |
+| P1 | `xiahorse`／蒼雷騎將 | 依賴拆分複雜，尚未進 production | 先分離載具／駕駛員與 300 HP 門檻，補足 phase 1／phase 2 與 `horse`／`lei3` 替代依賴 |
+| P1/P2 | `meimei`／`meiya`／`meiling` | 三名 adult-coded Boss 的名稱與輪廓已鎖定，production art 未起 | 三套 body、三套 portrait、共同 rig 與同屏合成總覽，避免只做三張換色圖 |
+| P0/P1 | `lidian` 紅槍指揮機 | 69 GIF＋6 TXT engineering closure 已完成 | 逐幀 production redraw、碎片與 Boss show 的可視 gameplay review |
+
+這份隊列刻意把 `overview`、`runtime closure`、`production art` 三個狀態分開。只有能獨立載入、可驗證且可交給別人接手的工作包，才應排進近期製作。
+
 ## 概念頁提供的方向
 
 | 私有概念頁 | 可辨識的設計方向 | 可用搜尋名稱 | 本專案處理方式 |
