@@ -32,6 +32,7 @@
 | [黃忠蒼藍光子射手機 P0 vertical slice](docs/HUANGZHONG_VERTICAL_SLICE.md) | 黃忠 active-player 73 GIF、2 profiles、8 個 projectile models／22 GIF、503-file merged overlay、19 TXT strict／determinism／Docker 與 `h1`–`h16` deferred closure。 |
 | [無敵鐵金剛 P0 對照](research/MAZINGER_P0_FRAME_MAP.md) | 42 個 case-sensitive P0 引用、41 個實體 GIF、canvas／Offset、12 格映射與缺幀表。 |
 | [Stage01 替換 manifest](research/STAGE01_REPLACEMENT_MANIFEST.md) | 第一關背景、前景、幾何、敵人、物件與 FX 的 P0／P1／P2 清單。 |
+| [Stage01 待辦隊列](research/manifests/stage01-next-queue.json) | 第一關長圖、藍盔雜兵、補給箱、Boss、UI 與跨平台 smoke 的剩餘工作清單。 |
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
 | [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
 | [李典紅槍指揮機 Stage01 vertical slice](docs/LIDIAN_BOSS_VERTICAL_SLICE.md) | 第一套 Boss 工程閉包：16 格安全 crop、69 GIF＋6 model TXT、Lidian-local 機械死亡 remap 與 Docker 驗證。 |

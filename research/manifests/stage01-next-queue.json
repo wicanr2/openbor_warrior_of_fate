@@ -1,0 +1,49 @@
+{
+  "subject": "stage01-environment-and-grunt",
+  "status": "engineering-coverage-complete-but-production-remaining",
+  "priority": "make-stage01-a-first-visible-in-gameplay-slice",
+  "sourceDocuments": [
+    "docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md",
+    "research/STAGE01_REPLACEMENT_MANIFEST.md",
+    "docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md",
+    "docs/LIDIAN_BOSS_VERTICAL_SLICE.md"
+  ],
+  "remainingWork": [
+    {
+      "id": "panel-s2-fglayer-production",
+      "title": "Redraw Stage01 long background layers",
+      "status": "pending",
+      "notes": "P0 engineering coverage exists; production redraw still needs the full panel/S2/fglayer treatment."
+    },
+    {
+      "id": "bing-production-cleanup",
+      "title": "Finish blue helmet grunt production cleanup",
+      "status": "pending",
+      "notes": "Current 42-file engineering overlay still reuses key poses and needs production redraw."
+    },
+    {
+      "id": "baoxiang-production-cleanup",
+      "title": "Turn the supply box into a production asset",
+      "status": "pending",
+      "notes": "Idle and destruction frames exist, but the final mechanical look still needs art cleanup."
+    },
+    {
+      "id": "stage01-boss-art",
+      "title": "Close Lidian boss art review",
+      "status": "pending",
+      "notes": "69 GIF + 6 TXT engineering closure is done; visible gameplay redraw and review remain."
+    },
+    {
+      "id": "stage01-ui-and-story", 
+      "title": "Finish map, story, NPC, and icon replacement",
+      "status": "pending",
+      "notes": "Tactical map overlays, dialogue portraits, NPCs, and item icons still need unified robot-world treatment."
+    },
+    {
+      "id": "stage01-platform-smoke",
+      "title": "Run unpacked tree smoke on all three platforms",
+      "status": "pending",
+      "notes": "Linux, Windows, and macOS smoke are required before packaging the first full Stage01 slice."
+    }
+  ]
+}

@@ -52,6 +52,8 @@ private_assets/robot_wof/stage01/environment/
 3. 以 base index-0 footprint 切出透明區，保留天空開口、橋洞與前景遮擋位置。
 4. 每層重新量化為 indexed GIF，強制 palette index 0=`#FC00FF`，不加入 GIF transparency extension。
 
+下一輪若要把 Stage01 從 engineering coverage 推進到可交接的 production 清單，請直接看 [`../research/manifests/stage01-next-queue.json`](../research/manifests/stage01-next-queue.json)；那份檔案把長圖、雜兵、Boss、UI 與跨平台 smoke 的剩餘工作列成 pending queue。
+
 這樣可保留 wall／hole、地平線與前景層級的基本契約，又不把原底圖像素帶進新資產。
 
 背景 geometry、base SHA-256、六個 480×276 viewport 與四個 wall polygon 都在 [`STAGE01_BACKGROUND_VIEWPORTS.json`](../research/STAGE01_BACKGROUND_VIEWPORTS.json)。
