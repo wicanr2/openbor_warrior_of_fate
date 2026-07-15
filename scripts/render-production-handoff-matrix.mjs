@@ -46,7 +46,7 @@ const rows = [
     status: stage01Queue.status,
     source: rel('research', sources.stage01Queue),
     pending: listPending(stage01Queue).map(item => `${item.id}: ${item.title}`).join('; '),
-    next: 'Finish long background redraw, grunt cleanup, Lidian review, and UI/story replacement.',
+    next: 'Start with research/STAGE01_FIRST_PLAYABLE_BATCH.md, then finish long background redraw, grunt cleanup, Lidian review, and UI/story replacement.',
   },
   {
     area: 'Stage01 delivery',
