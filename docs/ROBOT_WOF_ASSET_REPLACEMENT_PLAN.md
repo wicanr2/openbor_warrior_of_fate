@@ -6,6 +6,20 @@
 
 第一版保留原關卡幾何、敵人波次、招式時序與雙人玩法，先完成可玩的視覺替換；需要改碰撞、招式或玩家數的工作另立階段。
 
+## 目前進度摘要
+
+| 工作包 | 現況 | 下一步 |
+| --- | --- | --- |
+| 張飛／無敵鐵金剛 MZ-P0 | 12 張 key pose 與 M1 engineering coverage 已完成；production cleanup 仍未完 | 把 reuse pose 拆成真正的 production GIF，補 jump / fall / spec 缺幀 |
+| 關羽／Getter v2 | engineering runtime 已完成，含 65 GIF、2 profiles、selection 第一欄 | 清掉 `g1`–`g16`、gore、音效與逐格補間的 deferred 項目 |
+| 趙雲 P0 | engineering runtime 已完成，含 82 主 GIF 與 398-file overlay | 清掉 `y1`–`y16`、audio、BBox／2P 與逐格補間 deferred 項目 |
+| 黃忠 P0 | engineering runtime 已完成，含 73 主 GIF、投射物與 503-file overlay | 收斂 `h1`–`h16`、投射物 pivot、音效與 2P QA |
+| 魏延 P0 | engineering runtime 已完成，含 84 動作與尾砲 proxy | 轉成 production art 並補齊 tail-ray 與人類武器切斷的剩餘項 |
+| Stage 01 | `bing`、補給箱、森林前哨與紅槍 Boss engineering coverage 已有 | 將 overlay tree 切成可交接的單批次，然後補 Stage 02 / 03 |
+| 角色頭像與選角 | 五人選角與張飛 HUD 已有，ν 六欄與部分 Boss / portrait 已建立 | 補劉備、曹操、呂布等劇情／頭像工作包，並清楚分出可選角色與 Boss |
+
+這個摘要刻意把「engineering coverage」和「production cleanup」分開寫。前者代表已能載入與驗證，後者才是其他藝術家真正需要接手的工作。
+
 ## Concept 鎖定的角色映射
 
 | 原 slot | 機體 | 動作轉譯 |
