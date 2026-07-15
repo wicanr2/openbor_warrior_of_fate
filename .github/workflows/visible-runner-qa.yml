@@ -1,0 +1,59 @@
+name: visible-runner-qa
+
+on:
+  workflow_dispatch:
+    inputs:
+      binary:
+        description: Path to the OpenBOR binary on the runner
+        required: true
+        type: string
+      stage:
+        description: Path to the prepared visible QA stage
+        required: true
+        type: string
+      display:
+        description: X11 display name, usually :0
+        required: true
+        type: string
+        default: ':0'
+      seconds:
+        description: Bounded runtime for the OpenBOR process
+        required: false
+        type: number
+        default: 30
+      title_pattern:
+        description: Window title pattern to focus with xdotool
+        required: false
+        type: string
+        default: OpenBOR
+
+jobs:
+  visible-qa:
+    runs-on: [self-hosted, linux]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify helper availability
+        run: |
+          command -v xdotool
+          command -v ffmpeg
+
+      - name: Run visible runner QA
+        run: |
+          scripts/run-openbor-visible-qa.sh \
+            --binary "${{ inputs.binary }}" \
+            --stage "${{ inputs.stage }}" \
+            --display "${{ inputs.display }}" \
+            --seconds "${{ inputs.seconds }}" \
+            --title-pattern "${{ inputs.title_pattern }}" \
+            --capture "$GITHUB_WORKSPACE/visible-run.mp4"
+
+      - name: Upload visible run capture
+        uses: actions/upload-artifact@v4
+        with:
+          name: openbor-visible-run
+          path: |
+            ${{ github.workspace }}/visible-run.mp4
+            ${{ github.workspace }}/**/VisibleQA/openbor-visible-runner.log
+            ${{ github.workspace }}/**/VisibleQA/window-id.txt

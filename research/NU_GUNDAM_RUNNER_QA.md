@@ -91,6 +91,9 @@ The helper is intentionally separate from the headless smoke path. It expects a
 real display server, can focus the visible OpenBOR window with `xdotool`, and
 can record the run with `ffmpeg` when capture is requested.
 
+For GitHub Actions on a self-hosted Linux runner, the corresponding manual
+workflow is [`../.github/workflows/visible-runner-qa.yml`](../.github/workflows/visible-runner-qa.yml).
+
 ## Practical build expectations
 
 The runner QA should use a build directory that already contains:

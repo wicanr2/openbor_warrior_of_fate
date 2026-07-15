@@ -86,6 +86,7 @@
 | [Docker headless smoke](scripts/run-openbor-smoke-docker.sh) | 以同一 image 載入私有 raw-data stage，並依 OpenBOR Log 判斷模型載入是否完成。 |
 | [Linux build and docs workflow](.github/workflows/linux-build-and-docs.yml) | GitHub Actions 版的文件驗證與 Linux Docker build gate，可直接重跑已驗證的 build evidence。 |
 | [Visible runner QA harness](scripts/run-openbor-visible-qa.sh) | 在有顯示環境的 runner 上錄 OpenBOR 視覺流程，抓 select / Stage 1 / screenshot 證據。 |
+| [Visible runner QA workflow](.github/workflows/visible-runner-qa.yml) | 手動觸發的 self-hosted runner visible QA，直接錄 select / Stage 1 capture。 |
 | [Docker 素材工具 image](docker/asset-tools.Dockerfile) | 固定 Node 22＋FFmpeg；切圖、GIF 量化、驗證與成果圖都在容器內執行，不安裝 host 套件。 |
 | [Getter v2 16 格 slicer](scripts/slice-guanyu-getter-v2-storyboard.mjs) | 依 v5 的 16 個 independent safe crops 與 semantic pivots 輸出 private key poses。 |
 | [Getter v2 Guanyu runtime builder](scripts/build-guanyu-p0-prototype.mjs) | 建立 65 GIF＋2 profiles；保留原前景中心／腳底並縮放到安全內框，禁止 hard clamp。 |
