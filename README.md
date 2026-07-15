@@ -61,6 +61,7 @@
 | [Markdown 連結驗證器](scripts/validate-markdown-links.mjs) | 檢查 README 與 docs 的相對 markdown 連結是否真的指向存在檔案。 |
 | [主路線圖驗證器](scripts/validate-project-roadmap.mjs) | 檢查 project-roadmap 與各 queue、source docs、README 索引是否一致。 |
 | [完成度審核驗證器](scripts/validate-completion-audit.mjs) | 檢查 completion-audit 是否有完整 requirement、evidence 與一致的狀態標記。 |
+| [預覽圖畫廊](research/PREVIEW_GALLERY.md) | 自動整理目前 repository 裡的 preview/contact-sheet 圖片，方便接手者快速掃描進度。 |
 | [Docker Linux builder](scripts/build-openbor-linux-docker.sh) | 唯讀掛載 OpenBOR source，將相依套件與 Linux x86-64 編譯封裝在 Docker。 |
 | [Docker headless smoke](scripts/run-openbor-smoke-docker.sh) | 以同一 image 載入私有 raw-data stage，並依 OpenBOR Log 判斷模型載入是否完成。 |
 | [Docker 素材工具 image](docker/asset-tools.Dockerfile) | 固定 Node 22＋FFmpeg；切圖、GIF 量化、驗證與成果圖都在容器內執行，不安裝 host 套件。 |
