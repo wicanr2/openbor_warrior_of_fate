@@ -47,52 +47,30 @@ node scripts/validate-openbor-assets.mjs \
 
 ## 3. 準備 Linux OpenBOR binary
 
-優先使用已經編好的 Linux binary。可先搜尋：
+預設使用 Docker，不在 host 安裝 SDL2、Vorbis/Ogg、VPX 或 compiler 套件：
 
 ```sh
-find ../openbor/engine/releases -type f -name 'OpenBOR*' -perm -111 -print
+BUILD_PARENT="$(mktemp -d /tmp/openbor-linux-docker-XXXXXX)"
+BUILD_OUT="$BUILD_PARENT/build"
+
+scripts/build-openbor-linux-docker.sh \
+  --source ../openbor --ref v7533 --output "$BUILD_OUT"
+
+OPENBOR="$BUILD_OUT/source/engine/releases/LINUX/OpenBOR/OpenBOR"
 ```
 
-目前 checkout 沒有可執行的 Linux OpenBOR，且本機 `pkg-config` 稽核缺少 SDL2、Vorbis/Ogg 與 VPX 開發套件，所以本輪沒有執行引擎編譯或 GUI。
-
-若要編譯、又要確保 `../openbor` 完全不被 CMake 的 `version.h`／release 輸出污染，先複製原始碼到 `/tmp` 再編譯：
-
-```sh
-BUILD_ROOT="$(mktemp -d /tmp/openbor-linux-build-XXXXXX)"
-cp -a ../openbor "$BUILD_ROOT/openbor-src"
-
-cmake -S "$BUILD_ROOT/openbor-src" \
-  -B "$BUILD_ROOT/openbor-src/build" \
-  -DCMAKE_BUILD_TYPE=Release -DBUILD_LINUX=ON -DTARGET_ARCH=AMD64
-cmake --build "$BUILD_ROOT/openbor-src/build" --config Release --parallel
-
-OPENBOR="$BUILD_ROOT/openbor-src/engine/releases/LINUX/OpenBOR"
-```
-
-Ubuntu／Debian 需要的上游套件為：
-
-```sh
-sudo apt-get install build-essential cmake zstd \
-  libsdl2-dev libvorbis-dev libogg-dev libpng-dev libvpx-dev zlib1g-dev
-```
-
-安裝套件會變更系統，應由使用者明確執行；smoke-test 腳本不會下載或安裝任何依賴。
+完整版本相容性與驗證基準見 [Docker 隔離編譯文件](DOCKER_LINUX_BUILD.md)。
 
 ## 4. 有界限的啟動測試
 
-先做純 read-only preflight，不開 GUI：
+先在同一 Docker image 做 headless、有時間上限的模型載入測試：
 
 ```sh
-scripts/run-openbor-smoke.sh \
+scripts/run-openbor-smoke-docker.sh \
   --binary "$OPENBOR" --stage "$STAGE"
 ```
 
-確認後，加 `--launch`。預設 12 秒後停止，避免引擎長時間佔用：
-
-```sh
-scripts/run-openbor-smoke.sh \
-  --binary "$OPENBOR" --stage "$STAGE" --seconds 12 --launch
-```
+成功條件是 Log 到達 `Loading models... Done!`，且沒有 fatal load error。這不取代桌面視覺驗收；要看選角與動畫時，請使用同一 commit 在有顯示環境的目標 OS runner 啟動，不在本機另外安裝 runtime 套件。
 
 腳本會從 `$STAGE` 啟動：
 

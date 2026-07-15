@@ -24,14 +24,29 @@ The supplied 2015 PAK has legacy pathname and offset details. Treat it as input
 for analysis; make and validate a separate release PAK later. Do not overwrite
 the supplied archive while developing.
 
-## 2. Compile the engine natively
+## 2. Linux default: isolated Docker build
+
+For this legacy GIF module, use the tested `v7533` Docker path first. It keeps
+all compiler packages out of the host and mounts the OpenBOR checkout
+read-only:
+
+```sh
+BUILD_PARENT="$(mktemp -d /tmp/openbor-linux-docker-XXXXXX)"
+scripts/build-openbor-linux-docker.sh \
+  --source ../openbor --ref v7533 --output "$BUILD_PARENT/build"
+```
+
+See [Docker isolated build and smoke test](DOCKER_LINUX_BUILD.md) for the
+version-compatibility decision and end-to-end raw-data verification.
+
+## 3. Compile native target releases
 
 The source checkout at `../openbor` uses CMake. Native builds are preferred:
 Linux builds Linux, Windows builds Windows in MSYS2, and macOS builds macOS.
 That avoids distributing a cross-compiled executable that cannot be tested on
 its target OS.
 
-### Linux x86-64
+### Linux x86-64 (manual alternative)
 
 On Ubuntu/Debian, install the dependencies used by the upstream CI:
 
@@ -89,7 +104,7 @@ arm64-first. Its `TARGET_ARCH=universal` route additionally requires an
 x86-64 Homebrew installation and is best attempted only after an arm64 build
 works.
 
-## 3. Assemble each release
+## 4. Assemble each release
 
 Copy the same rebuilt module into the platform-specific Paks directory:
 

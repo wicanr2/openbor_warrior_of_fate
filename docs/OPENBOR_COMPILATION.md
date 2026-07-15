@@ -8,6 +8,8 @@
 - 優先在目標作業系統原生編譯與測試：Linux 建 Linux、Windows 建 Windows、macOS 建 macOS。
 - 先成功編譯「未改引擎」版本，再進行引擎程式碼修改。
 - 編譯產物會由 CMake 自動放進 `engine/releases/`；不要手動從 build 目錄挑選未完成的中間檔。
+- Linux 開發預設使用 [Docker 隔離編譯流程](DOCKER_LINUX_BUILD.md)，不在 host 安裝編譯依賴。
+- 本舊模組目前 pin `v7533` 保留 GIF loader；master Build 7832 只接受部分 PNG 流程，不能直接載入現有 raw data。
 
 ## 1. 取得原始碼
 
@@ -24,6 +26,16 @@ git rev-parse HEAD
 ```
 
 ## 2. Linux x86-64
+
+建議先執行：
+
+```sh
+BUILD_PARENT="$(mktemp -d /tmp/openbor-linux-docker-XXXXXX)"
+scripts/build-openbor-linux-docker.sh \
+  --source ../openbor --ref v7533 --output "$BUILD_PARENT/build"
+```
+
+以下 host 安裝方式只保留作為上游原生編譯參考；本專案工作站不使用它：
 
 以下以 Ubuntu／Debian 為例：
 
@@ -147,6 +159,7 @@ Universal binary 需要同時準備 x86-64 Homebrew 相依庫；請先完成 arm
 
 ## 相關文件
 
+- [Docker 隔離編譯與 smoke test](DOCKER_LINUX_BUILD.md)
 - [跨平台建置與發行摘要](BUILD.md)
 - [角色素材規格](SPRITE_ART_SPEC.md)
 - [角色替換分鏡總表](../research/CHARACTER_SPRITE_INVENTORY.md)
