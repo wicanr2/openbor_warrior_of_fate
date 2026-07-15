@@ -86,6 +86,23 @@ The runner QA should use a build directory that already contains:
 
 The overlay builder at [`scripts/build-nu-gundam-engineering-preview.mjs`](../scripts/build-nu-gundam-engineering-preview.mjs) expects a generated overlay directory and a six-player select sheet. If the overlay directory is missing, generate the ν P0 build first, then rebuild the preview.
 
+## Local visible-runner attempt in this sandbox
+
+I also tried to move past headless smoke and capture a real visible frame inside a virtual X server. The attempt used `Xvfb`/`xvfb-run`, `xdotool`, and `ffmpeg` against the integrated stage, but this sandbox could not establish a usable X socket:
+
+```bash
+Xvfb :99 -screen 0 1024x768x24 >/tmp/xvfb-test.log 2>&1 &
+DISPLAY=:99 xdpyinfo
+```
+
+The server log reported:
+
+- `_XSERVTransSocketCreateListener: failed to bind listener`
+- `Owner of /tmp/.X11-unix should be set to root`
+- `Cannot establish any listening sockets`
+
+So the current environment is enough for headless loader evidence, but not enough for a stable visible runner screenshot path. A host or CI runner with a working display server is still required for the cursor / Ready / Stage 1 image capture in this checklist.
+
 ## Cross-links
 
 - [ν Gundam 第六可選角色工程計畫](../docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md)
