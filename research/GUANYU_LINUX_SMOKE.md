@@ -11,6 +11,27 @@ scripts/run-openbor-smoke-docker.sh \
   --seconds 15
 ```
 
+## 2026-07-16 reverify
+
+The Linux build and smoke were rerun against the current local OpenBOR checkout and the same Guanyu stage:
+
+```bash
+scripts/build-openbor-linux-docker.sh \
+  --source /home/anr2/openbor-study/openbor \
+  --ref v7533 \
+  --output /tmp/openbor-linux-verify-1784137958-568297
+
+scripts/run-openbor-smoke-docker.sh \
+  --binary /tmp/openbor-linux-verify-1784137958-568297/source/engine/releases/LINUX/OpenBOR/OpenBOR \
+  --stage /tmp/robot-wof-guanyu-p0-v1 \
+  --seconds 20
+```
+
+Build info:
+
+- `source_commit=5c8261444de6b61f8e2ce6e79e3d86a2949e55bd`
+- `binary_sha256=5ac687c5b590b077cd47721b15edd3064470cddf3ac4e3087082d1f83e4aa5af`
+
 ## Result
 
 - Docker reported the sandbox's `/var/run/docker.sock` permission error.
@@ -18,6 +39,20 @@ scripts/run-openbor-smoke-docker.sh \
   - `PASS: OpenBOR reached model-load completion in Docker`
   - `Docker exit: 1 (124 is the expected bounded timeout)`
   - `Log: /tmp/robot-wof-guanyu-p0-v1/Logs/OpenBorLog.txt`
+
+For the rerun, Docker access was available and the engine reached:
+
+- `Cacheing 'guanyu' from data/chars/guanyu/guanyu.txt`
+- `Loading models............... Done!`
+- `Loading menu.txt............. Done!`
+- `Loading fonts................ 1 2 3 4 5 7 Done!`
+- `Done!`
+
+The smoke wrapper then reported:
+
+- `PASS: OpenBOR reached model-load completion in Docker`
+- `Docker exit: 124 (124 is the expected bounded timeout)`
+- `Log: /tmp/robot-wof-guanyu-p0-v1/Logs/OpenBorLog.txt`
 
 ## Log evidence
 

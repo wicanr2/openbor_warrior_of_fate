@@ -35,6 +35,11 @@ scripts/build-openbor-linux-docker.sh \
   --source ../openbor --ref v7533 --output "$BUILD_PARENT/build"
 ```
 
+本機已用 `/home/anr2/openbor-study/openbor` 的 `v7533` checkout 實測過相同流程；build 產物與 smoke gate 證據見：
+
+- [Getter Linux smoke evidence](../research/GUANYU_LINUX_SMOKE.md)
+- [ν Gundam Linux smoke evidence](../research/NU_GUNDAM_LINUX_SMOKE.md)
+
 以下 host 安裝方式只保留作為上游原生編譯參考；本專案工作站不使用它：
 
 以下以 Ubuntu／Debian 為例：

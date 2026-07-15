@@ -11,6 +11,17 @@ scripts/run-openbor-smoke-docker.sh \
   --seconds 15
 ```
 
+## 2026-07-16 reverify
+
+The same ν Gundam stage was rerun against the current local OpenBOR build:
+
+```bash
+scripts/run-openbor-smoke-docker.sh \
+  --binary /tmp/openbor-linux-verify-1784137958-568297/source/engine/releases/LINUX/OpenBOR/OpenBOR \
+  --stage /tmp/nu-integrated-28yEGa/stage \
+  --seconds 20
+```
+
 ## Result
 
 - Docker reported the sandbox's `/var/run/docker.sock` permission error.
@@ -18,6 +29,20 @@ scripts/run-openbor-smoke-docker.sh \
   - `PASS: OpenBOR reached model-load completion in Docker`
   - `Docker exit: 1 (124 is the expected bounded timeout)`
   - `Log: /tmp/nu-integrated-28yEGa/stage/Logs/OpenBorLog.txt`
+
+For the rerun, the engine reached:
+
+- `Cacheing 'nu_gundam' from data/chars/nu_gundam/nu_gundam.txt`
+- `Loading models............... Done!`
+- `Loading menu.txt............. Done!`
+- `Loading fonts................ 1 2 3 4 5 7 Done!`
+- `Done!`
+
+The smoke wrapper then reported:
+
+- `PASS: OpenBOR reached model-load completion in Docker`
+- `Docker exit: 124 (124 is the expected bounded timeout)`
+- `Log: /tmp/nu-integrated-28yEGa/stage/Logs/OpenBorLog.txt`
 
 ## Log evidence
 
