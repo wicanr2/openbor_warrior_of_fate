@@ -2,6 +2,8 @@
 
 `validate-vertical-slice-coverage.mjs` 是只讀的「完成範圍」檢查。它補上現有格式驗證器無法回答的問題：預定要換的圖是否真的都已放入 overlay，而且不是未修改的 base 原圖。
 
+目前 private M1 overlay 的結果為 89/89：所有預定 replacement 檔均存在且與 base 位元組不同。這只證明 engineering coverage；來源 manifest 仍是 `productionReady: false`，可視 gameplay 與逐格美術審核仍是必要 Gate。
+
 ## 使用方式
 
 目前 M1 私人素材 overlay：

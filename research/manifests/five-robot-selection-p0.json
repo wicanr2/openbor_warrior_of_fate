@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "status": "engineering-prototype-not-production-ready",
+  "source": {
+    "path": "local-only/five-robot-selection-screen-v1.png",
+    "sha256": "7cb6b118d1ebe52b57192545a7d84bef20c36d40cebdfea700243d4e837a9643",
+    "canvas": [1536, 1024]
+  },
+  "rosterOrder": [
+    { "column": 1, "slot": "guanyu", "direction": "red-combining-robot" },
+    { "column": 2, "slot": "zhangfei", "direction": "classic-iron-robot" },
+    { "column": 3, "slot": "zhaoyun", "direction": "purple-biomechanical-humanoid" },
+    { "column": 4, "slot": "huangzhong", "direction": "white-blue-red-military-mecha" },
+    { "column": 5, "slot": "weiyan", "direction": "silver-mechanical-dinosaur" }
+  ],
+  "outputs": [
+    {
+      "path": "data/bgs/select.gif",
+      "canvas": [480, 276],
+      "sourceFilter": "crop=1536:883:0:70,scale=480:276:flags=neighbor"
+    },
+    {
+      "path": "data/chars/zhangfei/icon.GIF",
+      "canvas": [35, 54],
+      "sourceFilter": "crop=215:332:370:55,scale=35:54:flags=neighbor"
+    },
+    {
+      "path": "data/profiles/zhangfei.GIF",
+      "canvas": [35, 54],
+      "sourceFilter": "crop=215:332:370:55,scale=35:54:flags=neighbor"
+    },
+    {
+      "path": "data/profiles/zhangfei_m.GIF",
+      "canvas": [35, 54],
+      "sourceFilter": "crop=215:332:370:55,scale=35:54:flags=neighbor,hflip"
+    }
+  ],
+  "paletteContract": {
+    "indexedGif": true,
+    "paletteIndex0": "#FC00FF",
+    "index0UsedByOpaquePixelData": false,
+    "gifTransparencyExtension": false
+  },
+  "coverage": {
+    "m1RequiredAssets": 89,
+    "m1ReplacedAssets": 89,
+    "fullGameComplete": false,
+    "productionReady": false
+  }
+}
