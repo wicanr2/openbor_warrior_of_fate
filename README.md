@@ -37,6 +37,8 @@
 | [Stage01 交付檢查](research/manifests/stage01-delivery-checklist.json) | 將 Stage01 內容拆成可驗證的交付項目：背景、雜兵、補給箱、Boss、UI 與平台 smoke。 |
 | [Open items summary](research/OPEN_ITEMS_REPORT.md) | 匯總所有仍 open 的 queue 與交付檢查，方便直接看目前最該收斂的工作。 |
 | [Open items 驗證器](scripts/validate-open-items-report.mjs) | 檢查 open items summary 是否與目前各 queue 的 pending 數量一致。 |
+| [Master progress atlas](research/previews/master-progress-atlas.svg) | 把目前所有 preview/contact-sheet 圖整成一張總覽大圖，方便快速掃描目前已有的視覺資產。 |
+| [Master progress atlas 驗證器](scripts/validate-master-progress-atlas.mjs) | 檢查 atlas 的嵌入圖片數量是否與目前預覽圖數量一致。 |
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
 | [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
 | [Boss 待辦隊列](research/manifests/boss-next-queue.json) | Lidian、Zeon Boss、Xuchu、Xiahorse 與美女三 Boss 的剩餘工作清單。 |
