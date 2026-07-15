@@ -26,6 +26,11 @@ on:
         required: false
         type: string
         default: OpenBOR
+      macro:
+        description: Optional visible-runner macro to send after the window appears
+        required: false
+        type: string
+        default: ''
 
 jobs:
   visible-qa:
@@ -47,6 +52,7 @@ jobs:
             --display "${{ inputs.display }}" \
             --seconds "${{ inputs.seconds }}" \
             --title-pattern "${{ inputs.title_pattern }}" \
+            --macro "${{ inputs.macro }}" \
             --capture "$GITHUB_WORKSPACE/visible-run.mp4"
 
       - name: Upload visible run capture

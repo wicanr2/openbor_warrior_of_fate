@@ -17,6 +17,7 @@ Options:
   --seconds N          Bounded runtime for the OpenBOR process (default: 30)
   --capture PATH       Optional ffmpeg capture path (.mp4/.mkv recommended)
   --title-pattern RE   Optional xdotool window match pattern (default: OpenBOR)
+  --macro NAME        Optional key macro to run after the window appears
   --width N            Capture width for ffmpeg x11grab (default: 1024)
   --height N           Capture height for ffmpeg x11grab (default: 768)
   --help               Show this help
@@ -34,6 +35,7 @@ display=
 seconds=30
 capture=
 title_pattern=OpenBOR
+macro=
 width=1024
 height=768
 
@@ -45,6 +47,7 @@ while (($#)); do
     --seconds) seconds=${2:-}; shift 2 ;;
     --capture) capture=${2:-}; shift 2 ;;
     --title-pattern) title_pattern=${2:-}; shift 2 ;;
+    --macro) macro=${2:-}; shift 2 ;;
     --width) width=${2:-}; shift 2 ;;
     --height) height=${2:-}; shift 2 ;;
     --help|-h) usage; exit 0 ;;
@@ -82,6 +85,9 @@ echo "Title pattern: $title_pattern"
 echo "Seconds: $seconds"
 if [[ -n "$capture" ]]; then
   echo "Capture: $capture"
+fi
+if [[ -n "$macro" ]]; then
+  echo "Macro: $macro"
 fi
 
 set +e
@@ -122,6 +128,46 @@ openbor_status=$?
 
 if [[ -n "$capture_pid" ]]; then
   wait "$capture_pid" || true
+fi
+
+run_macro() {
+  case "$macro" in
+    '')
+      return 0
+      ;;
+    nu_select)
+      for _ in 1 2 3 4 5; do
+        xdotool key --window "$window_id" Right
+        sleep 0.15
+      done
+      xdotool key --window "$window_id" Return
+      sleep 0.6
+      xdotool key --window "$window_id" Return
+      ;;
+    nu_select_stage1)
+      for _ in 1 2 3 4 5; do
+        xdotool key --window "$window_id" Right
+        sleep 0.15
+      done
+      xdotool key --window "$window_id" Return
+      sleep 0.6
+      xdotool key --window "$window_id" Return
+      sleep 1.5
+      xdotool key --window "$window_id" Return
+      ;;
+    *)
+      echo "Unknown macro: $macro" >&2
+      return 1
+      ;;
+  esac
+}
+
+if [[ -n "$macro" ]]; then
+  if [[ -z "$window_id" ]]; then
+    echo "Warning: macro '$macro' requested but no visible OpenBOR window was found" >&2
+  else
+    run_macro
+  fi
 fi
 
 if [[ -s "$runner_log" ]]; then

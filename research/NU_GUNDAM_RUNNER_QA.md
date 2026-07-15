@@ -83,6 +83,7 @@ scripts/run-openbor-visible-qa.sh \
   --stage /path/to/nu-visible-stage \
   --display :0 \
   --seconds 30 \
+  --macro nu_select_stage1 \
   --capture /path/to/nu-visible-run.mp4 \
   --title-pattern OpenBOR
 ```
@@ -90,6 +91,9 @@ scripts/run-openbor-visible-qa.sh \
 The helper is intentionally separate from the headless smoke path. It expects a
 real display server, can focus the visible OpenBOR window with `xdotool`, and
 can record the run with `ffmpeg` when capture is requested.
+The `nu_select` macro cycles the cursor to the sixth slot and confirms once;
+`nu_select_stage1` repeats the confirm to enter Stage 1 when the visible runner
+is ready for a gameplay check.
 
 For GitHub Actions on a self-hosted Linux runner, the corresponding manual
 workflow is [`../.github/workflows/visible-runner-qa.yml`](../.github/workflows/visible-runner-qa.yml).
