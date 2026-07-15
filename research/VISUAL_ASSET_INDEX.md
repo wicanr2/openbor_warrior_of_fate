@@ -55,6 +55,16 @@ This index maps the current preview and contact-sheet assets to their working th
 - five-robot-selection-screen-v2-getter-overview.png
 - six-robot-selection-screen-v1-overview.png
 
+## Portrait routing decisions
+
+- Source: [docs/PORTRAIT_ASSETS.md](../docs/PORTRAIT_ASSETS.md)
+
+- liubei → story-only unless explicitly promoted to selectable/Boss
+- caocao → story-only unless explicitly promoted to selectable/Boss
+- lubu → story-only unless explicitly promoted to selectable/Boss
+- nu_gundam → pilot portrait TBD
+- zeon_boss → pilot cut-in separated from mecha portrait
+
 ## Notes
 
 - This file is only an index. The authoritative progress state remains the queue / audit / atlas reports.
