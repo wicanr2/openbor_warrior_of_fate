@@ -93,7 +93,7 @@
 
 進度：Mazinger P0、五人選角合成圖、張飛 HUD／profile、藍盔 `bing`／`bingxs`、Stage01 三張長圖、掃描光、機械補給箱，以及 `lidian` 紅槍 Boss 69 GIF＋6 TXT 已達 private engineering coverage，並通過 Linux Docker model-load gate；M1 coverage 維持 89/89。
 
-關羽 P0 另完成 65 張主模型 GIF、2 張 profiles、33 張 shared FX palette normalization 與 `guanyu.txt`／`models.txt`，合併後 private overlay 實測為 284 files；六份指定 TXT strict 全 PASS，Docker v7533 到 `Loading models... Done!`。bounded smoke exit 124 是 timeout 預期值，TERM 後 double-free 是既知 teardown。這批仍由 16 個 key pose 重用，且 `g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間 deferred，因此只能標為 P0 engineering coverage，不能標記完整玩家角色或 production-ready。詳見 [`GUANYU_VERTICAL_SLICE.md`](GUANYU_VERTICAL_SLICE.md)。
+Getter v2 關羽完成 65 張主模型 GIF、2 張 profiles、33 張 shared FX palette normalization 與 `guanyu.txt`／`models.txt` 的 fresh build；受控合併只替換 65 GIF、2 profiles 與 selection，不覆寫可能退版的 `models.txt`。合併後 private overlay 維持 503 files／470 GIF；62 張動作 `clamp=0`、無新增貼邊、最大中心／腳底漂移 1px，`guanyu.txt` 65 paths strict PASS，Docker v7533 cache `guanyu` 並到 `Loading models... Done!`。這批仍由 16 個 key pose 重用，且 `g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間 deferred，因此只能標為 P0 engineering coverage，不能標記完整玩家角色或 production-ready。詳見 [`GUANYU_VERTICAL_SLICE.md`](GUANYU_VERTICAL_SLICE.md)。
 
 趙雲 P0 batch 為 147 files（82 主 GIF＋2 profiles＋57 shared FX＋6 TXT/scripts）；合併後 overlay `data/` 實測 398 files（372 GIF＋26 other）。`zhaoyun.txt` 464 occurrences／82 paths strict PASS，主檔加 7 份輔助 TXT、共 8 份全 PASS，fresh rebuild 147／147 byte-identical，Docker 同樣到 `Loading models... Done!`。本輪含 5 個 `blood1`→`flashb` 局部 hitflash remap、1 個魏延 fall 誤引用改回趙雲 `fall2`、5 個 script include case 修正。`y1`–`y16`、cross-character audio QA、逐格補間、實戰 BBox／attack box 與 2P 仍 deferred，不能標記完整玩家角色。詳見 [`ZHAOYUN_VERTICAL_SLICE.md`](ZHAOYUN_VERTICAL_SLICE.md)。
 

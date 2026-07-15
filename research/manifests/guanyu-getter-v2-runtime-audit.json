@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "status": "private-engineering-runtime-verified",
+  "artVersion": "getter-v2-storyboard-v5",
+  "productionReady": false,
+  "sources": {
+    "storyboardSha256": "b72dd8ad0c338012aca7a7898315177a7756a92c8618e2b5b3e683ea48fc6d05",
+    "keyposeManifestSha256": "31501f1cf31df1eb39f0c221048c64468f0182e894347ad56ce2a9856d4e53dd",
+    "selectionMasterSha256": "267a3d5124dae109ee8b7611acff3f1cee6239fd6300ef202e314818bf309412"
+  },
+  "builders": {
+    "guanyuRuntimeSha256": "9cc2f863eb8fbd0976d9b25b94e5f01f70ceb8eb05885983d317e0dd32c07ac7",
+    "selectionRuntimeSha256": "7547ed598f9d8da7f25fed00b971812b2f374b901e5bede0a72227e7016b7858",
+    "runtimeValidatorSha256": "aaf1038c47c0e51674934b58d1f1eade6d64fa8fff31b984cc30ef830aa9077b"
+  },
+  "runtime": {
+    "guanyuGif": 65,
+    "physicalActionGif": 62,
+    "hudProfiles": 2,
+    "selectionGifSha256": "25f6c7d27f9a5d9bcf0a14726e93aea6c402fbd0fcbe8e1f223c4a73e7302c3f",
+    "buildManifestSha256": "f6419c3da6dd1d023c6435ef1ece01655f2acdd548ab1056ebe5c32f8deaa3d2",
+    "selectionManifestSha256": "7a0cef7f7bb9b51622c2e83acf0b27f8709dd987a2957982d927b728a00c3766"
+  },
+  "verification": {
+    "freshBuildsCompared": 2,
+    "nonManifestByteDifferences": 0,
+    "manifestDifferenceAllowlist": [
+      "generatedAt"
+    ],
+    "clampedPlacements": 0,
+    "addedCanvasEdges": 0,
+    "maximumForegroundCenterBottomDriftPixels": 1,
+    "paletteIndex0": "#FC00FF",
+    "overlayFiles": 503,
+    "overlayGif": 470,
+    "overlayParity": "PASS",
+    "guanyuStrictResolvedPaths": 65,
+    "selectionProtectedStartX": 103,
+    "selectionProtectedIndices": 104052,
+    "selectionProtectedIndexMismatches": 0,
+    "selectionPaletteByteMismatches": 0,
+    "selectionFirstColumnPixels": 28428,
+    "selectionFirstColumnChangedIndices": 23040,
+    "openBorBuild": 7533,
+    "openBorCommit": "5c82614",
+    "modelCacheEvidence": "Cacheing 'guanyu' from data/chars/guanyu/guanyu.txt",
+    "modelLoadEvidence": "Loading models............... Done!"
+  },
+  "publicOverview": {
+    "engineeringPreview": {
+      "path": "research/previews/guanyu-getter-v2-p0-engineering-preview.png",
+      "sha256": "293d32cdbd843c9ec8711939683426c775b74c38c7aa49364040bd0139e26e5e"
+    },
+    "selection": {
+      "path": "research/ui/five-robot-selection-screen-v2-getter-overview.png",
+      "sha256": "0dcd2aafc67d956770fd29e877a601780b8c75106a6be3fc94b277b0cdc3068f"
+    }
+  },
+  "deferred": [
+    "g1..g16 variants",
+    "mechanical gore remap",
+    "playerdie.wav replacement",
+    "production in-between animation",
+    "visible gameplay and 2P QA"
+  ]
+}

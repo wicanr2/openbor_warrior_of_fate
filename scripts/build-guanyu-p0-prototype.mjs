@@ -48,6 +48,25 @@ const PIVOTS = Object.freeze({
   'frame-16.png': { x: 134, y: 124 },
 });
 
+const GETTER_V2_PIVOTS = Object.freeze({
+  'frame-01.png': { x: 140, y: 95 },
+  'frame-02.png': { x: 158, y: 210 },
+  'frame-03.png': { x: 152, y: 247 },
+  'frame-04.png': { x: 129, y: 241 },
+  'frame-05.png': { x: 111, y: 247 },
+  'frame-06.png': { x: 122, y: 205 },
+  'frame-07.png': { x: 100, y: 267 },
+  'frame-08.png': { x: 159, y: 206 },
+  'frame-09.png': { x: 140, y: 188 },
+  'frame-10.png': { x: 43, y: 220 },
+  'frame-11.png': { x: 146, y: 118 },
+  'frame-12.png': { x: 139, y: 126 },
+  'frame-13.png': { x: 137, y: 265 },
+  'frame-14.png': { x: 132, y: 125 },
+  'frame-15.png': { x: 121, y: 82 },
+  'frame-16.png': { x: 195, y: 145 },
+});
+
 function item(output, source, x, y, extra = {}) {
   return { output, source, offset: { x, y }, sourceAnchor: PIVOTS[source], ...extra };
 }
@@ -158,10 +177,13 @@ Usage:
 
 Options:
   --source-dir PATH       normalized 16-key-pose PNG directory
+  --keypose-manifest PATH slice manifest; semanticPivot values override built-in pivots
   --selection-source PATH private five-robot selection source for icon/profiles
   --data-dir PATH         extracted OpenBOR data directory
   --output-dir PATH       overlay root; data/... is appended
   --sprite-height N       requested standing height (default: 90)
+  --art-version ID        legacy-v1 or getter-v2-storyboard-v5
+  --placement-mode ID     semantic-pivot or legacy-foreground-bounds
   --help                  show this help
 
 Outputs 65 Guanyu physical GIFs, two HUD profiles, 33 shared FX palette-key
@@ -176,12 +198,16 @@ function parseArgs(argv) {
     dataDir: join(REPO_ROOT, 'workplace/extracted/data'),
     outputDir: join(REPO_ROOT, 'workplace/robot_wof_vertical_slice/overlay'),
     spriteHeight: DEFAULT_SPRITE_HEIGHT,
+    artVersion: 'legacy-v1',
+    keyposeManifest: null,
+    placementMode: 'semantic-pivot',
   };
   const keys = {
     '--source-dir': 'sourceDir',
     '--selection-source': 'selectionSource',
     '--data-dir': 'dataDir',
     '--output-dir': 'outputDir',
+    '--keypose-manifest': 'keyposeManifest',
   };
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
@@ -202,6 +228,22 @@ function parseArgs(argv) {
       if (options.spriteHeight < 56 || options.spriteHeight > 128) {
         throw new Error('--sprite-height must be between 56 and 128');
       }
+      index += 1;
+      continue;
+    }
+    if (argument === '--art-version') {
+      if (!value || !['legacy-v1', 'getter-v2-storyboard-v5'].includes(value)) {
+        throw new Error('--art-version must be legacy-v1 or getter-v2-storyboard-v5');
+      }
+      options.artVersion = value;
+      index += 1;
+      continue;
+    }
+    if (argument === '--placement-mode') {
+      if (!value || !['semantic-pivot', 'legacy-foreground-bounds'].includes(value)) {
+        throw new Error('--placement-mode must be semantic-pivot or legacy-foreground-bounds');
+      }
+      options.placementMode = value;
       index += 1;
       continue;
     }
@@ -239,16 +281,72 @@ function buildGif(mapping, options, outputSpriteDir, tempDir) {
   const image = probeImage(originalPath);
   const target = { originalPath, canvas: { width: image.width, height: image.height }, offset: mapping.offset };
   const pose = analyzePose(sourcePath);
+  const originalPose = analyzePose(originalPath);
   const composedPath = join(tempDir, `${mapping.output}.png`);
+  const selectedPivots = options.sourcePivots
+    ?? (options.artVersion === 'getter-v2-storyboard-v5' ? GETTER_V2_PIVOTS : PIVOTS);
+  const semanticMapping = { ...mapping, sourceAnchor: selectedPivots[mapping.source] };
+  if (!semanticMapping.sourceAnchor) throw new Error(`Missing ${options.artVersion} pivot for ${mapping.source}`);
+  const useLegacyBounds = options.placementMode === 'legacy-foreground-bounds';
+  const legacyInset = 1;
+  const originalCenterX = originalPose.crop.x + originalPose.crop.width / 2;
+  const originalBottomY = originalPose.crop.y + originalPose.crop.height - 1;
+  const legacyAnchor = {
+    x: originalCenterX,
+    y: Math.min(originalBottomY, target.canvas.height - legacyInset - 1),
+  };
+  const legacyAvailableWidth = Math.max(
+    1,
+    2 * Math.min(
+      legacyAnchor.x - legacyInset,
+      target.canvas.width - legacyInset - legacyAnchor.x,
+    ),
+  );
+  const legacyAvailableHeight = Math.max(1, legacyAnchor.y - legacyInset + 1);
+  const legacyRequestedScale = originalPose.crop.height / pose.crop.height;
+  const legacySafeScale = Math.min(
+    legacyRequestedScale,
+    legacyAvailableWidth / pose.crop.width,
+    legacyAvailableHeight / pose.crop.height,
+  );
+  const requestedSpriteHeight = useLegacyBounds
+    ? pose.crop.height * legacySafeScale
+    : mapping.spriteHeight ?? options.spriteHeight;
+  const placementTarget = useLegacyBounds
+    ? {
+        ...target,
+        offset: legacyAnchor,
+      }
+    : target;
+  const effectiveMapping = useLegacyBounds
+    ? { ...mapping, sourceAnchor: undefined, anchor: 'center-bottom' }
+    : semanticMapping;
   const placement = makeComposedPng(
     sourcePath,
     composedPath,
     pose,
-    target,
-    mapping.spriteHeight ?? options.spriteHeight,
-    mapping,
-    true,
+    placementTarget,
+    requestedSpriteHeight,
+    effectiveMapping,
+    !useLegacyBounds,
   );
+  placement.mode = options.placementMode;
+  placement.originalForeground = originalPose.crop;
+  placement.modelOffset = target.offset;
+  if (useLegacyBounds) {
+    placement.safeCanvasInset = legacyInset;
+    placement.originalForegroundAnchor = { x: originalCenterX, y: originalBottomY };
+    placement.legacyAnchorAdjustment = {
+      x: legacyAnchor.x - originalCenterX,
+      y: legacyAnchor.y - originalBottomY,
+    };
+    placement.legacyRequestedScale = legacyRequestedScale;
+    placement.legacySafeScale = legacySafeScale;
+    placement.legacyAvailableCanvas = {
+      width: legacyAvailableWidth,
+      height: legacyAvailableHeight,
+    };
+  }
   const paletteDir = join(tempDir, `${mapping.output}-palette`);
   mkdirSync(paletteDir, { recursive: true });
   const { pixels, bgraPalette } = palettizeWithFfmpeg(composedPath, image.width, image.height, paletteDir);
@@ -380,6 +478,17 @@ function main() {
   requireCommand('ffprobe');
   if (MAIN_MAPPING.length !== 62) throw new Error(`Expected 62 generated main frames, got ${MAIN_MAPPING.length}`);
   if (!existsSync(options.selectionSource)) throw new Error(`Missing selection source: ${options.selectionSource}`);
+  if (options.keyposeManifest) {
+    if (!existsSync(options.keyposeManifest)) throw new Error(`Missing keypose manifest: ${options.keyposeManifest}`);
+    const keyposeManifest = JSON.parse(readFileSync(options.keyposeManifest, 'utf8'));
+    options.sourcePivots = Object.fromEntries(keyposeManifest.frames.map((frame) => [
+      basename(frame.output),
+      frame.semanticPivot,
+    ]));
+    if (Object.keys(options.sourcePivots).length !== 16) {
+      throw new Error(`Expected 16 pivots in keypose manifest, got ${Object.keys(options.sourcePivots).length}`);
+    }
+  }
   const outputSpriteDir = join(options.outputDir, 'data/chars/guanyu');
   mkdirSync(outputSpriteDir, { recursive: true });
   const tempDir = mkdtempSync(join(tmpdir(), 'guanyu-p0-'));
@@ -414,7 +523,11 @@ function main() {
     const clamped = frames.filter((frame) => frame.placement?.alignmentClamped).length;
     const manifest = {
       schemaVersion: 1,
-      status: 'local-private-engineering-prototype',
+      status: options.artVersion === 'getter-v2-storyboard-v5'
+        ? 'local-private-getter-v2-engineering-prototype'
+        : 'local-private-legacy-v1-engineering-prototype',
+      artVersion: options.artVersion,
+      placementMode: options.placementMode,
       productionReady: false,
       warning: '65 physical Guanyu GIFs reuse 16 key poses. g1..g16 mount, weapon and water variants remain outside P0 and are required for full gameplay completion.',
       generatedAt: new Date().toISOString(),
@@ -427,7 +540,12 @@ function main() {
         clampedPlacements: clamped,
       },
       chromaKey: { ...CHROMA, requiredPaletteIndex: 0 },
-      inputs: { sourceDir: displayPath(options.sourceDir), selectionSource: displayPath(options.selectionSource), dataDir: displayPath(options.dataDir) },
+      inputs: {
+        sourceDir: displayPath(options.sourceDir),
+        keyposeManifest: options.keyposeManifest ? displayPath(options.keyposeManifest) : null,
+        selectionSource: displayPath(options.selectionSource),
+        dataDir: displayPath(options.dataDir),
+      },
       frames,
       profiles,
       normalizedSharedFx,

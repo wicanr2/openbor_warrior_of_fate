@@ -93,7 +93,7 @@ MZ-P0-A 通過引擎驗收後，才讓其他藝術家依同一高度、輪廓線
 
 ### 關羽 P0 清稿批次
 
-目前 Guanyu private overlay 實測為 65 主 GIF＋2 profiles＋33 shared FX＋2 TXT，合併整包 284 files；strict 六份 TXT 全 PASS，Docker 到 `Loading models... Done!`。這只證明 engineering closure 可載入。藝術家應按下列批次取代 pose reuse：
+目前 Getter v2 Guanyu batch 為 65 主 GIF＋2 profiles＋33 shared FX＋2 TXT；受控覆寫 65 GIF、2 profiles 與 selection 後，合併 overlay 維持 503 files／470 GIF。62 張動作 `clamp=0`、無新增貼邊、最大中心／腳底漂移 1px；`guanyu.txt` 65 paths strict PASS，Docker v7533 到 `Loading models... Done!`。這只證明 engineering closure 可載入。藝術家應按下列批次取代 pose reuse：
 
 | Batch | 範圍 | 交付重點 |
 | --- | --- | --- |

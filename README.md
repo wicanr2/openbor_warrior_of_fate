@@ -16,7 +16,7 @@
 | [Mazinger 私有資產對位產線](docs/PRIVATE_ASSET_PIPELINE.md) | 從本機 key pose 建立 basic 或 41-file full-P0 engineering prototype，強制 canvas、Offset 與 palette index 0。 |
 | [機器人大戰素材替換總計畫](docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md) | 五角色、場景、UI、里程碑、人力與驗收閘門；說明如何從 moodboard 走到可玩的視覺替換。 |
 | [無敵鐵金剛 vertical slice](docs/MAZINGER_VERTICAL_SLICE.md) | 張飛 slot 的第一組實作入口：12 張 key pose、overlay 流程與透明色驗收。 |
-| [關羽紅色月牙戰士 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md) | 關羽 slot 的 65 主 GIF、2 profiles、33 shared FX、284-file overlay、strict／Docker 實測與 deferred closure。 |
+| [關羽 Getter v2 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md) | Getter v5 的 65 主 GIF、2 profiles、selection 第一欄、零 clamp／無新增貼邊與 Docker v7533 實測。 |
 | [趙雲紫色神經長槍機 P0 vertical slice](docs/ZHAOYUN_VERTICAL_SLICE.md) | 趙雲 slot 的 82 主 GIF、2 profiles、57 shared FX、398-file merged overlay、determinism／strict／Docker 與 deferred closure。 |
 | [黃忠蒼藍光子射手機 P0 vertical slice](docs/HUANGZHONG_VERTICAL_SLICE.md) | 黃忠 active-player 73 GIF、2 profiles、8 個 projectile models／22 GIF、503-file merged overlay、19 TXT strict／determinism／Docker 與 `h1`–`h16` deferred closure。 |
 | [無敵鐵金剛 P0 對照](research/MAZINGER_P0_FRAME_MAP.md) | 42 個 case-sensitive P0 引用、41 個實體 GIF、canvas／Offset、12 格映射與缺幀表。 |
@@ -41,6 +41,12 @@
 | [Overlay parity validator](scripts/validate-overlay-parity.mjs) | 逐檔檢查 exact-case base counterpart、相同 canvas、indexed GIF 與 index 0 `#FC00FF`。 |
 | [Docker Linux builder](scripts/build-openbor-linux-docker.sh) | 唯讀掛載 OpenBOR source，將相依套件與 Linux x86-64 編譯封裝在 Docker。 |
 | [Docker headless smoke](scripts/run-openbor-smoke-docker.sh) | 以同一 image 載入私有 raw-data stage，並依 OpenBOR Log 判斷模型載入是否完成。 |
+| [Docker 素材工具 image](docker/asset-tools.Dockerfile) | 固定 Node 22＋FFmpeg；切圖、GIF 量化、驗證與成果圖都在容器內執行，不安裝 host 套件。 |
+| [Getter v2 16 格 slicer](scripts/slice-guanyu-getter-v2-storyboard.mjs) | 依 v5 的 16 個 independent safe crops 與 semantic pivots 輸出 private key poses。 |
+| [Getter v2 Guanyu runtime builder](scripts/build-guanyu-p0-prototype.mjs) | 建立 65 GIF＋2 profiles；保留原前景中心／腳底並縮放到安全內框，禁止 hard clamp。 |
+| [Getter v2 選角 runtime builder](scripts/build-guanyu-selection-runtime-v2.mjs) | 只改 `select.gif` 第一欄，保護其他四欄 palette indices 與完整 palette bytes。 |
+| [Getter v2 runtime validator](scripts/validate-guanyu-getter-runtime.mjs) | 驗證 62 張動作的 canvas、index0、clamp、新增貼邊與中心／腳底漂移。 |
+| [Getter v2 成果展示圖產生器](scripts/build-guanyu-getter-v2-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、斧掃、special 與倒地 GIF 建立 750×390 overview-only 成果圖。 |
 | [Stage01 成果展示圖產生器](scripts/build-stage01-engineering-preview.mjs) | 將目前工程輸出合成一張 480×276 overview-only review image；依 repo policy 保留，但不代表 legal／public-safe。 |
 | [趙雲 P0 成果展示圖產生器](scripts/build-zhaoyun-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、突刺、旋槍與倒地輸出建立 750×390 overview-only 成果圖。 |
 | [黃忠 P0 builder](scripts/build-huangzhong-p0-prototype.mjs) | 從 16 個主姿勢與 16 格 projectile／FX inventory 建立 active-player、HUD、8 個 projectile model、case fixes 與 build manifest。 |
@@ -108,19 +114,23 @@ node scripts/build-stage01-engineering-preview.mjs \
 
 ![無敵鐵金剛 12 格 key pose 總覽](research/mazinger/mazinger-keyposes-contact-sheet.png)
 
-## 關羽紅色月牙戰士 P0 vertical slice
+## 關羽 Getter v2 P0 vertical slice
 
-> **注意：下方 v1 機器人造型已淘汰。** 它被確認更像牛角武者鋼彈，而不是蓋特系機器人。圖片與 65-GIF overlay 只保留為工程驗證紀錄；藝術家不可沿用其牛角、V-fin、武者兜或面罩。關羽 v2 正在以水平紅色側翼、雙綠胸窗、紅色翼肩、銀白四肢與雙刃戰斧重畫。
+> **注意：v1 牛角武者造型已淘汰。** 它只保留為工程歷史；藝術家不可沿用其牛角、V-fin、武者兜或面罩。現行 canonical 與 private runtime 都是 Getter v2：水平紅色側翼、雙綠胸窗、紅色翼肩、銀白四肢與單端雙刃戰斧。
 
-關羽蓋特系 v2 canonical storyboard 已更新到 v5：單端雙刃斧在全動作保持一致，缺腳／多手／拆件數量問題已逐格關閉；目前下一步是依原 65 張 canvas／Offset 重建 private GIF 與三張 UI 圖。
+關羽蓋特系 v2 canonical storyboard 已更新到 v5：單端雙刃斧在全動作保持一致，缺腳／多手／拆件數量問題已逐格關閉。v5 已切成 16 張 private key pose，並重建 65 張 Guanyu GIF、`icon.GIF`、兩張 HUD profile 與五人選角第一欄。
 
 ![關羽蓋特系 v2 16 格 overview-only review image](research/guanyu/guanyu-getter-v2-storyboard-v5-overview.png)
 
 這張 16 格關羽 slot 總覽已重鍵為精確 `#FC00FF`。完整 overview 保留原構圖；private key-pose pipeline 另採 independent safe crops，避免 08、10、11、12、15 跨名義 4×4 格線時切到長柄武器或相鄰姿勢。依 repo policy，它只是一張 **overview-only review image**，不是可拆用的 production sprite sheet，也不能宣稱 `legal-safe`／`public-safe`。
 
-private engineering overlay 實測為 65 張關羽主 GIF、2 張 HUD profiles、33 張 shared FX palette normalization，以及 `guanyu.txt`／`models.txt`，合併整包共 284 files；六份指定 TXT strict 全 PASS，Docker OpenBOR v7533 到 `Loading models... Done!`。bounded smoke 的 exit 124 是到達 gate 後 timeout 的預期結果；TERM 後 double-free 是既知 teardown。
+![Getter v2 實際 private GIF 合成的工程成果總覽](research/previews/guanyu-getter-v2-p0-engineering-preview.png)
 
-這批仍把 16 個 key pose 重用到 65 張主模型 GIF；`g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間都明確 deferred，所以不能稱為完整玩家角色。完整範圍與驗證方式見[關羽紅色月牙戰士 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md)。
+兩次 fresh Docker build 的非 manifest 輸出完全 byte-identical；62 張實體動作 `clamp=0`、沒有新增畫布貼邊，前景中心／腳底相對原 canvas 最大漂移 1px。受控合併後 private overlay 維持 503 files／470 GIF，parity PASS；`guanyu.txt` 65 個引用路徑 strict PASS。GIF-compatible OpenBOR v7533 明確 cache `guanyu` 並到 `Loading models... Done!`。較新的 build 7832 會先拒絕舊模組 GIF background，不可拿它誤判 Getter 素材失敗。
+
+機器可讀證據見 [`guanyu-getter-v2-runtime-audit.json`](research/manifests/guanyu-getter-v2-runtime-audit.json)。
+
+這批仍把 16 個 key pose 重用到 65 張主模型 GIF；`g1`–`g16`、gore remap、`playerdie.wav`、逐格補間與可見 gameplay QA 都明確 deferred，所以狀態是 **Getter v2 P0 engineering runtime**，不能稱為 production-ready。完整範圍與重建指令見[關羽 Getter v2 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md)。
 
 ![已淘汰：關羽牛角武者 v1 16 格 engineering history](research/guanyu/guanyu-red-crescent-warrior-storyboard-v1-keyed.png)
 
@@ -202,11 +212,11 @@ Docker 使用 GIF-compatible OpenBOR v7533／commit `5c82614` 到 `Loading model
 
 ### 五人機器人選角與 HUD
 
-五欄依序對應關羽、張飛、趙雲、黃忠、魏延，合成圖保留頭肩肖像與全身站姿；張飛 slot 另產出 35×54 icon／profile／mirror profile。M1 coverage 已達 89/89，詳見[五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md)。
+五欄依序對應 Getter 關羽、無敵鐵金剛張飛、EVA 趙雲、RX-78 黃忠、機械哥吉拉魏延。Getter v2 已同步重建 `icon.GIF`、35×54 profile／mirror profile 與選角第一欄。
 
-這張 v1 五人圖的第一欄關羽已標記 `design-deprecated-v1`，後續必須連同 35×54 icon／profiles 換成蓋特系 v2。新增第六角 ν Gundam 則需要新的六人 roster／選角流程驗證，不視為本張五欄圖的既有成果。
+runtime builder 完整沿用既有 256 色 palette，只重新量化 `x=0..102`：第一欄 28,428 pixels 中有 23,040 個 index 改成 Getter；`x>=103` 的其餘四欄共 104,052 個 palette indices 差異為 0，palette bytes 差異也是 0。新增第六角 ν Gundam 仍需要獨立六人 roster／選角流程，不把它混算進本張五欄成果。
 
-![五人機器人選角總覽](research/ui/five-robot-selection-screen-v1-overview.png)
+![Getter v2 五人機器人 runtime 選角總覽](research/ui/five-robot-selection-screen-v2-getter-overview.png)
 
 ### 夏亞／有腳吉翁克 Boss 候選分鏡
 
