@@ -102,6 +102,10 @@
 
 ![Stage01 機器人大戰 engineering composite：無敵鐵金剛、藍盔巡邏機、李典與機械前哨](research/previews/stage01-engineering-composite.png)
 
+目前 completion audit 的可視化總覽：
+
+![completion audit dashboard](research/previews/completion-audit-dashboard.svg)
+
 重建方式：
 
 ```bash

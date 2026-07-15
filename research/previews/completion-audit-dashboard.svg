@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="666" viewBox="0 0 1400 666">
+  <defs>
+    <style>
+      .bg { fill: #0b1020; }
+      .panel { fill: #111827; stroke: #334155; stroke-width: 1; }
+      .title { fill: #e5e7eb; font: 700 30px sans-serif; }
+      .sub { fill: #cbd5e1; font: 400 16px sans-serif; }
+      .req { fill: #f8fafc; font: 700 15px sans-serif; }
+      .txt { fill: #dbeafe; font: 400 14px sans-serif; }
+      .mono { fill: #cbd5e1; font: 500 13px monospace; }
+      .small { fill: #94a3b8; font: 400 12px sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1400" height="666"/>
+  <rect class="panel" x="24" y="24" width="1352" height="170" rx="14"/>
+  <text x="36" y="58" class="title">Warriors of Fate → Robot WOF completion dashboard</text>
+  <text x="36" y="84" class="sub">Objective: 完成 機器人大戰版本的吞食天地2 (基於概念圖完成)</text>
+  <text x="36" y="110" class="sub">auditStatus: incomplete · requirements: 8 · proven: 2 · documentation: 1 · incomplete: 4 · false: 1</text>
+  <text x="36" y="136" class="sub">Generated from completion-audit.json and project-roadmap.json; this is an evidence summary, not a claim of game completion.</text>
+  <rect x="28" y="150" width="1344" height="46" rx="10" fill="#0f172a" stroke="#334155"/>
+  <text x="38" y="176" class="mono">workstream snapshot</text>
+  <text x="32" y="36" class="mono">stage01-environment-and-grunt → engineering-coverage-complete → pending n/a (research/manifests/blue-helmet-grunt-keyposes.json)</text>
+<text x="32" y="56" class="mono">boss-and-story-cutin → engineering-coverage-complete-but-production-remaining → pending n/a (research/manifests/zeon-boss-with-legs-v2.json)</text>
+<text x="32" y="76" class="mono">portrait-and-selection-coverage → mixed-engineering-and-pending-portrait-work → pending n/a (research/manifests/portrait-work-queue.json)</text>
+<text x="32" y="96" class="mono">guanyu-production-closure → p0-engineering-runtime-complete-but-production-remaining → pending 5 (research/manifests/guanyu-next-queue.json)</text>
+<text x="32" y="116" class="mono">nu-gundam-playable-closure → p0-engineering-runtime-complete-but-production-remaining → pending 5 (research/manifests/nu-gundam-next-queue.json)</text>
+  <rect class="panel" x="24" y="204" width="1352" height="456" rx="14"/>
+  
+    <rect x="28" y="210" width="1344" height="34" rx="8" fill="#111827" opacity="0.88"/>
+    <rect x="32" y="214" width="12" height="26" rx="4" fill="#2e7d32"/>
+    <text x="58" y="226" class="req">concept-lock</text>
+    <text x="280" y="226" class="txt">核心 concept 映射已鎖定並能指導後續製作</text>
+    <text x="1110" y="226" class="mono">proven</text>
+    <text x="1260" y="226" class="mono">evidence 3</text>
+
+    <rect x="28" y="252" width="1344" height="34" rx="8" fill="#111827" opacity="0.88"/>
+    <rect x="32" y="256" width="12" height="26" rx="4" fill="#ef6c00"/>
+    <text x="58" y="268" class="req">stage01-production</text>
+    <text x="280" y="268" class="txt">Stage01 的背景、雜兵、補給箱、Boss 與 UI 需要達到可交接 production 狀態</text>
+    <text x="1110" y="268" class="mono">incomplete</text>
+    <text x="1260" y="268" class="mono">evidence 4</text>
+
+    <rect x="28" y="294" width="1344" height="34" rx="8" fill="#111827" opacity="0.88"/>
+    <rect x="32" y="298" width="12" height="26" rx="4" fill="#ef6c00"/>
+    <text x="58" y="310" class="req">player-production</text>
+    <text x="280" y="310" class="txt">五名可選角色與其 HUD/profile/selection 需達到 production cleanup，而非僅 engineering runtime</text>
+    <text x="1110" y="310" class="mono">incomplete</text>
+    <text x="1260" y="310" class="mono">evidence 8</text>
+
+    <rect x="28" y="336" width="1344" height="34" rx="8" fill="#111827" opacity="0.88"/>
+    <rect x="32" y="340" width="12" height="26" rx="4" fill="#ef6c00"/>
+    <text x="58" y="352" class="req">boss-production</text>
+    <text x="280" y="352" class="txt">Boss 線需完成 production art、cut-in、分離模型與可視 gameplay review</text>
+    <text x="1110" y="352" class="mono">incomplete</text>
+    <text x="1260" y="352" class="mono">evidence 3</text>
+
+    <rect x="28" y="378" width="1344" height="34" rx="8" fill="#111827" opacity="0.88"/>
+    <rect x="32" y="382" width="12" height="26" rx="4" fill="#ef6c00"/>
+    <text x="58" y="394" class="req">portrait-and-selection</text>
+    <text x="280" y="394" class="txt">選角圖、頭像、HUD、劇情 cut-in 與新增人物的替換落點要完整可交接</text>
+    <text x="1110" y="394" class="mono">incomplete</text>
+    <text x="1260" y="394" class="mono">evidence 3</text>
+
+    <rect x="28" y="420" width="1344" height="34" rx="8" fill="#111827" opacity="0.88"/>
+    <rect x="32" y="424" width="12" height="26" rx="4" fill="#1565c0"/>
+    <text x="58" y="436" class="req">cross-platform-build</text>
+    <text x="280" y="436" class="txt">OpenBOR 引擎在 Linux、Windows、macOS 的編譯與發行流程要有完整工程文件</text>
+    <text x="1110" y="436" class="mono">proven-as-documentation</text>
+    <text x="1260" y="436" class="mono">evidence 4</text>
+
+    <rect x="28" y="462" width="1344" height="34" rx="8" fill="#111827" opacity="0.88"/>
+    <rect x="32" y="466" width="12" height="26" rx="4" fill="#2e7d32"/>
+    <text x="58" y="478" class="req">verification-coverage</text>
+    <text x="280" y="478" class="txt">README、路線圖、隊列與連結檢查需能機械驗證以支持審核</text>
+    <text x="1110" y="478" class="mono">proven</text>
+    <text x="1260" y="478" class="mono">evidence 5</text>
+
+    <rect x="28" y="504" width="1344" height="34" rx="8" fill="#111827" opacity="0.88"/>
+    <rect x="32" y="508" width="12" height="26" rx="4" fill="#c62828"/>
+    <text x="58" y="520" class="req">overall-finish</text>
+    <text x="280" y="520" class="txt">整個機器人大戰版本的吞食天地2 已完成且可被驗證</text>
+    <text x="1110" y="520" class="mono">false</text>
+    <text x="1260" y="520" class="mono">evidence 7</text>
+  <rect class="panel" x="24" y="554" width="1352" height="104" rx="14"/>
+  <text x="36" y="584" class="sub">Legend: green = proven, blue = documentation only, orange = incomplete, red = false.</text>
+  <text x="36" y="610" class="small">Pending queues: stage01 / boss / portrait / guanyu / nu-gundam remain non-empty; that is why the overall objective remains incomplete.</text>
+</svg>
