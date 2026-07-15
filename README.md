@@ -29,6 +29,7 @@
 | [五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md) | 480×276 五人選角合成圖、張飛 icon／profile、opaque index0 方法與 M1 89/89 驗證。 |
 | [ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md) | 第六候選角色、六人 `allowselect`、480×276 roster、HUD、Fin Funnel 子模型與 2P／引擎上限。 |
 | [ν Gundam 第六角色 P0 vertical slice](docs/NU_GUNDAM_VERTICAL_SLICE.md) | 71 張動作、2 profiles、六欄選角、六發 Funnel proxy、determinism／strict／Docker v7533 實測與 deferred P1。 |
+| [魏延裂界獸 P0 vertical slice](docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md) | 84 張動作、2 profiles、尾砲 proxy、人類武器切斷、determinism／strict／Docker v7533 實測與 deferred production FX。 |
 | [六人候選選角 TXT overlay](docs/SIX_PLAYER_SELECT_TEXT_OVERLAY.md) | `models.txt`／`allowselect` 的 exact Load 順序、Funnel 支援模型、可重入 patch 與 13 項測試。 |
 | [夏亞／有腳吉翁克 Boss 工程計畫](docs/ZEON_BOSS_WITH_LEGS_PLAN.md) | 完成型有腳 Boss、夏亞 cut-in、67-GIF P0 閉包、遠距／抓投／HP 分支與人類素材清除。 |
 | [角色替換分鏡總表](research/CHARACTER_SPRITE_INVENTORY.md) | 關羽、趙雲、張飛、魏延、黃忠的動作群組、GIF 分鏡、優先級與分離模型說明。美術替換工作從此開始。 |
@@ -57,6 +58,10 @@
 | [六欄選角 runtime builder](scripts/build-six-robot-selection-runtime.mjs) | 沿用原 256 色 palette，將五欄 deterministic 重排為六欄並加入 ν Gundam。 |
 | [六人 roster TXT patcher](scripts/patch-six-player-select-overlay.mjs) | 可重入修補 `models.txt`／`select.txt`，驗證六位 player cache 順序與支援模型閉包。 |
 | [ν Gundam runtime validator](scripts/validate-nu-gundam-runtime.mjs) | 檢查 71 張 placement、73 個 GIF refs、exact-case、洋紅 index 0、HUD 與六發 Funnel proxy。 |
+| [魏延裂界獸 storyboard slicer](scripts/slice-weiyan-riftbeast-storyboards.mjs) | 依 body v2 與 local-FX 的 independent safe crops 產生 private key poses、公開 overview 與 crop／pivot manifest。 |
+| [魏延裂界獸 P0 runtime builder](scripts/build-weiyan-riftbeast-p0-prototype.mjs) | 建立 84 張動作、icon／palette、2 profiles 與 3-GIF 尾砲 proxy，並切斷 `w1..w16` 人類武器系統。 |
+| [魏延裂界獸 runtime validator](scripts/validate-weiyan-riftbeast-runtime.mjs) | 檢查 86 個主模型 GIF refs、exact-case、index 0、placement、人類武器／gore 清理與尾砲支援模型。 |
+| [魏延裂界獸成果展示圖產生器](scripts/build-weiyan-riftbeast-engineering-preview.mjs) | 從 private overlay 的六人選角、HUD、idle、尾砲、旋爪、俯衝與倒地建立可重現工程總覽。 |
 
 ## 專案範圍
 
@@ -107,6 +112,8 @@ node scripts/build-stage01-engineering-preview.mjs \
 ### 魏延
 
 ![魏延分鏡總覽](research/contact-sheets/weiyan.png)
+
+上圖是原 Wei Yan slot 的 84 張 logical action GIF 清單，用來追蹤每個必換檔名；不是裂界獸新美術。新 body／FX overview 與 runtime 成果見下方「魏延裂界獸 P0 vertical slice」。
 
 ### 黃忠
 
@@ -172,6 +179,20 @@ Docker 使用 GIF-compatible OpenBOR v7533／commit `5c82614` 到 `Loading model
 
 ![黃忠光子投射物與 FX 16 格 overview-only review image](research/huangzhong/huangzhong-photon-projectile-fx-storyboard-v1-keyed.png)
 
+## 魏延裂界獸 P0 vertical slice
+
+魏延 slot 已建立裂界獸／機械哥吉拉方向的 private engineering runtime：84 張 action GIF、`icon.gif`、identity-palette `red.gif`、2 張 lowercase HUD profiles，以及 3 張 GIF 的 `weiyan_tail_ray` 尾砲代理。95 個非 manifest 檔案兩次 fresh build 逐檔 byte-identical；validator 實測 103 個 exact-case dependency、missing=0、hard clamp=0、沒有新增貼邊、最大 anchor drift 1px。
+
+主模型的 `weapons w1..w16`、`hmap`、3 個 `weaponframe` 與 spawn 的 16 個人類 weapon load 已切斷；3 個血液 hitflash、16 個刀械 hit FX、15 個角色語音引用改成既有機械 placeholder。合併後 active overlay `data/` 為 679 files（639 GIF＋40 other）。Docker OpenBOR v7533 已 cache `weiyan_tail_ray`／`weiyan` 並到 `Loading models... Done!`。
+
+body F08 尾砲、F09 光圈、F11 速度線、F12 拖曳光、F13 火花與 F15 煙霧仍是 baked FX；16 個 body key pose 也大量重用，所以目前不是 production-ready。可見六人選角、進關、1P／2P、碰撞箱、尾砲 origin 與完整 FX/audio QA 都明確 deferred。完整命令與證據見[魏延裂界獸 P0 vertical slice](docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md)與[`weiyan-riftbeast-p0-runtime-audit.json`](research/manifests/weiyan-riftbeast-p0-runtime-audit.json)。
+
+![魏延裂界獸 16 格 body overview-only review image](research/weiyan/weiyan-riftbeast-storyboard-v2-overview.png)
+
+![魏延裂界獸 8 格 local FX overview-only review image](research/weiyan/weiyan-riftbeast-local-fx-storyboard-v1-overview.png)
+
+![魏延裂界獸 P0 engineering preview：六人選角、idle、尾砲、旋爪、俯衝與倒地](research/previews/weiyan-riftbeast-p0-engineering-preview.png)
+
 ## 選角與 UI 頭像總覽
 
 現有的可選角色、Boss、軍隊與 HUD profile 頭像；路徑與新增劉備、曹操、呂布等人物的方式請見[選角與頭像素材文件](docs/PORTRAIT_ASSETS.md)。
@@ -218,7 +239,7 @@ Docker 使用 GIF-compatible OpenBOR v7533／commit `5c82614` 到 `Loading model
 
 ### 六人候選選角與 HUD
 
-五欄依序對應 Getter 關羽、無敵鐵金剛張飛、EVA 趙雲、RX-78 黃忠、機械哥吉拉魏延。Getter v2 已同步重建 `icon.GIF`、35×54 profile／mirror profile 與選角第一欄。
+五欄依序對應 Getter 關羽、無敵鐵金剛張飛、EVA 趙雲、RX-78 黃忠、裂界獸魏延。Getter v2 已同步重建 `icon.GIF`、35×54 profile／mirror profile 與選角第一欄；魏延 P0 已重建主模型 icon 與 lowercase HUD profile，六欄選角沿用既有第五欄圖像，production portrait polish 仍待美術驗收。
 
 五欄 Getter v2 builder 完整沿用既有 256 色 palette，只重新量化 `x=0..102`：第一欄 28,428 pixels 中有 23,040 個 index 改成 Getter；`x>=103` 的其餘四欄共 104,052 個 palette indices 差異為 0，palette bytes 差異也是 0。
 

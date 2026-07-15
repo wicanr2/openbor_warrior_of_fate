@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "status": "private-engineering-runtime-model-load-verified",
+  "productionReady": false,
+  "sources": {
+    "privateBodyStoryboardSha256": "6bb0cb6e71400c827fae31f0e01f2e6de3ad31fbffde014f90ad72356d8c164e",
+    "privateLocalFxStoryboardSha256": "e1b5bf40c483754c0e1fec454911365fbb830d1bec5ec1815eddd78517dde473",
+    "publicBodyOverviewSha256": "b4f703118f566c8969240e7bd7385f69d9aaade0efcec7b78a73648775c99fda",
+    "publicLocalFxOverviewSha256": "478d3f4381f7f89c49c8ef37d95e4b816685fa1edb12f05a21d402b85bf3826c",
+    "bodyKeyposeManifestSha256": "9ff91a78a12b1d95f79c918b27e9e1e0a79334edbc98c4e8780229a56cdc597b",
+    "localFxKeyposeManifestSha256": "0c58c13bf7f21b453c71c6b1ad3d2d0ed9edd8bef9c8fb2ac69265d14f93a2df"
+  },
+  "builders": {
+    "slicerSha256": "c5da2c307190bcc09f9ca568cdccd6a68e20b821a1d92c4faffc03da8d643e2f",
+    "runtimeBuilderSha256": "b5cd906088e8f5e4d4372614232af13838d91e23ce7d969f22196613304069b2",
+    "runtimeValidatorSha256": "1a2d9f4a18924f0ff64d861c21bcc26626143c1aac17c47b8f394c01d95267a2",
+    "engineeringPreviewBuilderSha256": "85663b59096b697156a5f21c45ac8653c0657e6849b5f15f0f29a9c94abbbeb7"
+  },
+  "runtime": {
+    "nonManifestFiles": 95,
+    "gifFiles": 91,
+    "actionGif": 84,
+    "mainModelGifRefs": 86,
+    "mainImageOccurrences": 489,
+    "hudProfiles": 2,
+    "tailRayGif": 3,
+    "mainModelSha256": "9bf24e0b88d5bf85ce298543397017d765db2772dab3cdd64df2ad516f54a7fd",
+    "tailRayModelSha256": "cc2717e862bb5313528a84e6208b7175ce9fe05af02d8fbbec5072e34685b400",
+    "modelsTxtSha256": "daafb28e6ee0b8a3dad2726d3fc2782d1a13d1269ae7eeacc10beb865ea14b2d",
+    "buildManifestSha256": "b97616ca308dfcd335724b03c0b03be26de0685d85f572fd57cc7d727f5ba0a9"
+  },
+  "verification": {
+    "freshBuildsCompared": 2,
+    "nonManifestByteDifferences": 0,
+    "manifestDifferenceAllowlist": [
+      "generatedAt"
+    ],
+    "exactCaseDataRefs": 103,
+    "missingRefs": 0,
+    "clampedPlacements": 0,
+    "addedCanvasEdges": 0,
+    "maximumForegroundCenterBottomDriftPixels": 1,
+    "minimumSafeScaleRatio": 0.7461873638344226,
+    "paletteIndex0": "#FC00FF",
+    "disabledHumanWeaponVariants": 16,
+    "mechanicalHitflashRewrites": 3,
+    "mechanicalHitfxRewrites": 16,
+    "characterVoiceRewrites": 15,
+    "tailRayDamageTargets": [
+      "obstacle",
+      "enemy"
+    ],
+    "overlayDataFiles": 679,
+    "overlayGif": 639,
+    "overlayOther": 40,
+    "openBorBuild": 7533,
+    "openBorBinarySha256": "5ac687c5b590b077cd47721b15edd3064470cddf3ac4e3087082d1f83e4aa5af",
+    "tailRayCacheEvidence": "Cacheing 'weiyan_tail_ray' from data/chars/weiyan/tail_ray/weiyan_tail_ray.txt",
+    "playerCacheEvidence": "Cacheing 'weiyan' from data/chars/weiyan/weiyan.txt",
+    "modelLoadEvidence": "Loading models............... Done!"
+  },
+  "publicOverview": {
+    "engineeringPreview": {
+      "path": "research/previews/weiyan-riftbeast-p0-engineering-preview.png",
+      "sha256": "1ece6cab6092dff0ed9be08bacd1ba6cac8f916b6277a91894b3c1f895a1caa7",
+      "type": "engineering-composite-not-runtime-capture"
+    },
+    "bodyStoryboard": {
+      "path": "research/weiyan/weiyan-riftbeast-storyboard-v2-overview.png",
+      "sha256": "b4f703118f566c8969240e7bd7385f69d9aaade0efcec7b78a73648775c99fda"
+    },
+    "localFxStoryboard": {
+      "path": "research/weiyan/weiyan-riftbeast-local-fx-storyboard-v1-overview.png",
+      "sha256": "478d3f4381f7f89c49c8ef37d95e4b816685fa1edb12f05a21d402b85bf3826c"
+    }
+  },
+  "deferred": [
+    "visible six-candidate selection and Stage 1 entry",
+    "1P and 2P gameplay QA",
+    "production in-between animation",
+    "separated tail-cannon charge, beam, impact and cleanup FX",
+    "BBox, attack box, grab box, projectile origin and sound QA"
+  ]
+}

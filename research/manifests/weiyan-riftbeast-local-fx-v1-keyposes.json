@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "status": "riftbeast-local-fx-v1-concept-keyposes-not-production-ready",
+  "source": "local-only/weiyan-riftbeast-local-fx-storyboard-v1.png",
+  "sourceSha256": "e1b5bf40c483754c0e1fec454911365fbb830d1bec5ec1815eddd78517dde473",
+  "sourceCanvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "chromaKey": {
+    "r": 252,
+    "g": 0,
+    "b": 255,
+    "hex": "#FC00FF",
+    "requiredPaletteIndex": 0
+  },
+  "normalization": {
+    "colorSpace": "HSV",
+    "hueDegrees": [
+      285,
+      335
+    ],
+    "minimumSaturation": 0.35,
+    "minimumValue": 0.35
+  },
+  "warning": "F05 is a three-state inventory. Split it into independent charge entities before production; the eight review crops are not a finished FX animation set.",
+  "frames": [
+    {
+      "index": 1,
+      "role": "arm-cannon-muzzle",
+      "sourceCrop": {
+        "role": "arm-cannon-muzzle",
+        "x": 35,
+        "y": 325,
+        "width": 285,
+        "height": 220
+      },
+      "semanticPivot": {
+        "x": 232,
+        "y": 110
+      },
+      "output": "local-only/frame-01.png",
+      "foreground": {
+        "x": 13,
+        "y": 40,
+        "width": 246,
+        "height": 158
+      },
+      "chromaPixels": 47187,
+      "totalPixels": 62700
+    },
+    {
+      "index": 2,
+      "role": "claw-crescent",
+      "sourceCrop": {
+        "role": "claw-crescent",
+        "x": 335,
+        "y": 290,
+        "width": 220,
+        "height": 285
+      },
+      "semanticPivot": {
+        "x": 125,
+        "y": 133
+      },
+      "output": "local-only/frame-02.png",
+      "foreground": {
+        "x": 23,
+        "y": 27,
+        "width": 184,
+        "height": 238
+      },
+      "chromaPixels": 46780,
+      "totalPixels": 62700
+    },
+    {
+      "index": 3,
+      "role": "ground-energy-sweep",
+      "sourceCrop": {
+        "role": "ground-energy-sweep",
+        "x": 560,
+        "y": 325,
+        "width": 410,
+        "height": 235
+      },
+      "semanticPivot": {
+        "x": 202,
+        "y": 168
+      },
+      "output": "local-only/frame-03.png",
+      "foreground": {
+        "x": 20,
+        "y": 116,
+        "width": 373,
+        "height": 101
+      },
+      "chromaPixels": 80986,
+      "totalPixels": 96350
+    },
+    {
+      "index": 4,
+      "role": "ground-impact",
+      "sourceCrop": {
+        "role": "ground-impact",
+        "x": 970,
+        "y": 300,
+        "width": 250,
+        "height": 280
+      },
+      "semanticPivot": {
+        "x": 125,
+        "y": 235
+      },
+      "output": "local-only/frame-04.png",
+      "foreground": {
+        "x": 17,
+        "y": 39,
+        "width": 214,
+        "height": 218
+      },
+      "chromaPixels": 56483,
+      "totalPixels": 70000
+    },
+    {
+      "index": 5,
+      "role": "energy-cell-charge-inventory",
+      "sourceCrop": {
+        "role": "energy-cell-charge-inventory",
+        "x": 35,
+        "y": 720,
+        "width": 365,
+        "height": 275
+      },
+      "semanticPivot": {
+        "x": 158,
+        "y": 103
+      },
+      "output": "local-only/frame-05.png",
+      "foreground": {
+        "x": 13,
+        "y": 27,
+        "width": 334,
+        "height": 225
+      },
+      "chromaPixels": 64070,
+      "totalPixels": 100375
+    },
+    {
+      "index": 6,
+      "role": "energy-shield",
+      "sourceCrop": {
+        "role": "energy-shield",
+        "x": 405,
+        "y": 700,
+        "width": 240,
+        "height": 310
+      },
+      "semanticPivot": {
+        "x": 105,
+        "y": 125
+      },
+      "output": "local-only/frame-06.png",
+      "foreground": {
+        "x": 27,
+        "y": 21,
+        "width": 184,
+        "height": 274
+      },
+      "chromaPixels": 53410,
+      "totalPixels": 74400
+    },
+    {
+      "index": 7,
+      "role": "mechanical-hitflash",
+      "sourceCrop": {
+        "role": "mechanical-hitflash",
+        "x": 650,
+        "y": 750,
+        "width": 225,
+        "height": 245
+      },
+      "semanticPivot": {
+        "x": 130,
+        "y": 73
+      },
+      "output": "local-only/frame-07.png",
+      "foreground": {
+        "x": 20,
+        "y": 26,
+        "width": 187,
+        "height": 196
+      },
+      "chromaPixels": 43255,
+      "totalPixels": 55125
+    },
+    {
+      "index": 8,
+      "role": "mechanical-explosion",
+      "sourceCrop": {
+        "role": "mechanical-explosion",
+        "x": 910,
+        "y": 690,
+        "width": 305,
+        "height": 320
+      },
+      "semanticPivot": {
+        "x": 155,
+        "y": 125
+      },
+      "output": "local-only/frame-08.png",
+      "foreground": {
+        "x": 12,
+        "y": 15,
+        "width": 275,
+        "height": 283
+      },
+      "chromaPixels": 56090,
+      "totalPixels": 97600
+    }
+  ]
+}

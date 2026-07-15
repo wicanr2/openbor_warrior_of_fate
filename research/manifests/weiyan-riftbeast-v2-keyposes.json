@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "status": "riftbeast-v2-concept-keyposes-not-production-ready",
+  "source": "local-only/weiyan-riftbeast-storyboard-v2.png",
+  "sourceSha256": "6bb0cb6e71400c827fae31f0e01f2e6de3ad31fbffde014f90ad72356d8c164e",
+  "sourceCanvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "chromaKey": {
+    "r": 252,
+    "g": 0,
+    "b": 255,
+    "hex": "#FC00FF",
+    "requiredPaletteIndex": 0
+  },
+  "normalization": {
+    "colorSpace": "HSV",
+    "hueDegrees": [
+      285,
+      335
+    ],
+    "minimumSaturation": 0.35,
+    "minimumValue": 0.35
+  },
+  "warning": "Use the audited independent crops. F07-F09 contain wide tail/claw arcs, F08 includes detached tail-cannon shots, F12/F15 cross nominal grid lines, and F16 is an inventory rather than a single animation pose.",
+  "frames": [
+    {
+      "index": 1,
+      "role": "portrait",
+      "sourceCrop": {
+        "role": "portrait",
+        "x": 35,
+        "y": 35,
+        "width": 250,
+        "height": 245
+      },
+      "semanticPivot": {
+        "x": 125,
+        "y": 220
+      },
+      "output": "local-only/frame-01.png",
+      "foreground": {
+        "x": 4,
+        "y": 24,
+        "width": 223,
+        "height": 212
+      },
+      "chromaPixels": 25646,
+      "totalPixels": 61250
+    },
+    {
+      "index": 2,
+      "role": "spawn-crouch",
+      "sourceCrop": {
+        "role": "spawn-crouch",
+        "x": 330,
+        "y": 70,
+        "width": 275,
+        "height": 220
+      },
+      "semanticPivot": {
+        "x": 120,
+        "y": 197
+      },
+      "output": "local-only/frame-02.png",
+      "foreground": {
+        "x": 23,
+        "y": 24,
+        "width": 232,
+        "height": 163
+      },
+      "chromaPixels": 43206,
+      "totalPixels": 60500
+    },
+    {
+      "index": 3,
+      "role": "idle-ready",
+      "sourceCrop": {
+        "role": "idle-ready",
+        "x": 615,
+        "y": 45,
+        "width": 280,
+        "height": 245
+      },
+      "semanticPivot": {
+        "x": 140,
+        "y": 220
+      },
+      "output": "local-only/frame-03.png",
+      "foreground": {
+        "x": 38,
+        "y": 18,
+        "width": 212,
+        "height": 191
+      },
+      "chromaPixels": 52921,
+      "totalPixels": 68600
+    },
+    {
+      "index": 4,
+      "role": "walk-contact",
+      "sourceCrop": {
+        "role": "walk-contact",
+        "x": 915,
+        "y": 45,
+        "width": 330,
+        "height": 250
+      },
+      "semanticPivot": {
+        "x": 165,
+        "y": 225
+      },
+      "output": "local-only/frame-04.png",
+      "foreground": {
+        "x": 37,
+        "y": 16,
+        "width": 219,
+        "height": 196
+      },
+      "chromaPixels": 67524,
+      "totalPixels": 82500
+    },
+    {
+      "index": 5,
+      "role": "walk-passing",
+      "sourceCrop": {
+        "role": "walk-passing",
+        "x": 35,
+        "y": 325,
+        "width": 270,
+        "height": 270
+      },
+      "semanticPivot": {
+        "x": 135,
+        "y": 245
+      },
+      "output": "local-only/frame-05.png",
+      "foreground": {
+        "x": 1,
+        "y": 32,
+        "width": 211,
+        "height": 194
+      },
+      "chromaPixels": 58047,
+      "totalPixels": 72900
+    },
+    {
+      "index": 6,
+      "role": "claw-windup",
+      "sourceCrop": {
+        "role": "claw-windup",
+        "x": 315,
+        "y": 320,
+        "width": 270,
+        "height": 280
+      },
+      "semanticPivot": {
+        "x": 135,
+        "y": 255
+      },
+      "output": "local-only/frame-06.png",
+      "foreground": {
+        "x": 26,
+        "y": 20,
+        "width": 219,
+        "height": 214
+      },
+      "chromaPixels": 57316,
+      "totalPixels": 75600
+    },
+    {
+      "index": 7,
+      "role": "tail-claw-sweep",
+      "sourceCrop": {
+        "role": "tail-claw-sweep",
+        "x": 585,
+        "y": 320,
+        "width": 325,
+        "height": 280
+      },
+      "semanticPivot": {
+        "x": 168,
+        "y": 255
+      },
+      "output": "local-only/frame-07.png",
+      "foreground": {
+        "x": 58,
+        "y": 65,
+        "width": 239,
+        "height": 160
+      },
+      "chromaPixels": 74676,
+      "totalPixels": 91000
+    },
+    {
+      "index": 8,
+      "role": "tail-cannon",
+      "sourceCrop": {
+        "role": "tail-cannon",
+        "x": 900,
+        "y": 325,
+        "width": 354,
+        "height": 270
+      },
+      "semanticPivot": {
+        "x": 177,
+        "y": 245
+      },
+      "output": "local-only/frame-08.png",
+      "foreground": {
+        "x": 24,
+        "y": 48,
+        "width": 295,
+        "height": 168
+      },
+      "chromaPixels": 83019,
+      "totalPixels": 95580
+    },
+    {
+      "index": 9,
+      "role": "double-claw-spin",
+      "sourceCrop": {
+        "role": "double-claw-spin",
+        "x": 15,
+        "y": 610,
+        "width": 295,
+        "height": 290
+      },
+      "semanticPivot": {
+        "x": 148,
+        "y": 260
+      },
+      "output": "local-only/frame-09.png",
+      "foreground": {
+        "x": 10,
+        "y": 60,
+        "width": 255,
+        "height": 150
+      },
+      "chromaPixels": 67991,
+      "totalPixels": 85550
+    },
+    {
+      "index": 10,
+      "role": "jump",
+      "sourceCrop": {
+        "role": "jump",
+        "x": 305,
+        "y": 595,
+        "width": 290,
+        "height": 310
+      },
+      "semanticPivot": {
+        "x": 145,
+        "y": 172
+      },
+      "output": "local-only/frame-10.png",
+      "foreground": {
+        "x": 53,
+        "y": 27,
+        "width": 197,
+        "height": 198
+      },
+      "chromaPixels": 76070,
+      "totalPixels": 89900
+    },
+    {
+      "index": 11,
+      "role": "dive",
+      "sourceCrop": {
+        "role": "dive",
+        "x": 595,
+        "y": 600,
+        "width": 310,
+        "height": 305
+      },
+      "semanticPivot": {
+        "x": 155,
+        "y": 175
+      },
+      "output": "local-only/frame-11.png",
+      "foreground": {
+        "x": 67,
+        "y": 31,
+        "width": 177,
+        "height": 212
+      },
+      "chromaPixels": 82576,
+      "totalPixels": 94550
+    },
+    {
+      "index": 12,
+      "role": "prone",
+      "sourceCrop": {
+        "role": "prone",
+        "x": 895,
+        "y": 625,
+        "width": 350,
+        "height": 280
+      },
+      "semanticPivot": {
+        "x": 180,
+        "y": 238
+      },
+      "output": "local-only/frame-12.png",
+      "foreground": {
+        "x": 29,
+        "y": 94,
+        "width": 296,
+        "height": 104
+      },
+      "chromaPixels": 83663,
+      "totalPixels": 98000
+    },
+    {
+      "index": 13,
+      "role": "pain",
+      "sourceCrop": {
+        "role": "pain",
+        "x": 25,
+        "y": 920,
+        "width": 285,
+        "height": 285
+      },
+      "semanticPivot": {
+        "x": 143,
+        "y": 258
+      },
+      "output": "local-only/frame-13.png",
+      "foreground": {
+        "x": 17,
+        "y": 22,
+        "width": 215,
+        "height": 220
+      },
+      "chromaPixels": 61086,
+      "totalPixels": 81225
+    },
+    {
+      "index": 14,
+      "role": "airborne-fall",
+      "sourceCrop": {
+        "role": "airborne-fall",
+        "x": 300,
+        "y": 930,
+        "width": 240,
+        "height": 240
+      },
+      "semanticPivot": {
+        "x": 150,
+        "y": 148
+      },
+      "output": "local-only/frame-14.png",
+      "foreground": {
+        "x": 25,
+        "y": 30,
+        "width": 194,
+        "height": 177
+      },
+      "chromaPixels": 41397,
+      "totalPixels": 57600
+    },
+    {
+      "index": 15,
+      "role": "destroyed-wreckage",
+      "sourceCrop": {
+        "role": "destroyed-wreckage",
+        "x": 545,
+        "y": 905,
+        "width": 375,
+        "height": 285
+      },
+      "semanticPivot": {
+        "x": 188,
+        "y": 248
+      },
+      "output": "local-only/frame-15.png",
+      "foreground": {
+        "x": 9,
+        "y": 59,
+        "width": 319,
+        "height": 176
+      },
+      "chromaPixels": 86884,
+      "totalPixels": 106875
+    },
+    {
+      "index": 16,
+      "role": "parts-projectile-inventory",
+      "sourceCrop": {
+        "role": "parts-projectile-inventory",
+        "x": 900,
+        "y": 905,
+        "width": 345,
+        "height": 300
+      },
+      "semanticPivot": {
+        "x": 173,
+        "y": 170
+      },
+      "output": "local-only/frame-16.png",
+      "foreground": {
+        "x": 38,
+        "y": 55,
+        "width": 262,
+        "height": 200
+      },
+      "chromaPixels": 88126,
+      "totalPixels": 103500
+    }
+  ]
+}
