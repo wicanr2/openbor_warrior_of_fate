@@ -68,6 +68,7 @@
 | [機體、駕駛員與大頭照 roster](docs/PILOT_AND_PORTRAIT_ROSTER.md) | 流龍馬、兜甲兒、碇真嗣、阿姆羅、迷你哥吉拉、夏亞的 slot 對應，及 selection／HUD／cut-in 分層方式。 |
 | [分鏡表產生器](scripts/generate-character-sprite-inventory.mjs) | 從解出的角色定義 `.txt` 重新統計分鏡表，避免人工維護 GIF 清單。 |
 | [OpenBOR 資產驗證器](scripts/validate-openbor-assets.mjs) | 檢查 TXT 圖像引用、路徑大小寫、indexed GIF、canvas 與 palette index 0。 |
+| [Smoke evidence index 驗證器](scripts/validate-smoke-evidence-index.mjs) | 檢查 smoke evidence index 是否真的列出 ν、Stage01、Lidian、黃忠四條已實跑的 headless smoke。 |
 | [Vertical slice coverage](docs/VERTICAL_SLICE_COVERAGE.md) | 檢查 M1 預定替換是否真的齊全且不是 base copy；包含 `bingxs` 與機械死亡 model overlay。 |
 | [Overlay parity validator](scripts/validate-overlay-parity.mjs) | 逐檔檢查 exact-case base counterpart、相同 canvas、indexed GIF 與 index 0 `#FC00FF`。 |
 | [Markdown 連結驗證器](scripts/validate-markdown-links.mjs) | 檢查 README 與 docs 的相對 markdown 連結是否真的指向存在檔案。 |
