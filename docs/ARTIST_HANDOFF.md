@@ -43,6 +43,7 @@
 - 每個敵人先完成一套 base palette，再補 Map／alternate palette。
 - 必須把武器、投射物、受傷、倒地與 icon 一起列入；只換 idle／walk 會在戰鬥時閃回原圖。
 - 第一個敵人批次是 `bing`：31 個動畫圖檔，詳細路徑、尺寸範圍與出場數見 [`STAGE01_REPLACEMENT_MANIFEST.md`](../research/STAGE01_REPLACEMENT_MANIFEST.md)。
+- 藍盔巡邏機的 12 格 source、42-file engineering coverage、機械死亡與逐格 production 缺口見 [`BLUE_HELMET_GRUNT_VERTICAL_SLICE.md`](BLUE_HELMET_GRUNT_VERTICAL_SLICE.md)。
 - Boss 以完整依賴包交付；`xiahorse` 低血量會分離成駕駛員與載具，三位美女 Boss 則可共用 rig、不可共用 silhouette／portrait。
 
 ### Environment／prop artist

@@ -91,6 +91,8 @@
 - 一種機械近戰雜兵、一個補給箱、一個爆炸 FX。
 - Linux／Windows／macOS smoke test。
 
+進度：Mazinger P0 與藍盔 `bing`／`bingxs` 已達 private engineering coverage，並通過 Linux Docker model-load gate；選角／HUD、Stage01 三張長圖、補給箱與可視 gameplay review 尚未完成，因此 M1 仍是進行中，不能標記完成。
+
 驗收通過後鎖定角色高度、輪廓線、金屬色階、光源、palette 與 AI／人工修圖比例。
 
 ### M2 — 五角色 P0

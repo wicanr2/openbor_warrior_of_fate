@@ -43,6 +43,8 @@
 4. 第一版只需一套 base palette；其餘 `map1`–`map6` 在 base 動畫 engine-review 後補。
 5. 將人類血液／斷肢型 FX 改為火花、電弧、裝甲碎片與冷卻液，避免機械兵死亡時閃回人類 gore。
 
+第一版原創藍盔巡邏機已建立 12 格總覽與 42-file private engineering overlay；安全切格、實際 `#F703F8`→`#FC00FF` 背景正規化、`bingxs`、gore model overlay、驗證結果與 production 缺口見[藍盔巡邏機 Stage01 vertical slice](../docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md)。
+
 ## 主線 Boss 對位
 
 目前 `levels.txt` 的 active 主線是 Stage01、Stage02、Stage03A、Stage03B。Boss 應先按既有玩法槽位重畫，再另開 gameplay change 做真正的超巨大戰。

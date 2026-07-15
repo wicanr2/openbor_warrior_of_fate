@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
-const CHROMA = Object.freeze({ r: 252, g: 0, b: 255, hex: '#FC00FF' });
+export const CHROMA = Object.freeze({ r: 252, g: 0, b: 255, hex: '#FC00FF' });
 const FOREGROUND_DISTANCE = 24;
 const DEFAULT_SPRITE_HEIGHT = 96;
 
@@ -177,7 +177,7 @@ function requireCommand(binary) {
   }
 }
 
-function probeImage(path) {
+export function probeImage(path) {
   const stdout = run('ffprobe', [
     '-v', 'error',
     '-select_streams', 'v:0',
@@ -215,7 +215,7 @@ function isForeground(r, g, b) {
   return dr * dr + dg * dg + db * db > FOREGROUND_DISTANCE ** 2;
 }
 
-function analyzePose(path) {
+export function analyzePose(path) {
   const { width, height } = probeImage(path);
   const rgb = readRgb24(path, width, height);
   let minX = width;
@@ -303,7 +303,7 @@ function targetMetadata(extractedDir, modelRecords, mapping) {
   };
 }
 
-function makeComposedPng(sourcePath, outputPath, pose, target, spriteHeight, mapping, allowClamping) {
+export function makeComposedPng(sourcePath, outputPath, pose, target, spriteHeight, mapping, allowClamping) {
   const requestedScale = spriteHeight / pose.crop.height;
   const fitScale = Math.min(
     requestedScale,
@@ -360,7 +360,7 @@ function makeComposedPng(sourcePath, outputPath, pose, target, spriteHeight, map
   };
 }
 
-function palettizeWithFfmpeg(composedPath, width, height, tempDir) {
+export function palettizeWithFfmpeg(composedPath, width, height, tempDir) {
   const palettePath = join(tempDir, 'palette.rgba');
   const palette = run('ffmpeg', [
     '-hide_banner', '-loglevel', 'error',
@@ -395,7 +395,7 @@ function palettizeWithFfmpeg(composedPath, width, height, tempDir) {
   };
 }
 
-function forceChromaAtIndexZero(pixels, bgraPalette) {
+export function forceChromaAtIndexZero(pixels, bgraPalette) {
   let chromaIndex = -1;
   for (let index = 0; index < 256; index += 1) {
     const start = index * 4;
@@ -466,7 +466,7 @@ function encodeLiteralLzw(pixels) {
   return Buffer.from(bytes);
 }
 
-function encodeGif(width, height, pixels, bgraPalette) {
+export function encodeGif(width, height, pixels, bgraPalette) {
   const rgbPalette = Buffer.alloc(256 * 3);
   for (let index = 0; index < 256; index += 1) {
     rgbPalette[index * 3] = bgraPalette[index * 4 + 2];
@@ -494,7 +494,7 @@ function encodeGif(width, height, pixels, bgraPalette) {
   ]);
 }
 
-function verifyGif(path, expectedWidth, expectedHeight) {
+export function verifyGif(path, expectedWidth, expectedHeight) {
   const bytes = readFileSync(path);
   if (bytes.subarray(0, 6).toString('ascii') !== 'GIF89a') {
     throw new Error(`${path} is not the expected GIF89a output`);
@@ -610,9 +610,12 @@ function main() {
   }
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(`ERROR: ${error.message}`);
-  process.exitCode = 1;
+const IS_MAIN = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (IS_MAIN) {
+  try {
+    main();
+  } catch (error) {
+    console.error(`ERROR: ${error.message}`);
+    process.exitCode = 1;
+  }
 }
