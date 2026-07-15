@@ -65,7 +65,7 @@ Options:
   --source PATH       private original 1536x1024 selection artwork
   --data-dir PATH     extracted data root
   --output-dir PATH   overlay root; data/... is appended
-  --overview PATH     optional public-safe complete roster overview
+  --overview PATH     optional overview-only complete roster review image
   --help              show this help`;
 }
 
@@ -109,7 +109,7 @@ function run(binary, args, { binaryOutput = false } = {}) {
     encoding: binaryOutput ? null : 'utf8',
     maxBuffer: 256 * 1024 * 1024,
   });
-  if (result.error) throw result.error;
+  if (result.error && result.status === null) throw result.error;
   if (result.status !== 0) {
     const stderr = Buffer.isBuffer(result.stderr)
       ? result.stderr.toString('utf8')
@@ -142,7 +142,7 @@ function assertInputs(options) {
   }
 }
 
-function renderPng(sourcePath, outputPath, target) {
+export function renderPng(sourcePath, outputPath, target) {
   run('ffmpeg', [
     '-hide_banner', '-loglevel', 'error', '-y',
     '-i', sourcePath,
@@ -152,7 +152,7 @@ function renderPng(sourcePath, outputPath, target) {
   ]);
 }
 
-function palettizeOpaque(path, width, height, tempDir) {
+export function palettizeOpaque(path, width, height, tempDir) {
   const palettePath = join(tempDir, 'palette.rgba');
   const palette = run('ffmpeg', [
     '-hide_banner', '-loglevel', 'error', '-i', path,
@@ -279,9 +279,12 @@ function main() {
   }
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(`ERROR: ${error.message}`);
-  process.exitCode = 1;
+const IS_MAIN = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (IS_MAIN) {
+  try {
+    main();
+  } catch (error) {
+    console.error(`ERROR: ${error.message}`);
+    process.exitCode = 1;
+  }
 }

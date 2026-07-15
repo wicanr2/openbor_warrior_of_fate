@@ -7,8 +7,9 @@
 1. 從 README 的角色分鏡總覽確認整體動作與原檔名。
 2. 在 [`CHARACTER_SPRITE_INVENTORY.md`](../research/CHARACTER_SPRITE_INVENTORY.md) 找到角色的 P0／P1／P2 範圍。
 3. 無敵鐵金剛先讀 [`MAZINGER_P0_FRAME_MAP.md`](../research/MAZINGER_P0_FRAME_MAP.md)：內含 42 個 case-sensitive 引用、canvas、Offset 與缺幀。
-4. 向整合負責人取得私有的原 canvas 模板與目前 production overlay；不要從公開 GitHub 尋找單張原作 GIF。
-5. 在工作看板登記負責人與狀態，避免兩人同時重畫同一批檔案。
+4. 關羽先讀 [`GUANYU_VERTICAL_SLICE.md`](GUANYU_VERTICAL_SLICE.md)：65 主 GIF 只是 16 key pose 的 engineering coverage；逐格補間、`g1`–`g16`、gore 與死亡音效仍未完成。
+5. 向整合負責人取得私有的原 canvas 模板與目前 production overlay；不要從公開 GitHub 尋找單張原作 GIF。
+6. 在工作看板登記負責人與狀態，避免兩人同時重畫同一批檔案。
 
 ## 每張圖的交付欄位
 
@@ -64,6 +65,8 @@
 
 若團隊需要用 Git 管理 production art，請另建 private repository 或 private Git LFS storage；不要解除本公開 repo 的 `.gitignore`。
 
+公開 repo 中的 Stage01 engineering composite 與角色 storyboard，統一定義為依 repo policy 保留的 **overview-only review image**。它們只供 coverage、構圖與交接審查，不是 runtime capture 或可拆用的 production sprite sheet；不得因檔案可公開瀏覽，就宣稱它已通過法律／散布權利審核或稱為 `legal-safe`／`public-safe`。
+
 ## Review 順序
 
 1. 靜態：exact-case 路徑、canvas、indexed palette、index 0。
@@ -86,6 +89,21 @@
 | MZ-P0-E | pain／fall／rise／death 系列 | 完整受傷與倒地循環 |
 
 MZ-P0-A 通過引擎驗收後，才讓其他藝術家依同一高度、輪廓線與 master palette 大量展開。
+
+### 關羽 P0 清稿批次
+
+目前 Guanyu private overlay 實測為 65 主 GIF＋2 profiles＋33 shared FX＋2 TXT，合併整包 284 files；strict 六份 TXT 全 PASS，Docker 到 `Loading models... Done!`。這只證明 engineering closure 可載入。藝術家應按下列批次取代 pose reuse：
+
+| Batch | 範圍 | 交付重點 |
+| --- | --- | --- |
+| GY-P0-A | idle、walk1–8 | 固定站高、腳底、胸核、角形與八格 walk 補間 |
+| GY-P0-B | `a1.GIF`–`a9.GIF`、block | 長柄月牙武器長度、刀尖、anticipation／contact／recovery 與 attack box |
+| GY-P0-C | jump、jumpattack、rise | 空中 root、著地與 Offset，不得沿用單張 pose 當完成動畫 |
+| GY-P0-D | pain、fall、death | 機械受擊／倒地語彙；同步規劃 gore remap 與 `playerdie.wav` |
+| GY-P0-E | spec／super／grab | 補齊逐格特效與接觸姿勢；保留既有 timing 契約 |
+| GY-VARIANTS | `g1`–`g16` | 騎乘、拾取武器、水中、子模型與投射物 closure；主模型清稿後才開始 |
+
+`GY-P0-A`–`E`、gore／audio QA 與 `GY-VARIANTS` 未全部驗收前，不得把關羽標成完整玩家角色。
 
 ### Enemy／stage 同步批次
 

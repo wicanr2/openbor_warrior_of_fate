@@ -16,6 +16,7 @@
 | [Mazinger 私有資產對位產線](docs/PRIVATE_ASSET_PIPELINE.md) | 從本機 key pose 建立 basic 或 41-file full-P0 engineering prototype，強制 canvas、Offset 與 palette index 0。 |
 | [機器人大戰素材替換總計畫](docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md) | 五角色、場景、UI、里程碑、人力與驗收閘門；說明如何從 moodboard 走到可玩的視覺替換。 |
 | [無敵鐵金剛 vertical slice](docs/MAZINGER_VERTICAL_SLICE.md) | 張飛 slot 的第一組實作入口：12 張 key pose、overlay 流程與透明色驗收。 |
+| [關羽紅色月牙戰士 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md) | 關羽 slot 的 65 主 GIF、2 profiles、33 shared FX、284-file overlay、strict／Docker 實測與 deferred closure。 |
 | [無敵鐵金剛 P0 對照](research/MAZINGER_P0_FRAME_MAP.md) | 42 個 case-sensitive P0 引用、41 個實體 GIF、canvas／Offset、12 格映射與缺幀表。 |
 | [Stage01 替換 manifest](research/STAGE01_REPLACEMENT_MANIFEST.md) | 第一關背景、前景、幾何、敵人、物件與 FX 的 P0／P1／P2 清單。 |
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
@@ -35,7 +36,7 @@
 | [Overlay parity validator](scripts/validate-overlay-parity.mjs) | 逐檔檢查 exact-case base counterpart、相同 canvas、indexed GIF 與 index 0 `#FC00FF`。 |
 | [Docker Linux builder](scripts/build-openbor-linux-docker.sh) | 唯讀掛載 OpenBOR source，將相依套件與 Linux x86-64 編譯封裝在 Docker。 |
 | [Docker headless smoke](scripts/run-openbor-smoke-docker.sh) | 以同一 image 載入私有 raw-data stage，並依 OpenBOR Log 判斷模型載入是否完成。 |
-| [Stage01 成果展示圖產生器](scripts/build-stage01-engineering-preview.mjs) | 將已完成的原創背景、無敵鐵金剛、藍盔兵、補給箱、李典與 HUD 合成一張 public-safe 480×276 展示圖。 |
+| [Stage01 成果展示圖產生器](scripts/build-stage01-engineering-preview.mjs) | 將目前工程輸出合成一張 480×276 overview-only review image；依 repo policy 保留，但不代表 legal／public-safe。 |
 
 ## 專案範圍
 
@@ -53,7 +54,7 @@
 
 ## 目前完成成果展示
 
-下圖直接使用目前 private engineering overlay 的實際輸出合成：Stage01 森林機械前哨、張飛 slot／無敵鐵金剛、兩名藍盔巡邏機、機械補給箱、李典紅槍指揮機與張飛 HUD。它是由 repository 腳本重建的 480×276 **engineering composite**，用來讓 GitHub 訪客立即看到目前視覺成果；不是 OpenBOR runtime capture，也不代表逐格 production 美術已完成。
+下圖直接使用目前 private engineering overlay 的實際輸出合成：Stage01 森林機械前哨、張飛 slot／無敵鐵金剛、兩名藍盔巡邏機、機械補給箱、李典紅槍指揮機與張飛 HUD。它是由 repository 腳本重建、依 repo policy 保留的 480×276 **overview-only review image／engineering composite**，用來檢查整體方向；不是 OpenBOR runtime capture，不代表逐格 production 美術已完成，也不得宣稱已通過法律或公開散布權利審核（`legal-safe`／`public-safe`）。
 
 ![Stage01 機器人大戰 engineering composite：無敵鐵金剛、藍盔巡邏機、李典與機械前哨](research/previews/stage01-engineering-composite.png)
 
@@ -98,6 +99,16 @@ node scripts/build-stage01-engineering-preview.mjs \
 目前 private engineering overlay 已覆蓋 41/41 physical GIF、42/42 logical refs、34/34 P0 animations，並在 Docker OpenBOR v7533 載入到 `Loading models... Done!`。這批仍由 12 個姿勢重用而來，20 張有 canvas clamp，只能當可啟動的對位骨架，不能標為 production-ready。
 
 ![無敵鐵金剛 12 格 key pose 總覽](research/mazinger/mazinger-keyposes-contact-sheet.png)
+
+## 關羽紅色月牙戰士 P0 vertical slice
+
+這張 16 格關羽 slot 總覽已重鍵為精確 `#FC00FF`。完整 overview 保留原構圖；private key-pose pipeline 另採 independent safe crops，避免 08、10、11、12、15 跨名義 4×4 格線時切到長柄武器或相鄰姿勢。依 repo policy，它只是一張 **overview-only review image**，不是可拆用的 production sprite sheet，也不能宣稱 `legal-safe`／`public-safe`。
+
+private engineering overlay 實測為 65 張關羽主 GIF、2 張 HUD profiles、33 張 shared FX palette normalization，以及 `guanyu.txt`／`models.txt`，合併整包共 284 files；六份指定 TXT strict 全 PASS，Docker OpenBOR v7533 到 `Loading models... Done!`。bounded smoke 的 exit 124 是到達 gate 後 timeout 的預期結果；TERM 後 double-free 是既知 teardown。
+
+這批仍把 16 個 key pose 重用到 65 張主模型 GIF；`g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間都明確 deferred，所以不能稱為完整玩家角色。完整範圍與驗證方式見[關羽紅色月牙戰士 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md)。
+
+![關羽紅色月牙戰士 16 格 overview-only review image](research/guanyu/guanyu-red-crescent-warrior-storyboard-v1-keyed.png)
 
 ## 選角與 UI 頭像總覽
 

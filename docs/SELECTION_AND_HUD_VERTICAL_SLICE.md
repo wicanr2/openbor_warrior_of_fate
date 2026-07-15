@@ -1,6 +1,6 @@
 # 五人選角與無敵鐵金剛 HUD vertical slice
 
-這批資產完成 M1 coverage 最後四個缺口：一張 480×276 五人選角合成圖，以及張飛 slot／無敵鐵金剛的 35×54 model icon、HUD profile、mirror profile。
+第一批資產完成 M1 coverage 最後四個缺口：一張 480×276 五人選角合成圖，以及張飛 slot／無敵鐵金剛的 35×54 model icon、HUD profile、mirror profile。關羽 P0 隨後也從同一私有選角 master 產生 `icon.GIF`、`guanyu.GIF` 與 `guanyu_m.GIF`，並納入 284-file private engineering overlay。
 
 ![五人機器人選角總覽](../research/ui/five-robot-selection-screen-v1-overview.png)
 
@@ -24,6 +24,9 @@
 | `data/chars/zhangfei/icon.GIF` | 35×54 | 第二欄上方無敵鐵金剛肖像 crop | 張飛模型 icon |
 | `data/profiles/zhangfei.GIF` | 35×54 | 同一 master portrait | `lifeBar.c` HUD profile |
 | `data/profiles/zhangfei_m.GIF` | 35×54 | master portrait 水平鏡像 | HUD 後備／另一方向 profile |
+| `data/chars/guanyu/icon.GIF` | 35×54 | 第一欄紅色月牙戰士肖像 crop | 關羽模型 icon；由 Guanyu P0 builder 建立 |
+| `data/profiles/guanyu.GIF` | 35×54 | 同一 Guanyu master portrait | 關羽 HUD profile |
+| `data/profiles/guanyu_m.GIF` | 35×54 | Guanyu master portrait 水平鏡像 | 關羽 HUD 後備／另一方向 profile |
 
 Builder 另產生 `data/chars/zhangfei/zhangfei.txt` overlay，把模型 icon 引用正規化為實體 physical case `icon.GIF`。其他 37 組張飛大小寫債務目前只在 disposable staging 建 alias；production model cleanup 尚未完成。
 
@@ -55,13 +58,14 @@ node scripts/build-five-robot-selection-p0-prototype.mjs \
 | Gate | Result |
 | --- | --- |
 | Vertical-slice coverage | 89/89；所有 M1 預定 replacement 類別完成 engineering coverage |
-| Overlay parity | 加入李典 Boss 後目前 182 files：163 GIF＋19 TXT；exact-case counterpart、canvas、indexed GIF、index0 全 PASS |
+| Overlay parity | 合併關羽 P0 後目前 284 files；關羽增量為 65 主 GIF＋2 profiles＋33 shared FX＋2 TXT；exact-case、canvas、indexed GIF、index0 `#FC00FF` 全 PASS |
 | Zhangfei model strict | 447 次引用、86 個唯一圖像路徑全部解析（disposable staging case aliases） |
 | Stage01 level strict | 4 個唯一背景／FX 路徑 PASS |
 | `baoxiang` strict | 3 個唯一圖像路徑 PASS |
 | Docker OpenBOR | v7533 到 `Loading models... Done!`；bounded timeout exit 124 |
+| Combined TXT strict | 本輪指定的六份 TXT 全 PASS |
 
-89/89 表示「M1 預定檔案都已替換且不是 base copy」，不代表完成全遊戲，也不代表美術 production-ready。Docker model-load 也沒有自動操作選角 cursor 或進入 Stage01。
+89/89 表示「M1 預定檔案都已替換且不是 base copy」，不代表完成全遊戲，也不代表美術 production-ready。Docker model-load 也沒有自動操作選角 cursor 或進入 Stage01。exit 124 是到達載入閘門後由 bounded timeout 結束的預期結果；TERM 後可能出現的 double-free 是既知 v7533 teardown，不能誤寫成完整 gameplay PASS。
 
 ## 可視 gameplay 尚待驗收
 
@@ -75,6 +79,7 @@ node scripts/build-five-robot-selection-p0-prototype.mjs \
 ## Production 缺口
 
 - 五欄圖仍是生成式 engineering redraw；需由 UI／pixel artist 清理角、斧、盾、手指、腳底與欄寬。
-- M1 只要求張飛 HUD 三張；其餘四名角色各自的 model icon＋兩張 profile 仍屬 M2，不能把選角合成圖當成十幾張 UI 小圖已完成。
+- 張飛與關羽目前各有 model icon＋兩張 profile；趙雲、黃忠、魏延仍屬後續工作，不能把選角合成圖當成其餘 UI 小圖已完成。
 - 現有選角圖沒有文字；角色名稱與提示若由其他 UI 圖或字型顯示，需另做跨語系與 2P layout review。
-- 公開總覽只能作美術協作參考；發行時要重新確認所有角色造型與名稱的權利範圍。
+- 公開總覽依 repo policy 只作 **overview-only review image**；不是可拆用 production 圖，也不能宣稱 `legal-safe`／`public-safe`。發行時仍要重新確認所有角色造型與名稱的權利範圍。
+- 關羽 35×54 UI 已進 engineering overlay，不等於關羽角色完成：`g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間都 deferred；詳見 [`GUANYU_VERTICAL_SLICE.md`](GUANYU_VERTICAL_SLICE.md)。

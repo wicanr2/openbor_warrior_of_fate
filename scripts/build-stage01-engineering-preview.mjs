@@ -9,7 +9,7 @@ const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
 
 function usage() {
-  return `Build a public-safe 480x276 Stage01 engineering composite.
+  return `Build an overview-only 480x276 Stage01 engineering composite.
 
 Usage:
   node scripts/build-stage01-engineering-preview.mjs [options]

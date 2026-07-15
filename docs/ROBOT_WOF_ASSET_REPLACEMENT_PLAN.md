@@ -91,13 +91,16 @@
 - 一種機械近戰雜兵、一個補給箱、一個爆炸 FX。
 - Linux／Windows／macOS smoke test。
 
-進度：Mazinger P0、五人選角合成圖、張飛 HUD／profile、藍盔 `bing`／`bingxs`、Stage01 三張長圖、掃描光、機械補給箱，以及 `lidian` 紅槍 Boss 69 GIF＋6 TXT 已達 private engineering coverage，並通過 Linux Docker model-load gate；M1 coverage 維持 89/89，整包 overlay 為 182 files。這仍是生成式對位骨架，逐 viewport／選角／實戰 review 與逐格 production 清稿尚未完成，因此不能標記 production-ready。
+進度：Mazinger P0、五人選角合成圖、張飛 HUD／profile、藍盔 `bing`／`bingxs`、Stage01 三張長圖、掃描光、機械補給箱，以及 `lidian` 紅槍 Boss 69 GIF＋6 TXT 已達 private engineering coverage，並通過 Linux Docker model-load gate；M1 coverage 維持 89/89。
+
+關羽 P0 另完成 65 張主模型 GIF、2 張 profiles、33 張 shared FX palette normalization 與 `guanyu.txt`／`models.txt`，合併後 private overlay 實測為 284 files；六份指定 TXT strict 全 PASS，Docker v7533 到 `Loading models... Done!`。bounded smoke exit 124 是 timeout 預期值，TERM 後 double-free 是既知 teardown。這批仍由 16 個 key pose 重用，且 `g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間 deferred，因此只能標為 P0 engineering coverage，不能標記完整玩家角色或 production-ready。詳見 [`GUANYU_VERTICAL_SLICE.md`](GUANYU_VERTICAL_SLICE.md)。
 
 驗收通過後鎖定角色高度、輪廓線、金屬色階、光源、palette 與 AI／人工修圖比例。
 
 ### M2 — 五角色 P0
 
-- 完成剩餘四名角色，P0 總量 229 張。
+- 關羽已完成可載入的 P0 engineering overlay；仍須逐格補間、gore／audio QA 與 `g1`–`g16` closure，不能從「剩餘角色」中完全劃除。
+- 完成趙雲、黃忠、魏延三名角色的 P0，並把關羽、張飛 engineering skeleton 清成 production animation；五人 P0 目標量仍為 229 張。
 - RX-78 同步處理黃忠的 8 個投射物模型／22 張有效 projectile FX。
 - 補齊五組 icon/profile 與 2P alternate palette。
 
@@ -150,6 +153,10 @@
 - 場景：角色不站進牆／水／洞，前景不長時間遮住玩家。
 - 模式：2P palette、三難度重用、Boss arena、拾武器／騎乘／水中按 scope 測試。
 - 平台：Linux、Windows、macOS unpacked tree 與 PAK 都 smoke test。
+
+## 公開總覽政策
+
+Stage01 engineering composite、角色 storyboard 與其他總覽圖，只能定義為依 repo policy 保留的 **overview-only review image**。它們用來討論構圖、coverage 與交接，不是 runtime capture 或可拆用的 production sprite sheet；保留在 repo 也不能宣稱已完成權利清查、`legal-safe` 或 `public-safe`。
 
 ## 重大決策（開始量產前必答）
 
