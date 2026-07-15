@@ -30,6 +30,8 @@ private notes 可保留團隊提出的第三方例子來討論尺寸與節奏，
 
 上述數字是去重後的 physical GIF 工作量，不是 model TXT 的 Frame 行數。`lidian` 的人體血液／器官依賴已只在私有 overlay 內改成 `Flashb`、`Dust` 與 Lidian-local 機械碎片；`xiahorse`、`xuchu` 仍待同樣處理。不能覆寫仍被其他人物使用的 shared gore。
 
+`lidian` 必須區分兩個數字：現有 runtime semantic closure 是 **175 unique physical GIF**，而藝術家需要直接重畫的 boss-specific 包可藉由 local 機械死亡 remap 收斂為 **69 GIF**（52 body／Boss show＋9 分離碎片＋8 投擲物／能量膠囊）。69 不是把 175 的 runtime 驗證責任刪掉；strict 與 Docker 仍要載入完整 child／shared closure，才能確定沒有缺圖或閃回舊素材。
+
 ## 原創 Boss roster 與巨大戰 reserve
 
 | Engine slot／branch | 原創暫名 | 類型 | 必須保留的 gameplay silhouette |

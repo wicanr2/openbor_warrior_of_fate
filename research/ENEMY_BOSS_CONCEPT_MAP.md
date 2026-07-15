@@ -23,6 +23,8 @@
 
 檔名縮寫只用來讓持有私有素材的團隊成員定位來源；不代表檔案會上傳 GitHub。
 
+`robot_wof_enemy/` 目前只有這一張 1096×1435 拼貼海報，內含第三方人物、機體、遊戲 UI 與戰鬥截圖，因此不是 clean sprite source，整張與任何 crop 都不進公開 repo。遊戲中的 `bing` 只需要 24×36 model icon；若未來讓一般兵進入劇情對話，另做原創 64×94 P-mode 通訊頭像並修改 dialogue mapping，不能把海報大頭像縮放套用。
+
 ## 一般敵軍 family
 
 先建立一個共同陣營語彙，再從同一骨架做武器與裝甲變體。一般巡邏兵的 HUD／通訊頭像採「藍色頭盔、遮面面罩、冷色鏡片」的原創 Shimada-grunt archetype。

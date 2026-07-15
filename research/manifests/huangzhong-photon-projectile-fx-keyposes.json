@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "status": "concept-keyposes-not-production-ready",
+  "source": "local-only/huangzhong-photon-projectile-fx-storyboard-v1.png",
+  "sourceSha256": "3d99f3d4c959aefc7172e9fc8901fd50b729d0e6d15c3ff576881c1b607ebd17",
+  "sourceCanvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "chromaKey": {
+    "r": 252,
+    "g": 0,
+    "b": 255,
+    "hex": "#FC00FF",
+    "requiredPaletteIndex": 0
+  },
+  "normalization": {
+    "colorSpace": "HSV",
+    "hueDegrees": [
+      285,
+      335
+    ],
+    "minimumSaturation": 0.35,
+    "minimumValue": 0.35
+  },
+  "warning": "All 16 audited cells are independent and clear of nominal grid lines. Cells 15 and 16 are overview inventories; split their individual parts and define per-object pivots before production use.",
+  "frames": [
+    {
+      "index": 1,
+      "role": "small-beam-orb",
+      "sourceCrop": {
+        "role": "small-beam-orb",
+        "x": 111,
+        "y": 165,
+        "width": 90,
+        "height": 52
+      },
+      "semanticPivot": {
+        "x": 45,
+        "y": 26
+      },
+      "output": "local-only/frame-01.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 66,
+        "height": 28
+      },
+      "chromaPixels": 3488,
+      "totalPixels": 4680
+    },
+    {
+      "index": 2,
+      "role": "charged-beam-orb",
+      "sourceCrop": {
+        "role": "charged-beam-orb",
+        "x": 369,
+        "y": 156,
+        "width": 162,
+        "height": 80
+      },
+      "semanticPivot": {
+        "x": 83,
+        "y": 40
+      },
+      "output": "local-only/frame-02.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 138,
+        "height": 56
+      },
+      "chromaPixels": 7584,
+      "totalPixels": 12960
+    },
+    {
+      "index": 3,
+      "role": "horizontal-beam-streak",
+      "sourceCrop": {
+        "role": "horizontal-beam-streak",
+        "x": 658,
+        "y": 175,
+        "width": 258,
+        "height": 58
+      },
+      "semanticPivot": {
+        "x": 223,
+        "y": 29
+      },
+      "output": "local-only/frame-03.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 234,
+        "height": 34
+      },
+      "chromaPixels": 10927,
+      "totalPixels": 14964
+    },
+    {
+      "index": 4,
+      "role": "descending-comet",
+      "sourceCrop": {
+        "role": "descending-comet",
+        "x": 1016,
+        "y": 93,
+        "width": 133,
+        "height": 181
+      },
+      "semanticPivot": {
+        "x": 101,
+        "y": 139
+      },
+      "output": "local-only/frame-04.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 109,
+        "height": 157
+      },
+      "chromaPixels": 18798,
+      "totalPixels": 24073
+    },
+    {
+      "index": 5,
+      "role": "missile",
+      "sourceCrop": {
+        "role": "missile",
+        "x": 85,
+        "y": 437,
+        "width": 124,
+        "height": 80
+      },
+      "semanticPivot": {
+        "x": 63,
+        "y": 40
+      },
+      "output": "local-only/frame-05.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 100,
+        "height": 56
+      },
+      "chromaPixels": 6557,
+      "totalPixels": 9920
+    },
+    {
+      "index": 6,
+      "role": "missile-with-exhaust",
+      "sourceCrop": {
+        "role": "missile-with-exhaust",
+        "x": 347,
+        "y": 442,
+        "width": 209,
+        "height": 75
+      },
+      "semanticPivot": {
+        "x": 146,
+        "y": 37
+      },
+      "output": "local-only/frame-06.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 185,
+        "height": 51
+      },
+      "chromaPixels": 10743,
+      "totalPixels": 15675
+    },
+    {
+      "index": 7,
+      "role": "energy-burst",
+      "sourceCrop": {
+        "role": "energy-burst",
+        "x": 699,
+        "y": 387,
+        "width": 158,
+        "height": 170
+      },
+      "semanticPivot": {
+        "x": 78,
+        "y": 87
+      },
+      "output": "local-only/frame-07.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 134,
+        "height": 146
+      },
+      "chromaPixels": 20076,
+      "totalPixels": 26860
+    },
+    {
+      "index": 8,
+      "role": "smoke-debris-burst",
+      "sourceCrop": {
+        "role": "smoke-debris-burst",
+        "x": 998,
+        "y": 391,
+        "width": 163,
+        "height": 161
+      },
+      "semanticPivot": {
+        "x": 86,
+        "y": 83
+      },
+      "output": "local-only/frame-08.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 139,
+        "height": 137
+      },
+      "chromaPixels": 19820,
+      "totalPixels": 26243
+    },
+    {
+      "index": 9,
+      "role": "small-ground-impact",
+      "sourceCrop": {
+        "role": "small-ground-impact",
+        "x": 63,
+        "y": 741,
+        "width": 167,
+        "height": 105
+      },
+      "semanticPivot": {
+        "x": 83,
+        "y": 84
+      },
+      "output": "local-only/frame-09.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 143,
+        "height": 81
+      },
+      "chromaPixels": 14381,
+      "totalPixels": 17535
+    },
+    {
+      "index": 10,
+      "role": "medium-ground-impact",
+      "sourceCrop": {
+        "role": "medium-ground-impact",
+        "x": 340,
+        "y": 674,
+        "width": 214,
+        "height": 184
+      },
+      "semanticPivot": {
+        "x": 113,
+        "y": 159
+      },
+      "output": "local-only/frame-10.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 190,
+        "height": 160
+      },
+      "chromaPixels": 30718,
+      "totalPixels": 39376
+    },
+    {
+      "index": 11,
+      "role": "large-ground-impact",
+      "sourceCrop": {
+        "role": "large-ground-impact",
+        "x": 630,
+        "y": 620,
+        "width": 286,
+        "height": 240
+      },
+      "semanticPivot": {
+        "x": 143,
+        "y": 215
+      },
+      "output": "local-only/frame-11.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 262,
+        "height": 216
+      },
+      "chromaPixels": 47341,
+      "totalPixels": 68640
+    },
+    {
+      "index": 12,
+      "role": "shield-debris-arc",
+      "sourceCrop": {
+        "role": "shield-debris-arc",
+        "x": 973,
+        "y": 696,
+        "width": 206,
+        "height": 160
+      },
+      "semanticPivot": {
+        "x": 107,
+        "y": 136
+      },
+      "output": "local-only/frame-12.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 182,
+        "height": 136
+      },
+      "chromaPixels": 28624,
+      "totalPixels": 32960
+    },
+    {
+      "index": 13,
+      "role": "shield-beam-impact",
+      "sourceCrop": {
+        "role": "shield-beam-impact",
+        "x": 57,
+        "y": 947,
+        "width": 201,
+        "height": 208
+      },
+      "semanticPivot": {
+        "x": 107,
+        "y": 113
+      },
+      "output": "local-only/frame-13.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 177,
+        "height": 184
+      },
+      "chromaPixels": 32717,
+      "totalPixels": 41808
+    },
+    {
+      "index": 14,
+      "role": "rifle-muzzle-blast",
+      "sourceCrop": {
+        "role": "rifle-muzzle-blast",
+        "x": 339,
+        "y": 972,
+        "width": 232,
+        "height": 186
+      },
+      "semanticPivot": {
+        "x": 50,
+        "y": 101
+      },
+      "output": "local-only/frame-14.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 208,
+        "height": 162
+      },
+      "chromaPixels": 31476,
+      "totalPixels": 43152
+    },
+    {
+      "index": 15,
+      "role": "burning-mechanical-parts-inventory",
+      "sourceCrop": {
+        "role": "burning-mechanical-parts-inventory",
+        "x": 646,
+        "y": 956,
+        "width": 234,
+        "height": 202
+      },
+      "semanticPivot": {
+        "x": 117,
+        "y": 101
+      },
+      "output": "local-only/frame-15.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 210,
+        "height": 178
+      },
+      "chromaPixels": 30387,
+      "totalPixels": 47268
+    },
+    {
+      "index": 16,
+      "role": "projectile-impact-inventory",
+      "sourceCrop": {
+        "role": "projectile-impact-inventory",
+        "x": 943,
+        "y": 981,
+        "width": 242,
+        "height": 177
+      },
+      "semanticPivot": {
+        "x": 121,
+        "y": 88
+      },
+      "output": "local-only/frame-16.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 218,
+        "height": 153
+      },
+      "chromaPixels": 33653,
+      "totalPixels": 42834
+    }
+  ]
+}
