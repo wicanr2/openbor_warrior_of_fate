@@ -21,6 +21,7 @@ import {
   probeImage,
   verifyGif,
 } from './build-mazinger-p0-prototype.mjs';
+import { assertExistingPaths, repoRelativeDisplay } from './path-guards.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
@@ -105,6 +106,26 @@ function parseArgs(argv) {
     options[key] = resolve(value);
     index += 1;
   }
+  assertExistingPaths([
+    {
+      path: options.source,
+      pathLabel: 'Stage01 panorama source',
+      display: repoRelativeDisplay(REPO_ROOT, options.source),
+      hint: 'This repository does not ship the private source assets; pass --source to an external checkout.',
+    },
+    {
+      path: options.baseDir,
+      pathLabel: 'Stage01 base directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.baseDir),
+      hint: 'Pass --base-dir to the extracted Stage01 data tree.',
+    },
+    {
+      path: options.dataDir,
+      pathLabel: 'Stage01 data tree',
+      display: repoRelativeDisplay(REPO_ROOT, options.dataDir),
+      hint: 'Pass --data-dir to the extracted Stage01 data tree.',
+    },
+  ]);
   return options;
 }
 

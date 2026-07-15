@@ -26,6 +26,7 @@ import {
   verifyGif,
 } from './build-mazinger-p0-prototype.mjs';
 import { palettizeOpaque, renderPng } from './build-five-robot-selection-p0-prototype.mjs';
+import { assertExistingPaths, repoRelativeDisplay } from './path-guards.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
@@ -94,6 +95,38 @@ function parseArgs(argv) {
   if (options.outputDir === extractedRoot || options.outputDir.startsWith(`${extractedRoot}/`)) {
     throw new Error('Refusing to write inside workplace/extracted');
   }
+  assertExistingPaths([
+    {
+      path: options.sourceDir,
+      pathLabel: 'Wei Yan source directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.sourceDir),
+      hint: 'This repository does not ship the private source assets; pass --source-dir to an external checkout.',
+    },
+    {
+      path: options.keyposeManifest,
+      pathLabel: 'Wei Yan keypose manifest',
+      display: repoRelativeDisplay(REPO_ROOT, options.keyposeManifest),
+      hint: 'Pass --keypose-manifest to a validated manifest file.',
+    },
+    {
+      path: options.baseData,
+      pathLabel: 'base data tree',
+      display: repoRelativeDisplay(REPO_ROOT, options.baseData),
+      hint: 'Pass --base-data to a staged extracted tree.',
+    },
+    {
+      path: options.templateData,
+      pathLabel: 'template data tree',
+      display: repoRelativeDisplay(REPO_ROOT, options.templateData),
+      hint: 'Pass --template-data to a validated overlay tree.',
+    },
+    {
+      path: options.selectionGif,
+      pathLabel: 'selection GIF',
+      display: repoRelativeDisplay(REPO_ROOT, options.selectionGif),
+      hint: 'Pass --selection-gif to the six-column select runtime GIF.',
+    },
+  ]);
   return options;
 }
 

@@ -24,6 +24,7 @@ import {
   verifyGif,
 } from './build-mazinger-p0-prototype.mjs';
 import { palettizeOpaque, renderPng } from './build-five-robot-selection-p0-prototype.mjs';
+import { assertExistingPaths, repoRelativeDisplay } from './path-guards.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
@@ -253,6 +254,26 @@ function parseArgs(argv) {
   if (options.outputDir === extractedRoot || options.outputDir.startsWith(`${extractedRoot}/`)) {
     throw new Error('Refusing to write inside workplace/extracted');
   }
+  assertExistingPaths([
+    {
+      path: options.sourceDir,
+      pathLabel: 'Guanyu source directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.sourceDir),
+      hint: 'This repository does not ship the private source assets; pass --source-dir to an external checkout.',
+    },
+    {
+      path: options.selectionSource,
+      pathLabel: 'selection source',
+      display: repoRelativeDisplay(REPO_ROOT, options.selectionSource),
+      hint: 'Pass --selection-source to a generated or checked-out select artwork.',
+    },
+    {
+      path: options.dataDir,
+      pathLabel: 'extracted data tree',
+      display: repoRelativeDisplay(REPO_ROOT, options.dataDir),
+      hint: 'Pass --data-dir to a staged extracted tree.',
+    },
+  ]);
   return options;
 }
 

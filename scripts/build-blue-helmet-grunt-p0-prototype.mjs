@@ -23,6 +23,7 @@ import {
   probeImage,
   verifyGif,
 } from './build-mazinger-p0-prototype.mjs';
+import { assertExistingPaths, repoRelativeDisplay } from './path-guards.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
@@ -126,6 +127,20 @@ function parseArgs(argv) {
   if (options.outputDir === options.extractedDir || options.outputDir.startsWith(`${options.extractedDir}/`)) {
     throw new Error('Refusing to write inside extracted input');
   }
+  assertExistingPaths([
+    {
+      path: options.sourceDir,
+      pathLabel: 'blue-helmet source directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.sourceDir),
+      hint: 'This repository does not ship the private source assets; pass --source-dir to an external checkout.',
+    },
+    {
+      path: options.extractedDir,
+      pathLabel: 'blue-helmet extracted directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.extractedDir),
+      hint: 'Pass --extracted-dir to the staged extracted tree that contains data/chars/army/1.',
+    },
+  ]);
   return options;
 }
 

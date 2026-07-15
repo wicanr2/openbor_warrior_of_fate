@@ -20,6 +20,7 @@ import {
   probeImage,
   verifyGif,
 } from './build-mazinger-p0-prototype.mjs';
+import { assertExistingPaths, repoRelativeDisplay } from './path-guards.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
@@ -100,6 +101,20 @@ function displayPath(path) {
 }
 
 function assertInputs(options) {
+  assertExistingPaths([
+    {
+      path: options.sourceDir,
+      pathLabel: 'baoxiang source directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.sourceDir),
+      hint: 'This repository does not ship the private source assets; pass --source-dir to an external checkout.',
+    },
+    {
+      path: options.baseDir,
+      pathLabel: 'baoxiang base directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.baseDir),
+      hint: 'Pass --base-dir to the staged extracted tree that contains data/chars/misc/box/1.',
+    },
+  ]);
   for (const target of TARGETS) {
     const sourcePath = join(options.sourceDir, target.source);
     const basePath = join(options.baseDir, target.output);
