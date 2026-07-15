@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "status": "mixed-engineering-and-pending-portrait-work",
+  "selectionSheet": {
+    "path": "data/bgs/select.gif",
+    "canvas": [480, 276],
+    "state": "engineering-prototype"
+  },
+  "currentSelectionCoverage": {
+    "columns": 5,
+    "slots": ["guanyu", "zhangfei", "zhaoyun", "huangzhong", "weiyan"],
+    "status": "five-player-complete"
+  },
+  "portraitPackages": [
+    {
+      "slot": "guanyu",
+      "paths": [
+        "data/chars/guanyu/icon.gif",
+        "data/profiles/guanyu.GIF",
+        "data/profiles/guanyu_m.GIF"
+      ],
+      "status": "engineering-complete"
+    },
+    {
+      "slot": "zhangfei",
+      "paths": [
+        "data/chars/zhangfei/icon.GIF",
+        "data/profiles/zhangfei.GIF",
+        "data/profiles/zhangfei_m.GIF"
+      ],
+      "status": "engineering-complete"
+    },
+    {
+      "slot": "zhaoyun",
+      "paths": [
+        "data/chars/zhaoyun/icon.GIF",
+        "data/profiles/zhaoyun.GIF",
+        "data/profiles/zhaoyun_m.GIF"
+      ],
+      "status": "engineering-complete"
+    },
+    {
+      "slot": "huangzhong",
+      "paths": [
+        "data/chars/huangzhong/icon.GIF",
+        "data/profiles/huangzhong.GIF",
+        "data/profiles/huangzhong_m.GIF"
+      ],
+      "status": "engineering-complete"
+    },
+    {
+      "slot": "weiyan",
+      "paths": [
+        "data/chars/weiyan/icon.gif",
+        "data/profiles/weiyan.GIF",
+        "data/profiles/weiyan_m.GIF"
+      ],
+      "status": "engineering-complete"
+    },
+    {
+      "slot": "nu_gundam",
+      "paths": [
+        "data/chars/nu_gundam/icon.GIF",
+        "data/profiles/nu_gundam.gif",
+        "data/profiles/nu_gundam_m.gif"
+      ],
+      "status": "pilot-portrait-tbd"
+    },
+    {
+      "slot": "zeon_boss",
+      "paths": [
+        "data/story/pro/char_pilot.gif",
+        "data/story/diag/zeon_boss.txt",
+        "data/chars/boss/zeon_boss/boss_hud.gif"
+      ],
+      "status": "boss-cutin-separate-from-mecha"
+    }
+  ],
+  "decisionQueue": [
+    {
+      "name": "liubei",
+      "possibleRoles": ["story-only", "selectable", "boss-event"],
+      "status": "unassigned"
+    },
+    {
+      "name": "caocao",
+      "possibleRoles": ["story-only", "selectable", "boss-event"],
+      "status": "unassigned"
+    },
+    {
+      "name": "lubu",
+      "possibleRoles": ["story-only", "selectable", "boss-event"],
+      "status": "unassigned"
+    }
+  ],
+  "rules": {
+    "indexedGif": true,
+    "paletteIndex0": "#FC00FF",
+    "selectionSheetIsComposite": true,
+    "storyCutinsAreSeparateFromModelIcons": true
+  }
+}
