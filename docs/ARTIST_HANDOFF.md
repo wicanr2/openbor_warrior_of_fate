@@ -103,7 +103,7 @@ MZ-P0-A 通過引擎驗收後，才讓其他藝術家依同一高度、輪廓線
 | --- | --- | --- | --- |
 | P0 | 張飛／無敵鐵金剛 MZ-P0-A～E | engineering coverage 已有，production cleanup 未完 | 先把每個 reused pose 變成真正的獨立 production GIF，尤其是 jump / fall / spec 的缺幀 |
 | P0 | `bing` 藍盔巡邏兵 | 機械化雜兵方向已定，production sprite 未完 | 先做 `idle`、`walk`、`attack` 與 `bingxs` debris 的完整閉包，再補 alternate palette |
-| P1 | `lidian` 紅槍指揮機 | Boss engineering closure 已有 | 依 `LIDIAN_BOSS_VERTICAL_SLICE.md` 重畫出場、受傷、敗北與碎片，不要只改 icon |
+| P1 | `lidian` 紅槍指揮機 | Boss engineering closure 已有 | 依 `LIDIAN_BOSS_VERTICAL_SLICE.md` 重畫出場、受傷、敗北與碎片，不要只改 icon；公開 keyposes 與 overview 證據先看 `../research/LIDIAN_RUNTIME_AUDIT.md` |
 | P1 | `zeon_boss` 有腳吉翁克 + 夏亞 | concept 已確立，runtime 閉包未完 | Boss 與駕駛員 cut-in 分離處理，先把輪廓、腿部與戰前／戰敗圖畫清楚 |
 | P1 | 選角與頭像補洞 | `liu bei`、`cao cao`、`lu bu` 等仍未定稿 | 先決定是劇情圖、可選角色還是 Boss，再畫 icon／profiles／select 欄位 |
 | P2 | Stage 02 / Stage 03 場景 | 尚未進主線 production | 圖層、wall/hole、前景遮擋與 Boss arena 先分開工作，不要一次重畫整張 |

@@ -2,6 +2,8 @@
 
 這是第一個 Boss 級工程替換：把 Stage01 `lidian` slot 改成原創紅色長槍指揮機。公開 repository 只保存 16 格總覽、crop manifest、builder 與驗證方法；69 張可直接載入的 GIF、6 份私有 model TXT、來源 PNG 及 extracted data 都留在 `.gitignore` 排除的本機目錄。
 
+如果你只想先確認公開側的 machine-readable 證據是否一致，請先看 [`../research/LIDIAN_RUNTIME_AUDIT.md`](../research/LIDIAN_RUNTIME_AUDIT.md)。它只驗證公開 keyposes 與 overview 圖，不代表 production redraw 已完成。
+
 ![李典紅槍指揮機 16 格分鏡總覽](../research/boss/lidian-red-spear-commander-storyboard-v1-keyed.png)
 
 ![Stage01 已完成素材 engineering composite](../research/previews/stage01-engineering-composite.png)
