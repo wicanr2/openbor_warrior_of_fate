@@ -7,10 +7,10 @@ This index tracks the smoke gates that have been proven in the current repo stat
 | ν Gundam | [NU_GUNDAM_RUNNER_QA.md](NU_GUNDAM_RUNNER_QA.md) | Headless OpenBOR smoke reaches `Loading models... Done!` for the integrated ν tree; runtime validator also passes against canonical manifest anchors. | Visible runner QA, Stage 1 gameplay, Windows/macOS runner smoke, production in-betweens, Funnel P1 |
 | Stage01 | [STAGE01_LINUX_SMOKE.md](STAGE01_LINUX_SMOKE.md) | Headless OpenBOR smoke reaches `Loading models... Done!` for the Stage01 bg-box tree. | Windows/macOS runner smoke, visible gameplay / screenshot verification, remaining Stage01 production art |
 | Lidian | [LIDIAN_LINUX_SMOKE.md](LIDIAN_LINUX_SMOKE.md) | Headless OpenBOR smoke reaches `Loading models... Done!` for the current boss P0 tree. | Windows/macOS runner smoke, visible gameplay / screenshot verification, remaining boss production art |
+| Huangzhong | [HUANGZHONG_LINUX_SMOKE.md](HUANGZHONG_LINUX_SMOKE.md) | Headless OpenBOR smoke reaches `Loading models... Done!` for the current player P0 tree. | Windows/macOS runner smoke, visible gameplay / screenshot verification, remaining Huangzhong production art |
 
 ## Interpretation
 
 - These smoke runs prove loader stability on Linux for the current slices.
 - They do not prove visible gameplay, player input flow, or production completeness.
 - Windows and macOS runner smoke remain pending across the project.
-

@@ -46,10 +46,11 @@
 | [Boss 待辦隊列](research/manifests/boss-next-queue.json) | Lidian、Zeon Boss、Xuchu、Xiahorse 與美女三 Boss 的剩餘工作清單。 |
 | [李典紅槍指揮機 Stage01 vertical slice](docs/LIDIAN_BOSS_VERTICAL_SLICE.md) | 第一套 Boss 工程閉包：16 格安全 crop、69 GIF＋6 model TXT、Lidian-local 機械死亡 remap 與 Docker 驗證。 |
 | [Lidian Linux smoke evidence](research/LIDIAN_LINUX_SMOKE.md) | 真實跑過的李典 P0 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
+| [Huangzhong Linux smoke evidence](research/HUANGZHONG_LINUX_SMOKE.md) | 真實跑過的黃忠 P0 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
 | [藍盔巡邏機 Stage01 vertical slice](docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md) | 第一套原創機械雜兵：12 格安全切圖、42-file `bing`／`bingxs` engineering overlay、機械死亡與 Docker 驗證。 |
 | [Stage01 場景與機械補給箱 vertical slice](docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md) | 原創森林機械前哨長圖、透明遮罩／wall manifest、掃描光 FX、三格補給箱、exact-case 與 Docker 驗證。 |
 | [Stage01 Linux smoke evidence](research/STAGE01_LINUX_SMOKE.md) | 真實跑過的 Stage01 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
-| [Smoke evidence index](research/SMOKE_EVIDENCE_INDEX.md) | 把 ν Gundam、Stage01 與 Lidian 三條 headless smoke 證據整理成一個總索引。 |
+| [Smoke evidence index](research/SMOKE_EVIDENCE_INDEX.md) | 把 ν Gundam、Stage01、Lidian 與黃忠四條 headless smoke 證據整理成一個總索引。 |
 | [五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md) | 480×276 五人選角合成圖、張飛 icon／profile、opaque index0 方法與 M1 89/89 驗證。 |
 | [ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md) | 第六候選角色、六人 `allowselect`、480×276 roster、HUD、Fin Funnel 子模型與 2P／引擎上限。 |
 | [ν Gundam 第六角色 P0 vertical slice](docs/NU_GUNDAM_VERTICAL_SLICE.md) | 71 張動作、2 profiles、六欄選角、六發 Funnel proxy、determinism／strict／Docker v7533 實測與 deferred P1。 |

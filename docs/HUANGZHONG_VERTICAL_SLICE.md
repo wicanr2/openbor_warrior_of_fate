@@ -109,6 +109,8 @@ node scripts/build-huangzhong-engineering-preview.mjs \
 
 另一份較新的 CMake OpenBOR binary 會拒絕此舊模組的 GIF background，不能拿來判定素材失敗。本工程的相容基線是文件鎖定的 v7533。v7533 收到 TERM 後可能印出 double-free；只有在 TERM 前已到 `Loading models... Done!` 時，才能把它記成既知 teardown，而不是 gameplay PASS。
 
+2026-07-16 的 Linux headless smoke evidence 已另外記錄於 [`../research/HUANGZHONG_LINUX_SMOKE.md`](../research/HUANGZHONG_LINUX_SMOKE.md)。
+
 ## 明確 deferred
 
 - `h1`–`h16`：騎乘、武器變體、水中弓箭手、子模型、綁定特效與相關投射物。
