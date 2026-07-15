@@ -1,0 +1,42 @@
+{
+  "subject": "nu-gundam-sixth-character",
+  "status": "p0-engineering-runtime-complete-but-production-remaining",
+  "priority": "make-the-sixth-selectable-character-playable-and-visible",
+  "verificationGate": [
+    "six-player selection is visible and stable in a runner",
+    "nu_gundam can be selected, enter stage 1, and survive a basic gameplay loop",
+    "production in-between frames and funnel behavior are no longer reused P0 proxies"
+  ],
+  "remainingWork": [
+    {
+      "id": "visible-runner",
+      "title": "Implement visible runner QA for six-player select",
+      "status": "pending",
+      "notes": "Need cursor, Ready, 1P/2P ν selection, nosame behavior, and stage-entry screenshots."
+    },
+    {
+      "id": "funnel-p1-closure",
+      "title": "Close the Fin Funnel P1 behavior",
+      "status": "pending",
+      "notes": "Release, orbit, turn, charge, beam, hit, return, and owner-death cleanup remain deferred."
+    },
+    {
+      "id": "weapon-fx-audio",
+      "title": "Replace reused rifle and saber proxies",
+      "status": "pending",
+      "notes": "Muzzle, saber arc, impact/return FX, and original audio are still borrowed or placeholder-level."
+    },
+    {
+      "id": "production-inbetweens",
+      "title": "Draw production in-between frames",
+      "status": "pending",
+      "notes": "Walk cadence, attack anticipation/contact/recovery, pain, rise, and death still need real interpolation."
+    },
+    {
+      "id": "playable-qa",
+      "title": "Finish gameplay-visible QA",
+      "status": "pending",
+      "notes": "BBox, attack box, spawn origin, foot placement, depth order, and 2P visual QA must be verified."
+    }
+  ]
+}

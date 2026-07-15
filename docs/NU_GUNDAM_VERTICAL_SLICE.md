@@ -114,3 +114,5 @@ node scripts/patch-six-player-select-overlay.mjs \
 - BBox、attack box、spawn origin、實戰腳底／深度排序與 2P 視覺 QA。
 
 因此目前正確狀態是「ν Gundam 第六角色 P0 engineering runtime 已通過 deterministic、strict 與 v7533 model-load」。不能稱為 production-ready，也不能宣稱已完成整款機器人大戰版。
+
+下一輪若要繼續收斂成可驗證提交，請直接看 [`../research/manifests/nu-gundam-next-queue.json`](../research/manifests/nu-gundam-next-queue.json)；那份檔案把六人選角、Funnel P1、音效與 gameplay QA 列成 pending queue。
