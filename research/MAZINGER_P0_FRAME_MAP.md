@@ -1,6 +1,6 @@
 # 無敵鐵金剛 P0 動作／檔名對照
 
-本文件只處理張飛主模型的 P0（第一個可玩替換版本）動作。分析來源是本機解包後的 `data/chars/zhangfei/zhangfei.txt`，概念分鏡來源是 [`mazinger_p0_storyboard_v1-keyed.png`](mazinger/mazinger_p0_storyboard_v1-keyed.png)。
+本文件只處理張飛主模型的 P0（第一個可玩替換版本）動作。分析來源是本機解包後的 `data/chars/zhangfei/zhangfei.txt`；概念來源與單張 key pose 留在 `private_assets/robot_wof/mazinger/`，GitHub 只保留分鏡總覽圖。
 
 ## 先看結論
 

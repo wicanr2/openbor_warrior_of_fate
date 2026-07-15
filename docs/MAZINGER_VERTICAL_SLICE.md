@@ -16,11 +16,11 @@
 
 | 路徑 | 用途 |
 | --- | --- |
-| `research/mazinger/keyposes/` | 從總表切出的 12 張人工精修底稿 |
+| 本機 `private_assets/robot_wof/mazinger/keyposes/` | 從總表切出的 12 張人工精修底稿；不提交 GitHub |
 | `research/manifests/mazinger-keyposes.json` | 分鏡格、姿勢名稱與透明色的 machine-readable 記錄 |
 | `research/MAZINGER_P0_FRAME_MAP.md` | 42 張 P0 原始 GIF 與 12 張 key pose 的映射／缺幀表 |
 | `research/STAGE01_REPLACEMENT_MANIFEST.md` | 第一關背景、前景、物件與 FX 替換清單 |
-| 本機 `overlay/data/` | 通過驗收後才放入的同路徑替換檔；目前不得視為完成品 |
+| 本機 `workplace/robot_wof_vertical_slice/overlay/data/` | 通過驗收後才放入的同路徑替換檔；不提交 GitHub |
 
 ## 接手流程
 

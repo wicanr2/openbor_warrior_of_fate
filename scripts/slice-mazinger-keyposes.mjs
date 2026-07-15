@@ -4,20 +4,14 @@ import { existsSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 
-const directParent = path.resolve(import.meta.dirname, '..');
-const projectRoot = existsSync(path.join(directParent, 'research/mazinger/mazinger_p0_storyboard_v1-keyed.png'))
-  ? directParent
-  : path.resolve(directParent, '..');
-const workspaceSource = path.join(projectRoot, 'robot_wof_concept/generated/mazinger_p0_storyboard_v1-keyed.png');
-const repositorySource = path.join(projectRoot, 'research/mazinger/mazinger_p0_storyboard_v1-keyed.png');
-const inResearchRepository = !existsSync(workspaceSource) && existsSync(repositorySource);
-const source = inResearchRepository ? repositorySource : workspaceSource;
-const outputDirectory = inResearchRepository
-  ? path.join(projectRoot, 'research/mazinger/keyposes')
-  : path.join(projectRoot, 'workplace/robot_wof_vertical_slice/source/mazinger/keyposes');
-const contactSheet = inResearchRepository
-  ? path.join(projectRoot, 'research/mazinger/mazinger-keyposes-contact-sheet.png')
-  : path.join(projectRoot, 'workplace/robot_wof_vertical_slice/source/mazinger/mazinger-keyposes-contact-sheet.png');
+const projectRoot = path.resolve(import.meta.dirname, '..');
+const source = path.join(projectRoot, 'private_assets/robot_wof/mazinger/mazinger_p0_storyboard_v1-keyed.png');
+const outputDirectory = path.join(projectRoot, 'private_assets/robot_wof/mazinger/keyposes');
+const contactSheet = path.join(projectRoot, 'research/mazinger/mazinger-keyposes-contact-sheet.png');
+
+if (!existsSync(source)) {
+  throw new Error(`Local-only source sheet is missing: ${path.relative(projectRoot, source)}`);
+}
 
 // The generated figures cross nominal 4x3 grid boundaries. These hand-checked
 // crop windows are intentional: frame 07/11 remove the next pose's boot, while

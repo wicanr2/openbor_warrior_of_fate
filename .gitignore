@@ -1,0 +1,24 @@
+# Local-only fan-project inputs and generated game assets.
+private_assets/
+local_assets/
+workplace/
+robot_wof_concept/
+
+# Individual extracted sprites and portraits must not be published.
+research/sprites/
+research/portraits/
+research/mazinger/*
+!research/mazinger/README.md
+!research/mazinger/mazinger-keyposes-contact-sheet.png
+
+*.pak
+*.bor
+*.wav
+*.ogg
+*.mp3
+
+# Disposable OpenBOR build/test outputs.
+build/
+dist/
+test-data/
+*.log
