@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "character": {
+    "sourceSlot": "zhangfei",
+    "replacement": "Mazinger Z"
+  },
+  "status": "concept-keyposes",
+  "productionReady": false,
+  "sourceSheet": "../mazinger/mazinger_p0_storyboard_v1-keyed.png",
+  "chromaKey": {
+    "rgb": [252, 0, 255],
+    "hex": "#FC00FF",
+    "requiredPaletteIndex": 0
+  },
+  "grid": {
+    "columns": 4,
+    "rows": 3,
+    "cellWidth": 313,
+    "cellHeight": 418,
+    "note": "The source art crosses nominal cell boundaries. Per-frame sourceCrop overrides are authoritative."
+  },
+  "frames": [
+    { "id": "frame-01", "file": "../mazinger/keyposes/frame-01.png", "pose": "idle-a", "row": 1, "column": 1 },
+    { "id": "frame-02", "file": "../mazinger/keyposes/frame-02.png", "pose": "idle-b", "row": 1, "column": 2 },
+    { "id": "frame-03", "file": "../mazinger/keyposes/frame-03.png", "pose": "walk-a", "row": 1, "column": 3 },
+    { "id": "frame-04", "file": "../mazinger/keyposes/frame-04.png", "pose": "walk-b", "row": 1, "column": 4 },
+    { "id": "frame-05", "file": "../mazinger/keyposes/frame-05.png", "pose": "walk-c", "row": 2, "column": 1 },
+    { "id": "frame-06", "file": "../mazinger/keyposes/frame-06.png", "pose": "walk-d", "row": 2, "column": 2 },
+    { "id": "frame-07", "file": "../mazinger/keyposes/frame-07.png", "pose": "punch-windup", "row": 2, "column": 3, "sourceCrop": { "x": 627, "y": 418, "width": 293, "height": 418 }, "outputPadRight": 20 },
+    { "id": "frame-08", "file": "../mazinger/keyposes/frame-08.png", "pose": "punch-impact", "row": 2, "column": 4, "sourceCrop": { "x": 915, "y": 418, "width": 313, "height": 418 } },
+    { "id": "frame-09", "file": "../mazinger/keyposes/frame-09.png", "pose": "rocket-punch-windup", "row": 3, "column": 1 },
+    { "id": "frame-10", "file": "../mazinger/keyposes/frame-10.png", "pose": "rocket-punch-release", "row": 3, "column": 2 },
+    { "id": "frame-11", "file": "../mazinger/keyposes/frame-11.png", "pose": "hurt", "row": 3, "column": 3, "sourceCrop": { "x": 627, "y": 836, "width": 223, "height": 418 }, "outputPadRight": 90 },
+    { "id": "frame-12", "file": "../mazinger/keyposes/frame-12.png", "pose": "fall", "row": 3, "column": 4, "sourceCrop": { "x": 850, "y": 836, "width": 379, "height": 418 }, "outputWidth": 379 }
+  ],
+  "notes": [
+    "These PNG cells are drawing references, not drop-in OpenBOR sprites.",
+    "The Zhangfei P0 target contains 42 case-sensitive GIF references resolving to 41 current files; this sheet intentionally covers only 12 representative poses.",
+    "Production frames must preserve each original GIF canvas, filename case, foot offset, collision timing and palette index 0."
+  ]
+}
