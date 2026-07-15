@@ -2,6 +2,8 @@
 
 `zeon_boss` 是由夏亞駕駛的完成型、有腳大型 Boss，不占第六個玩家角色。精確機體與人物圖屬 private fan-project、`rights-unverified`；public repo 只保存工程規格、驗證方法與素材政策，不放可拆用的個別 production GIF 或夏亞大頭像。
 
+若要直接檢查這份候選分鏡是否仍與 manifest 一致，先看 [`../research/ZEON_BOSS_RUNTIME_AUDIT.md`](../research/ZEON_BOSS_RUNTIME_AUDIT.md)。
+
 ![有腳吉翁克 Boss 16 格 overview-only review image](../research/zeon-boss/zeon-boss-with-legs-storyboard-v2-overview.png)
 
 此 v2 總覽已確認 F6／F7 的完整雙腳、F9 有線分離手臂、F10 回收與 F15／F16 完整肢體；它仍是 `art-candidate/custom-crop-only`。F8、F12–F16 有少量越過名義 4×4 格線，production slicer 必須使用逐格 bbox，不能直接四等分。公開 PNG 已用 edge-connected matte 將背景正規化為精確 `#FC00FF`，但不等於 67 張 runtime GIF 已完成。

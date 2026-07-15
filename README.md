@@ -46,6 +46,7 @@
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
 | [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
 | [Boss first playable batch](research/BOSS_FIRST_PLAYABLE_BATCH.md) | 把第一個可交接 boss 批次收斂成 Lidian production redraw 與 Zeon boss runtime closure。 |
+| [Zeon boss runtime audit](research/ZEON_BOSS_RUNTIME_AUDIT.md) | `zeon_boss` 候選分鏡的機器可讀 audit；確認 16 格 overview、67 張最小閉包與待辦 handoff queue。 |
 | [Xuchu G0 batch](research/XUCHU_G0_BATCH.md) | 把 Xuchu 巨型 Boss 的現成 closure 收斂成 G0 可交接批次與 geometry migration 入口。 |
 | [Xuchu G0 audit](research/XUCHU_G0_AUDIT.md) | 記錄 Xuchu 現成 closure 的 strict case debt 與 headless smoke 結果。 |
 | [Boss 待辦隊列](research/manifests/boss-next-queue.json) | Lidian、Zeon Boss、Xuchu、Xiahorse 與美女三 Boss 的剩餘工作清單。 |
