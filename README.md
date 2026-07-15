@@ -2,6 +2,15 @@
 
 本 repository 記錄以 OpenBOR 版《吞食天地 II：赤壁之戰》為技術研究樣本，逐步整理可重製為機器人大戰風格橫向動作遊戲的方法。研究以不覆寫原始素材、可重現分析與跨平台發行為原則。
 
+## 目前狀態
+
+- 張飛／無敵鐵金剛的 M1 coverage 已完成，`validate-vertical-slice-coverage` 為 `89/89`。
+- 關羽 Getter v2、趙雲 P0、黃忠 P0、魏延 P0 都已經有可載入的 engineering runtime 或 overlay。
+- `bing` 藍盔巡邏兵、`lidian` 紅槍指揮機、`zeon_boss` 有腳吉翁克與夏亞，以及劉備／曹操／呂布等頭像工作包，仍在 production cleanup 或待定稿階段。
+- `validate-overlay-parity` 對混合 overlay tree 會把後續批次算成額外檔案；這是預期結果，不是 M1 回歸。
+
+如果要先看現況，直接讀 [`docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md`](docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md) 的進度摘要最省時間。
+
 ## 公開／本機素材邊界
 
 公開 repo 可以保留「分鏡總覽 PNG／SVG」供工程溝通，但不收錄可直接重用的單張原作 GIF、頭像 GIF、PAK、音效、第三方 concept 原圖或逐幀 fan-project sprite。這些素材一律留在被 `.gitignore` 排除的 `private_assets/`、`robot_wof_concept/`、`robot_wof_enemy/`、`robot_boss/` 與 `workplace/`；GitHub 保存方法、尺寸與路徑 manifest、總覽圖、轉檔腳本與驗證器。
