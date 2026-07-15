@@ -251,5 +251,42 @@
       "chromaPixels": 110591,
       "totalPixels": 132840
     }
+  ],
+  "productionQueue": [
+    {
+      "item": "walkTransitions",
+      "count": 3,
+      "status": "pending"
+    },
+    {
+      "item": "jumpAndAirborne",
+      "count": 4,
+      "status": "pending"
+    },
+    {
+      "item": "attackWindupAndRecovery",
+      "count": 2,
+      "status": "pending"
+    },
+    {
+      "item": "destroyedCollapseSplit",
+      "count": 3,
+      "status": "pending"
+    },
+    {
+      "item": "iconCleanup",
+      "count": 1,
+      "status": "pending"
+    },
+    {
+      "item": "specialPainPalette",
+      "count": 1,
+      "status": "pending"
+    },
+    {
+      "item": "clampPlacements",
+      "count": 25,
+      "status": "pending"
+    }
   ]
 }
