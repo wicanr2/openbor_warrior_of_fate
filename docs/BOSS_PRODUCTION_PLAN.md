@@ -18,6 +18,8 @@
 
 這份隊列刻意把 `overview`、`runtime closure`、`production art` 三個狀態分開。只有能獨立載入、可驗證且可交給別人接手的工作包，才應排進近期製作。
 
+如果要直接抓下一批可以執行的 Boss 工作，請看 [`../research/manifests/boss-next-queue.json`](../research/manifests/boss-next-queue.json)；那份檔案把目前仍待收斂的 Boss 任務拆成 pending queue。
+
 ## 概念頁提供的方向
 
 | 私有概念頁 | 可辨識的設計方向 | 可用搜尋名稱 | 本專案處理方式 |

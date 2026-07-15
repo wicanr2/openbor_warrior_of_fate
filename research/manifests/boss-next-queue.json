@@ -1,0 +1,48 @@
+{
+  "subject": "boss-production",
+  "status": "mixed-engineering-and-production-remaining",
+  "priority": "turn-boss-plans-into-executable-art-queues",
+  "sourceDocuments": [
+    "docs/BOSS_PRODUCTION_PLAN.md",
+    "docs/ZEON_BOSS_WITH_LEGS_PLAN.md",
+    "research/ENEMY_BOSS_CONCEPT_MAP.md"
+  ],
+  "remainingWork": [
+    {
+      "id": "lidian-production-redraw",
+      "title": "Finish Lidian production redraw",
+      "status": "pending",
+      "notes": "69 GIF + 6 TXT engineering closure exists; visible gameplay review and production cleanup remain."
+    },
+    {
+      "id": "zeon-boss-runtime-closure",
+      "title": "Close Zeon boss runtime packages",
+      "status": "pending",
+      "notes": "Current queue covers boss model, HUD, cut-in, debris, projectile, dialogue, and stage spawns."
+    },
+    {
+      "id": "xuchu-g0-implementation",
+      "title": "Implement Xuchu G0 giant-boss direction",
+      "status": "pending",
+      "notes": "Need scaled body, hurt/death, silhouette, and geometry migration manifest."
+    },
+    {
+      "id": "xiahorse-split-closure",
+      "title": "Separate Xiahorse rider and vehicle dependencies",
+      "status": "pending",
+      "notes": "Two-phase split and horse/lei3 dependencies still need full closure."
+    },
+    {
+      "id": "mei-trio-production",
+      "title": "Produce the three adult-coded boss variants",
+      "status": "pending",
+      "notes": "Meimei, Meiya, and Meiling each need original body, portrait, shared rig, and unified overview."
+    },
+    {
+      "id": "boss-platform-smoke",
+      "title": "Run boss fixture smoke on all three platforms",
+      "status": "pending",
+      "notes": "Linux, Windows, and macOS unpacked-tree smoke should confirm the boss queue before packaging."
+    }
+  ]
+}
