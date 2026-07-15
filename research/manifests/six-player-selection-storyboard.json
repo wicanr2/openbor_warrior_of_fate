@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "status": "six-player-selection-storyboard",
+  "productionReady": false,
+  "canvas": [
+    480,
+    276
+  ],
+  "output": {
+    "path": "research/ui/six-player-selection-storyboard.gif",
+    "sha256": "9154178675cb4f2553feb04500d626668d71cf0b6d413f1fb6219fedf9fe9a26"
+  },
+  "base": {
+    "path": "research/ui/six-player-selection-overview.gif",
+    "sha256": "507f5c2d25640a7b367e182adb7f40ab529c16d0768ab781f35d78717684f7c8"
+  },
+  "cursor": {
+    "path": "local-only/selectg.gif",
+    "sha256": "14fc364a2b2e805b91d37620973dee75b24ba2d2959614bc6f78e6a2e1e6a11f"
+  },
+  "panels": [
+    {
+      "index": 1,
+      "id": "cursor-guanyu",
+      "label": "cursor → guanyu",
+      "x": 32,
+      "y": 12
+    },
+    {
+      "index": 2,
+      "id": "cursor-zhangfei",
+      "label": "cursor → zhangfei",
+      "x": 112,
+      "y": 12
+    },
+    {
+      "index": 3,
+      "id": "cursor-zhaoyun",
+      "label": "cursor → zhaoyun",
+      "x": 192,
+      "y": 12
+    },
+    {
+      "index": 4,
+      "id": "cursor-huangzhong",
+      "label": "cursor → huangzhong",
+      "x": 272,
+      "y": 12
+    },
+    {
+      "index": 5,
+      "id": "cursor-weiyan",
+      "label": "cursor → weiyan",
+      "x": 352,
+      "y": 12
+    },
+    {
+      "index": 6,
+      "id": "cursor-nu",
+      "label": "cursor → nu_gundam",
+      "x": 432,
+      "y": 12
+    },
+    {
+      "index": 7,
+      "id": "ready",
+      "label": "READY! / confirm preview",
+      "x": 432,
+      "y": 12
+    },
+    {
+      "index": 8,
+      "id": "stage1",
+      "label": "CONFIRM → Stage 1 entry",
+      "x": 432,
+      "y": 12
+    }
+  ],
+  "deferred": [
+    "visible OpenBOR cursor and six-step left/right cycle QA",
+    "1P/2P Ready flow and nosame behavior QA",
+    "live Stage 1 entry screenshot capture"
+  ]
+}
