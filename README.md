@@ -45,6 +45,7 @@
 | [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
 | [Boss 待辦隊列](research/manifests/boss-next-queue.json) | Lidian、Zeon Boss、Xuchu、Xiahorse 與美女三 Boss 的剩餘工作清單。 |
 | [李典紅槍指揮機 Stage01 vertical slice](docs/LIDIAN_BOSS_VERTICAL_SLICE.md) | 第一套 Boss 工程閉包：16 格安全 crop、69 GIF＋6 model TXT、Lidian-local 機械死亡 remap 與 Docker 驗證。 |
+| [Lidian Linux smoke evidence](research/LIDIAN_LINUX_SMOKE.md) | 真實跑過的李典 P0 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
 | [藍盔巡邏機 Stage01 vertical slice](docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md) | 第一套原創機械雜兵：12 格安全切圖、42-file `bing`／`bingxs` engineering overlay、機械死亡與 Docker 驗證。 |
 | [Stage01 場景與機械補給箱 vertical slice](docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md) | 原創森林機械前哨長圖、透明遮罩／wall manifest、掃描光 FX、三格補給箱、exact-case 與 Docker 驗證。 |
 | [Stage01 Linux smoke evidence](research/STAGE01_LINUX_SMOKE.md) | 真實跑過的 Stage01 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |

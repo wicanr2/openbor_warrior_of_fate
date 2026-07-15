@@ -101,6 +101,8 @@ Builder 逐張讀取原 physical GIF 的 canvas，套用 model 的權威 Offset 
 
 Docker 在 TERM 後仍會顯示 v7533 已知的 teardown `double free or corruption`。只有 Log 在停止前完成 model load 且沒有 Boss-specific load error 時，才能把這個 bounded smoke 判為通過。
 
+Linux headless smoke evidence for the current P0 tree is recorded in [`../research/LIDIAN_LINUX_SMOKE.md`](../research/LIDIAN_LINUX_SMOKE.md).
+
 ## 藝術家接手清單
 
 1. 以 manifest 中每個 physical GIF 為一個交付項，不要只畫 16 張總覽。
