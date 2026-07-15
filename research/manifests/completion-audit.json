@@ -93,10 +93,12 @@
         "docs/BUILD.md",
         "docs/OPENBOR_COMPILATION.md",
         "docs/DOCKER_LINUX_BUILD.md",
+        "research/GUANYU_LINUX_SMOKE.md",
+        "research/NU_GUNDAM_LINUX_SMOKE.md",
         "research/manifests/project-roadmap.json"
       ],
       "status": "proven-as-documentation",
-      "note": "編譯文件與 Docker 路徑已整理完成，但這只證明文件面；尚未證明整體遊戲內容已完成。"
+      "note": "編譯文件與 Docker 路徑已整理完成；Linux 端也已用 current checkout 實測 build / smoke，但 Windows 與 macOS 仍需各自 runner 驗證。這仍只證明平台建置面，不代表整體遊戲內容已完成。"
     },
     {
       "id": "verification-coverage",

@@ -95,7 +95,9 @@
       "evidence": [
         "docs/BUILD.md",
         "docs/OPENBOR_COMPILATION.md",
-        "docs/DOCKER_LINUX_BUILD.md"
+        "docs/DOCKER_LINUX_BUILD.md",
+        "research/GUANYU_LINUX_SMOKE.md",
+        "research/NU_GUNDAM_LINUX_SMOKE.md"
       ]
     }
   ]
