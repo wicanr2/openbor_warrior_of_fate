@@ -62,7 +62,7 @@ const rows = [
     status: bossQueue.status,
     source: rel('research', sources.bossQueue),
     pending: listPending(bossQueue).map(item => `${item.id}: ${item.title}`).join('; '),
-    next: 'Close Lidian redraw, Zeon boss runtime, Xuchu G0, Xiahorse split, and the adult-coded trio.',
+    next: 'Start with research/BOSS_FIRST_PLAYABLE_BATCH.md, then close Lidian redraw, Zeon boss runtime, Xuchu G0, Xiahorse split, and the adult-coded trio.',
   },
   {
     area: 'Portraits',

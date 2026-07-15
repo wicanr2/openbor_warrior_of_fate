@@ -18,6 +18,8 @@
 
 這份隊列刻意把 `overview`、`runtime closure`、`production art` 三個狀態分開。只有能獨立載入、可驗證且可交給別人接手的工作包，才應排進近期製作。
 
+如果要先抓 boss 線的第一個可交接包，先看 [`../research/BOSS_FIRST_PLAYABLE_BATCH.md`](../research/BOSS_FIRST_PLAYABLE_BATCH.md)。那份文件把 `lidian` production redraw 與 `zeon_boss` runtime closure 拆成兩個最短入口，適合先交給美術與整合者跑起來。
+
 如果要直接抓下一批可以執行的 Boss 工作，請看 [`../research/manifests/boss-next-queue.json`](../research/manifests/boss-next-queue.json)；那份檔案把目前仍待收斂的 Boss 任務拆成 pending queue。
 
 ## 概念頁提供的方向

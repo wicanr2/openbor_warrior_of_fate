@@ -16,6 +16,8 @@
 
 如果你要先做 Stage01 的最小可玩 slice，先讀 [`../research/STAGE01_FIRST_PLAYABLE_BATCH.md`](../research/STAGE01_FIRST_PLAYABLE_BATCH.md)。那份文件把背景三層、藍盔雜兵、機械補給箱與後續 Boss／UI 順序拆成可交接批次，避免一開始就把整關當成單一大包。
 
+如果你要先做 Boss 線的第一個可交接包，先讀 [`../research/BOSS_FIRST_PLAYABLE_BATCH.md`](../research/BOSS_FIRST_PLAYABLE_BATCH.md)。那份文件把 `lidian` production redraw 和 `zeon_boss` runtime closure 拆成可以直接交接給美術與整合者的兩個入口，避免一口氣把整個 boss queue 當成同一張大單。
+
 ## 每張圖的交付欄位
 
 | 欄位 | 必填內容 |

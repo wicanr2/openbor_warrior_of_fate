@@ -45,6 +45,7 @@
 | [Concept lineage](research/CONCEPT_LINEAGE.md) | 把概念方向、現有視覺資產與待完成 queue 串成一張主表，直接對齊「基於概念圖完成」。 |
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
 | [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
+| [Boss first playable batch](research/BOSS_FIRST_PLAYABLE_BATCH.md) | 把第一個可交接 boss 批次收斂成 Lidian production redraw 與 Zeon boss runtime closure。 |
 | [Boss 待辦隊列](research/manifests/boss-next-queue.json) | Lidian、Zeon Boss、Xuchu、Xiahorse 與美女三 Boss 的剩餘工作清單。 |
 | [李典紅槍指揮機 Stage01 vertical slice](docs/LIDIAN_BOSS_VERTICAL_SLICE.md) | 第一套 Boss 工程閉包：16 格安全 crop、69 GIF＋6 model TXT、Lidian-local 機械死亡 remap 與 Docker 驗證。 |
 | [Lidian Linux smoke evidence](research/LIDIAN_LINUX_SMOKE.md) | 真實跑過的李典 P0 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
