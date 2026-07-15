@@ -71,6 +71,8 @@ const entries = [
   },
 ];
 
+const portraitQueuePath = 'research/manifests/portrait-work-queue.json';
+
 const lines = [];
 lines.push('# Visual asset index');
 lines.push('');
@@ -90,6 +92,29 @@ for (const group of entries) {
     lines.push(`- ${rel}${exists ? '' : '  (missing)'}`);
   }
   lines.push('');
+}
+
+if (fs.existsSync(path.join(ROOT, portraitQueuePath))) {
+  const portraitData = JSON.parse(fs.readFileSync(path.join(ROOT, portraitQueuePath), 'utf8'));
+  const decisions = Array.isArray(portraitData.decisionQueue) ? portraitData.decisionQueue : [];
+  const packages = Array.isArray(portraitData.portraitPackages) ? portraitData.portraitPackages : [];
+  if (decisions.length) {
+    lines.push('## Portrait routing decisions');
+    lines.push('');
+    lines.push(`- Source: [${path.relative(path.join(ROOT, 'research'), path.join(ROOT, 'docs/PORTRAIT_ASSETS.md')).replace(/\\/g, '/')}](${path.relative(path.join(ROOT, 'research'), path.join(ROOT, 'docs/PORTRAIT_ASSETS.md')).replace(/\\/g, '/')})`);
+    lines.push('');
+    for (const row of decisions) {
+      lines.push(`- ${row.name} → ${row.recommendedRole || row.status}`);
+    }
+    for (const row of packages) {
+      if (row.status === 'pilot-portrait-tbd') {
+        lines.push(`- ${row.slot} → pilot portrait TBD`);
+      } else if (row.status === 'boss-cutin-separate-from-mecha') {
+        lines.push(`- ${row.slot} → pilot cut-in separated from mecha portrait`);
+      }
+    }
+    lines.push('');
+  }
 }
 
 lines.push('## Notes');

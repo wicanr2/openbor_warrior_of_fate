@@ -57,11 +57,11 @@ This index maps the current preview and contact-sheet assets to their working th
 
 ## Portrait routing decisions
 
-- Source: [docs/PORTRAIT_ASSETS.md](../docs/PORTRAIT_ASSETS.md)
+- Source: [../docs/PORTRAIT_ASSETS.md](../docs/PORTRAIT_ASSETS.md)
 
-- liubei → story-only unless explicitly promoted to selectable/Boss
-- caocao → story-only unless explicitly promoted to selectable/Boss
-- lubu → story-only unless explicitly promoted to selectable/Boss
+- liubei → story-only
+- caocao → story-only
+- lubu → story-only
 - nu_gundam → pilot portrait TBD
 - zeon_boss → pilot cut-in separated from mecha portrait
 
