@@ -34,9 +34,9 @@ const nextBatch = [
   {
     id: 'BOSS-XUCHU-G0',
     slot: 'xuchu',
-    files: 'data/chars/boss/xuchu/…',
+    files: 'research/XUCHU_G0_BATCH.md · research/manifests/xuchu-g0-closure.json',
     purpose: '先做縮尺版大型主角機 Boss，保留原 canvas 但把 silhouette / hurt / death 做成能打的 G0。',
-    verify: '需要 geometry-migration.json 與至少一套可視 gameplay review。',
+    verify: '依現成 closure 抽出 50 unique refs；之後再補 geometry-migration.json 與可視 gameplay review。',
   },
   {
     id: 'BOSS-XIAHORSE-SPLIT',

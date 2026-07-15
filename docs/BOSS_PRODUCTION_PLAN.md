@@ -20,6 +20,8 @@
 
 如果要先抓 boss 線的第一個可交接包，先看 [`../research/BOSS_FIRST_PLAYABLE_BATCH.md`](../research/BOSS_FIRST_PLAYABLE_BATCH.md)。那份文件把 `lidian` production redraw 與 `zeon_boss` runtime closure 拆成兩個最短入口，適合先交給美術與整合者跑起來。
 
+如果要直接處理大型主角機 Boss，先看 [`../research/XUCHU_G0_BATCH.md`](../research/XUCHU_G0_BATCH.md)。那份文件把 `xuchu` 的現成 closure、依賴分類與 G0 驗證重點整理成一份可交接批次，方便下一位藝術家直接接手。
+
 如果要直接抓下一批可以執行的 Boss 工作，請看 [`../research/manifests/boss-next-queue.json`](../research/manifests/boss-next-queue.json)；那份檔案把目前仍待收斂的 Boss 任務拆成 pending queue。
 
 ## 概念頁提供的方向

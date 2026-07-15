@@ -20,7 +20,7 @@
 
 | Batch | Slot | Files / models | 目的 | 驗證重點 |
 | --- | --- | --- | --- | --- |
-| BOSS-XUCHU-G0 | xuchu | data/chars/boss/xuchu/… | 先做縮尺版大型主角機 Boss，保留原 canvas 但把 silhouette / hurt / death 做成能打的 G0。 | 需要 geometry-migration.json 與至少一套可視 gameplay review。 |
+| BOSS-XUCHU-G0 | xuchu | research/XUCHU_G0_BATCH.md · research/manifests/xuchu-g0-closure.json | 先做縮尺版大型主角機 Boss，保留原 canvas 但把 silhouette / hurt / death 做成能打的 G0。 | 依現成 closure 抽出 50 unique refs；之後再補 geometry-migration.json 與可視 gameplay review。 |
 | BOSS-XIAHORSE-SPLIT | xiahorse | data/chars/boss/xiahoudun/… · data/chars/boss/xiahorse/… | 把騎乘載具與駕駛員分離，避免戰鬥中途閃回原素材。 | 低血量分離、horse / lei3 替代依賴與 phase 1/2 都要閉包。 |
 
 ## 驗證命令

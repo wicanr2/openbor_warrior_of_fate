@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "slot": "xuchu",
+  "status": "g0-batch-closure-verified-from-existing-tree",
+  "sourceFiles": [
+    "../tmp/robot-wof-smoke-parent/guanyu-getter-v5/data/chars/boss/xuchu/xuchu.txt",
+    "../tmp/robot-wof-smoke-parent/guanyu-getter-v5/data/chars/boss/xuchu/chu.txt",
+    "../tmp/robot-wof-smoke-parent/guanyu-getter-v5/data/chars/boss/xuchu/1/xuchuxs.txt"
+  ],
+  "totals": {
+    "uniqueRefs": 50,
+    "categoryCounts": {
+      "other": 4,
+      "models": 1,
+      "damage": 19,
+      "fx": 1,
+      "identity": 1,
+      "locomotion": 7,
+      "combat": 11,
+      "airborne": 6
+    }
+  },
+  "categories": {
+    "other": [
+      "data/chars/boss/xuchu/1/a0.gif",
+      "data/chars/boss/xuchu/1/a1.gif",
+      "data/chars/boss/xuchu/1/a2.gif",
+      "data/chars/boss/xuchu/1/a3.gif"
+    ],
+    "models": [
+      "data/chars/boss/xuchu/chu.txt"
+    ],
+    "damage": [
+      "data/chars/boss/xuchu/death1.GIF",
+      "data/chars/boss/xuchu/death2.GIF",
+      "data/chars/boss/xuchu/fall1.gif",
+      "data/chars/boss/xuchu/fall2.gif",
+      "data/chars/boss/xuchu/fall3.gif",
+      "data/chars/boss/xuchu/fallf1.gif",
+      "data/chars/boss/xuchu/fallr.gif",
+      "data/chars/boss/xuchu/fallx.gif",
+      "data/chars/boss/xuchu/fallx02.gif",
+      "data/chars/boss/xuchu/fallx03.gif",
+      "data/chars/boss/xuchu/fallx1.gif",
+      "data/chars/boss/xuchu/fallx2.gif",
+      "data/chars/boss/xuchu/fallx3.gif",
+      "data/chars/boss/xuchu/pain1.gif",
+      "data/chars/boss/xuchu/pain1.GIF",
+      "data/chars/boss/xuchu/pain2.gif",
+      "data/chars/boss/xuchu/painx.gif",
+      "data/chars/boss/xuchu/painx1.gif",
+      "data/chars/boss/xuchu/painx2.gif"
+    ],
+    "fx": [
+      "data/chars/boss/xuchu/haha00.gif"
+    ],
+    "identity": [
+      "data/chars/boss/xuchu/icon.gif"
+    ],
+    "locomotion": [
+      "data/chars/boss/xuchu/idle00.gif",
+      "data/chars/boss/xuchu/walk001.gif",
+      "data/chars/boss/xuchu/walk002.gif",
+      "data/chars/boss/xuchu/walk003.gif",
+      "data/chars/boss/xuchu/walk004.gif",
+      "data/chars/boss/xuchu/walk005.gif",
+      "data/chars/boss/xuchu/walk006.gif"
+    ],
+    "combat": [
+      "data/chars/boss/xuchu/jk002.gif",
+      "data/chars/boss/xuchu/punch001.gif",
+      "data/chars/boss/xuchu/punch002.gif",
+      "data/chars/boss/xuchu/punch003.gif",
+      "data/chars/boss/xuchu/punch004.gif",
+      "data/chars/boss/xuchu/punch005.gif",
+      "data/chars/boss/xuchu/punch006.gif",
+      "data/chars/boss/xuchu/punch007.gif",
+      "data/chars/boss/xuchu/throw001.gif",
+      "data/chars/boss/xuchu/throw002.gif",
+      "data/chars/boss/xuchu/throw003.gif"
+    ],
+    "airborne": [
+      "data/chars/boss/xuchu/jump00.gif",
+      "data/chars/boss/xuchu/jump001.gif",
+      "data/chars/boss/xuchu/jump002.gif",
+      "data/chars/boss/xuchu/jump003.gif",
+      "data/chars/boss/xuchu/jump004.gif",
+      "data/chars/boss/xuchu/jump005.gif"
+    ]
+  }
+}
