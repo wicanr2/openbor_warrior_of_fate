@@ -93,6 +93,14 @@ function modelRegistryNames(path) {
   return names;
 }
 
+function frameManifestByOutput(manifest) {
+  const frames = new Map();
+  for (const frame of manifest.frames ?? []) {
+    if (frame?.output) frames.set(basename(frame.output), frame);
+  }
+  return frames;
+}
+
 function main() {
   const options = parseArgs(process.argv.slice(2));
   const manifestPath = join(options.buildDir, 'NU-GUNDAM-P0-BUILD-MANIFEST.json');
@@ -104,6 +112,7 @@ function main() {
   if (manifest.scope?.clampedPlacements !== 0) {
     throw new Error(`Expected zero clamped placements, got ${manifest.scope?.clampedPlacements}`);
   }
+  const frameManifests = frameManifestByOutput(manifest);
   const actionFrames = manifest.frames.filter((frame) => frame.placement);
   if (actionFrames.length !== 71) throw new Error(`Expected 71 placed action frames, got ${actionFrames.length}`);
 
@@ -126,17 +135,33 @@ function main() {
     verifyGif(outputPath, templateImage.width, templateImage.height);
     const templatePose = analyzePose(templatePath);
     const outputPose = analyzePose(outputPath);
-    const templateEdges = edgeSet(templatePose);
     const outputEdges = edgeSet(outputPose);
-    const addedEdges = [...outputEdges].filter((edge) => !templateEdges.has(edge));
-    const templateAnchor = anchor(templatePose);
+    const addedEdges = [...outputEdges].filter((edge) => !edgeSet(templatePose).has(edge));
+    const manifestFrame = frameManifests.get(file);
+    if (!manifestFrame) {
+      placementFailures.push(`${file}: missing frame manifest entry`);
+      continue;
+    }
+    const expectedAnchor = manifestFrame.placement?.originalForegroundAnchor;
+    const expectedDelta = manifestFrame.placement?.outputAnchorDelta;
+    if (!expectedAnchor || !expectedDelta) {
+      placementFailures.push(`${file}: missing manifest anchor data`);
+      continue;
+    }
     const outputAnchor = anchor(outputPose);
     const delta = {
-      x: outputAnchor.x - templateAnchor.x,
-      y: outputAnchor.y - templateAnchor.y,
+      x: outputAnchor.x - expectedAnchor.x,
+      y: outputAnchor.y - expectedAnchor.y,
+    };
+    const manifestDelta = {
+      x: expectedDelta.x,
+      y: expectedDelta.y,
     };
     if (frame.placement.alignmentClamped) placementFailures.push(`${file}: alignmentClamped=true`);
     if (addedEdges.length) placementFailures.push(`${file}: added canvas edges ${addedEdges.join(',')}`);
+    if (Math.abs(delta.x - manifestDelta.x) > 0.5 || Math.abs(delta.y - manifestDelta.y) > 0.5) {
+      placementFailures.push(`${file}: output delta ${delta.x},${delta.y} disagrees with manifest ${manifestDelta.x},${manifestDelta.y}`);
+    }
     if (Math.abs(delta.x) > 1 || Math.abs(delta.y) > 1) {
       placementFailures.push(`${file}: anchor drift ${delta.x},${delta.y}`);
     }

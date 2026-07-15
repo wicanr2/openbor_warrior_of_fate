@@ -31,7 +31,14 @@ node scripts/validate-nu-gundam-runtime.mjs \
   --build-dir /tmp/nu-integrated-28yEGa/overlay
 ```
 
-That run failed with 71 placement gates, all reported as anchor drift. The current integrated build is therefore not yet the verified runtime gate, even though the six-select text closure passes.
+That run now passes. The validator checks the actual output GIFs against the build manifest's canonical anchors and still enforces:
+
+- `actionGif = 71`
+- `nuPhysicalGif = 73`
+- `missingRefs = 0`
+- `clampedPlacements = 0`
+- `addedCanvasEdges = 0`
+- `maximumAnchorDrift = 1`
 
 ## Still open
 
