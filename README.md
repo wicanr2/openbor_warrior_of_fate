@@ -19,6 +19,7 @@
 | [無敵鐵金剛 P0 對照](research/MAZINGER_P0_FRAME_MAP.md) | 42 個 case-sensitive P0 引用、41 個實體 GIF、canvas／Offset、12 格映射與缺幀表。 |
 | [Stage01 替換 manifest](research/STAGE01_REPLACEMENT_MANIFEST.md) | 第一關背景、前景、幾何、敵人、物件與 FX 的 P0／P1／P2 清單。 |
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
+| [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
 | [藍盔巡邏機 Stage01 vertical slice](docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md) | 第一套原創機械雜兵：12 格安全切圖、42-file `bing`／`bingxs` engineering overlay、機械死亡與 Docker 驗證。 |
 | [角色替換分鏡總表](research/CHARACTER_SPRITE_INVENTORY.md) | 關羽、趙雲、張飛、魏延、黃忠的動作群組、GIF 分鏡、優先級與分離模型說明。美術替換工作從此開始。 |
 | [跨平台建置與發行](docs/BUILD.md) | OpenBOR 引擎在 Linux、Windows、macOS 的原生編譯依賴、CMake 指令、產物位置與 PAK 放置位置。 |
@@ -90,8 +91,11 @@
 - 第一關 `lidian` 先做中型指揮官機，第二關 `xiahorse` 必須連同載具解體與駕駛員一起替換。
 - Stage03A `xuchu` 是大型主角機鏡像 Boss 的首選槽位，可參考 Gunbuster 類巨大感，但公開美術採原創再設計。
 - Stage03B `meimei`／`meiya`／`meiling` 規劃為三位美女型王牌；可共用 technical rig，輪廓、配色、武器與頭像不可共用。
+- 女性概念頁是角色設計回顧，不是原作 Boss roster；戰鬥三人組以 Lamia／Ouka／Alfimi 的職能語彙為提示做成年化原創設計，Latune／Shine 僅列 NPC／雙機駕駛 reserve。
 
 完整槽位、私有 concept 使用邊界、巨大 Boss 的純換圖／玩法改造兩條路，以及每包必交檔案，見[敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md)。
+
+藝術家與 OpenBOR 整合者應再依[Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md)交付每個 Boss 的主模型、投射物、分離模型、肖像、geometry migration 與可玩驗收證據；Gunbuster、Daitarn 3、Ideon、Dark Brain、Fighter Roar 及女性角色名稱只作搜尋用靈感標籤。三張私有概念頁不進 repo，README 只顯示原創 SVG 與可公開的工程資訊。
 
 ![敵軍與 Boss 替換路線總覽](research/diagrams/enemy-boss-roster.svg)
 

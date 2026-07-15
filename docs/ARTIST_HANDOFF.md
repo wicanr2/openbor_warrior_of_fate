@@ -45,6 +45,8 @@
 - 第一個敵人批次是 `bing`：31 個動畫圖檔，詳細路徑、尺寸範圍與出場數見 [`STAGE01_REPLACEMENT_MANIFEST.md`](../research/STAGE01_REPLACEMENT_MANIFEST.md)。
 - 藍盔巡邏機的 12 格 source、42-file engineering coverage、機械死亡與逐格 production 缺口見 [`BLUE_HELMET_GRUNT_VERTICAL_SLICE.md`](BLUE_HELMET_GRUNT_VERTICAL_SLICE.md)。
 - Boss 以完整依賴包交付；`xiahorse` 低血量會分離成駕駛員與載具，三位美女 Boss 則可共用 rig、不可共用 silhouette／portrait。
+- Boss 的每類必要分鏡、巨型機畫布遷移、投射物 closure 與三人同屏驗收，依 [`BOSS_PRODUCTION_PLAN.md`](BOSS_PRODUCTION_PLAN.md) 執行。
+- 女性角色參考只取氣質、職能與色彩；三名戰鬥 Boss 必須 adult-coded、臉型／輪廓／服裝全新。Latune／Shine 只列 reserve NPC 或雙機駕駛方向。
 
 ### Environment／prop artist
 

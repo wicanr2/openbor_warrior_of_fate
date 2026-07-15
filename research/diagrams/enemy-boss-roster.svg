@@ -118,7 +118,7 @@
     <g transform="translate(136 20)"><circle cx="38" cy="32" r="29" fill="#ffd1d1"/><path d="M9 31Q38-8 67 31L62 76H14Z" fill="#7c263b"/><path d="M22 31Q38 18 54 31" stroke="#fff" stroke-width="4" fill="none"/></g>
     <path d="M15 112L38 84L61 112V176H15ZM83 92L106 64L129 92V176H83ZM151 112L174 84L197 112V176H151Z" fill="#303a58" stroke="#bd6ee8" stroke-width="4"/>
   </g>
-  <text class="role" x="1129" y="560">Lamia / Alfimi / Despinis cues</text>
+  <text class="role" x="1129" y="560">Lamia / Ouka / Alfimi cues</text>
   <text class="small" x="1129" y="585">shared technical rig only</text>
   <text class="small" x="1129" y="610">unique face · weapon · silhouette</text>
   <text class="small" x="1129" y="635">all three spawn together</text>
@@ -126,5 +126,5 @@
   <path d="M300 430H330M568 430H588M826 430H846M1084 430H1104" stroke="#71dcff" stroke-width="4" stroke-dasharray="8 8"/>
   <path d="M50 714H1350" stroke="#34405f" stroke-width="2"/>
   <text class="warning" x="50" y="756">REFERENCE NAMES ARE SEARCH KEYS, NOT AN ASSET LICENSE.</text>
-  <text class="sub" x="50" y="788">Private references → original redraw → indexed GIF → parity validation → Docker OpenBOR smoke</text>
+  <text class="sub" x="50" y="788">Reserve: Ideon / Dark Brain / Latune / Shine · adult redesign → indexed GIF → Docker smoke</text>
 </svg>

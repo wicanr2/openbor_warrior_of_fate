@@ -2,6 +2,8 @@
 
 本文件把本機 `robot_wof_enemy/`、`robot_boss/` 中的參考圖，轉譯成可交付給美術與 OpenBOR 整合者的工作規格。參考 JPEG 只留在團隊私有空間；公開 repository 不收錄雜誌頁、遊戲截圖或可直接重用的第三方圖像。
 
+逐 Boss 的必要分鏡、依賴閉包、巨大機 geometry migration、美女三人同屏與 Docker 驗收 Gate 見 [`BOSS_PRODUCTION_PLAN.md`](../docs/BOSS_PRODUCTION_PLAN.md)。
+
 ## 使用原則
 
 - 參考圖只回答「輪廓、階級、配色、氣氛與角色類型」，不得直接裁切成 production sprite。
@@ -17,7 +19,7 @@
 | `robot_wof_enemy/729437…jpeg` | 藍盔巡邏兵頭像、匿名量產兵的軍階感、不同武裝／配色的雜兵階級 | 直接裁頭像、直接擷取遊戲畫面成 sprite |
 | `robot_boss/721248…jpeg` | 黑紫能量、巨大黑幕、闇腦／最終 Boss 的壓迫輪廓 | 複製標題、商標、既有角色造型 |
 | `robot_boss/727904…jpeg` | 從人型機到約 200m 超大型機的比例分級；Gunbuster 類巨型主角機方向 | 讓實戰 sprite 按設定比例塞滿畫面、直接描圖 |
-| `robot_boss/730001…jpeg` | 美女型 Boss／駕駛員肖像、華麗服裝與角色差異化 | 直接裁切人物、複製特定角色服裝與五官 |
+| `robot_boss/730001…jpeg` | 女性角色設計回顧：Alfimi、Ouka、Lamia、Latune、Shine；可提取成年王牌、術式型與指揮官的角色差異 | 把角色回顧誤當原作 Boss roster、直接裁切人物、複製特定服裝與五官、把少女型角色性感化 |
 
 檔名縮寫只用來讓持有私有素材的團隊成員定位來源；不代表檔案會上傳 GitHub。
 
@@ -63,14 +65,15 @@
 | 概念圖可辨識項目 | 信心 | 最相容 OpenBOR slot | 原因／處理 |
 | --- | --- | --- | --- |
 | Dark Brain／闇黑腦 | 高 | `xiahoujie` 暫定或新增最終 phase | 圖上標題與中央腦甲輪廓明確；但 extracted tree 缺 `xiahoujie/`，恢復來源前不落圖 |
-| Fighter Roar／戰士羅亞 | 高 | `xiahoudun` 人形態 | 人形近戰與抓技相容；可在 `xhorse`／weapon 狀態轉為 Compatible Kaiser 類機體 |
+| Fighter Roar／戰士羅亞 | 高 | `xiahoudun` 人形態 | 人形近戰與抓技相容；Compatible Kaiser 只列中信心關聯搜尋詞，此概念頁沒有清楚展示完整機體 |
 | Gunbuster | 高 | `xuchu` | 黑橙、交叉雙臂與背部大型結構明確；重裝、槌擊節奏可轉 Buster Punch／雙臂重擊 |
 | Daitarn 3 | 高 | `lidian` | 現有長槍與水平刺擊可轉成 Javelin 類武器，第一關仍維持中型實戰縮尺 |
 | Ideon | 中高 | reserve | 方塊型巨大輪廓適合後期背景 Boss；現有主線槽位沒有低風險的純換圖對位 |
 | Lamia Loveless | 高 | `meiya` | 生身高速近戰最自然；production 版仍需重做原創臉、服裝與裝甲語彙 |
 | Alfimi | 高 | `meimei` | 可把 `knifea` 重畫成念動／能量彈，保留現有投射時序 |
-| Despinis | 高 | `meiling` | 可把 `knifea` 重畫成術式彈，並用黑紅核心銜接闇腦力量 |
-| Shine Hausen | 高 | reserve portrait／NPC | 生身踢擊與現有骨架不相容；若採 Fairlion 類高速機體才重新評估 Boss slot |
+| Ouka Nagisa | 高 | `meiling` | 深色長髮與高領裝束提供嚴肅成年指揮官氣質；production 仍是原創臉、服裝與裝甲 |
+| Latune／Latooni Subbota | 高 | reserve portrait／NPC／paired high-speed mech | 概念頁左下人物；不是 Despinis。少女型角色不拿來做性感化美女 Boss |
+| Shine Hausen | 高 | reserve portrait／NPC／paired high-speed mech | 公主／雙機搭檔氣質；不直接套入 Boss 骨架或複製禮服 |
 
 辨識核對可參考 [《超級機器人大戰 OG Moon Dwellers》G Compatible Kaiser 官方機體頁](https://srwog-md.suparobo.jp/sp/mechanic/mechanic04.php)。角色名稱只用於團隊搜尋與討論；正式公開圖像仍需原創化與權利審查。
 
@@ -80,9 +83,9 @@
 | --- | --- | --- | --- |
 | `meimei` | 高速投刃／追擊 | 以 Alfimi 類念動戰為靈感的紫白輕甲術式機；角色外觀原創化 | 短披肩、環形感測器、紫色能量刃 |
 | `meiya` | 中近距離壓制 | 以 Lamia 類生身近戰為靈感的白金裝甲王牌；角色外觀原創化 | 長髮型頭盔輪廓、金色近戰刃 |
-| `meiling` | 近戰指揮／最後存活者 | 以 Despinis 類術式戰為靈感的黑紅指揮官；可作闇腦力量宿主 | 高領、紅色核心、較寬肩甲 |
+| `meiling` | 近戰指揮／最後存活者 | 以 Ouka 類成年指揮官氣質為提示的黑綠／黑紅原創王牌；可作闇腦力量宿主 | 高領、紅色核心、較寬肩甲 |
 
-三個原模型的招式結構高度相似，第一版不應假裝它們已有完全不同玩法。先靠造型、palette、武器 FX、聲音與頭像區隔；若要改成坦克／補師／術師三種 AI，另立 OpenBOR model change 並重新驗證平衡。
+三個原模型的招式結構高度相似，第一版不應假裝它們已有完全不同玩法。三名 production Boss 都採 adult-coded 原創設計；先靠造型、palette、武器 FX、聲音與頭像區隔。若要改成坦克／補師／術師三種 AI，另立 OpenBOR model change 並重新驗證平衡。
 
 ## 巨大 Boss 的兩種實作方式
 
