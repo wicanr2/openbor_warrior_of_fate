@@ -1,6 +1,7 @@
 # Local-only fan-project inputs and generated game assets.
 private_assets/
 local_assets/
+local-only/
 workplace/
 robot_wof_concept/
 
