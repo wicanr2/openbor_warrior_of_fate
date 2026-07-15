@@ -78,6 +78,13 @@ if [[ -n "$capture" ]]; then
 fi
 command -v xdotool >/dev/null || { echo 'xdotool is required for visible runner automation' >&2; exit 1; }
 command -v timeout >/dev/null || { echo 'GNU timeout is required for the bounded visible runner' >&2; exit 1; }
+command -v xdpyinfo >/dev/null || { echo 'xdpyinfo is required to preflight the visible display' >&2; exit 1; }
+
+if ! xdpyinfo >/dev/null 2>&1; then
+  echo "Visible display preflight failed: DISPLAY='$DISPLAY' is not reachable." >&2
+  echo "This usually means Xvfb / Xorg could not bind a listener in the current environment." >&2
+  exit 1
+fi
 
 log_dir="$stage/VisibleQA"
 mkdir -p "$log_dir"
@@ -129,13 +136,6 @@ if [[ -n "$capture" ]]; then
   capture_pid=$!
 fi
 
-wait "$openbor_pid"
-openbor_status=$?
-
-if [[ -n "$capture_pid" ]]; then
-  wait "$capture_pid" || true
-fi
-
 run_macro() {
   case "$macro" in
     '')
@@ -181,9 +181,22 @@ run_macro() {
 if [[ -n "$macro" ]]; then
   if [[ -z "$window_id" ]]; then
     echo "Warning: macro '$macro' requested but no visible OpenBOR window was found" >&2
+    echo "Window diagnostics:" >&2
+    xwininfo -root -tree >/tmp/openbor-visible-xwininfo.txt 2>&1 || true
+    xlsclients >/tmp/openbor-visible-xlsclients.txt 2>&1 || true
+    sed -n '1,120p' /tmp/openbor-visible-xwininfo.txt >&2 || true
+    sed -n '1,120p' /tmp/openbor-visible-xlsclients.txt >&2 || true
   else
+    sleep 0.5
     run_macro
   fi
+fi
+
+wait "$openbor_pid"
+openbor_status=$?
+
+if [[ -n "$capture_pid" ]]; then
+  wait "$capture_pid" || true
 fi
 
 if [[ -s "$runner_log" ]]; then

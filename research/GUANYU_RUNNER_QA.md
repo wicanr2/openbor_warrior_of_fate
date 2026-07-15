@@ -42,6 +42,12 @@ scripts/run-openbor-visible-qa.sh \
 - 2P runner 驗證。
 - 後續 production in-between、gore remap 與死亡音效替換。
 
+## Current sandbox blocker
+
+在這個工作環境裡，`Xvfb` 無法建立可用 listener，`xdpyinfo` 也無法連上任何可用 display，因此 visible runner 無法在本機 sandbox 完成。這不是 Getter 本身的 regression；是 runner 基礎設施的限制。
+
+`scripts/run-openbor-visible-qa.sh` 已經加上 display preflight，避免把這種問題誤判成 OpenBOR window 或 macro 問題。
+
 ## 相關文件
 
 - [Getter v2 P0 vertical slice](../docs/GUANYU_VERTICAL_SLICE.md)
