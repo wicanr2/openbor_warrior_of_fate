@@ -21,4 +21,3 @@ This file records the current six-candidate selection baseline for ν Gundam. It
 - Ready / confirm flow.
 - `nosame 1` behavior.
 - Stage 1 entry from the live runner.
-

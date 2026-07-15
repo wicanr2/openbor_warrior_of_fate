@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "status": "getter-v2-selection-baseline",
+  "productionReady": false,
+  "output": {
+    "path": "research/ui/select-getter-v2.gif",
+    "sha256": "25f6c7d27f9a5d9bcf0a14726e93aea6c402fbd0fcbe8e1f223c4a73e7302c3f"
+  },
+  "canvas": [
+    480,
+    276
+  ],
+  "palette": {
+    "entries": 256,
+    "index0": "#FC00FF",
+    "index0PixelCount": 0
+  },
+  "deferred": [
+    "visible OpenBOR cursor and six-step left/right cycle QA",
+    "1P/2P Ready flow and nosame behavior QA"
+  ]
+}
+

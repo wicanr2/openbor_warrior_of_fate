@@ -5,6 +5,7 @@ This image is the five-column Getter-v2 selection baseline used as the compariso
 ## Evidence
 
 - Output image: [`ui/select-getter-v2.gif`](ui/select-getter-v2.gif)
+- Manifest: [`manifests/getter-selection-v2-baseline.json`](manifests/getter-selection-v2-baseline.json)
 
 ## What it proves
 
@@ -16,4 +17,3 @@ This image is the five-column Getter-v2 selection baseline used as the compariso
 
 - This is still not a live OpenBOR runner capture.
 - It does not prove cursor, Ready, confirm, or nosame behavior.
-

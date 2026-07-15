@@ -53,6 +53,7 @@
 | [Smoke evidence index](research/SMOKE_EVIDENCE_INDEX.md) | 把 ν Gundam、Stage01、Lidian 與黃忠四條 headless smoke 證據整理成一個總索引。 |
 | [Getter v2 selection baseline](research/GETTER_SELECTION_V2_BASELINE.md) | 五欄 Getter-v2 選角基線，方便直接對照六欄版本。 |
 | [Six-player selection overview](research/SIX_PLAYER_SELECTION_OVERVIEW.md) | 六候選選角的 deterministic baseline，README 可直接看到對應圖片。 |
+| [Selection baselines 驗證器](scripts/validate-selection-baselines.mjs) | 檢查五欄 Getter-v2 與六欄選角基線的 manifest / SHA / canvas 是否一致。 |
 | [五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md) | 480×276 五人選角合成圖、張飛 icon／profile、opaque index0 方法與 M1 89/89 驗證。 |
 | [ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md) | 第六候選角色、六人 `allowselect`、480×276 roster、HUD、Fin Funnel 子模型與 2P／引擎上限。 |
 | [ν Gundam 第六角色 P0 vertical slice](docs/NU_GUNDAM_VERTICAL_SLICE.md) | 71 張動作、2 profiles、六欄選角、六發 Funnel proxy、determinism／strict／Docker v7533 實測與 deferred P1。 |
