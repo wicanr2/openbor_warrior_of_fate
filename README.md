@@ -26,6 +26,7 @@
 | [機器人大戰素材替換總計畫](docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md) | 五角色、場景、UI、里程碑、人力與驗收閘門；說明如何從 moodboard 走到可玩的視覺替換。 |
 | [無敵鐵金剛 vertical slice](docs/MAZINGER_VERTICAL_SLICE.md) | 張飛 slot 的第一組實作入口：12 張 key pose、overlay 流程與透明色驗收。 |
 | [關羽 Getter v2 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md) | Getter v5 的 65 主 GIF、2 profiles、selection 第一欄、零 clamp／無新增貼邊與 Docker v7533 實測。 |
+| [關羽剩餘工作隊列](research/manifests/guanyu-next-queue.json) | Getter v2 P0 之後還要補的 g1–g16、gore、死亡音效、逐格補間與 gameplay QA 清單。 |
 | [趙雲紫色神經長槍機 P0 vertical slice](docs/ZHAOYUN_VERTICAL_SLICE.md) | 趙雲 slot 的 82 主 GIF、2 profiles、57 shared FX、398-file merged overlay、determinism／strict／Docker 與 deferred closure。 |
 | [黃忠蒼藍光子射手機 P0 vertical slice](docs/HUANGZHONG_VERTICAL_SLICE.md) | 黃忠 active-player 73 GIF、2 profiles、8 個 projectile models／22 GIF、503-file merged overlay、19 TXT strict／determinism／Docker 與 `h1`–`h16` deferred closure。 |
 | [無敵鐵金剛 P0 對照](research/MAZINGER_P0_FRAME_MAP.md) | 42 個 case-sensitive P0 引用、41 個實體 GIF、canvas／Offset、12 格映射與缺幀表。 |
@@ -38,6 +39,7 @@
 | [五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md) | 480×276 五人選角合成圖、張飛 icon／profile、opaque index0 方法與 M1 89/89 驗證。 |
 | [ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md) | 第六候選角色、六人 `allowselect`、480×276 roster、HUD、Fin Funnel 子模型與 2P／引擎上限。 |
 | [ν Gundam 第六角色 P0 vertical slice](docs/NU_GUNDAM_VERTICAL_SLICE.md) | 71 張動作、2 profiles、六欄選角、六發 Funnel proxy、determinism／strict／Docker v7533 實測與 deferred P1。 |
+| [ν Gundam 剩餘工作隊列](research/manifests/nu-gundam-next-queue.json) | P0 之後要補的可見 runner、Funnel P1、音效、逐格補間與 gameplay QA 清單。 |
 | [魏延裂界獸 P0 vertical slice](docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md) | 84 張動作、2 profiles、尾砲 proxy、人類武器切斷、determinism／strict／Docker v7533 實測與 deferred production FX。 |
 | [六人候選選角 TXT overlay](docs/SIX_PLAYER_SELECT_TEXT_OVERLAY.md) | `models.txt`／`allowselect` 的 exact Load 順序、Funnel 支援模型、可重入 patch 與 13 項測試。 |
 | [夏亞／有腳吉翁克 Boss 工程計畫](docs/ZEON_BOSS_WITH_LEGS_PLAN.md) | 完成型有腳 Boss、夏亞 cut-in、67-GIF P0 閉包、遠距／抓投／HP 分支與人類素材清除。 |
