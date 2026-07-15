@@ -40,6 +40,7 @@
 | [Master progress atlas](research/previews/master-progress-atlas.svg) | 把目前所有 preview/contact-sheet 圖整成一張總覽大圖，方便快速掃描目前已有的視覺資產。 |
 | [Master progress atlas 驗證器](scripts/validate-master-progress-atlas.mjs) | 檢查 atlas 的嵌入圖片數量是否與目前預覽圖數量一致。 |
 | [Visual asset index](research/VISUAL_ASSET_INDEX.md) | 把目前的預覽圖與 contact-sheet 依工作線與來源 queue 分類，方便快速找到對應參考圖。 |
+| [Concept lineage](research/CONCEPT_LINEAGE.md) | 把概念方向、現有視覺資產與待完成 queue 串成一張主表，直接對齊「基於概念圖完成」。 |
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
 | [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
 | [Boss 待辦隊列](research/manifests/boss-next-queue.json) | Lidian、Zeon Boss、Xuchu、Xiahorse 與美女三 Boss 的剩餘工作清單。 |
