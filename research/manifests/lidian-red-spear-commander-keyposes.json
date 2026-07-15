@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "status": "concept-keyposes-not-production-ready",
+  "source": "local-only/lidian-red-spear-commander-storyboard-v1.png",
+  "sourceSha256": "7e6dd1a1518d02fe93fae0508cbcb88f4445bc2b06686c556eae1ae228aa456e",
+  "sourceCanvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "chromaKey": {
+    "r": 252,
+    "g": 0,
+    "b": 255,
+    "hex": "#FC00FF",
+    "requiredPaletteIndex": 0
+  },
+  "normalization": {
+    "rule": "r>=180 && b>=180 && g<=160 && abs(r-b)<=40"
+  },
+  "frames": [
+    {
+      "index": 1,
+      "role": "boss-portrait",
+      "sourceCrop": {
+        "role": "boss-portrait",
+        "x": 27,
+        "y": 32,
+        "width": 253,
+        "height": 266
+      },
+      "output": "local-only/frame-01.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 245,
+        "height": 258
+      },
+      "chromaPixels": 24270,
+      "totalPixels": 67298
+    },
+    {
+      "index": 2,
+      "role": "spawn-landing",
+      "sourceCrop": {
+        "role": "spawn-landing",
+        "x": 326,
+        "y": 6,
+        "width": 247,
+        "height": 289
+      },
+      "output": "local-only/frame-02.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 241,
+        "height": 281
+      },
+      "chromaPixels": 48988,
+      "totalPixels": 71383
+    },
+    {
+      "index": 3,
+      "role": "idle",
+      "sourceCrop": {
+        "role": "idle",
+        "x": 649,
+        "y": 94,
+        "width": 273,
+        "height": 198
+      },
+      "output": "local-only/frame-03.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 265,
+        "height": 190
+      },
+      "chromaPixels": 37331,
+      "totalPixels": 54054
+    },
+    {
+      "index": 4,
+      "role": "walk",
+      "sourceCrop": {
+        "role": "walk",
+        "x": 969,
+        "y": 71,
+        "width": 175,
+        "height": 221
+      },
+      "output": "local-only/frame-04.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 167,
+        "height": 213
+      },
+      "chromaPixels": 22748,
+      "totalPixels": 38675
+    },
+    {
+      "index": 5,
+      "role": "spear-thrust",
+      "sourceCrop": {
+        "role": "spear-thrust",
+        "x": 6,
+        "y": 399,
+        "width": 294,
+        "height": 184
+      },
+      "output": "local-only/frame-05.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 286,
+        "height": 176
+      },
+      "chromaPixels": 39784,
+      "totalPixels": 54096
+    },
+    {
+      "index": 6,
+      "role": "spear-sweep",
+      "sourceCrop": {
+        "role": "spear-sweep",
+        "x": 335,
+        "y": 382,
+        "width": 276,
+        "height": 198
+      },
+      "output": "local-only/frame-06.png",
+      "foreground": {
+        "x": 3,
+        "y": 4,
+        "width": 269,
+        "height": 190
+      },
+      "chromaPixels": 36399,
+      "totalPixels": 54648
+    },
+    {
+      "index": 7,
+      "role": "jump",
+      "sourceCrop": {
+        "role": "jump",
+        "x": 668,
+        "y": 329,
+        "width": 226,
+        "height": 207
+      },
+      "output": "local-only/frame-07.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 218,
+        "height": 199
+      },
+      "chromaPixels": 31864,
+      "totalPixels": 46782
+    },
+    {
+      "index": 8,
+      "role": "aerial-charge",
+      "sourceCrop": {
+        "role": "aerial-charge",
+        "x": 942,
+        "y": 327,
+        "width": 279,
+        "height": 232
+      },
+      "output": "local-only/frame-08.png",
+      "foreground": {
+        "x": 4,
+        "y": 3,
+        "width": 271,
+        "height": 225
+      },
+      "chromaPixels": 48004,
+      "totalPixels": 64728
+    },
+    {
+      "index": 9,
+      "role": "downward-strike",
+      "sourceCrop": {
+        "role": "downward-strike",
+        "x": 29,
+        "y": 617,
+        "width": 205,
+        "height": 281
+      },
+      "output": "local-only/frame-09.png",
+      "foreground": {
+        "x": 4,
+        "y": 3,
+        "width": 197,
+        "height": 274
+      },
+      "chromaPixels": 37369,
+      "totalPixels": 57605
+    },
+    {
+      "index": 10,
+      "role": "ground-special",
+      "sourceCrop": {
+        "role": "ground-special",
+        "x": 282,
+        "y": 641,
+        "width": 320,
+        "height": 226
+      },
+      "output": "local-only/frame-10.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 313,
+        "height": 218
+      },
+      "chromaPixels": 41557,
+      "totalPixels": 72320
+    },
+    {
+      "index": 11,
+      "role": "light-pain",
+      "sourceCrop": {
+        "role": "light-pain",
+        "x": 685,
+        "y": 650,
+        "width": 212,
+        "height": 218
+      },
+      "output": "local-only/frame-11.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 204,
+        "height": 210
+      },
+      "chromaPixels": 29510,
+      "totalPixels": 46216
+    },
+    {
+      "index": 12,
+      "role": "heavy-pain",
+      "sourceCrop": {
+        "role": "heavy-pain",
+        "x": 1001,
+        "y": 638,
+        "width": 187,
+        "height": 231
+      },
+      "output": "local-only/frame-12.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 179,
+        "height": 223
+      },
+      "chromaPixels": 24103,
+      "totalPixels": 43197
+    },
+    {
+      "index": 13,
+      "role": "airborne-fall",
+      "sourceCrop": {
+        "role": "airborne-fall",
+        "x": 38,
+        "y": 951,
+        "width": 240,
+        "height": 214
+      },
+      "output": "local-only/frame-13.png",
+      "foreground": {
+        "x": 4,
+        "y": 3,
+        "width": 232,
+        "height": 207
+      },
+      "chromaPixels": 35254,
+      "totalPixels": 51360
+    },
+    {
+      "index": 14,
+      "role": "prone-fall",
+      "sourceCrop": {
+        "role": "prone-fall",
+        "x": 290,
+        "y": 1057,
+        "width": 292,
+        "height": 140
+      },
+      "output": "local-only/frame-14.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 284,
+        "height": 132
+      },
+      "chromaPixels": 24671,
+      "totalPixels": 40880
+    },
+    {
+      "index": 15,
+      "role": "death-wreckage",
+      "sourceCrop": {
+        "role": "death-wreckage",
+        "x": 615,
+        "y": 1056,
+        "width": 320,
+        "height": 127
+      },
+      "output": "local-only/frame-15.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 312,
+        "height": 119
+      },
+      "chromaPixels": 22822,
+      "totalPixels": 40640
+    },
+    {
+      "index": 16,
+      "role": "mechanical-debris",
+      "sourceCrop": {
+        "role": "mechanical-debris",
+        "x": 965,
+        "y": 939,
+        "width": 239,
+        "height": 250
+      },
+      "output": "local-only/frame-16.png",
+      "foreground": {
+        "x": 4,
+        "y": 4,
+        "width": 231,
+        "height": 242
+      },
+      "chromaPixels": 33173,
+      "totalPixels": 59750
+    }
+  ]
+}

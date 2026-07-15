@@ -10,25 +10,40 @@
 
 | 私有概念頁 | 可辨識的設計方向 | 可用搜尋名稱 | 本專案處理方式 |
 | --- | --- | --- | --- |
-| `robot_boss/721248…jpeg` | 黑紫能量、巨大幕後操控者、腦核／魔王輪廓、英雄與黑幕對決 | Dark Brain、Fighter Roar；Compatible Kaiser 僅為中信心關聯搜尋詞 | 只取「英雄機對抗腦核巨體」的敘事結構；外觀與標誌全部原創化 |
-| `robot_boss/727904…jpeg` | 超級機器人的高度對照；中型人形機到約 200m 級巨型機 | Gunbuster、Daitarn 3、Ideon，其他未確認機體暫用 `RB-UNKNOWN-*` | 先在既有 Boss slot 做縮尺版；真正巨型戰另開 gameplay branch |
-| `robot_boss/730001…jpeg` | 女性角色設計回顧，並非原作 Boss roster；華麗服裝、髮型與氣質差異 | 上左 Alfimi、上右 Ouka Nagisa、中央 Lamia Loveless、下左 Latune／Latooni Subbota、下右 Shine Hausen | 三名戰鬥 Boss 必須 adult-coded 且全新設計；Latune／Shine 只留作 NPC、雙機駕駛或高速妖精機的抽象提示 |
+| `robot_boss/721248…jpeg` | 黑紫能量、巨大幕後操控者、核心／魔王輪廓、英雄與黑幕對決 | 海報主題文字可辨識為「羅亞與闇腦」；逐一角色不做公開對應 | 只取「英雄機對抗宇宙核心巨體」的敘事結構；外露腦、胸像輪廓、標誌與文字都不能重製 |
+| `robot_boss/727904…jpeg` | 約 50 台機器人的高度比較；後排有約 200m 級巨型機 | 圖中沒有逐機標籤；Gunbuster 是使用者提出的 private 尺度例子，其他名稱不猜測 | 先在既有 Boss slot 做縮尺版；真正巨型戰另開 gameplay branch，公開 roster 全部改用原創名稱 |
+| `robot_boss/730001…jpeg` | 女性角色設計回顧，並非原作 Boss roster；華麗服裝、髮型與氣質差異 | 只可確認頁面文字提到設計師河野さち子；五名角色姓名／年齡不能由未標註 collage 可靠判斷 | 三名戰鬥 Boss 必須明確成年且全新設計；不可沿用幼態比例、相似臉、髮型、制服或配色 |
 
 這些名稱是團隊溝通與搜尋用的靈感標籤，不是素材授權。正式公開版本建議使用原創代號與原創造型；若團隊決定保留任何既有 IP 名稱或外觀，發行前需另做權利確認。
 
-名稱關聯可交叉核對[《無敵鋼人ダイターン3》官方角色頁](https://www.daitarn3.net/character/)與[《超級機器人大戰 OG Moon Dwellers》G Compatible Kaiser 官方機體頁](https://srwog-md.suparobo.jp/sp/mechanic/mechanic04.php)；官方頁只用來避免名稱誤植，不授權本專案重用原作圖像。
+private notes 可保留團隊提出的第三方例子來討論尺寸與節奏，但 public production name、剪影、頭冠、胸徽、配色、武器及故事設定都必須原創。概念圖中的人物／機體若沒有清楚標籤，一律記為 `unconfirmed private reference`，不能把推測寫成公開事實。
 
 ## 主線 Boss 槽位
 
 | 順序 | OpenBOR slot | 已盤點的私有 scope | 現有玩法契約 | 原創替換 brief／完整交付 |
 | --- | --- | ---: | --- | --- |
-| B1 | Stage01 `lidian` | 69 GIF | 長柄武器指揮官；wrapper＋include；52 主體／Boss show，另有四組私有子模型 | `RB-COMMANDER-01`：藍黑指揮官機、橙色軍階、長柄高周波兵器；主模型、include、69 張私有包、機械碎片及 480×272 Boss show 一起交付 |
+| B1 | Stage01 `lidian` | 69 GIF | 長柄武器指揮官；wrapper＋include；52 主體／Boss show，另有四組私有子模型 | `Crimson Marshal／緋紅督戰官`：紅色重裝、青色核心、藍黑能量長槍；69 GIF＋6 TXT engineering closure 已完成，仍需逐幀 production redraw 與可視 gameplay review |
 | B2 | Stage02 `xiahorse` | 91 GIF＋外部依賴 | 400 HP 騎乘 Boss；低於 300 HP 分離；phase 1 為 35 張、phase 2 為 49 張，另有 7 張碎片與 1 張空白終態 | `RB-SPLIT-02`：四足突擊載具搭載原創王牌；91 張私有包、`horse` 13 張、`lei3` 10 張、FX、分離過場與兩階段死亡一起交付 |
-| B3 | Stage03A `xuchu` | 53 GIF＋外部依賴 | 470 HP 重裝近戰；44 張主體／Boss show＋9 張私有分離模型；重擊、衝撞、砸地與抓投 | `RB-GIANT-03`：黑橙重裝大型主角機鏡像；全主模型、私有分離模型、重拳／重擊 FX、完整受傷／死亡及 icon；放大時附 geometry migration manifest |
-| B4 | Stage03B `meimei`／`meiya`／`meiling` | 126 GIF＋共用 `knifea` 2 GIF | 每人 41 張 110×82 body＋一張 480×272 portrait；三名 Boss 同場，技能契約相近 | `RB-ACE-A/B/C`：紫白術式型、白金近戰型、黑紅指揮型三位成年王牌；三套 body／肖像、共用投射物與 FX、所有特殊受傷／倒地幀，不能只改 palette |
+| B3 | Stage03A `xuchu` | 53 GIF＋外部依賴 | 470 HP 重裝近戰；44 張主體／Boss show＋9 張私有分離模型；重擊、衝撞、砸地與抓投 | `Iron Bastion／玄鐵鎮壓機`：原創黑橙重裝大型英雄機鏡像；全主模型、私有分離模型、重拳／重擊 FX、完整受傷／死亡及 icon；放大時附 geometry migration manifest |
+| B4 | Stage03B `meimei`／`meiya`／`meiling` | 126 GIF＋共用 `knifea` 2 GIF | 每人 41 張 110×82 body＋一張 480×272 portrait；三名 Boss 同場，技能契約相近 | `Cinder Ace／Jade Strategist／Ivory Regent`：暖紅近戰、冷綠區控、月白旗艦三位成年王牌；三套 body／肖像、共用投射物與 FX、所有特殊受傷／倒地幀，不能只改 palette |
 | B5 | `xiahoujie`／後期新增 phase | 原始來源缺件 | `models.txt` 有登記，但 extracted tree 缺 `data/chars/boss/xiahoujie/`，目前不能驗證 | 槽位保留給 `RB-CORE-FINAL` 或另一台超大型主角機；先補回合法來源，再承諾張數、玩法與完成日 |
 
-上述數字是去重後的 physical GIF 工作量，不是 model TXT 的 Frame 行數。`lidian`、`xiahorse`、`xuchu` 目前也會依賴人體血液／器官碎片；機器人版要改成各 Boss 私有的火花、裝甲、線纜與核心碎片，不能覆寫仍被其他人物使用的共用 gore。
+上述數字是去重後的 physical GIF 工作量，不是 model TXT 的 Frame 行數。`lidian` 的人體血液／器官依賴已只在私有 overlay 內改成 `Flashb`、`Dust` 與 Lidian-local 機械碎片；`xiahorse`、`xuchu` 仍待同樣處理。不能覆寫仍被其他人物使用的 shared gore。
+
+## 原創 Boss roster 與巨大戰 reserve
+
+| Engine slot／branch | 原創暫名 | 類型 | 必須保留的 gameplay silhouette |
+| --- | --- | --- | --- |
+| `lidian` | Crimson Marshal／緋紅督戰官 | 中型紅槍指揮機 | 長柄武器、橫向大揮擊、Boss show；Stage01 engineering closure 已完成 |
+| `xiahorse` | Storm Lancer／蒼雷騎將 | 成年女性騎兵隊長＋四足突擊機 | 騎乘高度、長距離衝刺、寬底盤與 phase 分離 |
+| `xuchu` | Iron Bastion／玄鐵鎮壓機 | 無人或成年駕駛的重裝超級機器人 | 巨拳、寬肩、低重心、重擊；G0 約玩家 1.25–1.45 倍並保持在 viewport 內 |
+| `meimei` | Cinder Ace／紅蓮王牌 | 明確成年女性近戰 ace | 暖紅、短距連擊、清楚手腳剪影，避免幼態比例 |
+| `meiling` | Jade Strategist／青磁戰術官 | 明確成年女性戰術官 | 冷綠、匕首／浮游裝置、區域控制；臉與制服不可和其他兩人共用 |
+| `meiya` | Ivory Regent／月白旗艦主 | 明確成年女性隊長／變形機駕駛 | 月白＋深紫、披肩式裝甲；先確認 mounted-like action manifest |
+| G1 reserve | Zenith-0／天極零號 | 原創 120–200m 級失控原型主角機 | 背景軀幹＋可攻擊頭／手／核心＋分段攻擊，不能只放大 `xuchu` sprite |
+| Final reserve | Violet Synapse／紫曜星核 | 原創宇宙要塞／最終 AI | 幾何神經晶格、環狀光輪、可破壞核心與多 phase；避開概念海報的外露腦胸像 |
+
+`robot_boss/` 內的三張圖只留在 private mood-reference。禁止描圖、裁切、換色或重製其中的角色、機體、標誌與文字；public repository 只保存上述原創 brief、輪廓總覽、manifest、替換對照與自行製作的成品。
 
 ## 美女 Boss 三人組分工
 
@@ -36,9 +51,9 @@
 
 | ID／slot | 戰鬥角色 | 輪廓與主色 | 武器／FX | 肖像要求 |
 | --- | --- | --- | --- | --- |
-| `RB-ACE-A`／`meimei` | 中距離術式／追擊 | Alfimi 的能量／配色只作抽象提示；短披肩、環形感測器；紫白 | 環形能量刃、紫色軌跡；`knifea` 重畫為術式彈 | 成年化原創術式王牌；64×94 通訊圖與小 icon 均需原創重畫 |
-| `RB-ACE-B`／`meiya` | 高速近戰壓制 | Lamia 類成年王牌氣質；長髮型頭盔、窄腰裝甲；白金＋青色 | 金色近戰刃、短距突進光 | 自信成年王牌；不可沿用 A 的臉型、瀏海或肩線 |
-| `RB-ACE-C`／`meiling` | 指揮／最後存活者 | Ouka 類嚴肅指揮官氣質；高領、寬肩、胸前核心；黑綠／黑紅 | 紅黑指揮標記、核心脈衝、較低亮度投射物 | 成年原創領隊；不能用大面積 FX 長時間遮住另外兩人 |
+| `Cinder Ace`／`meimei` | 高速近戰壓制 | 短披肩、寬腿近戰輪廓；暖紅＋深灰 | 熱能短刃、短距突進光 | 自信成年王牌；64×94 通訊圖與小 icon 均需原創重畫 |
+| `Ivory Regent`／`meiya` | 旗艦／變形壓制 | 披肩式裝甲、較高輪廓；月白＋深紫 | 展開式長刃、折疊翼／盾 | 成年原創隊長；不可沿用 A 的臉型、瀏海、制服或肩線 |
+| `Jade Strategist`／`meiling` | 戰術／區域控制 | 高領、環形感測器、窄輪廓；冷綠＋黑 | 浮游裝置、低亮度區域標記；`knifea` 重畫為控制彈 | 成年原創戰術官；不能用大面積 FX 長時間遮住另外兩人 |
 
 每名角色至少要單獨審核 portrait、idle、walk、attack、projectile pose、pain、airborne、fall、rise、special、death。三人全套完成後，再做「三 Boss 同屏」合成總覽，公開 repo 只收這張原創審稿總覽，不收可直接抽出的逐幀 production GIF。
 
@@ -133,10 +148,10 @@
 
 ## 建議製作順序
 
-1. `lidian` 原創中型指揮官機：建立第一套 Boss closure、分鏡總覽、icon 與 Docker fixture。
+1. `lidian` 原創中型指揮官機：69 GIF＋6 TXT engineering closure 已完成；下一步逐幀 production redraw、三條死亡路徑 fixture 與可視 gameplay review。
 2. `xiahorse` 兩階段包：先證明載具→駕駛員分離全程沒有舊素材。
 3. `xuchu` 的 G0 黑橙重裝巨型機：先保持原 canvas／玩法；確認可讀性後才評估 G1。
 4. `meimei`、`meiya`、`meiling` 三名藝術家平行製作，同一位 integration owner 管 palette、命名與 technical rig。
 5. 四個 gate 全部可玩後，再決定最終戰採美女宿主→黑紫腦核，或大型英雄機鏡像決戰。
 
-目前本文件是 production contract；Boss sprite 尚未達 engineering coverage 或 production-ready。任何狀態更新都要附依賴閉包、靜態 validator、Docker Log 與可視 gameplay review 證據。
+目前 `lidian` 已達 69 GIF＋6 TXT engineering coverage 並通過靜態 validator 與 Docker model-load；它和其餘 Boss 都尚未 production-ready。任何狀態更新都要附依賴閉包、靜態 validator、Docker Log 與可視 gameplay review 證據。

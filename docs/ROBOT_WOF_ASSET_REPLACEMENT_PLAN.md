@@ -91,7 +91,7 @@
 - 一種機械近戰雜兵、一個補給箱、一個爆炸 FX。
 - Linux／Windows／macOS smoke test。
 
-進度：Mazinger P0、五人選角合成圖、張飛 HUD／profile、藍盔 `bing`／`bingxs`、Stage01 三張長圖、掃描光與機械補給箱已達 private engineering coverage，並通過 Linux Docker model-load gate；M1 coverage 為 89/89。這仍是生成式對位骨架，逐 viewport／選角／實戰 review 與逐格 production 清稿尚未完成，因此 M1 不能標記 production-ready。
+進度：Mazinger P0、五人選角合成圖、張飛 HUD／profile、藍盔 `bing`／`bingxs`、Stage01 三張長圖、掃描光、機械補給箱，以及 `lidian` 紅槍 Boss 69 GIF＋6 TXT 已達 private engineering coverage，並通過 Linux Docker model-load gate；M1 coverage 維持 89/89，整包 overlay 為 182 files。這仍是生成式對位骨架，逐 viewport／選角／實戰 review 與逐格 production 清稿尚未完成，因此不能標記 production-ready。
 
 驗收通過後鎖定角色高度、輪廓線、金屬色階、光源、palette 與 AI／人工修圖比例。
 

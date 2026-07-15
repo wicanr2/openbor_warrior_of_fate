@@ -18,8 +18,8 @@
 | --- | --- | --- |
 | `robot_wof_enemy/729437…jpeg` | 藍盔巡邏兵頭像、匿名量產兵的軍階感、不同武裝／配色的雜兵階級 | 直接裁頭像、直接擷取遊戲畫面成 sprite |
 | `robot_boss/721248…jpeg` | 黑紫能量、巨大黑幕、闇腦／最終 Boss 的壓迫輪廓 | 複製標題、商標、既有角色造型 |
-| `robot_boss/727904…jpeg` | 從人型機到約 200m 超大型機的比例分級；Gunbuster 類巨型主角機方向 | 讓實戰 sprite 按設定比例塞滿畫面、直接描圖 |
-| `robot_boss/730001…jpeg` | 女性角色設計回顧：Alfimi、Ouka、Lamia、Latune、Shine；可提取成年王牌、術式型與指揮官的角色差異 | 把角色回顧誤當原作 Boss roster、直接裁切人物、複製特定服裝與五官、把少女型角色性感化 |
+| `robot_boss/727904…jpeg` | 從人型機到約 200m 超大型機的比例分級；圖中沒有逐機標籤 | 讓實戰 sprite 按設定比例塞滿畫面、直接描圖、把推測機體名寫成事實 |
+| `robot_boss/730001…jpeg` | 女性角色設計回顧；只可確認頁面文字提到設計師河野さち子，五名角色姓名／年齡未標示 | 把角色回顧誤當原作 Boss roster、猜人物姓名、直接裁切、複製服裝五官、使用幼態比例 |
 
 檔名縮寫只用來讓持有私有素材的團隊成員定位來源；不代表檔案會上傳 GitHub。
 
@@ -53,37 +53,24 @@
 
 | Gate／model | 現有機制 | 建議新設計 | 規模與美術限制 | 優先級 |
 | --- | --- | --- | --- | --- |
-| Stage01 `lidian` | 第一關長武器指揮官；`lidian.txt` include `li.txt`，另有 spawn／分離子模型與 480×272 Boss icon | 島田兵陣營的指揮官機：藍黑裝甲、橙色軍階、長柄高周波兵器 | 約玩家 1.10–1.25 倍；保持第一關可讀性，不用最終 Boss 造型 | P0/P1 第一個 Boss 包 |
+| Stage01 `lidian` | 第一關長武器指揮官；`lidian.txt` include `li.txt`，另有 spawn／分離子模型與 480×272 Boss icon | `Crimson Marshal／緋紅督戰官`：紅色重裝、青色核心、藍黑能量長槍 | 約玩家 1.10–1.25 倍；69 GIF＋6 TXT engineering closure 已完成，仍需 production redraw | P0/P1 第一個 Boss 包 |
 | Stage02 `xiahorse` | 400 HP 騎乘 Boss；低於 300 HP 會拆成 `xiahoudun`＋`horse`，不是單一 sprite | 四足突擊載具＋女性或男性王牌駕駛；載具受損後分離成人型決戰 | 必須同時畫合體、載具、駕駛員與轉換幀；不能只換 8 張主模型圖 | P1，完整兩階段包 |
-| Stage03A `xuchu` | 470 HP 重裝近戰 Boss；wrapper `xuchu.txt` include `chu.txt`，有大幅度重擊 | 大型主角機反派化／鏡像決戰；可採 Gunbuster 類「黑橙重裝、背部大型推進器」的原創再設計 | 世界觀可設定為超大型機；實戰 sprite 建議玩家 1.25–1.45 倍。真正 200m 感以背景、震動、局部特寫與 arena phase 呈現 | P1/P2，大型 Boss 首選槽位 |
-| Stage03B `meimei`／`meiya`／`meiling` | 三名 300 HP Boss 同時出場；三者目前共用近似骨架、飛刀與高速格鬥語彙 | 三位美女型王牌／人型機甲：暗紫術式型、白金聖騎型、黑紅指揮型；五官與服裝全部原創 | 可共用 technical rig，但 silhouette、主色、武器、HUD 頭像需一眼可分；三人同場不可都用高亮大 FX | P1/P2，適合三藝術家平行分工 |
+| Stage03A `xuchu` | 470 HP 重裝近戰 Boss；wrapper `xuchu.txt` include `chu.txt`，有大幅度重擊 | `Iron Bastion／玄鐵鎮壓機`：大型原創主角機鏡像；黑橙重裝、寬肩、低重心與大型推進器 | 世界觀可設定為超大型機；實戰 sprite 建議玩家 1.25–1.45 倍。真正 200m 感以背景、震動、局部特寫與 arena phase 呈現 | P1/P2，大型 Boss 首選槽位 |
+| Stage03B `meimei`／`meiya`／`meiling` | 三名 300 HP Boss 同時出場；三者目前共用近似骨架、飛刀與高速格鬥語彙 | `Cinder Ace`、`Ivory Regent`、`Jade Strategist` 三位明確成年女性王牌；臉、服裝與機甲全部原創 | 可共用 technical rig，但 silhouette、主色、武器、HUD 頭像需一眼可分；三人同場不可都用高亮大 FX | P1/P2，適合三藝術家平行分工 |
 
-## 參考角色辨識與候選 roster
+## 私有標籤與原創 roster
 
-下表是依概念圖與既有 OpenBOR 招式做的高／中信心候選，不是 production art 授權。無法從圖中可靠辨識的機體一律保留 `RB-UNKNOWN-*`，不靠印象補名字。
+`robot_boss/` 的海報文字可辨識「羅亞與闇腦」、約 `200m` 比例標尺與設計師河野さち子；無標籤的機體與五名女性角色不能靠印象補名字。Gunbuster 是使用者提出的 private 尺度例子，不代表比例圖中的某一台已被可靠辨識，也不是 production art 授權。
 
-| 概念圖可辨識項目 | 信心 | 最相容 OpenBOR slot | 原因／處理 |
-| --- | --- | --- | --- |
-| Dark Brain／闇黑腦 | 高 | `xiahoujie` 暫定或新增最終 phase | 圖上標題與中央腦甲輪廓明確；但 extracted tree 缺 `xiahoujie/`，恢復來源前不落圖 |
-| Fighter Roar／戰士羅亞 | 高 | `xiahoudun` 人形態 | 人形近戰與抓技相容；Compatible Kaiser 只列中信心關聯搜尋詞，此概念頁沒有清楚展示完整機體 |
-| Gunbuster | 高 | `xuchu` | 黑橙、交叉雙臂與背部大型結構明確；重裝、槌擊節奏可轉 Buster Punch／雙臂重擊 |
-| Daitarn 3 | 高 | `lidian` | 現有長槍與水平刺擊可轉成 Javelin 類武器，第一關仍維持中型實戰縮尺 |
-| Ideon | 中高 | reserve | 方塊型巨大輪廓適合後期背景 Boss；現有主線槽位沒有低風險的純換圖對位 |
-| Lamia Loveless | 高 | `meiya` | 生身高速近戰最自然；production 版仍需重做原創臉、服裝與裝甲語彙 |
-| Alfimi | 高 | `meimei` | 可把 `knifea` 重畫成念動／能量彈，保留現有投射時序 |
-| Ouka Nagisa | 高 | `meiling` | 深色長髮與高領裝束提供嚴肅成年指揮官氣質；production 仍是原創臉、服裝與裝甲 |
-| Latune／Latooni Subbota | 高 | reserve portrait／NPC／paired high-speed mech | 概念頁左下人物；不是 Despinis。少女型角色不拿來做性感化美女 Boss |
-| Shine Hausen | 高 | reserve portrait／NPC／paired high-speed mech | 公主／雙機搭檔氣質；不直接套入 Boss 骨架或複製禮服 |
-
-辨識核對可參考 [《超級機器人大戰 OG Moon Dwellers》G Compatible Kaiser 官方機體頁](https://srwog-md.suparobo.jp/sp/mechanic/mechanic04.php)。角色名稱只用於團隊搜尋與討論；正式公開圖像仍需原創化與權利審查。
+公開工作一律改用原創暫名：`Crimson Marshal`、`Storm Lancer`、`Iron Bastion`、`Cinder Ace`、`Jade Strategist`、`Ivory Regent`、`Zenith-0`、`Violet Synapse`。第三方名稱、造型、頭冠、胸徽、武器、制服、臉型與故事設定不能搬入成品。
 
 ### 建議的美女 Boss 三人組
 
 | Slot | 戰鬥定位 | 原創設計 brief | 主要辨識 |
 | --- | --- | --- | --- |
-| `meimei` | 高速投刃／追擊 | 以 Alfimi 類念動戰為靈感的紫白輕甲術式機；角色外觀原創化 | 短披肩、環形感測器、紫色能量刃 |
-| `meiya` | 中近距離壓制 | 以 Lamia 類生身近戰為靈感的白金裝甲王牌；角色外觀原創化 | 長髮型頭盔輪廓、金色近戰刃 |
-| `meiling` | 近戰指揮／最後存活者 | 以 Ouka 類成年指揮官氣質為提示的黑綠／黑紅原創王牌；可作闇腦力量宿主 | 高領、紅色核心、較寬肩甲 |
+| `meimei` | 高速近戰／追擊 | `Cinder Ace／紅蓮王牌`；明確成年，暖紅＋深灰近戰輕甲 | 短披肩、寬腿剪影、熱能短刃 |
+| `meiya` | 旗艦／變形壓制 | `Ivory Regent／月白旗艦主`；明確成年，月白＋深紫披肩式裝甲 | 展開長刃、折疊翼／盾、較高輪廓 |
+| `meiling` | 戰術／區域控制 | `Jade Strategist／青磁戰術官`；明確成年，冷綠＋黑窄輪廓 | 高領、環形感測器、浮游控制裝置 |
 
 三個原模型的招式結構高度相似，第一版不應假裝它們已有完全不同玩法。三名 production Boss 都採 adult-coded 原創設計；先靠造型、palette、武器 FX、聲音與頭像區隔。若要改成坦克／補師／術師三種 AI，另立 OpenBOR model change 並重新驗證平衡。
 
@@ -115,6 +102,8 @@
 - 同角色 master palette、alternate Map／red 狀態與 engine-review 記錄。
 
 `xiahorse` 是特別容易漏件的例子：它在血量門檻後會生成 `xiahoudun` 與 `horse`，所以只完成騎乘圖會在戰鬥中途閃回原素材。
+
+Stage01 `lidian` 的 16 格安全 crop、69 GIF＋6 TXT closure、Lidian-only 機械死亡 remap 與 Docker 證據見[李典紅槍指揮機 vertical slice](../docs/LIDIAN_BOSS_VERTICAL_SLICE.md)。
 
 ## 待辨識與待決策
 

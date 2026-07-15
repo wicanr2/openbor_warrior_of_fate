@@ -312,12 +312,17 @@ export function makeComposedPng(sourcePath, outputPath, pose, target, spriteHeig
   );
   const scaledHeight = Math.max(1, Math.round(pose.crop.height * fitScale));
   const scaledWidth = Math.max(1, Math.round(pose.crop.width * fitScale));
-  const sourceAnchorInCrop = mapping.anchor === 'center-bottom'
-    ? pose.crop.width / 2
-    : pose.sourceFootAnchorX - pose.crop.x;
+  const sourceAnchorInCrop = mapping.sourceAnchor
+    ? mapping.sourceAnchor.x - pose.crop.x
+    : mapping.anchor === 'center-bottom'
+      ? pose.crop.width / 2
+      : pose.sourceFootAnchorX - pose.crop.x;
   const scaledAnchorX = sourceAnchorInCrop * (scaledWidth / pose.crop.width);
+  const scaledAnchorY = mapping.sourceAnchor
+    ? (mapping.sourceAnchor.y - pose.crop.y) * (scaledHeight / pose.crop.height)
+    : scaledHeight - 1;
   const requestedX = Math.round(target.offset.x - scaledAnchorX);
-  const requestedY = target.offset.y - scaledHeight + 1;
+  const requestedY = Math.round(target.offset.y - scaledAnchorY);
   const x = allowClamping
     ? Math.max(0, Math.min(requestedX, target.canvas.width - scaledWidth))
     : requestedX;
@@ -354,9 +359,10 @@ export function makeComposedPng(sourcePath, outputPath, pose, target, spriteHeig
     y,
     requestedX,
     requestedY,
-    anchor: mapping.anchor ?? 'foot-contact',
+    anchor: mapping.sourceAnchor ? 'explicit-source-pivot' : mapping.anchor ?? 'foot-contact',
     alignmentClamped: x !== requestedX || y !== requestedY,
     scaledAnchorX,
+    scaledAnchorY,
   };
 }
 

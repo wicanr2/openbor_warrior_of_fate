@@ -13,7 +13,7 @@
 | Stage01 圖層 | `S2.gif` 2600×276、`panel.gif` 2429×276、`f.GIF` 2429×272、`sunshine1.gif` 480×272 |
 | 補給箱 | `baoxiang.gif` 66×45、`1.GIF`／`2.GIF` 141×114；3/3 physical GIF |
 | exact-case | 9 個引用 Stage01 背景的 level TXT 已把 `f.gif` 正規化成實體 `f.GIF`；`baoxiang.txt` 兩個 fall frame 引用也已正規化 |
-| overlay parity | 目前整包 107 files：94 GIF＋13 TXT 全部有 exact-case base counterpart；canvas、indexed GIF、index 0 通過 |
+| overlay parity | 加入李典 Boss 後，目前整包 182 files：163 GIF＋19 TXT 全部有 exact-case base counterpart；canvas、indexed GIF、index 0 通過 |
 | level strict | `NewWof/1/01.txt` 的 4 個唯一圖像路徑全部解析；palette index 0 全為 `#FC00FF` |
 | box strict | `baoxiang.txt` 的 3 個唯一圖像路徑全部解析 |
 | coverage | M1 89/89；背景 3/3、補給箱 3/3、選角與張飛 UI 缺口均已完成 engineering replacement |

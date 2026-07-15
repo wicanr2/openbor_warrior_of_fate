@@ -20,6 +20,7 @@
 | [Stage01 替換 manifest](research/STAGE01_REPLACEMENT_MANIFEST.md) | 第一關背景、前景、幾何、敵人、物件與 FX 的 P0／P1／P2 清單。 |
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
 | [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
+| [李典紅槍指揮機 Stage01 vertical slice](docs/LIDIAN_BOSS_VERTICAL_SLICE.md) | 第一套 Boss 工程閉包：16 格安全 crop、69 GIF＋6 model TXT、Lidian-local 機械死亡 remap 與 Docker 驗證。 |
 | [藍盔巡邏機 Stage01 vertical slice](docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md) | 第一套原創機械雜兵：12 格安全切圖、42-file `bing`／`bingxs` engineering overlay、機械死亡與 Docker 驗證。 |
 | [Stage01 場景與機械補給箱 vertical slice](docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md) | 原創森林機械前哨長圖、透明遮罩／wall manifest、掃描光 FX、三格補給箱、exact-case 與 Docker 驗證。 |
 | [五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md) | 480×276 五人選角合成圖、張飛 icon／profile、opaque index0 方法與 M1 89/89 驗證。 |
@@ -90,16 +91,22 @@
 ## 敵軍與 Boss 美術方向
 
 - 一般巡邏兵以「藍色頭盔、遮面面罩、冷色鏡片」為原創通訊頭像語彙；參考 JPEG 不直接裁切使用。
-- 第一關 `lidian` 先做中型指揮官機，第二關 `xiahorse` 必須連同載具解體與駕駛員一起替換。
-- Stage03A `xuchu` 是大型主角機鏡像 Boss 的首選槽位，可參考 Gunbuster 類巨大感，但公開美術採原創再設計。
-- Stage03B `meimei`／`meiya`／`meiling` 規劃為三位美女型王牌；可共用 technical rig，輪廓、配色、武器與頭像不可共用。
-- 女性概念頁是角色設計回顧，不是原作 Boss roster；戰鬥三人組以 Lamia／Ouka／Alfimi 的職能語彙為提示做成年化原創設計，Latune／Shine 僅列 NPC／雙機駕駛 reserve。
+- 第一關 `lidian` 已做成原創紅槍指揮機 engineering closure；第二關 `xiahorse` 必須連同四足載具解體與駕駛員一起替換。
+- Stage03A `xuchu` 是大型主角機鏡像 Boss 的首選槽位。Gunbuster 是使用者提出的 private 尺度例子；公開成品改為輪廓、頭冠、胸徽、配色與武器都不同的原創巨機。
+- Stage03B `meimei`／`meiya`／`meiling` 規劃為三位明確成年的女性王牌／指揮官；可共用 technical rig，輪廓、臉型、髮型、服裝、配色、武器與頭像不可共用。
+- 女性概念頁是私人構圖與氣質參考，不是原作 Boss roster；圖中人物姓名與年齡無法由未標註 collage 安全確認，因此公開 production brief 不猜測個別角色身分。
 
 完整槽位、私有 concept 使用邊界、巨大 Boss 的純換圖／玩法改造兩條路，以及每包必交檔案，見[敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md)。
 
-藝術家與 OpenBOR 整合者應再依[Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md)交付每個 Boss 的主模型、投射物、分離模型、肖像、geometry migration 與可玩驗收證據；Gunbuster、Daitarn 3、Ideon、Dark Brain、Fighter Roar 及女性角色名稱只作搜尋用靈感標籤。三張私有概念頁不進 repo，README 只顯示原創 SVG 與可公開的工程資訊。
+藝術家與 OpenBOR 整合者應再依[Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md)交付每個 Boss 的主模型、投射物、分離模型、肖像、geometry migration 與可玩驗收證據。私有筆記中的第三方名稱只用來討論尺度、節奏或氣氛，不是 production roster；三張私有概念頁不進 repo，README 只顯示原創總覽與可公開的工程資訊。
 
 ![敵軍與 Boss 替換路線總覽](research/diagrams/enemy-boss-roster.svg)
+
+### 第一套 Boss：李典紅槍指揮機
+
+這張原創 16 格總覽涵蓋 Boss show、spawn、idle、walk、刺擊、橫掃、空中攻擊、special、兩種受擊、擊退、倒地、死亡與機械碎片。private engineering overlay 已完成 Stage01 active closure 的 69/69 GIF＋6/6 model TXT；人體 blood／organ 召喚只在 Lidian overlay 內改成 `Flashb`、`Dust` 與私有機械碎片，並通過 182-file parity、六份 model strict 與 Docker v7533 model-load。它仍由 16 個 pose 重用，不是 production-ready，完整交接請看[李典紅槍指揮機 Stage01 vertical slice](docs/LIDIAN_BOSS_VERTICAL_SLICE.md)。
+
+![李典紅槍指揮機 16 格分鏡總覽](research/boss/lidian-red-spear-commander-storyboard-v1-keyed.png)
 
 ### 第一套一般敵人：藍盔巡邏機
 
@@ -109,7 +116,7 @@
 
 ### Stage01 森林機械前哨與補給箱
 
-三張背景長圖沿用原 palette-index-0 遮罩 footprint，不複製原背景顏色；保留 2600×276／2429×276／2429×272 畫布、橋洞、前景遮擋與 wall 對位。另加入原創青色掃描光及三格機械補給箱。private overlay 已通過 102-file parity、Stage01 level／box strict 與 Docker v7533 model-load；完整限制見[Stage01 場景與機械補給箱 vertical slice](docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md)。
+三張背景長圖沿用原 palette-index-0 遮罩 footprint，不複製原背景顏色；保留 2600×276／2429×276／2429×272 畫布、橋洞、前景遮擋與 wall 對位。另加入原創青色掃描光及三格機械補給箱。加入李典後，private overlay 整包 182 files 仍通過 parity，Stage01 level／box strict 與 Docker v7533 model-load 也通過；完整限制見[Stage01 場景與機械補給箱 vertical slice](docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md)。
 
 ![Stage01 三層背景總覽](research/environment/stage01-background-p0-overview.png)
 

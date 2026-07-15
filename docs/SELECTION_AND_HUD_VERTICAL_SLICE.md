@@ -55,7 +55,7 @@ node scripts/build-five-robot-selection-p0-prototype.mjs \
 | Gate | Result |
 | --- | --- |
 | Vertical-slice coverage | 89/89；所有 M1 預定 replacement 類別完成 engineering coverage |
-| Overlay parity | 107 files：94 GIF＋13 TXT；exact-case counterpart、canvas、indexed GIF、index0 全 PASS |
+| Overlay parity | 加入李典 Boss 後目前 182 files：163 GIF＋19 TXT；exact-case counterpart、canvas、indexed GIF、index0 全 PASS |
 | Zhangfei model strict | 447 次引用、86 個唯一圖像路徑全部解析（disposable staging case aliases） |
 | Stage01 level strict | 4 個唯一背景／FX 路徑 PASS |
 | `baoxiang` strict | 3 個唯一圖像路徑 PASS |

@@ -98,6 +98,6 @@ MZ-P0-A 通過引擎驗收後，才讓其他藝術家依同一高度、輪廓線
 | PROP-S01-A | `baoxiang.gif`, `1.GIF`, `2.GIF` | 機械補給箱 idle＋兩張破壞幀 |
 | FX-S01-A | 箱體破壞與火花 | 保留原 frame count、Delay、Offset 的第一套爆裂語彙 |
 | EN-BING-ICON | `data/chars/army/1/icon.GIF` | 24×36 原創藍盔巡邏兵通訊頭像；palette index 0 為 `#FC00FF` |
-| BOSS-LIDIAN-A | `lidian.txt`＋`li.txt`＋分離模型 | 第一關藍黑指揮官機、長柄兵器、spawn／受傷／倒地／死亡與 Boss icon 全包 |
+| BOSS-LIDIAN-A | `lidian.txt`＋`li.txt`＋分離模型 | 第一關 `Crimson Marshal` 紅槍指揮機；69 GIF＋6 TXT engineering closure 已完成，藝術家依 `LIDIAN_BOSS_VERTICAL_SLICE.md` 重畫 spawn／受傷／倒地／死亡、碎片與 Boss icon 全包 |
 
 第一個 playable gate 是 MZ-P0-A＋EN-BING-A＋BG-S01-A/B/C＋PROP-S01-A；任何一條缺少都只能算角色或場景單項預覽，不能標示為 vertical slice 完成。
