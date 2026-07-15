@@ -19,6 +19,18 @@ Total open items (approximate, from queued pending rows): 28
 - Boss work still needs production art closure for Lidian, Zeon Boss, Xuchu, Xiahorse, and the adult-coded trio.
 - Player-side production cleanup still remains for Guanyu / Nu Gundam / portrait work, with deferred closure on the existing P0 engineering slices.
 
+## Most actionable next work
+
+1. Close Stage01 production redraw and cleanup first, because it unlocks the first visible in-gameplay slice and still has the broadest public-facing surface.
+2. Finish Boss production closures next, especially Lidian and the Zeon Boss queue, because those reuse the same stage presentation and art-review path.
+3. Keep player-side portrait work aligned with the current routing rules so new art lands in the correct slot without reassigning playable models.
+
+## Confirmed portrait routing
+
+- liubei: story-only
+- caocao: story-only
+- lubu: story-only
+
 ## Recently verified gates
 
 These are no longer open items; they are documented separately so future work can distinguish model-load evidence from playable QA:
