@@ -68,6 +68,7 @@
 | [五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md) | 480×276 五人選角合成圖、張飛 icon／profile、opaque index0 方法與 M1 89/89 驗證。 |
 | [ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md) | 第六候選角色、六人 `allowselect`、480×276 roster、HUD、Fin Funnel 子模型與 2P／引擎上限。 |
 | [ν Gundam 第六角色 P0 vertical slice](docs/NU_GUNDAM_VERTICAL_SLICE.md) | 71 張動作、2 profiles、六欄選角、六發 Funnel proxy、determinism／strict／Docker v7533 實測與 deferred P1。 |
+| [ν Gundam runtime audit](research/NU_GUNDAM_RUNTIME_AUDIT.md) | ν Gundam P0 runtime、visible runner gaps 與 production remaining 的總結。 |
 | [ν Gundam 剩餘工作隊列](research/manifests/nu-gundam-next-queue.json) | P0 之後要補的可見 runner、Funnel P1、音效、逐格補間與 gameplay QA 清單。 |
 | [ν Gundam runner QA checklist](research/NU_GUNDAM_RUNNER_QA.md) | 把已通過的 six-select overlay test、可見 runner gate 與 Stage 1 驗證順序整理成接手可直接執行的清單。 |
 | [魏延裂界獸 P0 vertical slice](docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md) | 84 張動作、2 profiles、尾砲 proxy、人類武器切斷、determinism／strict／Docker v7533 實測與 deferred production FX。 |
