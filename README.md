@@ -57,6 +57,7 @@
 | [OpenBOR 資產驗證器](scripts/validate-openbor-assets.mjs) | 檢查 TXT 圖像引用、路徑大小寫、indexed GIF、canvas 與 palette index 0。 |
 | [Vertical slice coverage](docs/VERTICAL_SLICE_COVERAGE.md) | 檢查 M1 預定替換是否真的齊全且不是 base copy；包含 `bingxs` 與機械死亡 model overlay。 |
 | [Overlay parity validator](scripts/validate-overlay-parity.mjs) | 逐檔檢查 exact-case base counterpart、相同 canvas、indexed GIF 與 index 0 `#FC00FF`。 |
+| [Markdown 連結驗證器](scripts/validate-markdown-links.mjs) | 檢查 README 與 docs 的相對 markdown 連結是否真的指向存在檔案。 |
 | [Docker Linux builder](scripts/build-openbor-linux-docker.sh) | 唯讀掛載 OpenBOR source，將相依套件與 Linux x86-64 編譯封裝在 Docker。 |
 | [Docker headless smoke](scripts/run-openbor-smoke-docker.sh) | 以同一 image 載入私有 raw-data stage，並依 OpenBOR Log 判斷模型載入是否完成。 |
 | [Docker 素材工具 image](docker/asset-tools.Dockerfile) | 固定 Node 22＋FFmpeg；切圖、GIF 量化、驗證與成果圖都在容器內執行，不安裝 host 套件。 |
