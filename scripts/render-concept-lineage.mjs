@@ -104,10 +104,34 @@ const rows = [
     next: 'research/manifests/boss-next-queue.json',
     status: 'mixed-engineering-and-production-remaining',
   },
+  {
+    category: 'Portrait routing',
+    slot: 'liubei / caocao / lubu',
+    concept: 'story-only defaults until explicitly promoted to selectable or boss-event roles',
+    assets: [
+      'docs/PORTRAIT_ASSETS.md',
+      'research/manifests/portrait-work-queue.json',
+      'research/VISUAL_ASSET_INDEX.md',
+    ],
+    next: 'docs/PORTRAIT_ASSETS.md',
+    status: 'story-only-routing-confirmed',
+  },
+  {
+    category: 'Portrait routing',
+    slot: 'nu_gundam / zeon_boss',
+    concept: 'nu_gundam pilot portrait TBD; zeon_boss pilot cut-in separated from mecha portrait',
+    assets: [
+      'docs/PILOT_AND_PORTRAIT_ROSTER.md',
+      'research/manifests/portrait-work-queue.json',
+      'research/NU_GUNDAM_RUNNER_QA.md',
+    ],
+    next: 'docs/PILOT_AND_PORTRAIT_ROSTER.md',
+    status: 'routing-confirmed-but-art-remaining',
+  },
 ];
 
 function toResearchRel(relPath) {
-  return relPath.replace(/^research[\\/]/, '').replace(/\\/g, '/');
+  return path.relative(path.dirname(OUT), path.join(ROOT, relPath)).replace(/\\/g, '/');
 }
 
 const lines = [];
