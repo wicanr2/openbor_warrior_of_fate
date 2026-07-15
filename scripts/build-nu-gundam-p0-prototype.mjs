@@ -146,6 +146,27 @@ function parseArgs(argv) {
   if (options.outputDir === extractedRoot || options.outputDir.startsWith(`${extractedRoot}/`)) {
     throw new Error('Refusing to write inside workplace/extracted');
   }
+  if (!existsSync(options.sourceDir)) {
+    throw new Error(
+      `Missing ν source directory: ${displayPath(options.sourceDir)}. ` +
+      'This repository does not ship the private source assets; pass --source-dir to an external checkout.'
+    );
+  }
+  if (!existsSync(options.keyposeManifest)) {
+    throw new Error(`Missing ν keypose manifest: ${displayPath(options.keyposeManifest)}`);
+  }
+  if (!existsSync(options.baseData)) {
+    throw new Error(`Missing base data tree: ${displayPath(options.baseData)}`);
+  }
+  if (!existsSync(options.templateData)) {
+    throw new Error(`Missing template data tree: ${displayPath(options.templateData)}`);
+  }
+  if (!existsSync(options.selectionGif)) {
+    throw new Error(
+      `Missing six-column selection GIF: ${displayPath(options.selectionGif)}. ` +
+      'Pass --selection-gif to a generated select-six asset.'
+    );
+  }
   return options;
 }
 
