@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "status": "concept-keyposes-not-production-ready",
+  "source": "local-only/baoxiang-mechanical-capsule-storyboard-v1.png",
+  "sourceSha256": "0c74a0ef4bec59d3e1b864efcd828ec8570a1cea3d29157cfb41858c68b40aeb",
+  "sourceCanvas": {
+    "width": 2036,
+    "height": 772
+  },
+  "chromaKey": {
+    "r": 252,
+    "g": 0,
+    "b": 255,
+    "hex": "#FC00FF",
+    "requiredPaletteIndex": 0
+  },
+  "normalization": {
+    "rule": "r>=180 && b>=180 && g<=160 && abs(r-b)<=40"
+  },
+  "frames": [
+    {
+      "index": 1,
+      "role": "sealed-capsule",
+      "sourceCrop": {
+        "role": "sealed-capsule",
+        "x": 0,
+        "y": 0,
+        "width": 678,
+        "height": 772
+      },
+      "output": "local-only/frame-01.png",
+      "foreground": {
+        "x": 154,
+        "y": 243,
+        "width": 308,
+        "height": 357
+      },
+      "chromaPixels": 429003,
+      "totalPixels": 523416
+    },
+    {
+      "index": 2,
+      "role": "rupture-a",
+      "sourceCrop": {
+        "role": "rupture-a",
+        "x": 678,
+        "y": 0,
+        "width": 679,
+        "height": 772
+      },
+      "output": "local-only/frame-02.png",
+      "foreground": {
+        "x": 7,
+        "y": 163,
+        "width": 563,
+        "height": 438
+      },
+      "chromaPixels": 395064,
+      "totalPixels": 524188
+    },
+    {
+      "index": 3,
+      "role": "rupture-b",
+      "sourceCrop": {
+        "role": "rupture-b",
+        "x": 1357,
+        "y": 0,
+        "width": 679,
+        "height": 772
+      },
+      "output": "local-only/frame-03.png",
+      "foreground": {
+        "x": 20,
+        "y": 125,
+        "width": 549,
+        "height": 470
+      },
+      "chromaPixels": 423712,
+      "totalPixels": 524188
+    }
+  ]
+}

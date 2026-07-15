@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "coordinateNotes": {
+    "gameplayViewport": [480, 276],
+    "foregroundNativeHeight": 272,
+    "fglayerMinus220Minus20": "draw-order Z values, not X offsets",
+    "wallSyntax": "x z upperLeft lowerLeft upperRight lowerRight depth height type"
+  },
+  "baseLayers": [
+    {
+      "path": "data/bgs/01/S2.gif",
+      "canvas": [2600, 276],
+      "sha256": "770f574034ded863260bbff306af8e5e3c685a78adafa2987c39715986373c96",
+      "foregroundHalfOpenBbox": [520, 0, 1381, 276],
+      "baseUsedPaletteIndexes": 57,
+      "baseIndex0Ratio": 0.668846
+    },
+    {
+      "path": "data/bgs/01/panel.gif",
+      "canvas": [2429, 276],
+      "sha256": "1162198b5cdbd028c1d38273ba2834c9f7609bbea4e255f6e47e946d0ec21d44",
+      "foregroundHalfOpenBbox": [0, 0, 2429, 276],
+      "centralSkyKeyInclusiveBbox": [1079, 0, 1964, 152],
+      "bridgeHoleInclusiveBbox": [1344, 264, 1744, 275],
+      "baseUsedPaletteIndexes": 128,
+      "baseIndex0Ratio": 0.181012
+    },
+    {
+      "path": "data/bgs/01/f.GIF",
+      "canvas": [2429, 272],
+      "sha256": "66dc0c898f564a55bd072b5c5d57ab52b5f672169bab48c47327aef31c9979cc",
+      "foregroundHalfOpenBbox": [0, 0, 2125, 272],
+      "baseUsedPaletteIndexes": 54,
+      "baseIndex0Ratio": 0.918146
+    }
+  ],
+  "viewports": [
+    { "id": "V00", "rect": [0, 0, 480, 276] },
+    { "id": "V01", "rect": [400, 0, 480, 276] },
+    { "id": "V02", "rect": [800, 0, 480, 276] },
+    { "id": "V03", "rect": [1200, 0, 480, 276] },
+    { "id": "V04", "rect": [1600, 0, 480, 276] },
+    { "id": "V05", "rect": [1949, 0, 480, 276] },
+    { "id": "S2-Tail", "rect": [2120, 0, 480, 276], "layer": "S2.gif" }
+  ],
+  "wallCameraOrigins": {
+    "W1": 850,
+    "W2": 970,
+    "W4": 1075,
+    "W3": 1526,
+    "END": 1949
+  },
+  "walls": [
+    {
+      "id": "W1",
+      "source": [1090, 165, -40, 0, 1050, 950, 60, 5000],
+      "polygon": [[1050, 165], [2140, 165], [2040, 105], [1090, 105]]
+    },
+    {
+      "id": "W2",
+      "source": [1210, 276, 40, 0, 144, 104, 25, 5000],
+      "polygon": [[1250, 276], [1354, 276], [1314, 251], [1210, 251]]
+    },
+    {
+      "id": "W3",
+      "source": [1766, 276, -35, 0, 60, 81, 25, 5000],
+      "polygon": [[1731, 276], [1826, 276], [1847, 251], [1766, 251]]
+    },
+    {
+      "id": "W4",
+      "source": [1315, 276, 40, 0, 420, 450, 27, 5000],
+      "polygon": [[1355, 276], [1735, 276], [1765, 249], [1315, 249]]
+    }
+  ],
+  "requiredChroma": {
+    "paletteIndex": 0,
+    "rgb": "#FC00FF",
+    "gifTransparencyExtensionRequired": false
+  }
+}
