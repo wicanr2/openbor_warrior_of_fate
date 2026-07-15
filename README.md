@@ -25,6 +25,7 @@
 | [Mazinger 私有資產對位產線](docs/PRIVATE_ASSET_PIPELINE.md) | 從本機 key pose 建立 basic 或 41-file full-P0 engineering prototype，強制 canvas、Offset 與 palette index 0。 |
 | [機器人大戰素材替換總計畫](docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md) | 五角色、場景、UI、里程碑、人力與驗收閘門；說明如何從 moodboard 走到可玩的視覺替換。 |
 | [主路線圖](research/manifests/project-roadmap.json) | 目前整個專案各工作線的 machine-readable 狀態、優先順序與下一個隊列入口。 |
+| [完成度審核](research/manifests/completion-audit.json) | 依最終目標拆分的 requirement-by-requirement 證據表；明確標示哪些已證明、哪些仍未完成。 |
 | [無敵鐵金剛 vertical slice](docs/MAZINGER_VERTICAL_SLICE.md) | 張飛 slot 的第一組實作入口：12 張 key pose、overlay 流程與透明色驗收。 |
 | [關羽 Getter v2 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md) | Getter v5 的 65 主 GIF、2 profiles、selection 第一欄、零 clamp／無新增貼邊與 Docker v7533 實測。 |
 | [關羽剩餘工作隊列](research/manifests/guanyu-next-queue.json) | Getter v2 P0 之後還要補的 g1–g16、gore、死亡音效、逐格補間與 gameplay QA 清單。 |

@@ -1,0 +1,130 @@
+{
+  "project": "warriors_of_fate_robot_wof",
+  "objective": "完成 機器人大戰版本的吞食天地2 (基於概念圖完成)",
+  "auditStatus": "incomplete",
+  "generatedFrom": [
+    "docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md",
+    "docs/GUANYU_VERTICAL_SLICE.md",
+    "docs/ZHAOYUN_VERTICAL_SLICE.md",
+    "docs/HUANGZHONG_VERTICAL_SLICE.md",
+    "docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md",
+    "docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md",
+    "docs/BOSS_PRODUCTION_PLAN.md",
+    "docs/ZEON_BOSS_WITH_LEGS_PLAN.md",
+    "docs/PORTRAIT_ASSETS.md",
+    "docs/PILOT_AND_PORTRAIT_ROSTER.md",
+    "docs/OPENBOR_COMPILATION.md",
+    "docs/BUILD.md",
+    "docs/DOCKER_LINUX_BUILD.md",
+    "docs/VERTICAL_SLICE_COVERAGE.md",
+    "research/manifests/project-roadmap.json",
+    "research/manifests/stage01-next-queue.json",
+    "research/manifests/boss-next-queue.json",
+    "research/manifests/portrait-work-queue.json",
+    "research/manifests/guanyu-next-queue.json",
+    "research/manifests/nu-gundam-next-queue.json"
+  ],
+  "requirements": [
+    {
+      "id": "concept-lock",
+      "requirement": "核心 concept 映射已鎖定並能指導後續製作",
+      "evidence": [
+        "docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md#concept-鎖定的角色映射",
+        "docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md#concept-的定位",
+        "README.md#專案範圍"
+      ],
+      "status": "proven",
+      "note": "關羽→蓋特、張飛→無敵鐵金剛、趙雲→EVA、黃忠→RX-78、魏延→機械哥吉拉與 ν Gundam 第六角色的方向已在文件中固定。"
+    },
+    {
+      "id": "stage01-production",
+      "requirement": "Stage01 的背景、雜兵、補給箱、Boss 與 UI 需要達到可交接 production 狀態",
+      "evidence": [
+        "docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md",
+        "docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md",
+        "docs/LIDIAN_BOSS_VERTICAL_SLICE.md",
+        "research/manifests/stage01-next-queue.json"
+      ],
+      "status": "incomplete",
+      "note": "已有 engineering coverage，但 stage01-next-queue 仍列出長圖 production redraw、grunt production cleanup、Boss review、UI/story 與跨平台 smoke 待辦。"
+    },
+    {
+      "id": "player-production",
+      "requirement": "五名可選角色與其 HUD/profile/selection 需達到 production cleanup，而非僅 engineering runtime",
+      "evidence": [
+        "docs/GUANYU_VERTICAL_SLICE.md",
+        "docs/ZHAOYUN_VERTICAL_SLICE.md",
+        "docs/HUANGZHONG_VERTICAL_SLICE.md",
+        "docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md",
+        "docs/SELECTION_AND_HUD_VERTICAL_SLICE.md",
+        "research/manifests/guanyu-next-queue.json",
+        "research/manifests/nu-gundam-next-queue.json",
+        "research/manifests/portrait-work-queue.json"
+      ],
+      "status": "incomplete",
+      "note": "多個角色已達 P0 engineering runtime，但關羽、ν Gundam 與頭像仍有明確 pending queue；趙雲與黃忠也保留 deferred closure。"
+    },
+    {
+      "id": "boss-production",
+      "requirement": "Boss 線需完成 production art、cut-in、分離模型與可視 gameplay review",
+      "evidence": [
+        "docs/BOSS_PRODUCTION_PLAN.md",
+        "docs/ZEON_BOSS_WITH_LEGS_PLAN.md",
+        "research/manifests/boss-next-queue.json"
+      ],
+      "status": "incomplete",
+      "note": "Boss production queue 仍存在；Zeon boss 只有 runtime handoff queue，Lidian 有 engineering closure 但尚未 production redraw。"
+    },
+    {
+      "id": "portrait-and-selection",
+      "requirement": "選角圖、頭像、HUD、劇情 cut-in 與新增人物的替換落點要完整可交接",
+      "evidence": [
+        "docs/PORTRAIT_ASSETS.md",
+        "docs/PILOT_AND_PORTRAIT_ROSTER.md",
+        "research/manifests/portrait-work-queue.json"
+      ],
+      "status": "incomplete",
+      "note": "已釐清五人選角、ν Gundam、Zeon boss 與角色類型，但劉備／曹操／呂布等人物仍是待決策工作包。"
+    },
+    {
+      "id": "cross-platform-build",
+      "requirement": "OpenBOR 引擎在 Linux、Windows、macOS 的編譯與發行流程要有完整工程文件",
+      "evidence": [
+        "docs/BUILD.md",
+        "docs/OPENBOR_COMPILATION.md",
+        "docs/DOCKER_LINUX_BUILD.md",
+        "research/manifests/project-roadmap.json"
+      ],
+      "status": "proven-as-documentation",
+      "note": "編譯文件與 Docker 路徑已整理完成，但這只證明文件面；尚未證明整體遊戲內容已完成。"
+    },
+    {
+      "id": "verification-coverage",
+      "requirement": "README、路線圖、隊列與連結檢查需能機械驗證以支持審核",
+      "evidence": [
+        "scripts/validate-markdown-links.mjs",
+        "scripts/validate-project-roadmap.mjs",
+        "scripts/validate-openbor-assets.mjs",
+        "scripts/validate-overlay-parity.mjs",
+        "scripts/validate-vertical-slice-coverage.mjs"
+      ],
+      "status": "proven",
+      "note": "已具備連結驗證、路線圖驗證與多個資產驗證器，可作為後續完成度審核基礎。"
+    },
+    {
+      "id": "overall-finish",
+      "requirement": "整個機器人大戰版本的吞食天地2 已完成且可被驗證",
+      "evidence": [
+        "research/manifests/project-roadmap.json",
+        "research/manifests/completion-audit.json",
+        "research/manifests/stage01-next-queue.json",
+        "research/manifests/boss-next-queue.json",
+        "research/manifests/portrait-work-queue.json",
+        "research/manifests/guanyu-next-queue.json",
+        "research/manifests/nu-gundam-next-queue.json"
+      ],
+      "status": "false",
+      "note": "存在多個明確 pending queue，故整體目標尚未完成。"
+    }
+  ]
+}
