@@ -29,6 +29,7 @@
 | [Production handoff matrix](research/PRODUCTION_HANDOFF_MATRIX.md) | Stage01 / Boss / portraits / player cleanup 的最短交接視圖，按下一步行動整理。 |
 | [無敵鐵金剛 vertical slice](docs/MAZINGER_VERTICAL_SLICE.md) | 張飛 slot 的第一組實作入口：12 張 key pose、overlay 流程與透明色驗收。 |
 | [關羽 Getter v2 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md) | Getter v5 的 65 主 GIF、2 profiles、selection 第一欄、零 clamp／無新增貼邊與 Docker v7533 實測。 |
+| [Getter runner QA checklist](research/GUANYU_RUNNER_QA.md) | Getter 可見 runner 的選角、進場與基本 gameplay 驗證；對應 visible QA harness 已加入 `guanyu_select_stage1` macro。 |
 | [關羽剩餘工作隊列](research/manifests/guanyu-next-queue.json) | Getter v2 P0 之後還要補的 g1–g16、gore、死亡音效、逐格補間與 gameplay QA 清單。 |
 | [趙雲紫色神經長槍機 P0 vertical slice](docs/ZHAOYUN_VERTICAL_SLICE.md) | 趙雲 slot 的 82 主 GIF、2 profiles、57 shared FX、398-file merged overlay、determinism／strict／Docker 與 deferred closure。 |
 | [黃忠蒼藍光子射手機 P0 vertical slice](docs/HUANGZHONG_VERTICAL_SLICE.md) | 黃忠 active-player 73 GIF、2 profiles、8 個 projectile models／22 GIF、503-file merged overlay、19 TXT strict／determinism／Docker 與 `h1`–`h16` deferred closure。 |

@@ -155,6 +155,16 @@ run_macro() {
       sleep 1.5
       xdotool key --window "$window_id" Return
       ;;
+    guanyu_select)
+      xdotool key --window "$window_id" Return
+      ;;
+    guanyu_select_stage1)
+      xdotool key --window "$window_id" Return
+      sleep 0.6
+      xdotool key --window "$window_id" Return
+      sleep 1.5
+      xdotool key --window "$window_id" Return
+      ;;
     *)
       echo "Unknown macro: $macro" >&2
       return 1
