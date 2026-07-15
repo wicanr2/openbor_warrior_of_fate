@@ -113,14 +113,14 @@ The overlay builder at [`scripts/build-nu-gundam-engineering-preview.mjs`](../sc
 
 ## Local visible-runner attempt in this sandbox
 
-I also tried to move past headless smoke and capture a real visible frame inside a virtual X server. The attempt used `Xvfb`/`xvfb-run`, `xdotool`, and `ffmpeg` against the integrated stage, but this sandbox could not establish a usable X socket:
+I also tried to move past headless smoke and capture a real visible frame inside a virtual X server. The attempt used `Xvfb`/`xvfb-run`, `xdotool`, and `ffmpeg` against the integrated stage, and I re-ran the same approach after building a fresh Linux OpenBOR binary locally. This sandbox still could not establish a usable X socket:
 
 ```bash
 Xvfb :99 -screen 0 1024x768x24 >/tmp/xvfb-test.log 2>&1 &
 DISPLAY=:99 xdpyinfo
 ```
 
-The server log reported:
+The server log reported the same listener failure on both attempts:
 
 - `_XSERVTransSocketCreateListener: failed to bind listener`
 - `Owner of /tmp/.X11-unix should be set to root`
