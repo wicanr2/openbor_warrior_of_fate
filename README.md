@@ -51,6 +51,7 @@
 | [ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md) | 第六候選角色、六人 `allowselect`、480×276 roster、HUD、Fin Funnel 子模型與 2P／引擎上限。 |
 | [ν Gundam 第六角色 P0 vertical slice](docs/NU_GUNDAM_VERTICAL_SLICE.md) | 71 張動作、2 profiles、六欄選角、六發 Funnel proxy、determinism／strict／Docker v7533 實測與 deferred P1。 |
 | [ν Gundam 剩餘工作隊列](research/manifests/nu-gundam-next-queue.json) | P0 之後要補的可見 runner、Funnel P1、音效、逐格補間與 gameplay QA 清單。 |
+| [ν Gundam runner QA checklist](research/NU_GUNDAM_RUNNER_QA.md) | 把已通過的 six-select overlay test、可見 runner gate 與 Stage 1 驗證順序整理成接手可直接執行的清單。 |
 | [魏延裂界獸 P0 vertical slice](docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md) | 84 張動作、2 profiles、尾砲 proxy、人類武器切斷、determinism／strict／Docker v7533 實測與 deferred production FX。 |
 | [六人候選選角 TXT overlay](docs/SIX_PLAYER_SELECT_TEXT_OVERLAY.md) | `models.txt`／`allowselect` 的 exact Load 順序、Funnel 支援模型、可重入 patch 與 13 項測試。 |
 | [夏亞／有腳吉翁克 Boss 工程計畫](docs/ZEON_BOSS_WITH_LEGS_PLAN.md) | 完成型有腳 Boss、夏亞 cut-in、67-GIF P0 閉包、遠距／抓投／HP 分支與人類素材清除。 |
