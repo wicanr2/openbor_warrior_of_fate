@@ -91,6 +91,19 @@
 
 MZ-P0-A 通過引擎驗收後，才讓其他藝術家依同一高度、輪廓線與 master palette 大量展開。
 
+## 目前最優先的工作隊列
+
+| 優先級 | 工作包 | 狀態 | 給藝術家的重點 |
+| --- | --- | --- | --- |
+| P0 | 張飛／無敵鐵金剛 MZ-P0-A～E | engineering coverage 已有，production cleanup 未完 | 先把每個 reused pose 變成真正的獨立 production GIF，尤其是 jump / fall / spec 的缺幀 |
+| P0 | `bing` 藍盔巡邏兵 | 機械化雜兵方向已定，production sprite 未完 | 先做 `idle`、`walk`、`attack` 與 `bingxs` debris 的完整閉包，再補 alternate palette |
+| P1 | `lidian` 紅槍指揮機 | Boss engineering closure 已有 | 依 `LIDIAN_BOSS_VERTICAL_SLICE.md` 重畫出場、受傷、敗北與碎片，不要只改 icon |
+| P1 | `zeon_boss` 有腳吉翁克 + 夏亞 | concept 已確立，runtime 閉包未完 | Boss 與駕駛員 cut-in 分離處理，先把輪廓、腿部與戰前／戰敗圖畫清楚 |
+| P1 | 選角與頭像補洞 | `liu bei`、`cao cao`、`lu bu` 等仍未定稿 | 先決定是劇情圖、可選角色還是 Boss，再畫 icon／profiles／select 欄位 |
+| P2 | Stage 02 / Stage 03 場景 | 尚未進主線 production | 圖層、wall/hole、前景遮擋與 Boss arena 先分開工作，不要一次重畫整張 |
+
+這個隊列的原則是：先讓每個工作包都有明確的交付邊界，再讓 pixel artist 接手。不要把「看起來像完成圖」當成可以交付的 production art。
+
 ### 關羽 P0 清稿批次
 
 目前 Getter v2 Guanyu batch 為 65 主 GIF＋2 profiles＋33 shared FX＋2 TXT；受控覆寫 65 GIF、2 profiles 與 selection 後，合併 overlay 維持 503 files／470 GIF。62 張動作 `clamp=0`、無新增貼邊、最大中心／腳底漂移 1px；`guanyu.txt` 65 paths strict PASS，Docker v7533 到 `Loading models... Done!`。這只證明 engineering closure 可載入。藝術家應按下列批次取代 pose reuse：
