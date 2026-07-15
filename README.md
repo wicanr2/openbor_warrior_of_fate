@@ -48,10 +48,11 @@
 | [Lidian Linux smoke evidence](research/LIDIAN_LINUX_SMOKE.md) | 真實跑過的李典 P0 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
 | [Huangzhong Linux smoke evidence](research/HUANGZHONG_LINUX_SMOKE.md) | 真實跑過的黃忠 P0 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
 | [Getter Linux smoke evidence](research/GUANYU_LINUX_SMOKE.md) | 真實跑過的 Getter v2 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
+| [ν Gundam Linux smoke evidence](research/NU_GUNDAM_LINUX_SMOKE.md) | 真實跑過的 ν Gundam headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
 | [藍盔巡邏機 Stage01 vertical slice](docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md) | 第一套原創機械雜兵：12 格安全切圖、42-file `bing`／`bingxs` engineering overlay、機械死亡與 Docker 驗證。 |
 | [Stage01 場景與機械補給箱 vertical slice](docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md) | 原創森林機械前哨長圖、透明遮罩／wall manifest、掃描光 FX、三格補給箱、exact-case 與 Docker 驗證。 |
 | [Stage01 Linux smoke evidence](research/STAGE01_LINUX_SMOKE.md) | 真實跑過的 Stage01 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
-| [Smoke evidence index](research/SMOKE_EVIDENCE_INDEX.md) | 把 ν Gundam、Getter、Stage01、Lidian 與黃忠五條 headless smoke 證據整理成一個總索引。 |
+| [Smoke evidence index](research/SMOKE_EVIDENCE_INDEX.md) | 把 ν Gundam smoke／runner QA、Getter、Stage01、Lidian 與黃忠六條 headless smoke 證據整理成一個總索引。 |
 | [Getter v2 selection baseline](research/GETTER_SELECTION_V2_BASELINE.md) | 五欄 Getter-v2 選角基線，方便直接對照六欄版本。 |
 | [Six-player selection overview](research/SIX_PLAYER_SELECTION_OVERVIEW.md) | 六候選選角的 deterministic baseline，README 可直接看到對應圖片。 |
 | [Six-player selection storyboard](research/SIX_PLAYER_SELECTION_STORYBOARD.md) | 把游標、READY、CONFIRM 變成 8 格動畫 storyboard，作為 visible runner QA 參考。 |
