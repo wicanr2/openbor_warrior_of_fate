@@ -1,5 +1,7 @@
 # 五人選角與無敵鐵金剛 HUD vertical slice
 
+> **Roster 圖 v1 狀態：** 第一欄關羽造型已於 2026-07-15 判定為 `design-deprecated-v1`；牛角武者／鋼彈式頭部不符合蓋特方向。整張五人圖仍可保留作欄位與 480×276 UI 工程基準，但關羽肖像、全身像、`icon.GIF` 與兩張 profile 必須由 v2 同步替換。第六角 ν Gundam 的加入另列新里程碑，不能直接塞入這張五欄 raster 後宣稱完成。
+
 第一批資產完成 M1 coverage 最後四個缺口：一張480×276五人選角合成圖，以及張飛 slot／無敵鐵金剛的35×54 model icon、HUD profile、mirror profile。關羽與趙雲 P0 隨後也從同一私有選角 master 各產生 model icon、profile 與 mirror profile；趙雲合併後 private overlay `data/` 為398 files。
 
 ![五人機器人選角總覽](../research/ui/five-robot-selection-screen-v1-overview.png)
@@ -8,7 +10,7 @@
 
 | Column | OpenBOR slot | 本專案方向 | 選角圖內容 |
 | ---: | --- | --- | --- |
-| 1 | `guanyu` | 紅色合體機／蓋特型角色語彙 | 上方頭肩肖像、下方持雙刃斧全身站姿 |
+| 1 | `guanyu` | 蓋特系紅色合體機（v1 造型已淘汰） | v2 待換：水平紅色側翼、雙綠胸窗、紅翼肩、銀白四肢與雙刃戰斧 |
 | 2 | `zhangfei` | 無敵鐵金剛 | 上方頭肩肖像、下方黑紅胸甲／藍色前臂全身站姿 |
 | 3 | `zhaoyun` | 紫綠生體機甲／EVA 型角色語彙 | 上方肖像、下方高瘦全身站姿 |
 | 4 | `huangzhong` | 白藍紅軍用人形機／RX-78 型角色語彙 | 上方肖像、下方盾牌全身站姿 |
@@ -83,7 +85,7 @@ node scripts/build-five-robot-selection-p0-prototype.mjs \
 
 ## Production 缺口
 
-- 五欄圖仍是生成式 engineering redraw；需由 UI／pixel artist 清理角、斧、盾、手指、腳底與欄寬。
+- 五欄圖仍是生成式 engineering redraw；關羽第一欄須先全量換成 v2，再由 UI／pixel artist 清理斧、盾、手指、腳底與欄寬。
 - 張飛、關羽、趙雲目前各有 model icon＋兩張 profile；黃忠、魏延仍屬後續工作，不能把選角合成圖當成其餘 UI 小圖已完成。
 - 現有選角圖沒有文字；角色名稱與提示若由其他 UI 圖或字型顯示，需另做跨語系與 2P layout review。
 - 公開總覽依 repo policy 只作 **overview-only review image**；不是可拆用 production 圖，也不能宣稱 `legal-safe`／`public-safe`。發行時仍要重新確認所有角色造型與名稱的權利範圍。

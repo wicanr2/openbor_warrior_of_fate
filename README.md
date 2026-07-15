@@ -27,11 +27,14 @@
 | [藍盔巡邏機 Stage01 vertical slice](docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md) | 第一套原創機械雜兵：12 格安全切圖、42-file `bing`／`bingxs` engineering overlay、機械死亡與 Docker 驗證。 |
 | [Stage01 場景與機械補給箱 vertical slice](docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md) | 原創森林機械前哨長圖、透明遮罩／wall manifest、掃描光 FX、三格補給箱、exact-case 與 Docker 驗證。 |
 | [五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md) | 480×276 五人選角合成圖、張飛 icon／profile、opaque index0 方法與 M1 89/89 驗證。 |
+| [ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md) | 第六候選角色、六人 `allowselect`、480×276 roster、HUD、Fin Funnel 子模型與 2P／引擎上限。 |
+| [夏亞／有腳吉翁克 Boss 工程計畫](docs/ZEON_BOSS_WITH_LEGS_PLAN.md) | 完成型有腳 Boss、夏亞 cut-in、67-GIF P0 閉包、遠距／抓投／HP 分支與人類素材清除。 |
 | [角色替換分鏡總表](research/CHARACTER_SPRITE_INVENTORY.md) | 關羽、趙雲、張飛、魏延、黃忠的動作群組、GIF 分鏡、優先級與分離模型說明。美術替換工作從此開始。 |
 | [跨平台建置與發行](docs/BUILD.md) | OpenBOR 引擎在 Linux、Windows、macOS 的原生編譯依賴、CMake 指令、產物位置與 PAK 放置位置。 |
 | [OpenBOR 引擎編譯手冊](docs/OPENBOR_COMPILATION.md) | 從取得原始碼到 Linux、Windows、macOS 原生編譯、產物驗證與疑難排解的完整交接文件。 |
 | [角色素材規格](docs/SPRITE_ART_SPEC.md) | GIF palette index 0 洋紅鍵色 `#FC00FF`、畫布／檔名／調色盤規則，以及美術交付驗收清單。 |
 | [選角與頭像素材](docs/PORTRAIT_ASSETS.md) | 五名可選角色、Boss、軍隊與 HUD profile 的現有頭像清單；也說明新增劉備、曹操、呂布等角色時需要改哪些檔案。 |
+| [機體、駕駛員與大頭照 roster](docs/PILOT_AND_PORTRAIT_ROSTER.md) | 流龍馬、兜甲兒、碇真嗣、阿姆羅、迷你哥吉拉、夏亞的 slot 對應，及 selection／HUD／cut-in 分層方式。 |
 | [分鏡表產生器](scripts/generate-character-sprite-inventory.mjs) | 從解出的角色定義 `.txt` 重新統計分鏡表，避免人工維護 GIF 清單。 |
 | [OpenBOR 資產驗證器](scripts/validate-openbor-assets.mjs) | 檢查 TXT 圖像引用、路徑大小寫、indexed GIF、canvas 與 palette index 0。 |
 | [Vertical slice coverage](docs/VERTICAL_SLICE_COVERAGE.md) | 檢查 M1 預定替換是否真的齊全且不是 base copy；包含 `bingxs` 與機械死亡 model overlay。 |
@@ -107,13 +110,19 @@ node scripts/build-stage01-engineering-preview.mjs \
 
 ## 關羽紅色月牙戰士 P0 vertical slice
 
+> **注意：下方 v1 機器人造型已淘汰。** 它被確認更像牛角武者鋼彈，而不是蓋特系機器人。圖片與 65-GIF overlay 只保留為工程驗證紀錄；藝術家不可沿用其牛角、V-fin、武者兜或面罩。關羽 v2 正在以水平紅色側翼、雙綠胸窗、紅色翼肩、銀白四肢與雙刃戰斧重畫。
+
+關羽蓋特系 v2 canonical storyboard 已更新到 v5：單端雙刃斧在全動作保持一致，缺腳／多手／拆件數量問題已逐格關閉；目前下一步是依原 65 張 canvas／Offset 重建 private GIF 與三張 UI 圖。
+
+![關羽蓋特系 v2 16 格 overview-only review image](research/guanyu/guanyu-getter-v2-storyboard-v5-overview.png)
+
 這張 16 格關羽 slot 總覽已重鍵為精確 `#FC00FF`。完整 overview 保留原構圖；private key-pose pipeline 另採 independent safe crops，避免 08、10、11、12、15 跨名義 4×4 格線時切到長柄武器或相鄰姿勢。依 repo policy，它只是一張 **overview-only review image**，不是可拆用的 production sprite sheet，也不能宣稱 `legal-safe`／`public-safe`。
 
 private engineering overlay 實測為 65 張關羽主 GIF、2 張 HUD profiles、33 張 shared FX palette normalization，以及 `guanyu.txt`／`models.txt`，合併整包共 284 files；六份指定 TXT strict 全 PASS，Docker OpenBOR v7533 到 `Loading models... Done!`。bounded smoke 的 exit 124 是到達 gate 後 timeout 的預期結果；TERM 後 double-free 是既知 teardown。
 
 這批仍把 16 個 key pose 重用到 65 張主模型 GIF；`g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間都明確 deferred，所以不能稱為完整玩家角色。完整範圍與驗證方式見[關羽紅色月牙戰士 P0 vertical slice](docs/GUANYU_VERTICAL_SLICE.md)。
 
-![關羽紅色月牙戰士 16 格 overview-only review image](research/guanyu/guanyu-red-crescent-warrior-storyboard-v1-keyed.png)
+![已淘汰：關羽牛角武者 v1 16 格 engineering history](research/guanyu/guanyu-red-crescent-warrior-storyboard-v1-keyed.png)
 
 ## 趙雲紫色神經長槍機 P0 vertical slice
 
@@ -195,7 +204,21 @@ Docker 使用 GIF-compatible OpenBOR v7533／commit `5c82614` 到 `Loading model
 
 五欄依序對應關羽、張飛、趙雲、黃忠、魏延，合成圖保留頭肩肖像與全身站姿；張飛 slot 另產出 35×54 icon／profile／mirror profile。M1 coverage 已達 89/89，詳見[五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md)。
 
+這張 v1 五人圖的第一欄關羽已標記 `design-deprecated-v1`，後續必須連同 35×54 icon／profiles 換成蓋特系 v2。新增第六角 ν Gundam 則需要新的六人 roster／選角流程驗證，不視為本張五欄圖的既有成果。
+
 ![五人機器人選角總覽](research/ui/five-robot-selection-screen-v1-overview.png)
+
+### 夏亞／有腳吉翁克 Boss 候選分鏡
+
+這是夏亞駕駛的完成型有腳 Boss 16 格 `art-candidate`。全身格以兩腿兩腳為硬性契約；有線手臂、回收、充能、發射、跳攻、受傷、擊飛與倒地均已分開。部分姿勢仍須 custom crop，完整 67-GIF 閉包與 stage 整合方式見[夏亞／有腳吉翁克 Boss 工程計畫](docs/ZEON_BOSS_WITH_LEGS_PLAN.md)。
+
+![有腳吉翁克 Boss 16 格 overview-only review image](research/zeon-boss/zeon-boss-with-legs-storyboard-v2-overview.png)
+
+### ν Gundam 第六可選角色分鏡
+
+ν Gundam v5 已通過 16 格 anatomy 縮圖 gate；步槍、盾、光束劍與六枚 Fin Funnel 背架維持一致，Funnel 飛行與長光束會另做 projectile／FX。它是第六個**候選角色**，不是 `maxplayers 6`；同時遊玩仍維持 2P，完整 roster 與引擎限制見[ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md)。
+
+![ν Gundam 第六可選角色 16 格 overview-only review image](research/nu-gundam/nu-gundam-sixth-character-storyboard-v5-overview.png)
 
 ## 注意事項
 

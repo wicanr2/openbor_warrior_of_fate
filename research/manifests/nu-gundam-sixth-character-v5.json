@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "status": "canonical-keyposes-sixth-character-not-runtime-overlay",
+  "modelId": "nu_gundam",
+  "source": {
+    "path": "private-only/nu-gundam-sixth-character-storyboard-v5.png",
+    "sha256": "ceb788a62ae5ac3c3c09e49e946346b73a96a7d8d3db3ea08e34f8de4e1bcec2",
+    "canvas": [1254, 1254]
+  },
+  "publicOverview": "research/nu-gundam/nu-gundam-sixth-character-storyboard-v5-overview.png",
+  "artGate": {
+    "result": "PASS",
+    "frame16SafeCrop": [921, 1017, 1201, 1223],
+    "frame15To16SafeGapPixels": 15,
+    "runtimeScaleChecked": [202, 120],
+    "note": "Frame 16 has two readable legs and feet; the shield is occluded or dropped in the knockdown pose."
+  },
+  "selection": {
+    "selectableRosterSize": 6,
+    "simultaneousMaxPlayers": 2,
+    "doNotSetMaxPlayersToSix": true,
+    "allowselectRequired": true
+  },
+  "chroma": {
+    "overviewNormalized": "#FC00FF",
+    "method": "edge-connected-border-matte",
+    "pinkSaberPreserved": true,
+    "runtimeGifRequiredPaletteIndex": 0
+  },
+  "runtimeState": {
+    "mainModelComplete": false,
+    "finFunnelProjectileComplete": false,
+    "sixCharacterSelectionComplete": false,
+    "productionReady": false
+  },
+  "rights": "private-fan-use-rights-unverified"
+}

@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
-  "status": "concept-keyposes-not-production-ready",
+  "status": "design-deprecated-v1-engineering-reference-only",
+  "deprecatedReason": "The horned samurai/Gundam-like silhouette does not match the approved Getter-style direction for Guanyu. Do not trace or extend this design.",
   "source": "local-only/guanyu-red-crescent-warrior-storyboard-v1.png",
   "sourceSha256": "4877d657d0386d3e81f28337fad1511979946a70da5b198a88cc41bce45095fb",
   "sourceCanvas": {

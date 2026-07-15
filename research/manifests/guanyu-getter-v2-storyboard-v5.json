@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "status": "canonical-keyposes-not-runtime-overlay",
+  "slot": "guanyu",
+  "direction": "getter-style-red-combining-robot",
+  "source": {
+    "path": "private-only/guanyu-getter-v2-storyboard-v5.png",
+    "sha256": "b72dd8ad0c338012aca7a7898315177a7756a92c8618e2b5b3e683ea48fc6d05",
+    "canvas": [1254, 1254]
+  },
+  "publicOverview": "research/guanyu/guanyu-getter-v2-storyboard-v5-overview.png",
+  "artGate": {
+    "result": "PASS",
+    "requirements": [
+      "broad horizontal red head side-wings; no bull horns, V-fin or samurai helmet",
+      "two green chest windows, red wing shoulders, silver-white limbs",
+      "one single-ended double-bladed tomahawk with continuity across poses",
+      "frame 12 has two legs/two feet and a complete axe head",
+      "frame 15 has one head, two arms/hands and two legs/feet",
+      "frame 16 exact inventory has one head+core, two wings, two arms, two legs and one axe"
+    ]
+  },
+  "chroma": {
+    "overviewNormalized": "#FC00FF",
+    "method": "edge-connected-border-matte",
+    "runtimeGifRequiredPaletteIndex": 0
+  },
+  "runtimeState": {
+    "v1EngineeringGifCount": 65,
+    "v1HudProfileCount": 2,
+    "v1ArtStatus": "design-deprecated",
+    "v2GifRebuildComplete": false,
+    "productionReady": false
+  }
+}

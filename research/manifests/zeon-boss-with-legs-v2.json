@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "status": "art-candidate-custom-crop-only-not-runtime-overlay",
+  "modelId": "zeon_boss",
+  "pilot": "char_pilot",
+  "source": {
+    "path": "private-only/zeon-boss-with-legs-storyboard-v2.png",
+    "sha256": "df348cb5fb52f5617440557029de72675bdac586fc42715b922f57615e0c5d31",
+    "canvas": [1254, 1254]
+  },
+  "publicOverview": "research/zeon-boss/zeon-boss-with-legs-storyboard-v2-overview.png",
+  "customCrops": [
+    [9, 60, 311, 295], [341, 41, 607, 299], [685, 36, 868, 300], [979, 42, 1161, 310],
+    [46, 335, 259, 605], [350, 337, 562, 612], [635, 352, 901, 615], [941, 356, 1230, 614],
+    [18, 627, 310, 906], [352, 650, 588, 912], [640, 644, 861, 913], [919, 651, 1230, 913],
+    [38, 911, 237, 1239], [328, 931, 578, 1194], [616, 962, 862, 1166], [907, 1054, 1204, 1209]
+  ],
+  "artGate": {
+    "anatomy": "PASS with portrait exception for frame 1",
+    "fixedFourByFourSlicing": "FAIL",
+    "customCropSalvage": true,
+    "notes": [
+      "frames 6 and 7 have complete legs and feet",
+      "frame 9 has one attached and one wired detached forearm",
+      "frames 10 and 11 contain exactly two arms/hands",
+      "frames 15 and 16 are complete but cross nominal cell boundaries"
+    ]
+  },
+  "minimumPrivateGifClosure": 67,
+  "chroma": {
+    "overviewNormalized": "#FC00FF",
+    "method": "edge-connected-border-matte",
+    "runtimeGifRequiredPaletteIndex": 0
+  },
+  "runtimeState": {
+    "bossModelComplete": false,
+    "projectileAndDebrisComplete": false,
+    "pilotCutinComplete": false,
+    "productionReady": false
+  },
+  "rights": "private-fan-use-rights-unverified"
+}

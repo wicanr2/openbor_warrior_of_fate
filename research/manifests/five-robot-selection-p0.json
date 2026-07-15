@@ -1,6 +1,12 @@
 {
   "schemaVersion": 1,
-  "status": "engineering-prototype-not-production-ready",
+  "status": "engineering-prototype-with-deprecated-guanyu-column",
+  "deprecatedArt": {
+    "slot": "guanyu",
+    "column": 1,
+    "reason": "The v1 horned Gundam-like design is not the approved Getter-style direction.",
+    "requiredAction": "Replace portrait, full-body figure, icon and both HUD profiles with Guanyu v2."
+  },
   "source": {
     "path": "local-only/five-robot-selection-screen-v1.png",
     "sha256": "7cb6b118d1ebe52b57192545a7d84bef20c36d40cebdfea700243d4e837a9643",
