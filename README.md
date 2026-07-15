@@ -34,6 +34,7 @@
 | [黃忠蒼藍光子射手機 P0 vertical slice](docs/HUANGZHONG_VERTICAL_SLICE.md) | 黃忠 active-player 73 GIF、2 profiles、8 個 projectile models／22 GIF、503-file merged overlay、19 TXT strict／determinism／Docker 與 `h1`–`h16` deferred closure。 |
 | [無敵鐵金剛 P0 對照](research/MAZINGER_P0_FRAME_MAP.md) | 42 個 case-sensitive P0 引用、41 個實體 GIF、canvas／Offset、12 格映射與缺幀表。 |
 | [Stage01 替換 manifest](research/STAGE01_REPLACEMENT_MANIFEST.md) | 第一關背景、前景、幾何、敵人、物件與 FX 的 P0／P1／P2 清單。 |
+| [Stage01 first playable batch](research/STAGE01_FIRST_PLAYABLE_BATCH.md) | 把第一關可玩 gate 收斂成背景／雜兵／補給箱／Boss／UI 的可交接批次與驗證順序。 |
 | [Stage01 待辦隊列](research/manifests/stage01-next-queue.json) | 第一關長圖、藍盔雜兵、補給箱、Boss、UI 與跨平台 smoke 的剩餘工作清單。 |
 | [Stage01 交付檢查](research/manifests/stage01-delivery-checklist.json) | 將 Stage01 內容拆成可驗證的交付項目：背景、雜兵、補給箱、Boss、UI 與平台 smoke。 |
 | [Open items summary](research/OPEN_ITEMS_REPORT.md) | 匯總所有仍 open 的 queue 與交付檢查，方便直接看目前最該收斂的工作。 |

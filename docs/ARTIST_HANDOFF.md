@@ -14,6 +14,8 @@
 6. 向整合負責人取得私有的原 canvas 模板與目前 production overlay；不要從公開 GitHub 尋找單張原作 GIF。
 7. 在工作看板登記負責人與狀態，避免兩人同時重畫同一批檔案。
 
+如果你要先做 Stage01 的最小可玩 slice，先讀 [`../research/STAGE01_FIRST_PLAYABLE_BATCH.md`](../research/STAGE01_FIRST_PLAYABLE_BATCH.md)。那份文件把背景三層、藍盔雜兵、機械補給箱與後續 Boss／UI 順序拆成可交接批次，避免一開始就把整關當成單一大包。
+
 ## 每張圖的交付欄位
 
 | 欄位 | 必填內容 |
