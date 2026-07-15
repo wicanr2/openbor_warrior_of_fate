@@ -17,7 +17,7 @@ Options:
   --seconds N          Bounded runtime for the OpenBOR process (default: 30)
   --capture PATH       Optional ffmpeg capture path (.mp4/.mkv recommended)
   --title-pattern RE   Optional xdotool window match pattern (default: OpenBOR)
-  --macro NAME        Optional key macro to run after the window appears
+  --macro NAME         Optional key macro to run after the window appears
   --width N            Capture width for ffmpeg x11grab (default: 1024)
   --height N           Capture height for ffmpeg x11grab (default: 768)
   --help               Show this help
@@ -26,6 +26,12 @@ This helper expects a working visible display server supplied by the host or
 CI runner. It does not try to create Xvfb inside this sandbox; that path is
 documented as blocked. The script only verifies the visible runner flow and
 optionally records the display with ffmpeg.
+
+Supported macros:
+  nu_select            Move to ν Gundam in the sixth slot and confirm once.
+  nu_select_stage1     Confirm ν Gundam and continue into Stage 1.
+  guanyu_select        Confirm Getter in the default first slot.
+  guanyu_select_stage1 Confirm Getter and continue into Stage 1.
 EOF
 }
 
