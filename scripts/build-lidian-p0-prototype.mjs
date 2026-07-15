@@ -199,6 +199,18 @@ function parseArgs(argv) {
   if (options.outputDir === extractedRoot || options.outputDir.startsWith(`${extractedRoot}/`)) {
     throw new Error('Refusing to write inside workplace/extracted');
   }
+  if (!existsSync(options.sourceDir)) {
+    throw new Error(
+      `Missing Lidian storyboard source directory: ${displayPath(options.sourceDir)}. ` +
+      'This repository does not ship the private source assets; pass --source-dir to an external checkout.'
+    );
+  }
+  if (!existsSync(options.extractedDir)) {
+    throw new Error(
+      `Missing extracted Lidian data directory: ${displayPath(options.extractedDir)}. ` +
+      'Pass --extracted-dir to the staged extracted tree that contains data/chars/boss/lidian.'
+    );
+  }
   return options;
 }
 
