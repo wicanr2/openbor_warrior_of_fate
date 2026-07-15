@@ -80,17 +80,23 @@
     {
       "name": "liubei",
       "possibleRoles": ["story-only", "selectable", "boss-event"],
-      "status": "unassigned"
+      "status": "unassigned",
+      "recommendedRole": "story-only",
+      "rationale": "No current icon/profile exists in the public data; keep as story cut-in unless a new model package is explicitly commissioned."
     },
     {
       "name": "caocao",
       "possibleRoles": ["story-only", "selectable", "boss-event"],
-      "status": "unassigned"
+      "status": "unassigned",
+      "recommendedRole": "story-only",
+      "rationale": "Current references only place the character in story/dialogue; use cut-in or scene art first, not a gameplay slot."
     },
     {
       "name": "lubu",
       "possibleRoles": ["story-only", "selectable", "boss-event"],
-      "status": "unassigned"
+      "status": "unassigned",
+      "recommendedRole": "story-only",
+      "rationale": "Current references only place the character in story/dialogue; if later promoted, create a full model package rather than reusing an existing portrait."
     }
   ],
   "rules": {
