@@ -6,6 +6,10 @@
 
 ![機械補給箱三格分鏡](../research/props/baoxiang-mechanical-capsule-storyboard-v1-keyed.png)
 
+![Stage01 已完成素材 engineering composite](../research/previews/stage01-engineering-composite.png)
+
+這張 480×276 圖由目前 private overlay 的實際輸出合成，可在 GitHub 直接展示完成成果；它不是 runtime capture。產生器是 [`build-stage01-engineering-preview.mjs`](../scripts/build-stage01-engineering-preview.mjs)。
+
 ## 目前驗證狀態
 
 | 項目 | 結果 |

@@ -35,6 +35,7 @@
 | [Overlay parity validator](scripts/validate-overlay-parity.mjs) | 逐檔檢查 exact-case base counterpart、相同 canvas、indexed GIF 與 index 0 `#FC00FF`。 |
 | [Docker Linux builder](scripts/build-openbor-linux-docker.sh) | 唯讀掛載 OpenBOR source，將相依套件與 Linux x86-64 編譯封裝在 Docker。 |
 | [Docker headless smoke](scripts/run-openbor-smoke-docker.sh) | 以同一 image 載入私有 raw-data stage，並依 OpenBOR Log 判斷模型載入是否完成。 |
+| [Stage01 成果展示圖產生器](scripts/build-stage01-engineering-preview.mjs) | 將已完成的原創背景、無敵鐵金剛、藍盔兵、補給箱、李典與 HUD 合成一張 public-safe 480×276 展示圖。 |
 
 ## 專案範圍
 
@@ -49,6 +50,22 @@
 2. 在本機測試動畫、透明色、Offset、BBox 與 attack 時序。
 3. 擴充 P1／P2 動作及騎乘、投射物等分離模型。
 4. 先以 Docker 完成 Linux 載入閘門，再由 Windows／macOS runner 製作並測試各平台原生引擎。
+
+## 目前完成成果展示
+
+下圖直接使用目前 private engineering overlay 的實際輸出合成：Stage01 森林機械前哨、張飛 slot／無敵鐵金剛、兩名藍盔巡邏機、機械補給箱、李典紅槍指揮機與張飛 HUD。它是由 repository 腳本重建的 480×276 **engineering composite**，用來讓 GitHub 訪客立即看到目前視覺成果；不是 OpenBOR runtime capture，也不代表逐格 production 美術已完成。
+
+![Stage01 機器人大戰 engineering composite：無敵鐵金剛、藍盔巡邏機、李典與機械前哨](research/previews/stage01-engineering-composite.png)
+
+重建方式：
+
+```bash
+node scripts/build-stage01-engineering-preview.mjs \
+  --workspace /path/to/private-project-workspace \
+  --output research/previews/stage01-engineering-composite.png
+```
+
+真正 runtime 截圖要等可見畫面的 runner 自動完成選角、進關與截圖；目前 Docker smoke 使用 dummy video driver，只能證明引擎與 models 載入成功。
 
 ## 分鏡總覽
 

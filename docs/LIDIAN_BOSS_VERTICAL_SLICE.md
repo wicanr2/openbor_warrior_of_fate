@@ -4,6 +4,10 @@
 
 ![李典紅槍指揮機 16 格分鏡總覽](../research/boss/lidian-red-spear-commander-storyboard-v1-keyed.png)
 
+![Stage01 已完成素材 engineering composite](../research/previews/stage01-engineering-composite.png)
+
+第二張圖是由 private overlay 實際輸出建立的 public-safe 靜態合成，不是 OpenBOR runtime capture；它用來同時檢查李典、無敵鐵金剛、藍盔兵、補給箱、HUD 與場景的相對尺度。
+
 這批是 `productionReady: false` 的 engineering coverage。它證明閉包、畫布、Offset、透明鍵色、模型路徑與 Docker 載入可行，但 69 張 GIF 仍由 16 個 key pose 重用，必須由藝術家補足 in-between、攻擊預備／收招、受擊差異與逐零件碎片。
 
 ## 完整 Stage01 閉包
