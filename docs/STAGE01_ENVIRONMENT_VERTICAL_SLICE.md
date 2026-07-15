@@ -146,6 +146,8 @@ scripts/run-openbor-smoke-docker.sh \
 
 OpenBOR engine smoke 必須在 Docker 內執行。切圖／量化只使用 repository 腳本與既有 `ffmpeg`；不在 host 安裝套件。
 
+2026-07-16 的 Stage01 Linux smoke 已實跑並到達 `Loading models... Done!`；命令與 log 摘要見 [`../research/STAGE01_LINUX_SMOKE.md`](../research/STAGE01_LINUX_SMOKE.md)。
+
 ## 可視 gameplay 尚待驗收
 
 靜態 parity 與 model-load 不能證明背景真的好玩。下一個可顯示畫面的 runner 必須逐一截圖：
