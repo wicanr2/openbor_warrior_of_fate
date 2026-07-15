@@ -43,7 +43,7 @@
       "id": "stage01-platform-smoke",
       "title": "Run unpacked tree smoke on all three platforms",
       "status": "pending",
-      "notes": "Linux, Windows, and macOS smoke are required before packaging the first full Stage01 slice."
+      "notes": "Linux smoke is already verified in research/STAGE01_LINUX_SMOKE.md; Windows and macOS smoke remain required before packaging the first full Stage01 slice."
     }
   ]
 }

@@ -78,10 +78,11 @@
       "evidence": [
         "docs/OPENBOR_COMPILATION.md",
         "docs/BUILD.md",
-        "docs/DOCKER_LINUX_BUILD.md"
+        "docs/DOCKER_LINUX_BUILD.md",
+        "research/STAGE01_LINUX_SMOKE.md"
       ],
-      "status": "documentation-only",
-      "nextAction": "execute smoke on each platform once production assets are ready"
+      "status": "partial",
+      "nextAction": "Linux smoke is verified; execute Windows and macOS smoke once production assets are ready"
     }
   ]
 }

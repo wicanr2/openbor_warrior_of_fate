@@ -35,6 +35,9 @@ Total open items (approximate, from queued pending rows): 28
 
 These are no longer open items; they are documented separately so future work can distinguish model-load evidence from playable QA:
 
+- [Stage01 Linux smoke evidence](STAGE01_LINUX_SMOKE.md)
+- [Lidian Linux smoke evidence](LIDIAN_LINUX_SMOKE.md)
+- [Huangzhong Linux smoke evidence](HUANGZHONG_LINUX_SMOKE.md)
 - [Guanyu Linux smoke evidence](GUANYU_LINUX_SMOKE.md)
 - [ν Gundam Linux smoke evidence](NU_GUNDAM_LINUX_SMOKE.md)
 - [ν Gundam runner QA checklist](NU_GUNDAM_RUNNER_QA.md)

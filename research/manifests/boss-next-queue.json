@@ -42,7 +42,7 @@
       "id": "boss-platform-smoke",
       "title": "Run boss fixture smoke on all three platforms",
       "status": "pending",
-      "notes": "Linux, Windows, and macOS unpacked-tree smoke should confirm the boss queue before packaging."
+      "notes": "Linux smoke is already verified in research/LIDIAN_LINUX_SMOKE.md; Windows and macOS unpacked-tree smoke should still confirm the boss queue before packaging."
     }
   ]
 }
