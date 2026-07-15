@@ -95,12 +95,15 @@
 
 關羽 P0 另完成 65 張主模型 GIF、2 張 profiles、33 張 shared FX palette normalization 與 `guanyu.txt`／`models.txt`，合併後 private overlay 實測為 284 files；六份指定 TXT strict 全 PASS，Docker v7533 到 `Loading models... Done!`。bounded smoke exit 124 是 timeout 預期值，TERM 後 double-free 是既知 teardown。這批仍由 16 個 key pose 重用，且 `g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間 deferred，因此只能標為 P0 engineering coverage，不能標記完整玩家角色或 production-ready。詳見 [`GUANYU_VERTICAL_SLICE.md`](GUANYU_VERTICAL_SLICE.md)。
 
+趙雲 P0 batch 為 147 files（82 主 GIF＋2 profiles＋57 shared FX＋6 TXT/scripts）；合併後 overlay `data/` 實測 398 files（372 GIF＋26 other）。`zhaoyun.txt` 464 occurrences／82 paths strict PASS，主檔加 7 份輔助 TXT、共 8 份全 PASS，fresh rebuild 147／147 byte-identical，Docker 同樣到 `Loading models... Done!`。本輪含 5 個 `blood1`→`flashb` 局部 hitflash remap、1 個魏延 fall 誤引用改回趙雲 `fall2`、5 個 script include case 修正。`y1`–`y16`、cross-character audio QA、逐格補間、實戰 BBox／attack box 與 2P 仍 deferred，不能標記完整玩家角色。詳見 [`ZHAOYUN_VERTICAL_SLICE.md`](ZHAOYUN_VERTICAL_SLICE.md)。
+
 驗收通過後鎖定角色高度、輪廓線、金屬色階、光源、palette 與 AI／人工修圖比例。
 
 ### M2 — 五角色 P0
 
 - 關羽已完成可載入的 P0 engineering overlay；仍須逐格補間、gore／audio QA 與 `g1`–`g16` closure，不能從「剩餘角色」中完全劃除。
-- 完成趙雲、黃忠、魏延三名角色的 P0，並把關羽、張飛 engineering skeleton 清成 production animation；五人 P0 目標量仍為 229 張。
+- 趙雲已完成可載入且 deterministic 的 P0 engineering overlay；仍須逐格補間、cross-character audio QA、實戰對位與 `y1`–`y16` closure，不能從 production 待辦完全劃除。
+- 完成黃忠、魏延兩名角色的 P0，並把關羽、張飛、趙雲 engineering skeleton 清成 production animation；五人 P0 目標量仍為229張。
 - RX-78 同步處理黃忠的 8 個投射物模型／22 張有效 projectile FX。
 - 補齊五組 icon/profile 與 2P alternate palette。
 

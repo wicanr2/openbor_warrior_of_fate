@@ -1,6 +1,6 @@
 # 五人選角與無敵鐵金剛 HUD vertical slice
 
-第一批資產完成 M1 coverage 最後四個缺口：一張 480×276 五人選角合成圖，以及張飛 slot／無敵鐵金剛的 35×54 model icon、HUD profile、mirror profile。關羽 P0 隨後也從同一私有選角 master 產生 `icon.GIF`、`guanyu.GIF` 與 `guanyu_m.GIF`，並納入 284-file private engineering overlay。
+第一批資產完成 M1 coverage 最後四個缺口：一張480×276五人選角合成圖，以及張飛 slot／無敵鐵金剛的35×54 model icon、HUD profile、mirror profile。關羽與趙雲 P0 隨後也從同一私有選角 master 各產生 model icon、profile 與 mirror profile；趙雲合併後 private overlay `data/` 為398 files。
 
 ![五人機器人選角總覽](../research/ui/five-robot-selection-screen-v1-overview.png)
 
@@ -27,6 +27,9 @@
 | `data/chars/guanyu/icon.GIF` | 35×54 | 第一欄紅色月牙戰士肖像 crop | 關羽模型 icon；由 Guanyu P0 builder 建立 |
 | `data/profiles/guanyu.GIF` | 35×54 | 同一 Guanyu master portrait | 關羽 HUD profile |
 | `data/profiles/guanyu_m.GIF` | 35×54 | Guanyu master portrait 水平鏡像 | 關羽 HUD 後備／另一方向 profile |
+| `data/chars/zhaoyun/icon.GIF` | 35×54 | 第三欄紫綠長槍機肖像 crop | 趙雲模型 icon；由 Zhao Yun P0 builder 建立 |
+| `data/profiles/zhaoyun.GIF` | 35×54 | 同一 Zhao Yun master portrait | 趙雲 HUD profile |
+| `data/profiles/zhaoyun_m.GIF` | 35×54 | Zhao Yun master portrait 水平鏡像 | 趙雲 HUD 後備／另一方向 profile |
 
 Builder 另產生 `data/chars/zhangfei/zhangfei.txt` overlay，把模型 icon 引用正規化為實體 physical case `icon.GIF`。其他 37 組張飛大小寫債務目前只在 disposable staging 建 alias；production model cleanup 尚未完成。
 
@@ -58,7 +61,9 @@ node scripts/build-five-robot-selection-p0-prototype.mjs \
 | Gate | Result |
 | --- | --- |
 | Vertical-slice coverage | 89/89；所有 M1 預定 replacement 類別完成 engineering coverage |
-| Overlay parity | 合併關羽 P0 後目前 284 files；關羽增量為 65 主 GIF＋2 profiles＋33 shared FX＋2 TXT；exact-case、canvas、indexed GIF、index0 `#FC00FF` 全 PASS |
+| Overlay parity | 合併趙雲 P0 後 `data/` 為398 files：372 GIF＋26 other；趙雲 batch為147 files，exact-case、canvas、indexed GIF、index0 `#FC00FF` 全 PASS |
+| Zhao Yun model strict | `zhaoyun.txt` 464 occurrences／82 unique paths PASS；主檔加 7 份輔助 TXT，共 8 份全 PASS |
+| Zhao Yun determinism | fresh output 147／147 files byte-identical |
 | Zhangfei model strict | 447 次引用、86 個唯一圖像路徑全部解析（disposable staging case aliases） |
 | Stage01 level strict | 4 個唯一背景／FX 路徑 PASS |
 | `baoxiang` strict | 3 個唯一圖像路徑 PASS |
@@ -79,7 +84,8 @@ node scripts/build-five-robot-selection-p0-prototype.mjs \
 ## Production 缺口
 
 - 五欄圖仍是生成式 engineering redraw；需由 UI／pixel artist 清理角、斧、盾、手指、腳底與欄寬。
-- 張飛與關羽目前各有 model icon＋兩張 profile；趙雲、黃忠、魏延仍屬後續工作，不能把選角合成圖當成其餘 UI 小圖已完成。
+- 張飛、關羽、趙雲目前各有 model icon＋兩張 profile；黃忠、魏延仍屬後續工作，不能把選角合成圖當成其餘 UI 小圖已完成。
 - 現有選角圖沒有文字；角色名稱與提示若由其他 UI 圖或字型顯示，需另做跨語系與 2P layout review。
 - 公開總覽依 repo policy 只作 **overview-only review image**；不是可拆用 production 圖，也不能宣稱 `legal-safe`／`public-safe`。發行時仍要重新確認所有角色造型與名稱的權利範圍。
 - 關羽 35×54 UI 已進 engineering overlay，不等於關羽角色完成：`g1`–`g16`、gore remap、`playerdie.wav` 與逐格補間都 deferred；詳見 [`GUANYU_VERTICAL_SLICE.md`](GUANYU_VERTICAL_SLICE.md)。
+- 趙雲35×54 UI已進 engineering overlay，也不等於角色完成：`y1`–`y16`、cross-character audio QA、逐格補間、實戰BBox／attack box與2P都 deferred；詳見 [`ZHAOYUN_VERTICAL_SLICE.md`](ZHAOYUN_VERTICAL_SLICE.md)。

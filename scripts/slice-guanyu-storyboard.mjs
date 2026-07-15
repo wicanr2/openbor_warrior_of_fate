@@ -216,19 +216,22 @@ function displayPath(path) {
     : `local-only/${basename(path)}`;
 }
 
-function main() {
-  const options = parseArgs(process.argv.slice(2));
+export function sliceStoryboard(options, config = {}) {
+  const expected = config.expected ?? EXPECTED;
+  const cells = config.cells ?? CELLS;
+  const status = config.status ?? 'concept-keyposes-not-production-ready';
+  const warning = config.warning ?? 'Cells 08, 10, 11, 12 and 15 cross nominal grid lines; use only the independent crops in this manifest.';
   if (!existsSync(options.source)) throw new Error(`Missing source: ${options.source}`);
   const stream = probe(options.source);
-  if (stream?.width !== EXPECTED.width || stream?.height !== EXPECTED.height) {
-    throw new Error(`Expected ${EXPECTED.width}x${EXPECTED.height}, got ${stream?.width}x${stream?.height}`);
+  if (stream?.width !== expected.width || stream?.height !== expected.height) {
+    throw new Error(`Expected ${expected.width}x${expected.height}, got ${stream?.width}x${stream?.height}`);
   }
   const source = decodeRgb(options.source);
   mkdirSync(options.outputDir, { recursive: true });
   const frames = [];
-  for (let index = 0; index < CELLS.length; index += 1) {
-    const cell = CELLS[index];
-    const frame = cropAndNormalize(source, EXPECTED.width, cell);
+  for (let index = 0; index < cells.length; index += 1) {
+    const cell = cells[index];
+    const frame = cropAndNormalize(source, expected.width, cell);
     const name = `frame-${String(index + 1).padStart(2, '0')}.png`;
     const output = join(options.outputDir, name);
     encodePng(output, cell.width, cell.height, frame.pixels);
@@ -244,26 +247,33 @@ function main() {
     });
     console.log(`${name} ${cell.role} foreground ${frame.foreground.width}x${frame.foreground.height}`);
   }
-  encodePng(options.contactSheet, EXPECTED.width, EXPECTED.height, normalizeCanvas(source));
+  encodePng(options.contactSheet, expected.width, expected.height, normalizeCanvas(source));
   mkdirSync(dirname(options.manifest), { recursive: true });
   writeFileSync(options.manifest, `${JSON.stringify({
     schemaVersion: 1,
-    status: 'concept-keyposes-not-production-ready',
+    status,
     source: displayPath(options.source),
     sourceSha256: createHash('sha256').update(readFileSync(options.source)).digest('hex'),
-    sourceCanvas: EXPECTED,
+    sourceCanvas: expected,
     chromaKey: { ...CHROMA, requiredPaletteIndex: 0 },
     normalization: { colorSpace: 'HSV', hueDegrees: [285, 335], minimumSaturation: 0.35, minimumValue: 0.35 },
-    warning: 'Cells 08, 10, 11, 12 and 15 cross nominal grid lines; use only the independent crops in this manifest.',
+    warning,
     frames,
   }, null, 2)}\n`);
   console.log(`contact sheet ${displayPath(options.contactSheet)}`);
   console.log(`manifest ${displayPath(options.manifest)}`);
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(`ERROR: ${error.message}`);
-  process.exitCode = 1;
+function main() {
+  sliceStoryboard(parseArgs(process.argv.slice(2)));
+}
+
+const IS_MAIN = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (IS_MAIN) {
+  try {
+    main();
+  } catch (error) {
+    console.error(`ERROR: ${error.message}`);
+    process.exitCode = 1;
+  }
 }

@@ -8,8 +8,9 @@
 2. 在 [`CHARACTER_SPRITE_INVENTORY.md`](../research/CHARACTER_SPRITE_INVENTORY.md) 找到角色的 P0／P1／P2 範圍。
 3. 無敵鐵金剛先讀 [`MAZINGER_P0_FRAME_MAP.md`](../research/MAZINGER_P0_FRAME_MAP.md)：內含 42 個 case-sensitive 引用、canvas、Offset 與缺幀。
 4. 關羽先讀 [`GUANYU_VERTICAL_SLICE.md`](GUANYU_VERTICAL_SLICE.md)：65 主 GIF 只是 16 key pose 的 engineering coverage；逐格補間、`g1`–`g16`、gore 與死亡音效仍未完成。
-5. 向整合負責人取得私有的原 canvas 模板與目前 production overlay；不要從公開 GitHub 尋找單張原作 GIF。
-6. 在工作看板登記負責人與狀態，避免兩人同時重畫同一批檔案。
+5. 趙雲先讀 [`ZHAOYUN_VERTICAL_SLICE.md`](ZHAOYUN_VERTICAL_SLICE.md)：82 主 GIF 仍重用 16 poses；`y1`–`y16`、音效、逐格補間、BBox／2P 尚未完成。
+6. 向整合負責人取得私有的原 canvas 模板與目前 production overlay；不要從公開 GitHub 尋找單張原作 GIF。
+7. 在工作看板登記負責人與狀態，避免兩人同時重畫同一批檔案。
 
 ## 每張圖的交付欄位
 
@@ -104,6 +105,22 @@ MZ-P0-A 通過引擎驗收後，才讓其他藝術家依同一高度、輪廓線
 | GY-VARIANTS | `g1`–`g16` | 騎乘、拾取武器、水中、子模型與投射物 closure；主模型清稿後才開始 |
 
 `GY-P0-A`–`E`、gore／audio QA 與 `GY-VARIANTS` 未全部驗收前，不得把關羽標成完整玩家角色。
+
+### 趙雲 P0 清稿批次
+
+趙雲 batch 實測 147 files，合併 overlay `data/` 為 398 files；主模型 464 occurrences／82 paths strict PASS，主檔加 7 份輔助 TXT、共 8 份 PASS，deterministic rebuild 147／147 byte-identical，Docker 到 `Loading models... Done!`。這只證明 engineering closure 可重建並載入；藝術家應按下列批次取代 16-pose reuse：
+
+| Batch | 範圍 | 交付重點 |
+| --- | --- | --- |
+| ZY-P0-A | idle、walk1–8 | 固定站高、腳底、額角、肩甲、綠色節點與八格 walk 補間 |
+| ZY-P0-B | attack1–13、block | 長槍長度、全槍尖、anticipation／contact／recovery 與 attack box |
+| ZY-P0-C | jump、空中攻擊、special | pelvis root、槍尖與特效，不得按名義4×4格硬切 |
+| ZY-P0-D | pain、fall、death | 保留兩腿兩腳；延伸5個局部 hitflash remap 的機械受擊語彙 |
+| ZY-P0-E | grab／charge／win | 補齊逐格接觸、loop 與 silhouette cleanup |
+| ZY-VARIANTS | `y1`–`y16` | 騎乘、拾取武器、水中、子模型、投射物與 FX closure |
+| ZY-AUDIO-2P | 跨角色 audio、2P | `sp.wav`／`s2.wav`／`yayaya.wav`／`playerdie.wav`、alternate palette、雙人 HUD／同屏 QA |
+
+`ZY-P0-A`–`E`、`ZY-VARIANTS`、audio／BBox／2P 未全部驗收前，不得把趙雲標成完整玩家角色。
 
 ### Enemy／stage 同步批次
 

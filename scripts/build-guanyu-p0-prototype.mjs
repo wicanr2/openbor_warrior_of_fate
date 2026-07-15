@@ -303,7 +303,7 @@ function skipSubBlocks(bytes, start) {
   }
 }
 
-function normalizeGifPaletteZero(sourcePath, outputPath) {
+export function normalizeGifPaletteZero(sourcePath, outputPath) {
   const bytes = Buffer.from(readFileSync(sourcePath));
   const signature = bytes.subarray(0, 6).toString('ascii');
   if (signature !== 'GIF87a' && signature !== 'GIF89a') throw new Error(`Invalid GIF: ${sourcePath}`);
@@ -447,9 +447,12 @@ function main() {
   }
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(`ERROR: ${error.message}`);
-  process.exitCode = 1;
+const IS_MAIN = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (IS_MAIN) {
+  try {
+    main();
+  } catch (error) {
+    console.error(`ERROR: ${error.message}`);
+    process.exitCode = 1;
+  }
 }

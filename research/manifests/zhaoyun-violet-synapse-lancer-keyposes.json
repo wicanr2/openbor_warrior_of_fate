@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "status": "concept-keyposes-not-production-ready",
+  "source": "local-only/zhaoyun-violet-synapse-lancer-storyboard-v1.png",
+  "sourceSha256": "744009fcdda5e62fa7d31d9affdb20486f3158bf692c50f2084a8badd2aafda3",
+  "sourceCanvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "chromaKey": {
+    "r": 252,
+    "g": 0,
+    "b": 255,
+    "hex": "#FC00FF",
+    "requiredPaletteIndex": 0
+  },
+  "normalization": {
+    "colorSpace": "HSV",
+    "hueDegrees": [
+      285,
+      335
+    ],
+    "minimumSaturation": 0.35,
+    "minimumValue": 0.35
+  },
+  "warning": "Cells 08 through 16 contain cross-grid foreground spill; use only the independent crops and semantic pivots recorded in this manifest.",
+  "frames": [
+    {
+      "index": 1,
+      "role": "portrait",
+      "sourceCrop": {
+        "role": "portrait",
+        "x": 36,
+        "y": 18,
+        "width": 249,
+        "height": 284
+      },
+      "semanticPivot": {
+        "x": 122,
+        "y": 127
+      },
+      "output": "local-only/frame-01.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 225,
+        "height": 260
+      },
+      "chromaPixels": 34759,
+      "totalPixels": 70716
+    },
+    {
+      "index": 2,
+      "role": "spawn-landing",
+      "sourceCrop": {
+        "role": "spawn-landing",
+        "x": 378,
+        "y": 19,
+        "width": 185,
+        "height": 287
+      },
+      "semanticPivot": {
+        "x": 78,
+        "y": 269
+      },
+      "output": "local-only/frame-02.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 161,
+        "height": 263
+      },
+      "chromaPixels": 38003,
+      "totalPixels": 53095
+    },
+    {
+      "index": 3,
+      "role": "idle-ready",
+      "sourceCrop": {
+        "role": "idle-ready",
+        "x": 640,
+        "y": 42,
+        "width": 248,
+        "height": 258
+      },
+      "semanticPivot": {
+        "x": 123,
+        "y": 245
+      },
+      "output": "local-only/frame-03.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 224,
+        "height": 234
+      },
+      "chromaPixels": 47584,
+      "totalPixels": 63984
+    },
+    {
+      "index": 4,
+      "role": "walk-contact",
+      "sourceCrop": {
+        "role": "walk-contact",
+        "x": 965,
+        "y": 43,
+        "width": 220,
+        "height": 258
+      },
+      "semanticPivot": {
+        "x": 85,
+        "y": 245
+      },
+      "output": "local-only/frame-04.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 196,
+        "height": 234
+      },
+      "chromaPixels": 41923,
+      "totalPixels": 56760
+    },
+    {
+      "index": 5,
+      "role": "walk-passing",
+      "sourceCrop": {
+        "role": "walk-passing",
+        "x": 37,
+        "y": 328,
+        "width": 265,
+        "height": 254
+      },
+      "semanticPivot": {
+        "x": 108,
+        "y": 241
+      },
+      "output": "local-only/frame-05.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 241,
+        "height": 230
+      },
+      "chromaPixels": 52813,
+      "totalPixels": 67310
+    },
+    {
+      "index": 6,
+      "role": "guard-block",
+      "sourceCrop": {
+        "role": "guard-block",
+        "x": 372,
+        "y": 307,
+        "width": 178,
+        "height": 277
+      },
+      "semanticPivot": {
+        "x": 90,
+        "y": 264
+      },
+      "output": "local-only/frame-06.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 154,
+        "height": 253
+      },
+      "chromaPixels": 35486,
+      "totalPixels": 49306
+    },
+    {
+      "index": 7,
+      "role": "lancer-windup",
+      "sourceCrop": {
+        "role": "lancer-windup",
+        "x": 623,
+        "y": 350,
+        "width": 267,
+        "height": 237
+      },
+      "semanticPivot": {
+        "x": 110,
+        "y": 224
+      },
+      "output": "local-only/frame-07.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 243,
+        "height": 213
+      },
+      "chromaPixels": 49104,
+      "totalPixels": 63279
+    },
+    {
+      "index": 8,
+      "role": "horizontal-thrust",
+      "sourceCrop": {
+        "role": "horizontal-thrust",
+        "x": 890,
+        "y": 387,
+        "width": 357,
+        "height": 204
+      },
+      "semanticPivot": {
+        "x": 200,
+        "y": 191
+      },
+      "output": "local-only/frame-08.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 333,
+        "height": 180
+      },
+      "chromaPixels": 59756,
+      "totalPixels": 72828
+    },
+    {
+      "index": 9,
+      "role": "crescent-finisher",
+      "sourceCrop": {
+        "role": "crescent-finisher",
+        "x": 21,
+        "y": 611,
+        "width": 275,
+        "height": 265
+      },
+      "semanticPivot": {
+        "x": 118,
+        "y": 252
+      },
+      "output": "local-only/frame-09.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 251,
+        "height": 241
+      },
+      "chromaPixels": 56885,
+      "totalPixels": 72875
+    },
+    {
+      "index": 10,
+      "role": "jump-aerial-windup",
+      "sourceCrop": {
+        "role": "jump-aerial-windup",
+        "x": 380,
+        "y": 594,
+        "width": 223,
+        "height": 268
+      },
+      "semanticPivot": {
+        "x": 90,
+        "y": 141
+      },
+      "output": "local-only/frame-10.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 199,
+        "height": 244
+      },
+      "chromaPixels": 46781,
+      "totalPixels": 59764
+    },
+    {
+      "index": 11,
+      "role": "plunge-attack",
+      "sourceCrop": {
+        "role": "plunge-attack",
+        "x": 657,
+        "y": 613,
+        "width": 185,
+        "height": 268
+      },
+      "semanticPivot": {
+        "x": 84,
+        "y": 137
+      },
+      "output": "local-only/frame-11.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 161,
+        "height": 244
+      },
+      "chromaPixels": 37871,
+      "totalPixels": 49580
+    },
+    {
+      "index": 12,
+      "role": "spin-special",
+      "sourceCrop": {
+        "role": "spin-special",
+        "x": 904,
+        "y": 649,
+        "width": 328,
+        "height": 234
+      },
+      "semanticPivot": {
+        "x": 151,
+        "y": 221
+      },
+      "output": "local-only/frame-12.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 304,
+        "height": 210
+      },
+      "chromaPixels": 61486,
+      "totalPixels": 76752
+    },
+    {
+      "index": 13,
+      "role": "pain-recoil",
+      "sourceCrop": {
+        "role": "pain-recoil",
+        "x": 15,
+        "y": 901,
+        "width": 216,
+        "height": 273
+      },
+      "semanticPivot": {
+        "x": 123,
+        "y": 260
+      },
+      "output": "local-only/frame-13.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 192,
+        "height": 249
+      },
+      "chromaPixels": 42928,
+      "totalPixels": 58968
+    },
+    {
+      "index": 14,
+      "role": "airborne-fall",
+      "sourceCrop": {
+        "role": "airborne-fall",
+        "x": 260,
+        "y": 914,
+        "width": 282,
+        "height": 249
+      },
+      "semanticPivot": {
+        "x": 137,
+        "y": 157
+      },
+      "output": "local-only/frame-14.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 258,
+        "height": 225
+      },
+      "chromaPixels": 53537,
+      "totalPixels": 70218
+    },
+    {
+      "index": 15,
+      "role": "prone-death",
+      "sourceCrop": {
+        "role": "prone-death",
+        "x": 578,
+        "y": 1024,
+        "width": 323,
+        "height": 133
+      },
+      "semanticPivot": {
+        "x": 212,
+        "y": 73
+      },
+      "output": "local-only/frame-15.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 299,
+        "height": 109
+      },
+      "chromaPixels": 29131,
+      "totalPixels": 42959
+    },
+    {
+      "index": 16,
+      "role": "mechanical-debris",
+      "sourceCrop": {
+        "role": "mechanical-debris",
+        "x": 929,
+        "y": 925,
+        "width": 315,
+        "height": 238
+      },
+      "semanticPivot": {
+        "x": 156,
+        "y": 120
+      },
+      "output": "local-only/frame-16.png",
+      "foreground": {
+        "x": 12,
+        "y": 12,
+        "width": 291,
+        "height": 214
+      },
+      "chromaPixels": 56679,
+      "totalPixels": 74970
+    }
+  ]
+}
