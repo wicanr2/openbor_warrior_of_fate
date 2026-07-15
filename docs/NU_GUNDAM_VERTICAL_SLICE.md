@@ -103,6 +103,8 @@ node scripts/patch-six-player-select-overlay.mjs \
 | Docker OpenBOR | v7533 cache `nu_funnel_shot`、`nu_gundam`，到 `Loading models... Done!` |
 | Bounded smoke | exit 124 是 timeout 預期值；載入完成後的舊引擎 teardown double-free 不當作 gameplay PASS |
 
+更細的 headless 證據獨立記錄於 [`../research/NU_GUNDAM_LINUX_SMOKE.md`](../research/NU_GUNDAM_LINUX_SMOKE.md)；它只證明 Linux 模型載入閘門，不代表可見 runner 已完成。
+
 機器可讀證據見 [`nu-gundam-sixth-character-p0-runtime-audit.json`](../research/manifests/nu-gundam-sixth-character-p0-runtime-audit.json)。
 
 ## 明確 deferred

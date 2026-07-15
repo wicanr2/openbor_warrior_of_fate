@@ -109,6 +109,8 @@ docker run --rm --user "$(id -u):$(id -g)" \
 | Docker OpenBOR v7533 | cache `guanyu`，到 `Loading models... Done!` |
 | Bounded smoke exit | `124`；到達載入閘門後由 timeout 結束，屬此 smoke 流程的預期結果 |
 
+更細的 headless 證據獨立記錄於 [`../research/GUANYU_LINUX_SMOKE.md`](../research/GUANYU_LINUX_SMOKE.md)；它只證明 Linux 模型載入閘門，不代表可見 runner 已完成。
+
 timeout 送出 TERM 後，舊版引擎可能在 teardown 印出 double-free。判讀順序必須是：先確認 TERM 前已有 `Loading models... Done!`，再把 TERM 後的 double-free 記為既知 teardown；不能把它說成正常遊戲執行完全無錯，也不能反過來把已通過的 model-load 誤判為載入失敗。
 
 本輪 source hash、builder hash、selection protected-region 數字與 Docker log 成功字串集中記錄於 [`guanyu-getter-v2-runtime-audit.json`](../research/manifests/guanyu-getter-v2-runtime-audit.json)。

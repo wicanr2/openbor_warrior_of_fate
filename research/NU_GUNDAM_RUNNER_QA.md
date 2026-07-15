@@ -40,6 +40,8 @@ That run now passes. The validator checks the actual output GIFs against the bui
 - `addedCanvasEdges = 0`
 - `maximumAnchorDrift = 1`
 
+Headless Linux smoke evidence is recorded separately in [`NU_GUNDAM_LINUX_SMOKE.md`](NU_GUNDAM_LINUX_SMOKE.md). It confirms only the model-load gate; it does not close visible runner QA.
+
 I also ran the headless OpenBOR smoke against the ν integrated stage:
 
 ```bash
