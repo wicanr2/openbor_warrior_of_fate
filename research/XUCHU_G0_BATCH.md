@@ -88,6 +88,27 @@
 - `geometry-migration.json` 只在 canvas / offset 真正要動時加入，不能默默改圖。
 - 先完成一套可視 gameplay review，再談更高階的超巨大戰。
 
+## 已知技術債
+
+現成 `chu.txt` 與 `xuchuxs.txt` 在 Linux strict 模式仍有 exact-case debt。這不是缺圖，而是檔名大小寫與實體磁碟不一致：
+
+- `pain1.GIF` ↔ `pain1.gif`
+- `painx.gif` ↔ `painx.GIF`
+- `fallx2.gif` ↔ `fallx2.GIF`
+- `fallx3.gif` ↔ `fallx3.GIF`
+- `fallx.gif` ↔ `fallx.GIF`
+- `fallr.gif` ↔ `fallr.GIF`
+- `painx2.gif` ↔ `painx2.GIF`
+- `painx1.gif` ↔ `painx1.GIF`
+- `fallx02.gif` ↔ `fallx02.GIF`
+- `fallx03.gif` ↔ `fallx03.GIF`
+- `a0.gif` ↔ `a0.GIF`
+- `a1.gif` ↔ `a1.GIF`
+- `a2.gif` ↔ `a2.GIF`
+- `a3.gif` ↔ `a3.GIF`
+
+這批 debt 的處理方式應是：先在 disposable overlay 中正規化 exact-case，再重新跑 strict validator 與 smoke。
+
 ## 驗證命令
 
 ```bash

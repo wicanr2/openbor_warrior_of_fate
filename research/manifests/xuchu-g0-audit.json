@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "slot": "xuchu",
+  "status": "headless-smoke-pass-with-case-debt",
+  "strictValidator": {
+    "xuchuTxt": "PASS",
+    "chuTxt": {
+      "status": "FAIL",
+      "caseMismatchErrors": 10,
+      "mismatches": [
+        "pain1.GIF -> pain1.gif",
+        "painx.gif -> painx.GIF",
+        "fallx2.gif -> fallx2.GIF",
+        "fallx3.gif -> fallx3.GIF",
+        "fallx.gif -> fallx.GIF",
+        "fallr.gif -> fallr.GIF",
+        "painx2.gif -> painx2.GIF",
+        "painx1.gif -> painx1.GIF",
+        "fallx02.gif -> fallx02.GIF",
+        "fallx03.gif -> fallx03.GIF"
+      ]
+    },
+    "xuchuxsTxt": {
+      "status": "FAIL",
+      "caseMismatchErrors": 4,
+      "mismatches": [
+        "a0.gif -> a0.GIF",
+        "a1.gif -> a1.GIF",
+        "a2.gif -> a2.GIF",
+        "a3.gif -> a3.GIF"
+      ]
+    }
+  },
+  "smoke": {
+    "binary": "/tmp/openbor-linux-docker-robot-wof/source/engine/releases/LINUX/OpenBOR/OpenBOR",
+    "stage": "/tmp/robot-wof-openbor-smoke-audit",
+    "result": "PASS",
+    "dockerExit": 124,
+    "log": "/tmp/robot-wof-openbor-smoke-audit/Logs/OpenBorLog.txt",
+    "modelLoadEvidence": "Loading models............... Done!"
+  },
+  "nextStep": "Normalize exact-case in disposable overlay, then rerun strict validator and smoke."
+}

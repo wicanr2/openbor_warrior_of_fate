@@ -22,6 +22,8 @@
 
 如果要直接處理大型主角機 Boss，先看 [`../research/XUCHU_G0_BATCH.md`](../research/XUCHU_G0_BATCH.md)。那份文件把 `xuchu` 的現成 closure、依賴分類與 G0 驗證重點整理成一份可交接批次，方便下一位藝術家直接接手。
 
+如果你想知道目前 `xuchu` 真實還缺什麼，先看 [`../research/XUCHU_G0_AUDIT.md`](../research/XUCHU_G0_AUDIT.md)。那份 audit 清楚列出 strict case debt 與 headless smoke 結果，避免把「能載入」誤當成「production-ready」。
+
 如果要直接抓下一批可以執行的 Boss 工作，請看 [`../research/manifests/boss-next-queue.json`](../research/manifests/boss-next-queue.json)；那份檔案把目前仍待收斂的 Boss 任務拆成 pending queue。
 
 ## 概念頁提供的方向
