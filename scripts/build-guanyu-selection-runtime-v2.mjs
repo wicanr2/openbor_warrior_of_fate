@@ -232,7 +232,7 @@ function renderRuntimeRgb(sourcePath) {
   return bytes;
 }
 
-function nearestPaletteIndex(r, g, b, rgbPalette) {
+export function nearestPaletteIndex(r, g, b, rgbPalette) {
   let bestIndex = 1;
   let bestDistance = Number.POSITIVE_INFINITY;
   // Index zero is the OpenBOR chroma key and must remain unused on this opaque screen.
@@ -251,7 +251,7 @@ function nearestPaletteIndex(r, g, b, rgbPalette) {
   return bestIndex;
 }
 
-function paletteToBgra(rgbPalette) {
+export function paletteToBgra(rgbPalette) {
   const bgra = Buffer.alloc(256 * 4);
   for (let index = 0; index < 256; index += 1) {
     bgra[index * 4] = rgbPalette[index * 3 + 2];

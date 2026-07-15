@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "status": "private-engineering-runtime-model-load-verified",
+  "productionReady": false,
+  "sources": {
+    "privateStoryboardSha256": "ceb788a62ae5ac3c3c09e49e946346b73a96a7d8d3db3ea08e34f8de4e1bcec2",
+    "publicStoryboardOverviewSha256": "81fce13524b74513ed1452e3311b0d470a78bb0837aa668bbb524b2ec2124ee5",
+    "keyposeManifestSha256": "eba068a47d8c088cbcb7e30dc1aa3e587b34f4c25471b7dc05a5762ddc7c49a9"
+  },
+  "builders": {
+    "nuRuntimeSha256": "100eee37f522e88d1a33ec321f962b72c1ee010c79343231d25d783e9d17fd23",
+    "sixColumnSelectionSha256": "d65d2195fa731b822e96e23be1f7aa7e97457896cc507f7a8de96d57f68ec1d8",
+    "sixPlayerTextPatcherSha256": "393442469545e2311cc6ed56c9dec37a286dd9a4ab47d4f0ecd8ee1eeda00bdf",
+    "runtimeValidatorSha256": "79945572c6ba89e4ad3605e79e9b0e1d95f6502c897e935bed89b74e0d944ee4"
+  },
+  "runtime": {
+    "nonManifestFiles": 81,
+    "actionGif": 71,
+    "mainModelGifRefs": 73,
+    "hudProfiles": 2,
+    "mainModelSha256": "cac1cd1c0ff485f4b688b21a49d80f4207b91dcfdcdc3b154ab209d7d22c4952",
+    "funnelModelSha256": "7d320b28f3a7d2c010879f480d9e8c2858be87cea6cbdaacb8a0c7d9e03b2ec6",
+    "sixColumnSelectionSha256": "4f3f663f8e89cb557d2e62510e54a90bd84acaf2eebe72d61926031b3716899b",
+    "modelsTxtSha256": "79f9fe2456228e6af703040f7f877dbc04ef2fea53bebb8b92958a445db8931c",
+    "selectTxtSha256": "9168ca572885405fd01a47b2dfbd8363c866b851a640d8bd8c445ff3712ed025"
+  },
+  "verification": {
+    "freshBuildsCompared": 2,
+    "nonManifestByteDifferences": 0,
+    "manifestDifferenceAllowlist": [
+      "generatedAt"
+    ],
+    "exactCaseDataRefs": 98,
+    "missingRefs": 0,
+    "clampedPlacements": 0,
+    "addedCanvasEdges": 0,
+    "maximumForegroundCenterBottomDriftPixels": 1,
+    "minimumSafeScaleRatio": 0.9841269841269842,
+    "paletteIndex0": "#FC00FF",
+    "overlayDataFiles": 585,
+    "overlayGif": 548,
+    "overlayOther": 37,
+    "candidateCount": 6,
+    "candidateOrder": [
+      "guanyu",
+      "zhangfei",
+      "zhaoyun",
+      "huangzhong",
+      "weiyan",
+      "nu_gundam"
+    ],
+    "sixPlayerPatchAssertions": 13,
+    "finFunnelProxyShotsPerCommand": 6,
+    "openBorBuild": 7533,
+    "openBorBinarySha256": "5ac687c5b590b077cd47721b15edd3064470cddf3ac4e3087082d1f83e4aa5af",
+    "funnelCacheEvidence": "Cacheing 'nu_funnel_shot' from data/chars/nu_gundam/funnel/nu_funnel_shot.txt",
+    "playerCacheEvidence": "Cacheing 'nu_gundam' from data/chars/nu_gundam/nu_gundam.txt",
+    "modelLoadEvidence": "Loading models............... Done!"
+  },
+  "publicOverview": {
+    "engineeringPreview": {
+      "path": "research/previews/nu-gundam-sixth-character-p0-engineering-preview.png",
+      "sha256": "2ad5ea9bfb3903b3f6b7ebdc894c1ffea5de603c4b7d48b7556df807e7090d43"
+    },
+    "selection": {
+      "path": "research/ui/six-robot-selection-screen-v1-overview.png",
+      "sha256": "55e92b58b7cb8d168f7b098905f47df6a218c333ec2b7b71773aa926b662177c"
+    }
+  },
+  "deferred": [
+    "visible six-candidate selection and Stage 1 entry",
+    "1P and 2P gameplay QA",
+    "six autonomous Fin Funnel drones with return and cleanup",
+    "production in-between animation",
+    "BBox, attack box, projectile origin and sound QA"
+  ]
+}

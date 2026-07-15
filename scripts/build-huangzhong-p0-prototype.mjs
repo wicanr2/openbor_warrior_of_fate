@@ -56,7 +56,7 @@ function item(output, source, x = 82, y = 107, extra = {}) {
   return { output, source, offset: { x, y }, sourceAnchor: PIVOTS[source], ...extra };
 }
 
-const MAIN_MAPPING = Object.freeze([
+export const MAIN_MAPPING = Object.freeze([
   item('idle.gif', 'frame-03.png'), item('win1.GIF', 'frame-09.png'), item('win2.GIF', 'frame-03.png'),
   ...Array.from({ length: 8 }, (_, index) => item(`walk${index + 1}.gif`, index % 2 ? 'frame-05.png' : 'frame-04.png', 73, 128, { spriteHeight: 112 })),
   item('attack006.gif', 'frame-08.png', 71), item('attack06.gif', 'frame-08.png', 71), item('attack07.gif', 'frame-08.png', 71),
@@ -311,4 +311,12 @@ function main() {
   }
 }
 
-try { main(); } catch (error) { console.error(`ERROR: ${error.message}`); process.exitCode = 1; }
+const IS_MAIN = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (IS_MAIN) {
+  try {
+    main();
+  } catch (error) {
+    console.error(`ERROR: ${error.message}`);
+    process.exitCode = 1;
+  }
+}
