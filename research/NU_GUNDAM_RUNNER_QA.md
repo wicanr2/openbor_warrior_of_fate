@@ -20,6 +20,19 @@ The test proved:
 - `models.txt` and `select.txt` are byte-stable across re-runs;
 - the `nu_funnel_shot` support model stays registered exactly once.
 
+## Current runtime validator result
+
+I also ran the ν runtime validator against the available integrated build artifacts:
+
+```bash
+node scripts/validate-nu-gundam-runtime.mjs \
+  --base-data /tmp/nu-integrated-28yEGa/stage/data \
+  --template-data /tmp/nu-integrated-28yEGa/overlay/data \
+  --build-dir /tmp/nu-integrated-28yEGa/overlay
+```
+
+That run failed with 71 placement gates, all reported as anchor drift. The current integrated build is therefore not yet the verified runtime gate, even though the six-select text closure passes.
+
 ## Still open
 
 - Visible runner QA with screenshots or recorded frames.
@@ -58,4 +71,3 @@ The overlay builder at [`scripts/build-nu-gundam-engineering-preview.mjs`](../sc
 - [ν Gundam 第六可選角色工程計畫](../docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md)
 - [ν Gundam 第六角色 P0 vertical slice](../docs/NU_GUNDAM_VERTICAL_SLICE.md)
 - [ν Gundam 剩餘工作隊列](manifests/nu-gundam-next-queue.json)
-
