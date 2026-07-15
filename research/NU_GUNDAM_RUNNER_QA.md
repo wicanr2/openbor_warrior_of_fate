@@ -40,6 +40,17 @@ That run now passes. The validator checks the actual output GIFs against the bui
 - `addedCanvasEdges = 0`
 - `maximumAnchorDrift = 1`
 
+I also ran the headless OpenBOR smoke against the ν integrated stage:
+
+```bash
+scripts/run-openbor-smoke-docker.sh \
+  --binary /tmp/openbor-linux-v7533f-docker-20260715/source/engine/releases/LINUX/OpenBOR/OpenBOR \
+  --stage /tmp/nu-integrated-28yEGa/stage \
+  --seconds 15
+```
+
+That run reached `Loading models... Done!` in `OpenBorLog.txt`, which confirms the full ν integrated tree still clears the Linux model-load gate.
+
 ## Still open
 
 - Visible runner QA with screenshots or recorded frames.
