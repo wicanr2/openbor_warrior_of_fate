@@ -59,6 +59,8 @@ node scripts/prepare-openbor-smoke.mjs \
 - Overlay parity：只檢查已存在的 overlay 檔；負責 exact-case base counterpart、相同 canvas、indexed GIF 與 index 0 `#FC00FF`。
 - Smoke：合併到 `/tmp` 後由引擎驗證載入、Offset、BBox、動畫、遮擋與操作。
 
+如果 overlay tree 同時混入下一批未發佈的資產，`validate-overlay-parity.mjs` 會把那些額外檔案列成錯誤。這不影響 M1 coverage 的 `89/89` 結論，但代表要拿 parity 當門檻時，必須先把工作樹切乾淨。
+
 ## 現有流程的涵蓋缺口
 
 1. `validate-overlay-parity.mjs` 對「沒放進 overlay 的預期檔」沒有資訊，因此 9 張 idle／walk 也能 PASS；它也不判斷 overlay 是否只是原檔複製。

@@ -9,6 +9,7 @@
 - 背景固定為 `#FC00FF`；這是本模組現有角色素材的 palette index 0 實值。
 - 12 張只負責姿勢方向，還不是 OpenBOR production GIF。
 - 張飛 P0 有 42 個 case-sensitive GIF 引用，落到 41 個實體 GIF。`--scope full-p0` engineering prototype 已覆蓋全部引用並通過 Docker 載入；但它只重用 12 個概念姿勢，不是 41 張完成美術。
+- 2026-07-15 的驗證顯示，M1 coverage 已達 `89/89`；但若對整個混合 overlay tree 跑全量 parity，後續角色／Boss 批次會被列成額外檔案。那是預期結果，不是 M1 regression。
 
 ![無敵鐵金剛 12 格 key pose 總覽](../research/mazinger/mazinger-keyposes-contact-sheet.png)
 
