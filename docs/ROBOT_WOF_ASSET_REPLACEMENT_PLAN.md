@@ -6,6 +6,8 @@
 
 第一版保留原關卡幾何、敵人波次、招式時序與雙人玩法，先完成可玩的視覺替換；需要改碰撞、招式或玩家數的工作另立階段。
 
+如果要看目前整個專案的 machine-readable 工作線總表，請直接讀 [`../research/manifests/project-roadmap.json`](../research/manifests/project-roadmap.json)；那份檔案會把各工作流的優先順序與下一個隊列入口列清楚。
+
 ## 目前進度摘要
 
 | 工作包 | 現況 | 下一步 |

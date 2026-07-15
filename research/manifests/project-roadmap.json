@@ -1,0 +1,102 @@
+{
+  "project": "warriors_of_fate_robot_wof",
+  "status": "in_progress",
+  "purpose": "single machine-readable entry point for the current remake workstreams",
+  "sourceDocuments": [
+    "docs/ROBOT_WOF_ASSET_REPLACEMENT_PLAN.md",
+    "docs/GUANYU_VERTICAL_SLICE.md",
+    "docs/NU_GUNDAM_VERTICAL_SLICE.md",
+    "docs/HUANGZHONG_VERTICAL_SLICE.md",
+    "docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md",
+    "docs/ZEON_BOSS_WITH_LEGS_PLAN.md",
+    "docs/OPENBOR_COMPILATION.md",
+    "docs/PORTRAIT_ASSETS.md",
+    "docs/PILOT_AND_PORTRAIT_ROSTER.md"
+  ],
+  "priorityOrder": [
+    "stage01-environment-and-grunt",
+    "boss-and-story-cutin",
+    "portrait-and-selection-coverage",
+    "guanyu-production-closure",
+    "nu-gundam-playable-closure",
+    "huangzhong-playable-closure",
+    "weiyan-playable-closure",
+    "cross-platform-openbor-compilation"
+  ],
+  "workstreams": [
+    {
+      "id": "stage01-environment-and-grunt",
+      "status": "engineering-coverage-complete",
+      "nextQueue": "research/manifests/blue-helmet-grunt-keyposes.json",
+      "evidence": [
+        "docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md",
+        "docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md",
+        "docs/LIDIAN_BOSS_VERTICAL_SLICE.md"
+      ]
+    },
+    {
+      "id": "boss-and-story-cutin",
+      "status": "engineering-coverage-complete-but-production-remaining",
+      "nextQueue": "research/manifests/zeon-boss-with-legs-v2.json",
+      "evidence": [
+        "docs/ZEON_BOSS_WITH_LEGS_PLAN.md",
+        "docs/BOSS_PRODUCTION_PLAN.md"
+      ]
+    },
+    {
+      "id": "portrait-and-selection-coverage",
+      "status": "mixed-engineering-and-pending-portrait-work",
+      "nextQueue": "research/manifests/portrait-work-queue.json",
+      "evidence": [
+        "docs/PORTRAIT_ASSETS.md",
+        "docs/PILOT_AND_PORTRAIT_ROSTER.md",
+        "docs/SELECTION_AND_HUD_VERTICAL_SLICE.md"
+      ]
+    },
+    {
+      "id": "guanyu-production-closure",
+      "status": "p0-engineering-runtime-complete-but-production-remaining",
+      "nextQueue": "research/manifests/guanyu-next-queue.json",
+      "evidence": [
+        "docs/GUANYU_VERTICAL_SLICE.md",
+        "research/manifests/guanyu-getter-v2-runtime-audit.json"
+      ]
+    },
+    {
+      "id": "nu-gundam-playable-closure",
+      "status": "p0-engineering-runtime-complete-but-production-remaining",
+      "nextQueue": "research/manifests/nu-gundam-next-queue.json",
+      "evidence": [
+        "docs/NU_GUNDAM_VERTICAL_SLICE.md",
+        "research/manifests/nu-gundam-sixth-character-p0-runtime-audit.json"
+      ]
+    },
+    {
+      "id": "huangzhong-playable-closure",
+      "status": "p0-engineering-runtime-complete-but-production-remaining",
+      "nextQueue": "docs/HUANGZHONG_VERTICAL_SLICE.md",
+      "evidence": [
+        "docs/HUANGZHONG_VERTICAL_SLICE.md"
+      ]
+    },
+    {
+      "id": "weiyan-playable-closure",
+      "status": "p0-engineering-runtime-complete-but-production-remaining",
+      "nextQueue": "docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md",
+      "evidence": [
+        "docs/WEIYAN_RIFTBEAST_VERTICAL_SLICE.md",
+        "research/manifests/weiyan-riftbeast-p0-runtime-audit.json"
+      ]
+    },
+    {
+      "id": "cross-platform-openbor-compilation",
+      "status": "documentation-complete",
+      "nextQueue": "docs/OPENBOR_COMPILATION.md",
+      "evidence": [
+        "docs/BUILD.md",
+        "docs/OPENBOR_COMPILATION.md",
+        "docs/DOCKER_LINUX_BUILD.md"
+      ]
+    }
+  ]
+}
