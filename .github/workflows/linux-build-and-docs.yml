@@ -1,0 +1,60 @@
+name: linux-build-and-docs
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate markdown and machine-readable manifests
+        run: |
+          node scripts/validate-markdown-links.mjs .
+          node scripts/validate-project-roadmap.mjs
+          node scripts/validate-completion-audit.mjs
+          node scripts/validate-open-items-report.mjs
+
+      - name: Shell syntax check
+        run: |
+          bash -n scripts/build-openbor-linux-docker.sh
+          bash -n scripts/run-openbor-smoke-docker.sh
+          bash -n scripts/run-openbor-visible-qa.sh
+
+  linux-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker build prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git ca-certificates
+
+      - name: Clone OpenBOR source at v7533
+        run: |
+          git clone --depth 1 --branch v7533 https://github.com/DCurrent/openbor.git /tmp/openbor-source
+
+      - name: Build Linux OpenBOR binary in Docker
+        run: |
+          OUT=/tmp/openbor-linux-build-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          scripts/build-openbor-linux-docker.sh \
+            --source /tmp/openbor-source \
+            --ref v7533 \
+            --output "$OUT"
+          cat "$OUT/BUILD-INFO.txt"
+
+      - name: Upload build info
+        uses: actions/upload-artifact@v4
+        with:
+          name: openbor-linux-build-info
+          path: /tmp/openbor-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/BUILD-INFO.txt

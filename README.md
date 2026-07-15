@@ -84,6 +84,7 @@
 | [預覽圖畫廊](research/PREVIEW_GALLERY.md) | 自動整理目前 repository 裡的 preview/contact-sheet 圖片，方便接手者快速掃描進度。 |
 | [Docker Linux builder](scripts/build-openbor-linux-docker.sh) | 唯讀掛載 OpenBOR source，將相依套件與 Linux x86-64 編譯封裝在 Docker。 |
 | [Docker headless smoke](scripts/run-openbor-smoke-docker.sh) | 以同一 image 載入私有 raw-data stage，並依 OpenBOR Log 判斷模型載入是否完成。 |
+| [Linux build and docs workflow](.github/workflows/linux-build-and-docs.yml) | GitHub Actions 版的文件驗證與 Linux Docker build gate，可直接重跑已驗證的 build evidence。 |
 | [Visible runner QA harness](scripts/run-openbor-visible-qa.sh) | 在有顯示環境的 runner 上錄 OpenBOR 視覺流程，抓 select / Stage 1 / screenshot 證據。 |
 | [Docker 素材工具 image](docker/asset-tools.Dockerfile) | 固定 Node 22＋FFmpeg；切圖、GIF 量化、驗證與成果圖都在容器內執行，不安裝 host 套件。 |
 | [Getter v2 16 格 slicer](scripts/slice-guanyu-getter-v2-storyboard.mjs) | 依 v5 的 16 個 independent safe crops 與 semantic pivots 輸出 private key poses。 |

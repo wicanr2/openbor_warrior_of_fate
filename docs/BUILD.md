@@ -128,5 +128,10 @@ its `Paks/` folder.
 4. Automate native builds in GitHub Actions using the OpenBOR source's existing
    `.github/workflows/build_and_release.yml` as the platform/dependency matrix.
 
+This repository also carries a local `linux-build-and-docs` workflow that
+validates the markdown/manifests and runs the Linux Docker build against the
+pinlocked OpenBOR v7533 source checkout. It is an evidence gate for the mod
+repo itself, not a replacement for the upstream engine release workflow.
+
 The PAK should be byte-identical across all targets; only the engine binary and
 its platform runtime packaging differ.
