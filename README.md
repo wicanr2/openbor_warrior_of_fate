@@ -35,6 +35,7 @@
 | [Stage01 替換 manifest](research/STAGE01_REPLACEMENT_MANIFEST.md) | 第一關背景、前景、幾何、敵人、物件與 FX 的 P0／P1／P2 清單。 |
 | [Stage01 待辦隊列](research/manifests/stage01-next-queue.json) | 第一關長圖、藍盔雜兵、補給箱、Boss、UI 與跨平台 smoke 的剩餘工作清單。 |
 | [Stage01 交付檢查](research/manifests/stage01-delivery-checklist.json) | 將 Stage01 內容拆成可驗證的交付項目：背景、雜兵、補給箱、Boss、UI 與平台 smoke。 |
+| [Open items summary](research/OPEN_ITEMS_REPORT.md) | 匯總所有仍 open 的 queue 與交付檢查，方便直接看目前最該收斂的工作。 |
 | [敵軍與 Boss 概念對位表](research/ENEMY_BOSS_CONCEPT_MAP.md) | 島田兵式一般巡邏兵頭像、量產敵軍 family、美女 Boss、巨大主角機 Boss 與四個主線 gate 的交付規格。 |
 | [Boss 圖像製作與整合計畫](docs/BOSS_PRODUCTION_PLAN.md) | `robot_boss` 概念頁轉成美女三人組、Gunbuster 類巨型主角機、兩階段 Boss、必要分鏡、依賴閉包與 Docker 驗收 Gate。 |
 | [Boss 待辦隊列](research/manifests/boss-next-queue.json) | Lidian、Zeon Boss、Xuchu、Xiahorse 與美女三 Boss 的剩餘工作清單。 |
