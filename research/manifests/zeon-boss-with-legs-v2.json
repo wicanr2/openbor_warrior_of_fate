@@ -38,5 +38,50 @@
     "pilotCutinComplete": false,
     "productionReady": false
   },
+  "handoffQueue": [
+    {
+      "package": "bossModel",
+      "gifCount": 48,
+      "status": "pending"
+    },
+    {
+      "package": "bossHud",
+      "path": "data/chars/boss/zeon_boss/boss_hud.gif",
+      "gifCount": 1,
+      "status": "pending"
+    },
+    {
+      "package": "projectile",
+      "gifCount": 9,
+      "status": "pending"
+    },
+    {
+      "package": "robotDebris",
+      "gifCount": 8,
+      "status": "pending"
+    },
+    {
+      "package": "pilotCutin",
+      "path": "data/story/pro/char_pilot.gif",
+      "gifCount": 1,
+      "status": "pending"
+    },
+    {
+      "package": "storyDialogue",
+      "path": "data/story/diag/zeon_boss.txt",
+      "txtCount": 1,
+      "status": "pending"
+    },
+    {
+      "package": "stageSpawns",
+      "paths": [
+        "data/levels/NewWof/1/02.txt",
+        "data/levels/NewWof/2/02.txt",
+        "data/levels/NewWof/3/02.txt"
+      ],
+      "txtCount": 3,
+      "status": "pending"
+    }
+  ],
   "rights": "private-fan-use-rights-unverified"
 }
