@@ -11,6 +11,7 @@ import {
   nearestPaletteIndex,
   paletteToBgra,
 } from './build-guanyu-selection-runtime-v2.mjs';
+import { assertExistingPaths, repoRelativeDisplay } from './path-guards.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
@@ -67,18 +68,26 @@ function parseArgs(argv) {
     options[key] = resolve(value);
     index += 1;
   }
-  for (const [label, filePath] of [
-    ['base gif', options.baseGif],
-    ['portrait key pose', options.portrait],
-    ['body key pose', options.body],
-  ]) {
-    if (!existsSync(filePath)) {
-      throw new Error(
-        `Missing six-select ${label}: ${displayPath(filePath)}. ` +
-        'This repository does not ship the private source assets; pass explicit paths from an external checkout.'
-      );
-    }
-  }
+  assertExistingPaths([
+    {
+      path: options.baseGif,
+      pathLabel: 'six-select base gif',
+      display: repoRelativeDisplay(REPO_ROOT, options.baseGif),
+      hint: 'This repository does not ship the private source assets; pass explicit paths from an external checkout.',
+    },
+    {
+      path: options.portrait,
+      pathLabel: 'six-select portrait key pose',
+      display: repoRelativeDisplay(REPO_ROOT, options.portrait),
+      hint: 'This repository does not ship the private source assets; pass explicit paths from an external checkout.',
+    },
+    {
+      path: options.body,
+      pathLabel: 'six-select body key pose',
+      display: repoRelativeDisplay(REPO_ROOT, options.body),
+      hint: 'This repository does not ship the private source assets; pass explicit paths from an external checkout.',
+    },
+  ]);
   return options;
 }
 

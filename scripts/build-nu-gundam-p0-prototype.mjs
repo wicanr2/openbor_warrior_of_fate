@@ -26,6 +26,7 @@ import {
 } from './build-mazinger-p0-prototype.mjs';
 import { MAIN_MAPPING as HUANGZHONG_MAPPING } from './build-huangzhong-p0-prototype.mjs';
 import { palettizeOpaque, renderPng } from './build-five-robot-selection-p0-prototype.mjs';
+import { assertExistingPaths, repoRelativeDisplay } from './path-guards.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
@@ -146,27 +147,35 @@ function parseArgs(argv) {
   if (options.outputDir === extractedRoot || options.outputDir.startsWith(`${extractedRoot}/`)) {
     throw new Error('Refusing to write inside workplace/extracted');
   }
-  if (!existsSync(options.sourceDir)) {
-    throw new Error(
-      `Missing ν source directory: ${displayPath(options.sourceDir)}. ` +
-      'This repository does not ship the private source assets; pass --source-dir to an external checkout.'
-    );
-  }
-  if (!existsSync(options.keyposeManifest)) {
-    throw new Error(`Missing ν keypose manifest: ${displayPath(options.keyposeManifest)}`);
-  }
-  if (!existsSync(options.baseData)) {
-    throw new Error(`Missing base data tree: ${displayPath(options.baseData)}`);
-  }
-  if (!existsSync(options.templateData)) {
-    throw new Error(`Missing template data tree: ${displayPath(options.templateData)}`);
-  }
-  if (!existsSync(options.selectionGif)) {
-    throw new Error(
-      `Missing six-column selection GIF: ${displayPath(options.selectionGif)}. ` +
-      'Pass --selection-gif to a generated select-six asset.'
-    );
-  }
+  assertExistingPaths([
+    {
+      path: options.sourceDir,
+      pathLabel: 'ν source directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.sourceDir),
+      hint: 'This repository does not ship the private source assets; pass --source-dir to an external checkout.',
+    },
+    {
+      path: options.keyposeManifest,
+      pathLabel: 'ν keypose manifest',
+      display: repoRelativeDisplay(REPO_ROOT, options.keyposeManifest),
+    },
+    {
+      path: options.baseData,
+      pathLabel: 'base data tree',
+      display: repoRelativeDisplay(REPO_ROOT, options.baseData),
+    },
+    {
+      path: options.templateData,
+      pathLabel: 'template data tree',
+      display: repoRelativeDisplay(REPO_ROOT, options.templateData),
+    },
+    {
+      path: options.selectionGif,
+      pathLabel: 'six-column selection GIF',
+      display: repoRelativeDisplay(REPO_ROOT, options.selectionGif),
+      hint: 'Pass --selection-gif to a generated select-six asset.',
+    },
+  ]);
   return options;
 }
 

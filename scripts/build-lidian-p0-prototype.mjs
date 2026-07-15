@@ -22,6 +22,7 @@ import {
   probeImage,
   verifyGif,
 } from './build-mazinger-p0-prototype.mjs';
+import { assertExistingPaths, repoRelativeDisplay } from './path-guards.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '..');
@@ -199,18 +200,20 @@ function parseArgs(argv) {
   if (options.outputDir === extractedRoot || options.outputDir.startsWith(`${extractedRoot}/`)) {
     throw new Error('Refusing to write inside workplace/extracted');
   }
-  if (!existsSync(options.sourceDir)) {
-    throw new Error(
-      `Missing Lidian storyboard source directory: ${displayPath(options.sourceDir)}. ` +
-      'This repository does not ship the private source assets; pass --source-dir to an external checkout.'
-    );
-  }
-  if (!existsSync(options.extractedDir)) {
-    throw new Error(
-      `Missing extracted Lidian data directory: ${displayPath(options.extractedDir)}. ` +
-      'Pass --extracted-dir to the staged extracted tree that contains data/chars/boss/lidian.'
-    );
-  }
+  assertExistingPaths([
+    {
+      path: options.sourceDir,
+      pathLabel: 'Lidian storyboard source directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.sourceDir),
+      hint: 'This repository does not ship the private source assets; pass --source-dir to an external checkout.',
+    },
+    {
+      path: options.extractedDir,
+      pathLabel: 'extracted Lidian data directory',
+      display: repoRelativeDisplay(REPO_ROOT, options.extractedDir),
+      hint: 'Pass --extracted-dir to the staged extracted tree that contains data/chars/boss/lidian.',
+    },
+  ]);
   return options;
 }
 
