@@ -111,7 +111,9 @@
 
 - P1 136 張、P2 33 張。
 - Army 的近戰、長槍、弓手、隊長機械 faction。
-- Boss、NPC、敵方 icon/profile。
+- 一般巡邏兵使用原創藍盔通訊頭像；不得直接裁切島田兵參考頁。
+- Boss、NPC、敵方 icon/profile；Boss 槽位與巨大戰分級見 [`ENEMY_BOSS_CONCEPT_MAP.md`](../research/ENEMY_BOSS_CONCEPT_MAP.md)。
+- Stage03B 的 `meimei`／`meiya`／`meiling` 可採美女型王牌三人組；Stage03A `xuchu` 優先承接 Gunbuster 類巨大主角機的原創鏡像 Boss。
 
 ### M5 — 狀態變體與支線
 

@@ -4,6 +4,8 @@ local_assets/
 local-only/
 workplace/
 robot_wof_concept/
+robot_wof_enemy/
+robot_boss/
 
 # Individual extracted sprites and portraits must not be published.
 research/sprites/

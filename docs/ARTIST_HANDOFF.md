@@ -39,9 +39,11 @@
 ### Enemy／Boss artist
 
 - 依模型分成基本近戰兵、隊長、遠程兵、重型兵與 Boss，不要按關卡逐張重複畫。
+- 先讀 [`ENEMY_BOSS_CONCEPT_MAP.md`](../research/ENEMY_BOSS_CONCEPT_MAP.md)：島田兵式藍盔只作原創巡邏兵頭像語彙，雜誌頁／截圖不得直接裁切使用。
 - 每個敵人先完成一套 base palette，再補 Map／alternate palette。
 - 必須把武器、投射物、受傷、倒地與 icon 一起列入；只換 idle／walk 會在戰鬥時閃回原圖。
 - 第一個敵人批次是 `bing`：31 個動畫圖檔，詳細路徑、尺寸範圍與出場數見 [`STAGE01_REPLACEMENT_MANIFEST.md`](../research/STAGE01_REPLACEMENT_MANIFEST.md)。
+- Boss 以完整依賴包交付；`xiahorse` 低血量會分離成駕駛員與載具，三位美女 Boss 則可共用 rig、不可共用 silhouette／portrait。
 
 ### Environment／prop artist
 
@@ -92,5 +94,7 @@ MZ-P0-A 通過引擎驗收後，才讓其他藝術家依同一高度、輪廓線
 | BG-S01-C | `data/bgs/01/f.GIF` | 2429×272 前景遮擋：竹林＋機械殘骸，保留透明區 |
 | PROP-S01-A | `baoxiang.gif`, `1.GIF`, `2.GIF` | 機械補給箱 idle＋兩張破壞幀 |
 | FX-S01-A | 箱體破壞與火花 | 保留原 frame count、Delay、Offset 的第一套爆裂語彙 |
+| EN-BING-ICON | `data/chars/army/1/icon.GIF` | 24×36 原創藍盔巡邏兵通訊頭像；palette index 0 為 `#FC00FF` |
+| BOSS-LIDIAN-A | `lidian.txt`＋`li.txt`＋分離模型 | 第一關藍黑指揮官機、長柄兵器、spawn／受傷／倒地／死亡與 Boss icon 全包 |
 
 第一個 playable gate 是 MZ-P0-A＋EN-BING-A＋BG-S01-A/B/C＋PROP-S01-A；任何一條缺少都只能算角色或場景單項預覽，不能標示為 vertical slice 完成。

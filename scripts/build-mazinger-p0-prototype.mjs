@@ -33,6 +33,45 @@ const PROTOTYPE_MAPPING = Object.freeze([
   { output: 'walk08.gif', source: 'frame-06.png', animation: 'walk' },
 ]);
 
+// Playable engineering coverage for every physical GIF used by the 42
+// case-sensitive P0 references. These entries deliberately reuse the twelve
+// concept poses; BUILD-MANIFEST.json records each reuse for later redrawing.
+const FULL_P0_MAPPING = Object.freeze([
+  ...PROTOTYPE_MAPPING,
+  { output: 'idle001.gif', source: 'frame-02.png', animation: 'waiting' },
+  { output: 'punch001.gif', source: 'frame-02.png', animation: 'attack1' },
+  { output: 'punch002.gif', source: 'frame-07.png', animation: 'attack1' },
+  { output: 'punch003.gif', source: 'frame-02.png', animation: 'attack2' },
+  { output: 'punch004.gif', source: 'frame-07.png', animation: 'attack2' },
+  { output: 'punch005.gif', source: 'frame-02.png', animation: 'attack2' },
+  { output: 'punch006.gif', source: 'frame-08.png', animation: 'attack3' },
+  { output: 'punch007.gif', source: 'frame-08.png', animation: 'attack3' },
+  { output: 'block2.GIF', modelFile: 'block2.gif', source: 'frame-09.png', animation: 'attackbackward' },
+  { output: 'block1.GIF', modelFile: 'block1.gif', source: 'frame-09.png', animation: 'attackbackward' },
+  { output: 'block0.GIF', modelFile: 'block0.gif', source: 'frame-02.png', animation: 'attackbackward' },
+  { output: 'spec001.gif', source: 'frame-09.png', animation: 'slide' },
+  { output: 'spec002.gif', source: 'frame-07.png', animation: 'slide' },
+  { output: 'spec003.gif', source: 'frame-10.png', animation: 'slide' },
+  { output: 'jump2.GIF', modelFile: 'jump2.gif', source: 'frame-03.png', animation: 'jump' },
+  { output: 'jump3.GIF', modelFile: 'jump3.gif', source: 'frame-04.png', animation: 'jump' },
+  { output: 'jk001.gif', source: 'frame-08.png', animation: 'jumpattack' },
+  { output: 'jump1.GIF', modelFile: 'jump1.gif', source: 'frame-01.png', animation: 'jumpdelay' },
+  { output: 'jump02.gif', source: 'frame-05.png', animation: 'jumpforward' },
+  { output: 'jk002.gif', source: 'frame-10.png', animation: 'jumpforward' },
+  { output: 'fallf1.GIF', modelFile: 'fallf1.gif', source: 'frame-11.png', animation: 'bdie' },
+  { output: 'fallx2.GIF', modelFile: 'fallx2.gif', source: 'frame-12.png', animation: 'bdie', anchor: 'center-bottom' },
+  { output: 'fall2.gif', source: 'frame-12.png', animation: 'death', anchor: 'center-bottom' },
+  { output: 'fallx3.GIF', modelFile: 'fallx3.gif', source: 'frame-12.png', animation: 'bdie', anchor: 'center-bottom' },
+  { output: 'fall3.gif', source: 'frame-12.png', animation: 'death', anchor: 'center-bottom' },
+  { output: 'pain2.gif', source: 'frame-11.png', animation: 'pain2' },
+  { output: 'fall1.gif', source: 'frame-12.png', animation: 'death', anchor: 'center-bottom' },
+  { output: 'fallx.GIF', source: 'frame-11.png', animation: 'fall7' },
+  { output: 'pain1.gif', source: 'frame-11.png', animation: 'pain' },
+  { output: 'fallr.GIF', source: 'frame-12.png', animation: 'fall7', anchor: 'center-bottom' },
+  { output: 'fall004.gif', source: 'frame-12.png', animation: 'rise', anchor: 'center-bottom' },
+  { output: 'fallx1.GIF', modelFile: 'fallx1.gif', source: 'frame-11.png', animation: 'sdie' },
+]);
+
 function usage() {
   return `Build a local-only Mazinger P0 alignment prototype.
 
@@ -44,10 +83,12 @@ Options:
   --extracted-dir PATH  extracted Zhangfei directory (read-only input)
   --output-dir PATH     output root (default: private_assets/...)
   --sprite-height N     visible robot height in pixels (default: 96)
+  --scope NAME          basic or full-p0 (default: basic)
   --help                show this help
 
-The script writes idle00.gif and walk01.gif..walk08.gif beneath
-OUTPUT/data/chars/zhangfei. It never writes to workplace/extracted.`;
+The basic scope writes idle00.gif and walk01.gif..walk08.gif. full-p0 writes
+all 41 physical GIF files required by the 42 P0 model references. It never
+writes to workplace/extracted.`;
 }
 
 function parseArgs(argv) {
@@ -62,6 +103,7 @@ function parseArgs(argv) {
       'private_assets/robot_wof/mazinger-p0-prototype',
     ),
     spriteHeight: DEFAULT_SPRITE_HEIGHT,
+    scope: 'basic',
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -90,6 +132,14 @@ function parseArgs(argv) {
       if (options.spriteHeight < 16 || options.spriteHeight > 256) {
         throw new Error('--sprite-height must be between 16 and 256');
       }
+      index += 1;
+      continue;
+    }
+    if (argument === '--scope') {
+      if (value !== 'basic' && value !== 'full-p0') {
+        throw new Error('--scope must be basic or full-p0');
+      }
+      options.scope = value;
       index += 1;
       continue;
     }
@@ -227,18 +277,19 @@ function parseModelFrames(modelPath) {
     } else if (command === 'offset') {
       offset = { x: Number(fields[1]), y: Number(fields[2]) };
     } else if (command === 'frame' && fields[1] && fields[1].toLowerCase() !== 'none') {
-      records.push({ animation, offset, file: basename(fields[1]) });
+      records.push({ animation, offset, file: basename(fields[1].replaceAll('\\', '/')) });
     }
   }
   return records;
 }
 
 function targetMetadata(extractedDir, modelRecords, mapping) {
+  const modelFile = mapping.modelFile ?? mapping.output;
   const exact = modelRecords.find(
-    (record) => record.animation === mapping.animation && record.file === mapping.output,
+    (record) => record.animation === mapping.animation && record.file === modelFile,
   );
   if (!exact?.offset) {
-    throw new Error(`No ${mapping.animation} Offset found for ${mapping.output} in zhangfei.txt`);
+    throw new Error(`No ${mapping.animation} Offset found for ${modelFile} in zhangfei.txt`);
   }
   const originalPath = join(extractedDir, mapping.output);
   if (!existsSync(originalPath)) {
@@ -252,24 +303,38 @@ function targetMetadata(extractedDir, modelRecords, mapping) {
   };
 }
 
-function makeComposedPng(sourcePath, outputPath, pose, target, spriteHeight) {
-  const scale = spriteHeight / pose.crop.height;
-  const scaledWidth = Math.max(1, Math.round(pose.crop.width * scale));
-  const sourceAnchorInCrop = pose.sourceFootAnchorX - pose.crop.x;
+function makeComposedPng(sourcePath, outputPath, pose, target, spriteHeight, mapping, allowClamping) {
+  const requestedScale = spriteHeight / pose.crop.height;
+  const fitScale = Math.min(
+    requestedScale,
+    (target.canvas.width - 2) / pose.crop.width,
+    (target.canvas.height - 2) / pose.crop.height,
+  );
+  const scaledHeight = Math.max(1, Math.round(pose.crop.height * fitScale));
+  const scaledWidth = Math.max(1, Math.round(pose.crop.width * fitScale));
+  const sourceAnchorInCrop = mapping.anchor === 'center-bottom'
+    ? pose.crop.width / 2
+    : pose.sourceFootAnchorX - pose.crop.x;
   const scaledAnchorX = sourceAnchorInCrop * (scaledWidth / pose.crop.width);
-  const x = Math.round(target.offset.x - scaledAnchorX);
-  const y = target.offset.y - spriteHeight + 1;
+  const requestedX = Math.round(target.offset.x - scaledAnchorX);
+  const requestedY = target.offset.y - scaledHeight + 1;
+  const x = allowClamping
+    ? Math.max(0, Math.min(requestedX, target.canvas.width - scaledWidth))
+    : requestedX;
+  const y = allowClamping
+    ? Math.max(0, Math.min(requestedY, target.canvas.height - scaledHeight))
+    : requestedY;
 
-  if (x < 0 || y < 0 || x + scaledWidth > target.canvas.width || y + spriteHeight > target.canvas.height) {
+  if (x < 0 || y < 0 || x + scaledWidth > target.canvas.width || y + scaledHeight > target.canvas.height) {
     throw new Error(
       `Aligned sprite does not fit ${target.canvas.width}x${target.canvas.height}: ` +
-      `${scaledWidth}x${spriteHeight} at (${x},${y}). Lower --sprite-height.`,
+      `${scaledWidth}x${scaledHeight} at (${x},${y}). Lower --sprite-height.`,
     );
   }
 
   const filter = [
     `crop=${pose.crop.width}:${pose.crop.height}:${pose.crop.x}:${pose.crop.y}`,
-    `scale=${scaledWidth}:${spriteHeight}:flags=neighbor`,
+    `scale=${scaledWidth}:${scaledHeight}:flags=neighbor`,
     `pad=${target.canvas.width}:${target.canvas.height}:${x}:${y}:color=0x${CHROMA.hex.slice(1)}`,
     'format=rgb24',
   ].join(',');
@@ -280,7 +345,19 @@ function makeComposedPng(sourcePath, outputPath, pose, target, spriteHeight) {
     '-frames:v', '1',
     outputPath,
   ]);
-  return { scale, scaledWidth, scaledHeight: spriteHeight, x, y, scaledAnchorX };
+  return {
+    scale: fitScale,
+    requestedScale,
+    scaledWidth,
+    scaledHeight,
+    x,
+    y,
+    requestedX,
+    requestedY,
+    anchor: mapping.anchor ?? 'foot-contact',
+    alignmentClamped: x !== requestedX || y !== requestedY,
+    scaledAnchorX,
+  };
 }
 
 function palettizeWithFfmpeg(composedPath, width, height, tempDir) {
@@ -448,7 +525,8 @@ function main() {
   requireCommand('ffprobe');
   const modelPath = join(options.extractedDir, 'zhangfei.txt');
   if (!existsSync(modelPath)) throw new Error(`Missing model input: ${modelPath}`);
-  for (const mapping of PROTOTYPE_MAPPING) {
+  const activeMapping = options.scope === 'full-p0' ? FULL_P0_MAPPING : PROTOTYPE_MAPPING;
+  for (const mapping of activeMapping) {
     const sourcePath = join(options.sourceDir, mapping.source);
     if (!existsSync(sourcePath)) throw new Error(`Missing key pose input: ${sourcePath}`);
   }
@@ -460,7 +538,7 @@ function main() {
   const results = [];
 
   try {
-    for (const mapping of PROTOTYPE_MAPPING) {
+    for (const mapping of activeMapping) {
       const sourcePath = join(options.sourceDir, mapping.source);
       const outputPath = join(outputSpriteDir, mapping.output);
       const pose = analyzePose(sourcePath);
@@ -472,6 +550,8 @@ function main() {
         pose,
         target,
         options.spriteHeight,
+        mapping,
+        options.scope === 'full-p0',
       );
       const { pixels, bgraPalette } = palettizeWithFfmpeg(
         composedPath,
@@ -489,7 +569,8 @@ function main() {
         output: outputPath.slice(REPO_ROOT.length + 1),
         source: sourcePath.slice(REPO_ROOT.length + 1),
         animation: mapping.animation,
-        prototypePoseReuse: PROTOTYPE_MAPPING.filter((item) => item.source === mapping.source).length > 1,
+        modelReference: mapping.modelFile ?? mapping.output,
+        prototypePoseReuse: activeMapping.filter((item) => item.source === mapping.source).length > 1,
         sourceAnalysis: pose,
         targetCanvas: target.canvas,
         targetOffset: target.offset,
@@ -506,7 +587,10 @@ function main() {
       schemaVersion: 1,
       status: 'local-private-prototype',
       productionReady: false,
-      warning: 'walk05..walk08 reuse the four available walk key poses; redraw a true eight-frame gait before release.',
+      scope: options.scope,
+      warning: options.scope === 'full-p0'
+        ? 'Playable engineering coverage only: 12 concept poses are reused across 41 physical P0 GIFs. Redraw every reused transition before release.'
+        : 'walk05..walk08 reuse the four available walk key poses; redraw a true eight-frame gait before release.',
       generatedAt: new Date().toISOString(),
       chromaKey: { ...CHROMA, requiredPaletteIndex: 0 },
       spriteHeight: options.spriteHeight,

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">Robot Warriors of Fate enemy and boss replacement board</title>
+  <desc id="desc">Public-safe diagram mapping the blue helmet grunt family and four active OpenBOR boss gates to original redesign briefs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11182b"/>
+      <stop offset="1" stop-color="#241334"/>
+    </linearGradient>
+    <linearGradient id="boss" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#252e49"/>
+      <stop offset="1" stop-color="#151a2b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".35"/>
+    </filter>
+    <style>
+      .title{font:700 34px system-ui,sans-serif;fill:#fff;letter-spacing:1px}
+      .sub{font:500 17px system-ui,sans-serif;fill:#aab7d9}
+      .gate{font:700 16px system-ui,sans-serif;fill:#71dcff;letter-spacing:1px}
+      .name{font:700 24px system-ui,sans-serif;fill:#fff}
+      .role{font:500 15px system-ui,sans-serif;fill:#c5cee8}
+      .small{font:500 13px system-ui,sans-serif;fill:#8fa0c6}
+      .warning{font:700 15px system-ui,sans-serif;fill:#ffcb69}
+      .chip{font:700 13px system-ui,sans-serif;fill:#11182b}
+    </style>
+  </defs>
+
+  <rect width="1400" height="820" rx="28" fill="url(#bg)"/>
+  <path d="M0 155H1400" stroke="#34405f" stroke-width="2"/>
+  <text class="title" x="60" y="68">ROBOT WOF — ENEMY &amp; BOSS ART BOARD</text>
+  <text class="sub" x="60" y="103">OpenBOR slots first · original redesign · exact canvas / Offset / hit timing preserved</text>
+  <rect x="1046" y="48" width="294" height="62" rx="12" fill="#311b38" stroke="#fc00ff" stroke-width="2"/>
+  <rect x="1066" y="65" width="28" height="28" fill="#fc00ff"/>
+  <text class="warning" x="1108" y="75">CHROMA INDEX 0</text>
+  <text class="small" x="1108" y="96">#FC00FF · indexed GIF</text>
+
+  <!-- Grunt family -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="190" width="250" height="480" rx="22" fill="#152c44" stroke="#2fa9e8" stroke-width="2"/>
+  </g>
+  <text class="gate" x="78" y="230">ENEMY FAMILY</text>
+  <text class="name" x="78" y="264">Blue-helmet grunt</text>
+  <text class="role" x="78" y="291">Original patrol-force archetype</text>
+  <g transform="translate(113 330)">
+    <path d="M0 75Q0 10 62 0Q124 10 124 75L111 120H13Z" fill="#287cc5" stroke="#82d8ff" stroke-width="5"/>
+    <path d="M18 62Q62 30 106 62L94 106H30Z" fill="#101a2b"/>
+    <path d="M31 68H93L84 86H40Z" fill="#71dcff"/>
+    <path d="M6 80H28V117H13Z" fill="#173f68"/>
+    <path d="M118 80H96V117H111Z" fill="#173f68"/>
+    <path d="M39 117H85L99 153H25Z" fill="#1f5c91"/>
+  </g>
+  <rect x="78" y="515" width="63" height="27" rx="13" fill="#71dcff"/><text class="chip" x="92" y="534">bing</text>
+  <rect x="148" y="515" width="64" height="27" rx="13" fill="#71dcff"/><text class="chip" x="160" y="534">cap2</text>
+  <rect x="219" y="515" width="54" height="27" rx="13" fill="#71dcff"/><text class="chip" x="230" y="534">cap</text>
+  <text class="role" x="78" y="578">Melee · commander · shooter</text>
+  <text class="small" x="78" y="605">Portrait must be redrawn.</text>
+  <text class="small" x="78" y="628">No magazine crop in game.</text>
+
+  <!-- Boss cards -->
+  <g filter="url(#shadow)">
+    <rect x="330" y="190" width="238" height="480" rx="22" fill="url(#boss)" stroke="#5e719e"/>
+    <rect x="588" y="190" width="238" height="480" rx="22" fill="url(#boss)" stroke="#5e719e"/>
+    <rect x="846" y="190" width="238" height="480" rx="22" fill="url(#boss)" stroke="#e08a42" stroke-width="2"/>
+    <rect x="1104" y="190" width="246" height="480" rx="22" fill="url(#boss)" stroke="#bd6ee8" stroke-width="2"/>
+  </g>
+
+  <text class="gate" x="355" y="230">STAGE 01 · GATE 1</text>
+  <text class="name" x="355" y="264">lidian</text>
+  <text class="role" x="355" y="291">Javelin commander mech</text>
+  <g transform="translate(383 330)" fill="none" stroke-linejoin="round">
+    <path d="M59 0L90 31L80 61H38L28 31Z" fill="#263d62" stroke="#78c4ff" stroke-width="4"/>
+    <path d="M45 29H73L67 43H51Z" fill="#ffb24f" stroke="none"/>
+    <path d="M38 61L16 89L31 145H87L102 89L80 61Z" fill="#1e3154" stroke="#78c4ff" stroke-width="4"/>
+    <path d="M18 82L-18 107M100 82L140 49" stroke="#ffb24f" stroke-width="10"/>
+    <path d="M140 49L164 23" stroke="#d9ebff" stroke-width="5"/>
+  </g>
+  <text class="role" x="355" y="530">Daitarn-like weapon rhythm</text>
+  <text class="small" x="355" y="558">1.10–1.25× player scale</text>
+  <text class="small" x="355" y="583">body + spawn + submodels</text>
+  <text class="small" x="355" y="608">Boss icon included</text>
+
+  <text class="gate" x="613" y="230">STAGE 02 · GATE 2</text>
+  <text class="name" x="613" y="264">xiahorse</text>
+  <text class="role" x="613" y="291">Pilot → carrier split</text>
+  <g transform="translate(620 348)" fill="none" stroke="#8dc9ff" stroke-width="5" stroke-linejoin="round">
+    <path d="M55 0L84 26L74 56H36L26 26Z" fill="#263d62"/>
+    <path d="M36 56L18 80L32 126H78L92 80L74 56Z" fill="#213454"/>
+    <path d="M32 126L4 160M78 126L106 160M22 83L-10 111M88 83L120 111"/>
+    <path d="M128 90H188L210 122L187 148H116L97 122Z" fill="#243a5e" stroke="#ff6a6a"/>
+    <path d="M128 148L115 180M185 148L201 180"/>
+  </g>
+  <text class="role" x="613" y="530">Fighter / Kaiser-like dual form</text>
+  <text class="small" x="613" y="558">400 HP · split below 300 HP</text>
+  <text class="small" x="613" y="583">mounted + pilot + vehicle</text>
+  <text class="small" x="613" y="608">transition frames mandatory</text>
+
+  <text class="gate" x="871" y="230">STAGE 03A · GATE 3</text>
+  <text class="name" x="871" y="264">xuchu</text>
+  <text class="role" x="871" y="291">Heavy super-mech rival</text>
+  <g transform="translate(875 320)" stroke-linejoin="round">
+    <path d="M73 0L109 35L97 72H49L37 35Z" fill="#272b35" stroke="#ff9c4a" stroke-width="6"/>
+    <path d="M49 72L16 105L35 176H111L130 105L97 72Z" fill="#222833" stroke="#ff9c4a" stroke-width="6"/>
+    <path d="M23 100L-15 145L10 165L46 126M123 100L161 145L136 165L100 126" fill="#252d39" stroke="#ff9c4a" stroke-width="7"/>
+    <path d="M52 83L73 109L94 83L101 126H45Z" fill="#d14a34"/>
+    <path d="M35 176L18 215M111 176L128 215" stroke="#ff9c4a" stroke-width="10"/>
+  </g>
+  <text class="role" x="871" y="560">Gunbuster-like scale cue</text>
+  <text class="small" x="871" y="585">1.25–1.45× in combat</text>
+  <text class="small" x="871" y="610">true giant fight = new branch</text>
+  <text class="small" x="871" y="635">Buster-punch timing on old hitbox</text>
+
+  <text class="gate" x="1129" y="230">STAGE 03B · GATE 4</text>
+  <text class="name" x="1129" y="264">Boss trio</text>
+  <text class="role" x="1129" y="291">Three ace women / humanoids</text>
+  <g transform="translate(1135 332)">
+    <g transform="translate(0 20)"><circle cx="38" cy="32" r="29" fill="#d7c2ff"/><path d="M9 31Q38-8 67 31L62 76H14Z" fill="#68439d"/><path d="M22 31Q38 18 54 31" stroke="#fff" stroke-width="4" fill="none"/></g>
+    <g transform="translate(68 0)"><circle cx="38" cy="32" r="29" fill="#ffe6c9"/><path d="M9 31Q38-8 67 31L61 76H15Z" fill="#e6b84e"/><path d="M22 31Q38 18 54 31" stroke="#fff" stroke-width="4" fill="none"/></g>
+    <g transform="translate(136 20)"><circle cx="38" cy="32" r="29" fill="#ffd1d1"/><path d="M9 31Q38-8 67 31L62 76H14Z" fill="#7c263b"/><path d="M22 31Q38 18 54 31" stroke="#fff" stroke-width="4" fill="none"/></g>
+    <path d="M15 112L38 84L61 112V176H15ZM83 92L106 64L129 92V176H83ZM151 112L174 84L197 112V176H151Z" fill="#303a58" stroke="#bd6ee8" stroke-width="4"/>
+  </g>
+  <text class="role" x="1129" y="560">Lamia / Alfimi / Despinis cues</text>
+  <text class="small" x="1129" y="585">shared technical rig only</text>
+  <text class="small" x="1129" y="610">unique face · weapon · silhouette</text>
+  <text class="small" x="1129" y="635">all three spawn together</text>
+
+  <path d="M300 430H330M568 430H588M826 430H846M1084 430H1104" stroke="#71dcff" stroke-width="4" stroke-dasharray="8 8"/>
+  <path d="M50 714H1350" stroke="#34405f" stroke-width="2"/>
+  <text class="warning" x="50" y="756">REFERENCE NAMES ARE SEARCH KEYS, NOT AN ASSET LICENSE.</text>
+  <text class="sub" x="50" y="788">Private references → original redraw → indexed GIF → parity validation → Docker OpenBOR smoke</text>
+</svg>
