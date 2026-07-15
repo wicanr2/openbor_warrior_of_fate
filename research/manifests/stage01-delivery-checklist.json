@@ -1,0 +1,87 @@
+{
+  "subject": "stage01-delivery",
+  "purpose": "turn stage01-next-queue into an actionable delivery checklist",
+  "status": "production-remaining",
+  "sourceDocuments": [
+    "docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md",
+    "research/STAGE01_REPLACEMENT_MANIFEST.md",
+    "docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md",
+    "docs/LIDIAN_BOSS_VERTICAL_SLICE.md",
+    "research/manifests/stage01-next-queue.json"
+  ],
+  "deliverables": [
+    {
+      "id": "bg-layers",
+      "assetGroup": "panel / S2 / fglayer",
+      "target": "First-stage long background layers ready for visible gameplay",
+      "evidence": [
+        "docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md",
+        "research/environment/stage01-background-p0-overview.png",
+        "research/previews/stage01-engineering-composite.png"
+      ],
+      "status": "engineering-coverage-only",
+      "nextAction": "production redraw with unchanged geometry and parity validation"
+    },
+    {
+      "id": "blue-helmet-grunt",
+      "assetGroup": "bing / bingxs",
+      "target": "Mechanized grunt production cleanup",
+      "evidence": [
+        "docs/BLUE_HELMET_GRUNT_VERTICAL_SLICE.md",
+        "research/enemy/blue-helmet-grunt-storyboard-v1-keyed.png",
+        "research/manifests/blue-helmet-grunt-keyposes.json"
+      ],
+      "status": "engineering-coverage-only",
+      "nextAction": "replace pose reuse with production frames and machine death cleanup"
+    },
+    {
+      "id": "supply-box",
+      "assetGroup": "baoxiang",
+      "target": "Production-ready mechanical supply box",
+      "evidence": [
+        "research/props/baoxiang-mechanical-capsule-storyboard-v1-keyed.png",
+        "research/manifests/baoxiang-mechanical-capsule-keyposes.json",
+        "docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md"
+      ],
+      "status": "engineering-coverage-only",
+      "nextAction": "final art cleanup while preserving idle/fall/death behavior"
+    },
+    {
+      "id": "lidian-boss",
+      "assetGroup": "lidian",
+      "target": "Visible gameplay boss review and production redraw",
+      "evidence": [
+        "docs/LIDIAN_BOSS_VERTICAL_SLICE.md",
+        "research/boss/lidian-red-spear-commander-storyboard-v1-keyed.png",
+        "research/manifests/lidian-red-spear-commander-keyposes.json"
+      ],
+      "status": "engineering-coverage-only",
+      "nextAction": "re-draw spawn / hurt / defeat / fragment art and confirm in gameplay review"
+    },
+    {
+      "id": "stage01-ui-story",
+      "assetGroup": "map / story / NPC / icons",
+      "target": "Unify tactical map, dialogue portraits, NPCs and item icons into the robot theme",
+      "evidence": [
+        "docs/PORTRAIT_ASSETS.md",
+        "docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md",
+        "research/contact-sheets/portrait-assets.png",
+        "research/ui/five-robot-selection-screen-v2-getter-overview.png"
+      ],
+      "status": "partial",
+      "nextAction": "finish story cut-ins, NPC look, and select/portrait coherence"
+    },
+    {
+      "id": "stage01-platform-smoke",
+      "assetGroup": "Linux / Windows / macOS",
+      "target": "Unpacked-tree smoke on all three platforms",
+      "evidence": [
+        "docs/OPENBOR_COMPILATION.md",
+        "docs/BUILD.md",
+        "docs/DOCKER_LINUX_BUILD.md"
+      ],
+      "status": "documentation-only",
+      "nextAction": "execute smoke on each platform once production assets are ready"
+    }
+  ]
+}
