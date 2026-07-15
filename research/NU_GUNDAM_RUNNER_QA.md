@@ -73,6 +73,24 @@ When the visible runner is available, capture these checks in order:
 5. Confirm the stage loads and the character remains controllable for a basic loop.
 6. Repeat with a second player to verify `nosame 1` and roster stability.
 
+## Visible runner harness
+
+Once a host or CI runner has a working display server, use the dedicated harness:
+
+```bash
+scripts/run-openbor-visible-qa.sh \
+  --binary /path/to/OpenBOR \
+  --stage /path/to/nu-visible-stage \
+  --display :0 \
+  --seconds 30 \
+  --capture /path/to/nu-visible-run.mp4 \
+  --title-pattern OpenBOR
+```
+
+The helper is intentionally separate from the headless smoke path. It expects a
+real display server, can focus the visible OpenBOR window with `xdotool`, and
+can record the run with `ffmpeg` when capture is requested.
+
 ## Practical build expectations
 
 The runner QA should use a build directory that already contains:
