@@ -91,4 +91,32 @@ scripts/run-openbor-smoke-docker.sh \
 
 - `xuchu` 不是缺圖。
 - `xuchu` 已經能過 headless model-load gate。
-- 下一個真正要做的是把 exact-case debt 正規化到 disposable overlay，然後重跑 strict validator。
+- exact-case debt 已經可以在 disposable stage 內被正規化並重新通過 strict validator。
+- 對應的修補工具是 [`../scripts/alias-model-case-in-stage.mjs`](../scripts/alias-model-case-in-stage.mjs)。
+
+## disposable stage repair
+
+我用現成的 smoke stage 複製出一份 disposable tree，然後只對 `xuchu` 相關模型補 exact-case alias。
+
+命令：
+
+```bash
+STAGE=/tmp/xuchu-case-stage-1784140743
+cp -a /tmp/robot-wof-openbor-smoke-audit "$STAGE"
+node scripts/alias-model-case-in-stage.mjs \
+  --source-root /tmp/robot-wof-smoke-parent/guanyu-getter-v5/data \
+  --stage-root "$STAGE/data" \
+  --model chars/boss/xuchu/xuchu.txt \
+  --model chars/boss/xuchu/chu.txt \
+  --model chars/boss/xuchu/1/xuchuxs.txt
+```
+
+結果：
+
+- `case-alias-report.tsv` 產生 14 筆 alias / missing 記錄
+- `xuchu.txt` strict PASS
+- `chu.txt` strict PASS
+- `xuchuxs.txt` strict PASS
+- headless smoke PASS 到 `Loading models............... Done!`
+
+這表示 `xuchu` 的現成 closure 可以在 disposable overlay 內被修到可驗證狀態，接著才輪到把同樣處理帶進真正的 overlay / production flow。

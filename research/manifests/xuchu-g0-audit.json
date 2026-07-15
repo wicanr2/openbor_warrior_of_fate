@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "slot": "xuchu",
-  "status": "headless-smoke-pass-with-case-debt",
+  "status": "disposable-repair-pass-with-case-aliases",
   "strictValidator": {
     "xuchuTxt": "PASS",
     "chuTxt": {
@@ -33,11 +33,11 @@
   },
   "smoke": {
     "binary": "/tmp/openbor-linux-docker-robot-wof/source/engine/releases/LINUX/OpenBOR/OpenBOR",
-    "stage": "/tmp/robot-wof-openbor-smoke-audit",
+    "stage": "/tmp/xuchu-case-stage-1784140743",
     "result": "PASS",
     "dockerExit": 124,
-    "log": "/tmp/robot-wof-openbor-smoke-audit/Logs/OpenBorLog.txt",
+    "log": "/tmp/xuchu-case-stage-1784140743/Logs/OpenBorLog.txt",
     "modelLoadEvidence": "Loading models............... Done!"
   },
-  "nextStep": "Normalize exact-case in disposable overlay, then rerun strict validator and smoke."
+  "nextStep": "Propagate the exact-case alias repair approach into the real disposable overlay flow for xuchu."
 }
