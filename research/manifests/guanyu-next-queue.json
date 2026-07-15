@@ -1,0 +1,42 @@
+{
+  "subject": "guanyu-getter-v2",
+  "status": "p0-engineering-runtime-complete-but-production-remaining",
+  "priority": "get-to-verifiable-playable-slice",
+  "verificationGate": [
+    "all deferred guanyu animation families have their own non-reused frames",
+    "gore and death audio have machine-themed replacements",
+    "gameplay-visible QA has been run on walk, attack, jump, pain, fall, death, select, HUD, and 2P"
+  ],
+  "remainingWork": [
+    {
+      "id": "g1-g16-closure",
+      "title": "Close rider / pickup / water / special submodels",
+      "status": "pending",
+      "notes": "Current 16-pose engineering runtime still reuses master body poses for g1-g16 class variants."
+    },
+    {
+      "id": "gore-remap",
+      "title": "Replace human gore vocabulary",
+      "status": "pending",
+      "notes": "Blood, organ, and hit-flash references need machine equivalents without breaking other shared FX."
+    },
+    {
+      "id": "playerdie-wav",
+      "title": "Replace death audio",
+      "status": "pending",
+      "notes": "Must be mechanically themed and verified in actual engine playback."
+    },
+    {
+      "id": "frame-interpolation",
+      "title": "Finish per-frame interpolation",
+      "status": "pending",
+      "notes": "Walk, attack, jump, pain, fall, death, and special still need real in-between frames."
+    },
+    {
+      "id": "gameplay-qa",
+      "title": "Run visible gameplay QA",
+      "status": "pending",
+      "notes": "BBox, attack box, weapon tip, foot slide, select screen, HUD, and 2P must be checked in runtime."
+    }
+  ]
+}
