@@ -51,6 +51,8 @@
 | [Stage01 場景與機械補給箱 vertical slice](docs/STAGE01_ENVIRONMENT_VERTICAL_SLICE.md) | 原創森林機械前哨長圖、透明遮罩／wall manifest、掃描光 FX、三格補給箱、exact-case 與 Docker 驗證。 |
 | [Stage01 Linux smoke evidence](research/STAGE01_LINUX_SMOKE.md) | 真實跑過的 Stage01 headless smoke 紀錄：OpenBorLog 到 `Loading models... Done!`，可作為 Linux loader gate 證據。 |
 | [Smoke evidence index](research/SMOKE_EVIDENCE_INDEX.md) | 把 ν Gundam、Stage01、Lidian 與黃忠四條 headless smoke 證據整理成一個總索引。 |
+| [Getter v2 selection baseline](research/GETTER_SELECTION_V2_BASELINE.md) | 五欄 Getter-v2 選角基線，方便直接對照六欄版本。 |
+| [Six-player selection overview](research/SIX_PLAYER_SELECTION_OVERVIEW.md) | 六候選選角的 deterministic baseline，README 可直接看到對應圖片。 |
 | [五人選角與無敵鐵金剛 HUD vertical slice](docs/SELECTION_AND_HUD_VERTICAL_SLICE.md) | 480×276 五人選角合成圖、張飛 icon／profile、opaque index0 方法與 M1 89/89 驗證。 |
 | [ν Gundam 第六可選角色工程計畫](docs/NU_GUNDAM_SIXTH_CHARACTER_PLAN.md) | 第六候選角色、六人 `allowselect`、480×276 roster、HUD、Fin Funnel 子模型與 2P／引擎上限。 |
 | [ν Gundam 第六角色 P0 vertical slice](docs/NU_GUNDAM_VERTICAL_SLICE.md) | 71 張動作、2 profiles、六欄選角、六發 Funnel proxy、determinism／strict／Docker v7533 實測與 deferred P1。 |
@@ -235,6 +237,18 @@ body F08 尾砲、F09 光圈、F11 速度線、F12 拖曳光、F13 火花與 F15
 現有的可選角色、Boss、軍隊與 HUD profile 頭像；路徑與新增劉備、曹操、呂布等人物的方式請見[選角與頭像素材文件](docs/PORTRAIT_ASSETS.md)。
 
 ![選角與 UI 頭像總覽](research/contact-sheets/portrait-assets.png)
+
+## 六人選角可視基線
+
+這張圖是目前可重建的六候選選角基線；它還不是 live OpenBOR runner 的 cursor / Ready / confirm 截圖，但它把 ν Gundam 的第六欄直接放進了可視結果。
+
+![六人選角可視基線](research/ui/six-player-selection-overview.gif)
+
+## Getter v2 比較基線
+
+這張五欄 Getter v2 圖是六欄版本的比較基線，方便直接看出第六欄是如何插入的。
+
+![Getter v2 選角基線](research/ui/select-getter-v2.gif)
 
 ## 敵軍與 Boss 美術方向
 

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "status": "private-runtime-six-candidate-selection-engineering-p0",
+  "productionReady": false,
+  "roster": [
+    "guanyu",
+    "zhangfei",
+    "zhaoyun",
+    "huangzhong",
+    "weiyan",
+    "nu_gundam"
+  ],
+  "source": {
+    "baseGif": {
+      "path": "local-only/select.gif",
+      "sha256": "252674f5f82381f540c090b992427d9be86c0fa70a6c57c3f3a63843000cec43"
+    },
+    "portrait": {
+      "path": "local-only/frame-01.png",
+      "sha256": "58d4cb54f6e5555daabe8fa5d430f001a33c9626897266869b115572825288f6"
+    },
+    "body": {
+      "path": "local-only/frame-03.png",
+      "sha256": "96b2f3f2a054be0c832b69d5268511aa620471230ba5a7e1c13b35976baedc1b"
+    }
+  },
+  "output": {
+    "path": "research/ui/six-player-selection-overview.gif",
+    "sha256": "507f5c2d25640a7b367e182adb7f40ab529c16d0768ab781f35d78717684f7c8"
+  },
+  "canvas": [
+    480,
+    276
+  ],
+  "layout": {
+    "oldColumns": {
+      "count": 5,
+      "width": 96
+    },
+    "newColumns": {
+      "count": 6,
+      "width": 80
+    },
+    "nuColumn": {
+      "x": 400,
+      "width": 80
+    },
+    "resampling": "nearest-neighbour"
+  },
+  "palette": {
+    "entries": 256,
+    "inheritedFromBase": true,
+    "paletteByteMismatches": 0,
+    "index0": "#FC00FF",
+    "index0PixelCount": 0
+  },
+  "verification": {
+    "decodedCanvas": [
+      480,
+      276
+    ],
+    "resampledLegacyPixelMismatches": 0,
+    "blackPaletteIndex": 2,
+    "nuColumnNonBlackPixels": 13072
+  },
+  "deferred": [
+    "visible OpenBOR cursor and six-step left/right cycle QA",
+    "1P/2P Ready flow and nosame behavior QA",
+    "pixel-artist cleanup of horizontally compacted five legacy columns"
+  ]
+}
