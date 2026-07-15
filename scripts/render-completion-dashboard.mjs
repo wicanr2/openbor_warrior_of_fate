@@ -27,6 +27,10 @@ const pendingQueues = roadmap.workstreams.filter(w => String(w.nextQueue || '').
   } catch {}
   return { id: w.id, status: w.status, queue: w.nextQueue, pending };
 });
+const verifiedGates = [
+  ['guanyu', 'research/GUANYU_LINUX_SMOKE.md'],
+  ['nu_gundam', 'research/NU_GUNDAM_LINUX_SMOKE.md'],
+].filter(([, rel]) => fs.existsSync(path.join(ROOT, rel))).map(([id]) => id);
 
 const width = 1400;
 const rowH = 42;
@@ -74,6 +78,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   <text x="36" y="84" class="sub">Objective: ${esc(audit.objective)}</text>
   <text x="36" y="110" class="sub">auditStatus: ${esc(audit.auditStatus)} · requirements: ${total} · proven: ${counts.proven || 0} · documentation: ${counts['proven-as-documentation'] || 0} · incomplete: ${counts.incomplete || 0} · false: ${counts.false || 0}</text>
   <text x="36" y="136" class="sub">Generated from completion-audit.json and project-roadmap.json; this is an evidence summary, not a claim of game completion.</text>
+  <text x="36" y="158" class="sub">Recently verified loader gates: ${verifiedGates.length ? esc(verifiedGates.join(' · ')) : 'none yet'}</text>
   <rect x="28" y="150" width="1344" height="46" rx="10" fill="#0f172a" stroke="#334155"/>
   <text x="38" y="176" class="mono">workstream snapshot</text>
   ${workstreamLines}

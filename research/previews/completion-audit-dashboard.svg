@@ -18,6 +18,7 @@
   <text x="36" y="84" class="sub">Objective: 完成 機器人大戰版本的吞食天地2 (基於概念圖完成)</text>
   <text x="36" y="110" class="sub">auditStatus: incomplete · requirements: 8 · proven: 2 · documentation: 1 · incomplete: 4 · false: 1</text>
   <text x="36" y="136" class="sub">Generated from completion-audit.json and project-roadmap.json; this is an evidence summary, not a claim of game completion.</text>
+  <text x="36" y="158" class="sub">Recently verified loader gates: guanyu · nu_gundam</text>
   <rect x="28" y="150" width="1344" height="46" rx="10" fill="#0f172a" stroke="#334155"/>
   <text x="38" y="176" class="mono">workstream snapshot</text>
   <text x="32" y="36" class="mono">stage01-environment-and-grunt → engineering-coverage-complete → pending n/a (research/manifests/blue-helmet-grunt-keyposes.json)</text>
