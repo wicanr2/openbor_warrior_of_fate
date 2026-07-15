@@ -19,6 +19,14 @@ Total open items (approximate, from queued pending rows): 28
 - Boss work still needs production art closure for Lidian, Zeon Boss, Xuchu, Xiahorse, and the adult-coded trio.
 - Player-side production cleanup still remains for Guanyu / Nu Gundam / portrait work, with deferred closure on the existing P0 engineering slices.
 
+## Recently verified gates
+
+These are no longer open items; they are documented separately so future work can distinguish model-load evidence from playable QA:
+
+- [Guanyu Linux smoke evidence](GUANYU_LINUX_SMOKE.md)
+- [ν Gundam Linux smoke evidence](NU_GUNDAM_LINUX_SMOKE.md)
+- [ν Gundam runner QA checklist](NU_GUNDAM_RUNNER_QA.md)
+
 ## Generated from
 
 - manifests/stage01-next-queue.json
