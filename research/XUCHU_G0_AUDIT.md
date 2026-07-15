@@ -101,14 +101,16 @@ scripts/run-openbor-smoke-docker.sh \
 命令：
 
 ```bash
-STAGE=/tmp/xuchu-case-stage-1784140743
-cp -a /tmp/robot-wof-openbor-smoke-audit "$STAGE"
-node scripts/alias-model-case-in-stage.mjs \
-  --source-root /tmp/robot-wof-smoke-parent/guanyu-getter-v5/data \
-  --stage-root "$STAGE/data" \
-  --model chars/boss/xuchu/xuchu.txt \
-  --model chars/boss/xuchu/chu.txt \
-  --model chars/boss/xuchu/1/xuchuxs.txt
+BASE=/tmp/robot-wof-smoke-parent/guanyu-getter-v5/data
+OVERLAY=/tmp/xuchu-overlay-empty
+STAGE=/tmp/xuchu-smoke-stage-1784140932-765144
+node scripts/prepare-openbor-smoke.mjs \
+  --base "$BASE" \
+  --overlay "$OVERLAY" \
+  --output "$STAGE" \
+  --case-model chars/boss/xuchu/xuchu.txt \
+  --case-model chars/boss/xuchu/chu.txt \
+  --case-model chars/boss/xuchu/1/xuchuxs.txt
 ```
 
 結果：
@@ -120,3 +122,5 @@ node scripts/alias-model-case-in-stage.mjs \
 - headless smoke PASS 到 `Loading models............... Done!`
 
 這表示 `xuchu` 的現成 closure 可以在 disposable overlay 內被修到可驗證狀態，接著才輪到把同樣處理帶進真正的 overlay / production flow。
+
+`prepare-openbor-smoke.mjs` 現在已經支援重複的 `--case-model` 參數，所以 `xuchu` 的 exact-case 正規化不必再靠單獨腳本；下一次可以直接把它加進一般 smoke 準備流程，與既有的張飛預設 alias 共存。

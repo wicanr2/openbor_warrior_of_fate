@@ -22,8 +22,10 @@ Options:
                        (default: workplace/robot_wof_vertical_slice/overlay/data)
   --output PATH        New staging directory; it must not already exist
                        (default: a unique directory below ${os.tmpdir()})
-  --no-case-aliases    Report Zhang Fei image path case mismatches without
-                       creating exact-case copies in the disposable tree
+  --no-case-aliases    Report case mismatches without creating exact-case
+                       copies in the disposable tree
+  --case-model PATH    Add an extra model TXT to exact-case alias in staging;
+                       may be repeated
   --help               Show this help
 
 The script never writes to --base or --overlay. The result contains a merged
@@ -38,6 +40,7 @@ function parseArguments(argv) {
     overlay: DEFAULT_OVERLAY,
     output: null,
     caseAliases: true,
+    caseModels: [path.join('chars', 'zhangfei', 'zhangfei.txt')],
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -48,6 +51,12 @@ function parseArguments(argv) {
     }
     if (argument === '--no-case-aliases') {
       options.caseAliases = false;
+      continue;
+    }
+    if (argument === '--case-model') {
+      if (!argv[index + 1]) throw new Error('--case-model requires a path');
+      options.caseModels.push(argv[index + 1]);
+      index += 1;
       continue;
     }
     for (const name of ['base', 'overlay', 'output']) {
@@ -66,7 +75,8 @@ function parseArguments(argv) {
     if (!['--base', '--overlay', '--output'].includes(argument)
         && !argument.startsWith('--base=')
         && !argument.startsWith('--overlay=')
-        && !argument.startsWith('--output=')) {
+        && !argument.startsWith('--output=')
+        && !argument.startsWith('--case-model=')) {
       throw new Error(`Unknown option: ${argument}`);
     }
   }
@@ -179,17 +189,23 @@ function resolveReference(reference, stagingRoot, dataDirectory) {
   return path.resolve(path.dirname(reference.textFile), ...reference.token.split('/'));
 }
 
-function repairZhangfeiCase(stagingRoot, dataDirectory, createAliases) {
-  const modelDirectory = path.join(dataDirectory, 'chars', 'zhangfei');
-  if (!fs.existsSync(modelDirectory)) {
-    return [{ requested: '', existing: '', source: '', action: 'zhangfei model directory missing' }];
-  }
-
+function repairCaseModels(stagingRoot, dataDirectory, modelFiles, createAliases) {
   const records = [];
   const seen = new Set();
-  for (const textFile of listTextFiles(modelDirectory)) {
+  for (const relativeModelFile of modelFiles) {
+    const textFile = path.resolve(dataDirectory, relativeModelFile);
+    if (!fs.existsSync(textFile)) {
+      records.push({
+        requested: relativeModelFile.replaceAll(path.sep, '/'),
+        existing: '',
+        source: relativeModelFile.replaceAll(path.sep, '/'),
+        action: 'model txt missing',
+      });
+      continue;
+    }
     for (const reference of extractImageReferences(textFile)) {
       const requestedPath = resolveReference(reference, stagingRoot, dataDirectory);
+      if (!requestedPath) continue;
       const key = requestedPath;
       if (seen.has(key)) continue;
       seen.add(key);
@@ -246,7 +262,7 @@ function main() {
   const overlayFileCount = countFiles(overlay);
   copyOverlayContents(overlay, dataOutput);
 
-  const caseRecords = repairZhangfeiCase(output, dataOutput, options.caseAliases);
+  const caseRecords = repairCaseModels(output, dataOutput, options.caseModels, options.caseAliases);
   writeCaseReport(output, caseRecords);
 
   for (const directory of ['Logs', 'Paks', 'Saves', 'ScreenShots']) {
@@ -258,7 +274,8 @@ function main() {
     `Base (read only): ${base}`,
     `Overlay (read only): ${overlay}`,
     `Overlay files copied: ${overlayFileCount}`,
-    `Zhang Fei case mismatches: ${caseRecords.length}`,
+    `Case alias targets: ${options.caseModels.join(', ')}`,
+    `Case mismatches: ${caseRecords.length}`,
     `Exact-case aliases created: ${options.caseAliases ? 'yes' : 'no'}`,
     '',
     'robot-wof.dev.pak is an empty development sentinel, not a distributable PAK.',
@@ -270,7 +287,8 @@ function main() {
   console.log(`Stage: ${output}`);
   console.log(`Base files: ${countFiles(base)}`);
   console.log(`Overlay files copied: ${overlayFileCount}`);
-  console.log(`Zhang Fei case mismatches: ${caseRecords.length}`);
+  console.log(`Case alias targets: ${options.caseModels.join(', ')}`);
+  console.log(`Case mismatches: ${caseRecords.length}`);
   console.log(`Case action: ${options.caseAliases ? 'exact-case copies created only in staging' : 'report only'}`);
   console.log(`Case report: ${path.join(output, 'zhangfei-case-report.tsv')}`);
   console.log('Validate:');

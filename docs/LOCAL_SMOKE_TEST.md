@@ -27,10 +27,20 @@ node scripts/prepare-openbor-smoke.mjs --output "$STAGE"
 1. 複製 `workplace/extracted/data` 到全新的 `$STAGE/data`。
 2. 將 `workplace/robot_wof_vertical_slice/overlay/data` 疊到副本。
 3. 掃描張飛目錄內所有 TXT 的 GIF／PNG 引用。
-4. 大小寫不一致時，只在 staging 建立 exact-case 實體副本，並輸出 `$STAGE/zhangfei-case-report.tsv`。
+4. 大小寫不一致時，會依預設張飛模型與額外指定的 `--case-model` 在 staging 建立 exact-case 實體副本，並輸出 `$STAGE/zhangfei-case-report.tsv`。
 5. 建立 staging 專用的 `Logs`、`Saves`、`ScreenShots`、`Paks` 與空的 `robot-wof.dev.pak`。
 
 不想自動建立大小寫相容副本時，加上 `--no-case-aliases`，腳本只會輸出報告。`--output` 已存在時腳本會拒絕覆寫，避免誤刪其他資料。
+
+如果要把 `xuchu` 也帶進 disposable smoke，可以像這樣額外指定模型：
+
+```sh
+node scripts/prepare-openbor-smoke.mjs \
+  --output "$STAGE" \
+  --case-model chars/boss/xuchu/xuchu.txt \
+  --case-model chars/boss/xuchu/chu.txt \
+  --case-model chars/boss/xuchu/1/xuchuxs.txt
+```
 
 目前基準資料掃描到張飛完整模型（主模型、騎乘與各武器／水中狀態）共有 **37 個大小寫不一致的影像路徑**。其中主 P0 已知項目包含 `icon.gif`、`block0/1/2.gif`、`jump1/2/3.gif`、`fallf1.gif`、`fallx*.gif`；詳細來源行號以產生的 TSV 為準。
 

@@ -87,6 +87,7 @@
 - 保留 `xuchu` 的原依賴閉包，不把馬匹或人類血肉語彙帶進 G0。
 - `geometry-migration.json` 只在 canvas / offset 真正要動時加入，不能默默改圖。
 - 先完成一套可視 gameplay review，再談更高階的超巨大戰。
+- disposable smoke 準備已支援 `--case-model chars/boss/xuchu/xuchu.txt --case-model chars/boss/xuchu/chu.txt --case-model chars/boss/xuchu/1/xuchuxs.txt`，可直接在 staging 修 exact-case debt 後再跑 strict 與 model-load smoke。
 
 ## 已知技術債
 
