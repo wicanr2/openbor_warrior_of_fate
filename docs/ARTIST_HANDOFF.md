@@ -2,6 +2,8 @@
 
 本專案會由多名藝術家共同完成玩家、敵人／Boss、背景、前景、場景物件、UI 與 FX。GitHub 是規格、工作拆分、總覽與驗收中心；可直接重用的單張原作素材及 production art 只透過團隊私有空間交換。
 
+如果要先看最短可接手視圖，請先讀 [`../research/PRODUCTION_HANDOFF_MATRIX.md`](../research/PRODUCTION_HANDOFF_MATRIX.md)。那份 matrix 會把 Stage01、Boss、portrait 與 player cleanup 按下一步行動整理成一張表。
+
 ## 開始接一個角色前
 
 1. 從 README 的角色分鏡總覽確認整體動作與原檔名。
