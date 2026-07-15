@@ -67,6 +67,18 @@ function parseArgs(argv) {
     options[key] = resolve(value);
     index += 1;
   }
+  for (const [label, filePath] of [
+    ['base gif', options.baseGif],
+    ['portrait key pose', options.portrait],
+    ['body key pose', options.body],
+  ]) {
+    if (!existsSync(filePath)) {
+      throw new Error(
+        `Missing six-select ${label}: ${displayPath(filePath)}. ` +
+        'This repository does not ship the private source assets; pass explicit paths from an external checkout.'
+      );
+    }
+  }
   return options;
 }
 
