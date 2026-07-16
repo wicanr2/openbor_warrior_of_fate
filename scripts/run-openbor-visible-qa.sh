@@ -32,6 +32,7 @@ Supported macros:
   nu_select_stage1     Confirm ν Gundam and continue into Stage 1.
   guanyu_select        Confirm Getter in the default first slot.
   guanyu_select_stage1 Confirm Getter and continue into Stage 1.
+  guanyu_attack_stage1 Confirm Getter, enter Stage 1, then issue three A attacks.
 EOF
 }
 
@@ -181,6 +182,24 @@ run_macro() {
       xdotool key --window "$window_id" Return
       sleep 1.5
       xdotool key --window "$window_id" Return
+      ;;
+    guanyu_attack_stage1)
+      xdotool key --window "$window_id" Return
+      sleep 3
+      xdotool key --window "$window_id" Return
+      sleep 0.6
+      xdotool key --window "$window_id" Return
+      # Stage 01 has both a select transition and a short scripted player
+      # intro. Wait for both before testing actual player controls.
+      sleep 15
+      xdotool keydown --window "$window_id" Right
+      sleep 2
+      xdotool keyup --window "$window_id" Right
+      sleep 0.5
+      for _ in 1 2 3; do
+        xdotool key --window "$window_id" a
+        sleep 0.7
+      done
       ;;
     *)
       echo "Unknown macro: $macro" >&2

@@ -19,7 +19,7 @@ Usage:
 Options:
   --image NAME      Docker image (default: openbor-visible-qa:local)
   --seconds N       Bounded runner time (default: 30)
-  --macro NAME      Existing visible-QA macro, for example guanyu_select_stage1
+  --macro NAME      Existing visible-QA macro, for example guanyu_attack_stage1
   --title-pattern RE  xdotool window match pattern (default: OpenBOR|robot-wof.dev)
   --width N         Virtual display and capture width (default: 1024)
   --height N        Virtual display and capture height (default: 768)
