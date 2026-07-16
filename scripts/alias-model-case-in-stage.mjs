@@ -120,7 +120,7 @@ function inspectExactCase(absolutePath) {
 
 function resolveReference(reference, stageRoot) {
   if (/^data\//i.test(reference.token)) {
-    return path.join(stageRoot, ...reference.token.split('/').slice(1));
+    return path.join(stageRoot, ...reference.token.split('/'));
   }
   return null;
 }
@@ -138,7 +138,8 @@ function main() {
   const seen = new Set();
 
   for (const model of options.models) {
-    const modelPath = path.join(options.sourceRoot, model);
+    const relativeModel = model.replace(/^data\//i, '');
+    const modelPath = path.join(options.sourceRoot, relativeModel);
     if (!fs.existsSync(modelPath)) throw new Error(`Missing model file: ${modelPath}`);
     const references = extractReferences(modelPath);
     for (const reference of references) {

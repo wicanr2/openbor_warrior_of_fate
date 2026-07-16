@@ -10,7 +10,10 @@ docker build -f docker/openbor-visible/Dockerfile -t openbor-visible-qa:local .
 
 ## 建立可視 QA stage
 
-先以 `prepare-openbor-smoke.mjs` 建立新的 staging tree，再套用 private overlays。接著只改 staging tree 的 QA route：
+完整機器人素材包請先依
+[SUPER_ROBOT_INTEGRATION_BUILD.md](SUPER_ROBOT_INTEGRATION_BUILD.md) 組裝 private
+overlay，再以 `prepare-openbor-smoke.mjs` 建立新的 staging tree。接著只改
+staging tree 的 QA route：
 
 ```bash
 node scripts/prepare-openbor-visible-qa.mjs --stage /tmp/robot-wof-visible

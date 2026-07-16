@@ -145,6 +145,8 @@ run_macro() {
       return 0
       ;;
     nu_select)
+      xdotool key --window "$window_id" Return
+      sleep 3
       for _ in 1 2 3 4 5; do
         xdotool key --window "$window_id" Right
         sleep 0.15
@@ -154,6 +156,8 @@ run_macro() {
       xdotool key --window "$window_id" Return
       ;;
     nu_select_stage1)
+      xdotool key --window "$window_id" Return
+      sleep 3
       for _ in 1 2 3 4 5; do
         xdotool key --window "$window_id" Right
         sleep 0.15
@@ -166,8 +170,12 @@ run_macro() {
       ;;
     guanyu_select)
       xdotool key --window "$window_id" Return
+      sleep 3
+      xdotool key --window "$window_id" Return
       ;;
     guanyu_select_stage1)
+      xdotool key --window "$window_id" Return
+      sleep 3
       xdotool key --window "$window_id" Return
       sleep 0.6
       xdotool key --window "$window_id" Return

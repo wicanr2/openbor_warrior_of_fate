@@ -21,6 +21,7 @@
 | --- | --- |
 | [Docker 隔離編譯與 smoke test](docs/DOCKER_LINUX_BUILD.md) | 不安裝 host 套件；在 Docker 內編譯 GIF-compatible OpenBOR v7533、建立 raw-data stage 並驗證模型載入。 |
 | [Docker 隔離 X11 visible QA](docs/DOCKER_VISIBLE_QA.md) | 在容器內以 Xvfb、xdotool、ffmpeg 執行可見 OpenBOR QA 並保存 MP4；不掛載 host X11 socket。 |
+| [Super Robot 整合建置](docs/SUPER_ROBOT_INTEGRATION_BUILD.md) | 將私有六名角色、選角、Stage01、敵兵與道具包依固定順序組成 disposable stage，並執行目標資產與 Docker 載入 gate。 |
 | [美術協作與交付手冊](docs/ARTIST_HANDOFF.md) | 多藝術家分工、私有／公開素材界線、每張圖的交付欄位、review state 與第一批 Mazinger 工作包。 |
 | [本機 raw-data smoke test](docs/LOCAL_SMOKE_TEST.md) | 建立不污染原始解包資料的 merged tree、修正 staging 大小寫並啟動 OpenBOR 驗證 overlay。 |
 | [Mazinger 私有資產對位產線](docs/PRIVATE_ASSET_PIPELINE.md) | 從本機 key pose 建立 basic 或 41-file full-P0 engineering prototype，強制 canvas、Offset 與 palette index 0。 |
@@ -86,6 +87,7 @@
 | [機體、駕駛員與大頭照 roster](docs/PILOT_AND_PORTRAIT_ROSTER.md) | 流龍馬、兜甲兒、碇真嗣、阿姆羅、迷你哥吉拉、夏亞的 slot 對應，及 selection／HUD／cut-in 分層方式。 |
 | [分鏡表產生器](scripts/generate-character-sprite-inventory.mjs) | 從解出的角色定義 `.txt` 重新統計分鏡表，避免人工維護 GIF 清單。 |
 | [OpenBOR 資產驗證器](scripts/validate-openbor-assets.mjs) | 檢查 TXT 圖像引用、路徑大小寫、indexed GIF、canvas 與 palette index 0。 |
+| [Super Robot 整合驗證器](scripts/validate-super-robot-integration.mjs) | 對六位玩家、六人選角、Stage01 與藍盔敵兵執行 strict target gate；不把原始整包的既存資產債誤判為新素材錯誤。 |
 | [Smoke evidence index 驗證器](scripts/validate-smoke-evidence-index.mjs) | 檢查 smoke evidence index 是否真的列出 ν、Stage01、Lidian、黃忠四條已實跑的 headless smoke。 |
 | [Vertical slice coverage](docs/VERTICAL_SLICE_COVERAGE.md) | 檢查 M1 預定替換是否真的齊全且不是 base copy；包含 `bingxs` 與機械死亡 model overlay。 |
 | [Overlay parity validator](scripts/validate-overlay-parity.mjs) | 逐檔檢查 exact-case base counterpart、相同 canvas、indexed GIF 與 index 0 `#FC00FF`。 |
