@@ -16,7 +16,7 @@ Options:
   --display DISPLAY    X11 display to use for the visible runner
   --seconds N          Bounded runtime for the OpenBOR process (default: 30)
   --capture PATH       Optional ffmpeg capture path (.mp4/.mkv recommended)
-  --title-pattern RE   Optional xdotool window match pattern (default: OpenBOR)
+  --title-pattern RE   Optional xdotool window match pattern (default: OpenBOR|robot-wof.dev)
   --macro NAME         Optional key macro to run after the window appears
   --width N            Capture width for ffmpeg x11grab (default: 1024)
   --height N           Capture height for ffmpeg x11grab (default: 768)
@@ -40,7 +40,7 @@ stage=
 display=
 seconds=30
 capture=
-title_pattern=OpenBOR
+title_pattern='OpenBOR|robot-wof.dev'
 macro=
 width=1024
 height=768
@@ -113,7 +113,10 @@ openbor_pid=$!
 set -e
 
 window_id=''
-for _ in $(seq 1 20); do
+window_wait_seconds=$((seconds - 2))
+if ((window_wait_seconds < 1)); then window_wait_seconds=1; fi
+if ((window_wait_seconds > 8)); then window_wait_seconds=8; fi
+for _ in $(seq 1 "$window_wait_seconds"); do
   window_id=$(xdotool search --onlyvisible --name "$title_pattern" 2>/dev/null | head -n 1 || true)
   if [[ -n "$window_id" ]]; then
     printf '%s\n' "$window_id" > "$window_id_log"
@@ -192,8 +195,10 @@ if [[ -n "$macro" ]]; then
   fi
 fi
 
+set +e
 wait "$openbor_pid"
 openbor_status=$?
+set -e
 
 if [[ -n "$capture_pid" ]]; then
   wait "$capture_pid" || true

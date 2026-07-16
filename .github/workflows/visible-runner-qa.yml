@@ -25,7 +25,7 @@ on:
         description: Window title pattern to focus with xdotool
         required: false
         type: string
-        default: OpenBOR
+        default: 'OpenBOR|robot-wof.dev'
       macro:
         description: Optional visible-runner macro to send after the window appears
         required: false
