@@ -17,8 +17,8 @@
     {
       "id": "gore-remap",
       "title": "Replace human gore vocabulary",
-      "status": "pending",
-      "notes": "Blood, organ, and hit-flash references need machine equivalents without breaking other shared FX."
+      "status": "complete-engineering-closure",
+      "notes": "2026-07-16: g1 and g5..g11 now override their sole blood1/blood2 hitflash with the already-registered Electric model. The package changes no global models.txt and normalizes g1 horse GIF case. Dedicated production Getter hit FX and audio remain part of production cleanup."
     },
     {
       "id": "playerdie-wav",

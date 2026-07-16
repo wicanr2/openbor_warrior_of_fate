@@ -2,15 +2,15 @@
 
 This report aggregates the currently open queues and delivery checklists. It is a working summary for handoff and prioritization, not a completion claim.
 
-Total open items (approximate, from queued pending rows): 28
+Total open items (approximate, from queued pending rows): 27
 
 | Workstream | Status | Open items | Source |
 | --- | --- | ---: | --- |
 | boss-production | mixed-engineering-and-production-remaining | 6 | [manifests/boss-next-queue.json](manifests/boss-next-queue.json) |
 | stage01-delivery | production-remaining | 6 | [manifests/stage01-delivery-checklist.json](manifests/stage01-delivery-checklist.json) |
 | stage01-environment-and-grunt | engineering-coverage-complete-but-production-remaining | 6 | [manifests/stage01-next-queue.json](manifests/stage01-next-queue.json) |
-| guanyu-getter-v2 | p0-engineering-runtime-complete-but-production-remaining | 5 | [manifests/guanyu-next-queue.json](manifests/guanyu-next-queue.json) |
 | nu-gundam-sixth-character | p0-engineering-runtime-complete-but-production-remaining | 5 | [manifests/nu-gundam-next-queue.json](manifests/nu-gundam-next-queue.json) |
+| guanyu-getter-v2 | p0-engineering-runtime-complete-but-production-remaining | 4 | [manifests/guanyu-next-queue.json](manifests/guanyu-next-queue.json) |
 | portrait-work-queue.json | mixed-engineering-and-pending-portrait-work | 0 | [manifests/portrait-work-queue.json](manifests/portrait-work-queue.json) |
 
 ## What is still blocking end-state completion
