@@ -80,6 +80,7 @@
 | [六人候選選角 TXT overlay](docs/SIX_PLAYER_SELECT_TEXT_OVERLAY.md) | `models.txt`／`allowselect` 的 exact Load 順序、Funnel 支援模型、可重入 patch 與 13 項測試。 |
 | [夏亞／有腳吉翁克 Boss 工程計畫](docs/ZEON_BOSS_WITH_LEGS_PLAN.md) | 完成型有腳 Boss、夏亞 cut-in、67-GIF P0 閉包、遠距／抓投／HP 分支與人類素材清除。 |
 | [角色替換分鏡總表](research/CHARACTER_SPRITE_INVENTORY.md) | 關羽、趙雲、張飛、魏延、黃忠的動作群組、GIF 分鏡、優先級與分離模型說明。美術替換工作從此開始。 |
+| [Sprite completion matrix](research/SPRITE_COMPLETION_MATRIX.md) | 先完成全部 sprite 策略的檔案級矩陣：已存在的 engineering package、尚缺的玩家／敵人／Boss／背景／特效 sprite，以及 production-complete 驗收定義。 |
 | [跨平台建置與發行](docs/BUILD.md) | OpenBOR 引擎在 Linux、Windows、macOS 的原生編譯依賴、CMake 指令、產物位置與 PAK 放置位置。 |
 | [OpenBOR 引擎編譯手冊](docs/OPENBOR_COMPILATION.md) | 從取得原始碼到 Linux、Windows、macOS 原生編譯、產物驗證與疑難排解的完整交接文件。 |
 | [角色素材規格](docs/SPRITE_ART_SPEC.md) | GIF palette index 0 洋紅鍵色 `#FC00FF`、畫布／檔名／調色盤規則，以及美術交付驗收清單。 |
