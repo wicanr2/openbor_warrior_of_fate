@@ -24,6 +24,7 @@
 | 島田兵／藍盔一般敵 | `assets/enemies/blue-helmet-grunt` | 42 GIF | `bing` overlay、死亡碎片 gate | `shooter` 投射物／muzzle；`bingxs` 全部碎片；量產敵 family 與攻擊姿勢 | engineering prototype |
 | 量產敵 family／army 1–10 | `assets/enemies/army-family-p0-v1` | 522 GIF | army/1..10 exact-case、canvas、palette index 0 parity PASS | 每個 model 的獨立造型、逐格 in-between、shooter／muzzle、死亡碎片、BBox／attack-box review | engineering candidate |
 | 原始 NPC／men＋women | `assets/enemies/npc-family-p0-v1` | 37 GIF | npc/men、npc/women exact-case、canvas、palette index 0 parity PASS | 民用／劇情 NPC 獨立造型、portrait variants、逐格 in-between、BBox review | engineering candidate |
+| 共用 misc FX／碎片 | `assets/effects/misc-mechanical-fx-p0-v1` | 848 GIF | 全部 `data/chars/misc` exact-case、canvas、palette index 0 parity PASS | blood／organ silhouette 逐件重畫、beam／爆炸／煙塵 family、timing 與 gameplay review | engineering candidate |
 | Stage01 機械前哨 | `assets/environments/stage01-forest-outpost` | 4 GIF | 三層背景＋scan FX | 其餘關卡背景、前景、tile／wall 對位與每個 sprite props | engineering prototype |
 | 機械補給箱 | `assets/props/mechanical-supply-box` | 3 GIF | idle＋2 rupture | 其他道具與破壞零件的獨立 sprite inventory | engineering prototype |
 | 六人選角 | `assets/ui/six-player-selection` | 1 GIF | 480×276 六欄圖 | 游標、READY、confirm、portrait／HUD 分離 sprite 的 production review | engineering prototype |
