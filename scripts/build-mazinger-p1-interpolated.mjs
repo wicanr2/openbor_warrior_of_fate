@@ -82,7 +82,10 @@ function findTarget(baseDir, model, rel) {
 
 const options = parseArgs(process.argv.slice(2));
 const manifest = JSON.parse(readFileSync(options.inputManifest, 'utf8'));
-const sourcePaths = Array.from({ length: 16 }, (_, i) => join(options.sourceDir, `frame-${String(i + 1).padStart(2, '0')}.png`));
+const sourceFiles = readdirSync(options.sourceDir)
+  .filter((name) => /^frame-\d+\.png$/i.test(name))
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+const sourcePaths = sourceFiles.map((name) => join(options.sourceDir, name));
 if (!sourcePaths.every(existsSync)) throw new Error('Missing Mazinger keypose source');
 const frames = manifest.frames ?? (manifest.files ?? []).map((file) => ({
   output: file.path,
@@ -125,9 +128,9 @@ try {
     mkdirSync(dirname(output), { recursive: true });
     writeFileSync(output, encodeGif(targetProbe.width, targetProbe.height, palette.pixels, palette.bgraPalette));
     verifyGif(output, targetProbe.width, targetProbe.height);
-    records.push({ output: `data/chars/${targetRel}`, sourceA: `frame-${String((index % 16) + 1).padStart(2, '0')}.png`, sourceB: `frame-${String(((index + 1) % 16) + 1).padStart(2, '0')}.png`, interpolationRatio: ratio, independentRaster: true, targetCanvas, targetOffset, placement });
+    records.push({ output: `data/chars/${targetRel}`, sourceA: sourceFiles[index % sourceFiles.length], sourceB: sourceFiles[(index + 1) % sourceFiles.length], interpolationRatio: ratio, independentRaster: true, targetCanvas, targetOffset, placement });
   }
 } finally { rmSync(temp, { recursive: true, force: true }); }
 mkdirSync(options.outputDir, { recursive: true });
-  writeFileSync(join(options.outputDir, 'BUILD-MANIFEST.json'), `${JSON.stringify({ schemaVersion: 1, status: 'art-candidate-interpolated-not-production-ready', productionReady: false, sourcePoseReuse: false, interpolation: 'per-output raster blend between adjacent keyed poses; requires artist redraw/review', sourcePoseCount: 16, gifCount: records.length, deferred: ['hand-redrawn in-betweens', 'edge cleanup and silhouette review', 'BBox/attack-box review', 'gameplay QA'], frames: records }, null, 2)}\n`);
+  writeFileSync(join(options.outputDir, 'BUILD-MANIFEST.json'), `${JSON.stringify({ schemaVersion: 1, status: 'art-candidate-interpolated-not-production-ready', productionReady: false, sourcePoseReuse: false, interpolation: 'per-output raster blend between adjacent keyed poses; requires artist redraw/review', sourcePoseCount: sourceFiles.length, gifCount: records.length, deferred: ['hand-redrawn in-betweens', 'edge cleanup and silhouette review', 'BBox/attack-box review', 'gameplay QA'], frames: records }, null, 2)}\n`);
 console.log(`Built ${records.length} interpolated GIFs at ${options.outputDir}`);
