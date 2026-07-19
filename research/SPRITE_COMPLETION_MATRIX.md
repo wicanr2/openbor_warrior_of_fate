@@ -70,5 +70,5 @@
 4. 最後掃描所有 level／models TXT，將仍由 base data 補上的 sprite 逐項加入
    本矩陣；矩陣未清空前不進入下一階段 gameplay 整合。
 
-目前這份矩陣的正確總結是：**3,967/3,967 runtime GIF 已有 private engineering
-candidate；全部 production sprite 仍尚未完成。**
+目前這份矩陣的正確總結是：**3,966/3,966 extracted runtime GIF 已有 private
+P1 engineering candidate，union uncovered=0；全部 production sprite 仍尚未完成。**
