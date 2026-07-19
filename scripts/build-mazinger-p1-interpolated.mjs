@@ -38,7 +38,14 @@ function blend(sourceA, sourceB, output, ratio) {
 }
 function parseFramePath(output) {
   const marker = '/data/chars/';
+  const relativeMarker = 'data/chars/';
   const index = output.indexOf(marker);
+  if (index < 0 && output.startsWith(relativeMarker)) {
+    const rest = output.slice(relativeMarker.length);
+    const slash = rest.indexOf('/');
+    if (slash < 1) throw new Error(`Unexpected model path ${output}`);
+    return { model: rest.slice(0, slash), rel: rest.slice(slash + 1) };
+  }
   if (index < 0) {
     const prefix = 'local-only/';
     if (output.startsWith(prefix)) return { model: parseArgs(process.argv.slice(2)).model, rel: output.slice(prefix.length) };
@@ -72,11 +79,17 @@ const options = parseArgs(process.argv.slice(2));
 const manifest = JSON.parse(readFileSync(options.inputManifest, 'utf8'));
 const sourcePaths = Array.from({ length: 16 }, (_, i) => join(options.sourceDir, `frame-${String(i + 1).padStart(2, '0')}.png`));
 if (!sourcePaths.every(existsSync)) throw new Error('Missing Mazinger keypose source');
+const frames = manifest.frames ?? (manifest.files ?? []).map((file) => ({
+  output: file.path,
+  targetCanvas: file.canvas ? { width: file.canvas[0], height: file.canvas[1] } : undefined,
+  placement: file.placement,
+}));
+if (!frames.length) throw new Error('Manifest has no frames/files to build');
 const temp = mkdtempSync(join(tmpdir(), 'mazinger-p1-'));
 const records = [];
 try {
-  for (let index = 0; index < manifest.frames.length; index += 1) {
-    const frame = manifest.frames[index];
+  for (let index = 0; index < frames.length; index += 1) {
+    const frame = frames[index];
     const parsed = parseFramePath(frame.output);
     const rel = parsed.rel;
     const base = findTarget(options.baseDir, parsed.model, rel);
