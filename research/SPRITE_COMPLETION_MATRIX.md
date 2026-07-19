@@ -23,6 +23,7 @@
 | Boss family（Lidian／Meiling／Meimei／Meiya／夏侯惇／Xuchu） | `assets/bosses/boss-family-p0-v1` | 405 GIF | 六個 boss model tree 全部 exact-case、canvas、palette index 0 parity PASS | 每個 Boss 獨立造型、逐格 in-between、HUD／icon、projectile／debris、pilot cut-in、BBox／gameplay review | engineering candidate |
 | 島田兵／藍盔一般敵 | `assets/enemies/blue-helmet-grunt` | 42 GIF | `bing` overlay、死亡碎片 gate | `shooter` 投射物／muzzle；`bingxs` 全部碎片；量產敵 family 與攻擊姿勢 | engineering prototype |
 | 量產敵 family／army 1–10 | `assets/enemies/army-family-p0-v1` | 522 GIF | army/1..10 exact-case、canvas、palette index 0 parity PASS | 每個 model 的獨立造型、逐格 in-between、shooter／muzzle、死亡碎片、BBox／attack-box review | engineering candidate |
+| 原始 NPC／men＋women | `assets/enemies/npc-family-p0-v1` | 37 GIF | npc/men、npc/women exact-case、canvas、palette index 0 parity PASS | 民用／劇情 NPC 獨立造型、portrait variants、逐格 in-between、BBox review | engineering candidate |
 | Stage01 機械前哨 | `assets/environments/stage01-forest-outpost` | 4 GIF | 三層背景＋scan FX | 其餘關卡背景、前景、tile／wall 對位與每個 sprite props | engineering prototype |
 | 機械補給箱 | `assets/props/mechanical-supply-box` | 3 GIF | idle＋2 rupture | 其他道具與破壞零件的獨立 sprite inventory | engineering prototype |
 | 六人選角 | `assets/ui/six-player-selection` | 1 GIF | 480×276 六欄圖 | 游標、READY、confirm、portrait／HUD 分離 sprite 的 production review | engineering prototype |
