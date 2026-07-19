@@ -27,6 +27,7 @@
 | 共用 misc FX／碎片 | `assets/effects/misc-mechanical-fx-p0-v1` | 848 GIF | 全部 `data/chars/misc` exact-case、canvas、palette index 0 parity PASS | blood／organ silhouette 逐件重畫、beam／爆炸／煙塵 family、timing 與 gameplay review | engineering candidate |
 | 背景 GIF／bgs | `assets/environments/bgs-mechanical-p0-v1` | 77 GIF | 全部 `data/bgs` exact-case、canvas、palette index 0 parity PASS | stage-specific 背景與 tileset 重畫、wall／foreground 對位、lighting 與 runtime review | engineering candidate |
 | Scene／logo／story GIF | `assets/ui/scenes-mechanical-p0-v1` | 617 GIF | 全部 `data/scenes` exact-case、canvas、palette index 0 parity PASS | title/logo、story artwork、portrait、cut-in、typography 與 scene layout 重畫 | engineering candidate |
+| 玩家 mount／weapon submodel | `assets/players/mount-submodels-p0-v1` | 675 GIF | 五名玩家 horse、Huangzhong gong、Weiyan news/w 全部 exact-case、canvas、palette index 0 parity PASS | 各機體 mount／武器獨立造型、rider alignment、逐格 timing、BBox review | engineering candidate |
 | Stage01 機械前哨 | `assets/environments/stage01-forest-outpost` | 4 GIF | 三層背景＋scan FX | 其餘關卡背景、前景、tile／wall 對位與每個 sprite props | engineering prototype |
 | 機械補給箱 | `assets/props/mechanical-supply-box` | 3 GIF | idle＋2 rupture | 其他道具與破壞零件的獨立 sprite inventory | engineering prototype |
 | 六人選角 | `assets/ui/six-player-selection` | 1 GIF | 480×276 六欄圖 | 游標、READY、confirm、portrait／HUD 分離 sprite 的 production review | engineering prototype |
