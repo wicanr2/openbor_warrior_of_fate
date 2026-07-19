@@ -19,6 +19,7 @@
 | 魏延／機械哥吉拉／迷你哥吉拉 | `assets/players/weiyan` | 91 GIF＋3 TXT | P0 runtime、tail-ray proxy | 尾砲 charge／beam／impact、爪／dash FX、in-between、武器／攻擊 box | engineering prototype |
 | ν Gundam／第六角色／阿姆羅系 | `assets/players/nu-gundam` | 78 GIF＋2 TXT | 71 action、Funnel proxy | 六發 Funnel 的獨立 orbit／beam／return／cleanup sprite；P1 special、in-between、攻擊 box | engineering prototype |
 | Lidian 紅槍指揮機 | `assets/bosses/lidian-red-spear-commander` | 69 GIF | Boss P0 closure | 16 key pose 展開、槍擊 charge／impact、裝甲碎片逐件拆分、Boss hit/death review | engineering prototype |
+| 夏亞／有腳吉翁克 Boss | `assets/bosses/zeon-boss-with-legs/candidates/zeon-p0-v1` | 64 GIF | `boss/xuchu` exact-case、canvas、palette index 0 gate PASS | 16 pose 逐格 production redraw、HUD、projectile／debris、pilot cut-in、spawn 與 gameplay QA | engineering candidate |
 | 島田兵／藍盔一般敵 | `assets/enemies/blue-helmet-grunt` | 42 GIF | `bing` overlay、死亡碎片 gate | `shooter` 投射物／muzzle；`bingxs` 全部碎片；量產敵 family 與攻擊姿勢 | engineering prototype |
 | Stage01 機械前哨 | `assets/environments/stage01-forest-outpost` | 4 GIF | 三層背景＋scan FX | 其餘關卡背景、前景、tile／wall 對位與每個 sprite props | engineering prototype |
 | 機械補給箱 | `assets/props/mechanical-supply-box` | 3 GIF | idle＋2 rupture | 其他道具與破壞零件的獨立 sprite inventory | engineering prototype |
@@ -28,7 +29,6 @@
 
 | 工作線 | 概念來源 | 必須先交付的 sprite 閉包 |
 |---|---|---|
-| 夏亞／有腳吉翁克 Boss | `zeon_boss/` | Boss idle、walk、遠距攻擊、抓投、受擊、死亡、腳部碎片、icon、HUD、cut-in |
 | 其他 Boss | `robot_boss/` | 每個 Boss 至少 16 格 key pose、完整 action GIF、icon／HUD、攻擊 FX、死亡碎片 |
 | 量產敵人 family | `robot_wof_enemy/` | 島田兵變體、射擊兵、近戰兵、重裝兵、空中兵；每個 model 的 idle／walk／attack／pain／fall／death／icon |
 | 原始 NPC／軍隊替換 | `workplace/extracted/data/chars/army/` | 目前 level spawn 到的 `man*`、`woman*`、`shooter`、`cap*`、`ybing` 等逐 model 機械化 sprite |
