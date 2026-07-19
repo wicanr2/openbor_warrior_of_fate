@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
@@ -14,6 +14,19 @@ const BASE_DIR = join(ROOT, '../workplace/extracted/data/chars/zhangfei');
 const INPUT_MANIFEST = join(PRIVATE, 'assets/players/zhangfei/candidates/mazinger-production-p0-v1/BUILD-MANIFEST.json');
 const OUT = join(PRIVATE, 'assets/players/zhangfei/candidates/mazinger-production-p1-interpolated-v1');
 
+function parseArgs(argv) {
+  const options = { sourceDir: SOURCE_DIR, baseDir: BASE_DIR, inputManifest: INPUT_MANIFEST, outputDir: OUT, model: 'zhangfei' };
+  const keys = new Map([['--source-dir', 'sourceDir'], ['--base-dir', 'baseDir'], ['--input-manifest', 'inputManifest'], ['--output-dir', 'outputDir'], ['--model', 'model']]);
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === '--help') { console.log('Build independent interpolated rasters from a player manifest.'); process.exit(0); }
+    const key = keys.get(argv[i]);
+    if (!key || !argv[i + 1]) throw new Error(`Unknown or incomplete option: ${argv[i]}`);
+    const value = argv[++i];
+    options[key] = key === 'model' ? value : resolve(value);
+  }
+  return options;
+}
+
 function run(args) {
   const result = spawnSync('ffmpeg', args, { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
   if (result.status !== 0) throw new Error(result.stderr?.trim() || 'ffmpeg failed');
@@ -21,25 +34,52 @@ function run(args) {
 function blend(sourceA, sourceB, output, ratio) {
   const a = (1 - ratio).toFixed(3);
   const b = ratio.toFixed(3);
-  run(['-hide_banner', '-loglevel', 'error', '-y', '-i', sourceA, '-i', sourceB, '-filter_complex', `[0:v][1:v]blend=all_expr='A*${a}+B*${b}',format=rgb24`, '-frames:v', '1', output]);
+  run(['-hide_banner', '-loglevel', 'error', '-y', '-i', sourceA, '-i', sourceB, '-filter_complex', `[0:v]scale=313:313:force_original_aspect_ratio=decrease,pad=313:313:(ow-iw)/2:(oh-ih)/2:color=0xFC00FF[a];[1:v]scale=313:313:force_original_aspect_ratio=decrease,pad=313:313:(ow-iw)/2:(oh-ih)/2:color=0xFC00FF[b];[a][b]blend=all_expr='A*${a}+B*${b}',format=rgb24`, '-frames:v', '1', output]);
 }
 function parseFramePath(output) {
-  const marker = '/data/chars/zhangfei/';
+  const marker = '/data/chars/';
   const index = output.indexOf(marker);
-  if (index < 0) throw new Error(`Unexpected output path ${output}`);
-  return output.slice(index + marker.length);
+  if (index < 0) {
+    const prefix = 'local-only/';
+    if (output.startsWith(prefix)) return { model: parseArgs(process.argv.slice(2)).model, rel: output.slice(prefix.length) };
+    throw new Error(`Unexpected output path ${output}`);
+  }
+  const rest = output.slice(index + marker.length);
+  const slash = rest.indexOf('/');
+  if (slash < 1) throw new Error(`Unexpected model path ${output}`);
+  return { model: rest.slice(0, slash), rel: rest.slice(slash + 1) };
+}
+function findTarget(baseDir, model, rel) {
+  const direct = join(baseDir, model, rel);
+  if (existsSync(direct)) return direct;
+  const wanted = rel.split('/').pop();
+  const root = join(baseDir, model);
+  const matches = [];
+  function visit(dir) {
+    if (!existsSync(dir)) return;
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) visit(path);
+      else if (entry.name === wanted) matches.push(path);
+    }
+  }
+  visit(root);
+  if (!matches.length) throw new Error(`Missing target ${model}/${rel}`);
+  return matches.sort()[0];
 }
 
-const manifest = JSON.parse(readFileSync(INPUT_MANIFEST, 'utf8'));
-const sourcePaths = Array.from({ length: 16 }, (_, i) => join(SOURCE_DIR, `frame-${String(i + 1).padStart(2, '0')}.png`));
+const options = parseArgs(process.argv.slice(2));
+const manifest = JSON.parse(readFileSync(options.inputManifest, 'utf8'));
+const sourcePaths = Array.from({ length: 16 }, (_, i) => join(options.sourceDir, `frame-${String(i + 1).padStart(2, '0')}.png`));
 if (!sourcePaths.every(existsSync)) throw new Error('Missing Mazinger keypose source');
 const temp = mkdtempSync(join(tmpdir(), 'mazinger-p1-'));
 const records = [];
 try {
   for (let index = 0; index < manifest.frames.length; index += 1) {
     const frame = manifest.frames[index];
-    const rel = parseFramePath(frame.output);
-    const base = join(BASE_DIR, rel);
+    const parsed = parseFramePath(frame.output);
+    const rel = parsed.rel;
+    const base = findTarget(options.baseDir, parsed.model, rel);
     const targetProbe = probeImage(base);
     const sourceA = sourcePaths[index % sourcePaths.length];
     const sourceB = sourcePaths[(index + 1) % sourcePaths.length];
@@ -48,17 +88,21 @@ try {
     blend(sourceA, sourceB, blended, ratio);
     const pose = analyzePose(blended);
     const composed = join(temp, `${index}-composed.png`);
-    const target = { originalPath: base, canvas: frame.targetCanvas, offset: frame.targetOffset };
-    const placement = makeComposedPng(blended, composed, pose, target, manifest.spriteHeight, { anchor: 'foot-contact' }, true);
+    const targetCanvas = frame.targetCanvas ?? { width: targetProbe.width, height: targetProbe.height };
+    const targetOffset = frame.targetOffset ?? frame.placement?.modelOffset ?? { x: Math.round(targetCanvas.width / 2), y: targetCanvas.height - 1 };
+    const target = { originalPath: base, canvas: targetCanvas, offset: targetOffset };
+    const spriteHeight = manifest.spriteHeight ?? (frame.placement?.scale ? frame.placement.scale * pose.crop.height : 96);
+    const placement = makeComposedPng(blended, composed, pose, target, spriteHeight, { anchor: 'foot-contact' }, true);
     const palette = palettizeWithFfmpeg(composed, targetProbe.width, targetProbe.height, temp);
     forceChromaAtIndexZero(palette.pixels, palette.bgraPalette);
-    const output = join(OUT, 'data/chars/zhangfei', rel);
+    const targetRel = relative(options.baseDir, base);
+    const output = join(options.outputDir, 'data/chars', targetRel);
     mkdirSync(dirname(output), { recursive: true });
     writeFileSync(output, encodeGif(targetProbe.width, targetProbe.height, palette.pixels, palette.bgraPalette));
     verifyGif(output, targetProbe.width, targetProbe.height);
-    records.push({ output: `data/chars/zhangfei/${rel}`, sourceA: `frame-${String((index % 16) + 1).padStart(2, '0')}.png`, sourceB: `frame-${String(((index + 1) % 16) + 1).padStart(2, '0')}.png`, interpolationRatio: ratio, independentRaster: true, targetCanvas: frame.targetCanvas, targetOffset: frame.targetOffset, placement });
+    records.push({ output: `data/chars/${targetRel}`, sourceA: `frame-${String((index % 16) + 1).padStart(2, '0')}.png`, sourceB: `frame-${String(((index + 1) % 16) + 1).padStart(2, '0')}.png`, interpolationRatio: ratio, independentRaster: true, targetCanvas, targetOffset, placement });
   }
 } finally { rmSync(temp, { recursive: true, force: true }); }
-mkdirSync(OUT, { recursive: true });
-writeFileSync(join(OUT, 'BUILD-MANIFEST.json'), `${JSON.stringify({ schemaVersion: 1, status: 'art-candidate-interpolated-not-production-ready', productionReady: false, sourcePoseReuse: false, interpolation: 'per-output raster blend between adjacent keyed poses; requires artist redraw/review', sourcePoseCount: 16, gifCount: records.length, deferred: ['hand-redrawn in-betweens', 'edge cleanup and silhouette review', 'BBox/attack-box review', 'gameplay QA'], frames: records }, null, 2)}\n`);
-console.log(`Built ${records.length} Mazinger interpolated GIFs at ${OUT}`);
+mkdirSync(options.outputDir, { recursive: true });
+  writeFileSync(join(options.outputDir, 'BUILD-MANIFEST.json'), `${JSON.stringify({ schemaVersion: 1, status: 'art-candidate-interpolated-not-production-ready', productionReady: false, sourcePoseReuse: false, interpolation: 'per-output raster blend between adjacent keyed poses; requires artist redraw/review', sourcePoseCount: 16, gifCount: records.length, deferred: ['hand-redrawn in-betweens', 'edge cleanup and silhouette review', 'BBox/attack-box review', 'gameplay QA'], frames: records }, null, 2)}\n`);
+console.log(`Built ${records.length} interpolated GIFs at ${options.outputDir}`);
