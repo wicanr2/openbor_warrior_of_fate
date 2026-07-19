@@ -21,6 +21,7 @@
 | Lidian 紅槍指揮機 | `assets/bosses/lidian-red-spear-commander` | 69 GIF | Boss P0 closure | 16 key pose 展開、槍擊 charge／impact、裝甲碎片逐件拆分、Boss hit/death review | engineering prototype |
 | 夏亞／有腳吉翁克 Boss | `assets/bosses/zeon-boss-with-legs/candidates/zeon-p0-v1` | 64 GIF | `boss/xuchu` exact-case、canvas、palette index 0 gate PASS | 16 pose 逐格 production redraw、HUD、projectile／debris、pilot cut-in、spawn 與 gameplay QA | engineering candidate |
 | 島田兵／藍盔一般敵 | `assets/enemies/blue-helmet-grunt` | 42 GIF | `bing` overlay、死亡碎片 gate | `shooter` 投射物／muzzle；`bingxs` 全部碎片；量產敵 family 與攻擊姿勢 | engineering prototype |
+| 量產敵 family／army 1–10 | `assets/enemies/army-family-p0-v1` | 522 GIF | army/1..10 exact-case、canvas、palette index 0 parity PASS | 每個 model 的獨立造型、逐格 in-between、shooter／muzzle、死亡碎片、BBox／attack-box review | engineering candidate |
 | Stage01 機械前哨 | `assets/environments/stage01-forest-outpost` | 4 GIF | 三層背景＋scan FX | 其餘關卡背景、前景、tile／wall 對位與每個 sprite props | engineering prototype |
 | 機械補給箱 | `assets/props/mechanical-supply-box` | 3 GIF | idle＋2 rupture | 其他道具與破壞零件的獨立 sprite inventory | engineering prototype |
 | 六人選角 | `assets/ui/six-player-selection` | 1 GIF | 480×276 六欄圖 | 游標、READY、confirm、portrait／HUD 分離 sprite 的 production review | engineering prototype |
