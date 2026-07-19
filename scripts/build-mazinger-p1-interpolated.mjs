@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
-import { dirname, join, relative, resolve } from 'node:path';
+import { basename, dirname, join, relative, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -49,6 +49,21 @@ function parseFramePath(output) {
     const rest = output.slice(relativeMarker.length);
     const slash = rest.indexOf('/');
     if (slash < 1) throw new Error(`Unexpected model path ${output}`);
+    return { model: rest.slice(0, slash), rel: rest.slice(slash + 1) };
+  }
+  const dataMarker = '/data/';
+  const dataIndex = output.indexOf(dataMarker);
+  const relativeDataMarker = 'data/';
+  if (dataIndex >= 0 && !output.includes('/data/chars/')) {
+    const rest = output.slice(dataIndex + dataMarker.length);
+    const slash = rest.indexOf('/');
+    if (slash < 1) return { model: rest, rel: '' };
+    return { model: rest.slice(0, slash), rel: rest.slice(slash + 1) };
+  }
+  if (output.startsWith(relativeDataMarker) && !output.startsWith(relativeMarker)) {
+    const rest = output.slice(relativeDataMarker.length);
+    const slash = rest.indexOf('/');
+    if (slash < 1) return { model: rest, rel: '' };
     return { model: rest.slice(0, slash), rel: rest.slice(slash + 1) };
   }
   if (index < 0) {
@@ -124,11 +139,12 @@ try {
       forceChromaAtIndexZero(palette.pixels, palette.bgraPalette);
     }
     const targetRel = relative(options.baseDir, base);
-    const output = join(options.outputDir, 'data/chars', targetRel);
+    const outputRoot = basename(options.baseDir) === 'chars' ? 'data/chars' : 'data';
+    const output = join(options.outputDir, outputRoot, targetRel);
     mkdirSync(dirname(output), { recursive: true });
     writeFileSync(output, encodeGif(targetProbe.width, targetProbe.height, palette.pixels, palette.bgraPalette));
     verifyGif(output, targetProbe.width, targetProbe.height);
-    records.push({ output: `data/chars/${targetRel}`, sourceA: sourceFiles[index % sourceFiles.length], sourceB: sourceFiles[(index + 1) % sourceFiles.length], interpolationRatio: ratio, independentRaster: true, targetCanvas, targetOffset, placement });
+    records.push({ output: `${outputRoot}/${targetRel}`, sourceA: sourceFiles[index % sourceFiles.length], sourceB: sourceFiles[(index + 1) % sourceFiles.length], interpolationRatio: ratio, independentRaster: true, targetCanvas, targetOffset, placement });
   }
 } finally { rmSync(temp, { recursive: true, force: true }); }
 mkdirSync(options.outputDir, { recursive: true });
