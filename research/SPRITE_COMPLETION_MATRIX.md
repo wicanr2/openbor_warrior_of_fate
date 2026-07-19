@@ -13,7 +13,7 @@
 | 工作線 | private package | 目前 overlay | 目前證據 | 尚缺的 sprite 工作 | 狀態 |
 |---|---|---:|---|---|---|
 | 關羽／Getter／流龍馬 | `assets/players/guanyu` | 67 GIF | 65 主圖、2 HUD；strict、palette、canvas gate | 16 key pose 展開成獨立 in-between；`g1`–`g16` 騎乘／武器 sprite；受擊、死亡、BBox／attack box 逐格 review | engineering prototype |
-| 張飛／無敵鐵金剛／兜甲兒 | `assets/players/zhangfei` | 44 GIF | P0 41 physical GIF coverage | 41 張獨立 production redraw；特殊技、抓投、倒地碎片與 2P palette | engineering prototype |
+| 張飛／無敵鐵金剛／兜甲兒 | `assets/players/zhangfei` | 44 GIF | P0 41 physical GIF coverage；private `mazinger-production-p0-v1` candidate 已於 2026-07-19 產出 41 張並通過 parity | candidate 仍由 12/16 source pose 映射；需逐格 production review、獨立 in-between、特殊技、抓投、倒地碎片與 2P palette | candidate，未啟用 |
 | 趙雲／EVA／碇真嗣 | `assets/players/zhaoyun` | 84 GIF | P0 runtime overlay | P1／P2 特效與抓投、獨立 in-between、武器／受擊逐格 review | engineering prototype |
 | 黃忠／RX-78／阿姆羅 | `assets/players/huangzhong` | 97 GIF | 73 主圖、projectile union 與 HUD | 8 projectile model 的獨立 flight／impact／muzzle sprite；全部 special、抓投與 in-between | engineering prototype |
 | 魏延／機械哥吉拉／迷你哥吉拉 | `assets/players/weiyan` | 91 GIF＋3 TXT | P0 runtime、tail-ray proxy | 尾砲 charge／beam／impact、爪／dash FX、in-between、武器／攻擊 box | engineering prototype |
