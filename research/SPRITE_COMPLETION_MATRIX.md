@@ -20,6 +20,7 @@
 | ν Gundam／第六角色／阿姆羅系 | `assets/players/nu-gundam` | 78 GIF＋2 TXT | 71 action、Funnel proxy | 六發 Funnel 的獨立 orbit／beam／return／cleanup sprite；P1 special、in-between、攻擊 box | engineering prototype |
 | Lidian 紅槍指揮機 | `assets/bosses/lidian-red-spear-commander` | 69 GIF | Boss P0 closure | 16 key pose 展開、槍擊 charge／impact、裝甲碎片逐件拆分、Boss hit/death review | engineering prototype |
 | 夏亞／有腳吉翁克 Boss | `assets/bosses/zeon-boss-with-legs/candidates/zeon-p0-v1` | 64 GIF | `boss/xuchu` exact-case、canvas、palette index 0 gate PASS | 16 pose 逐格 production redraw、HUD、projectile／debris、pilot cut-in、spawn 與 gameplay QA | engineering candidate |
+| Boss family（Lidian／Meiling／Meimei／Meiya／夏侯惇／Xuchu） | `assets/bosses/boss-family-p0-v1` | 405 GIF | 六個 boss model tree 全部 exact-case、canvas、palette index 0 parity PASS | 每個 Boss 獨立造型、逐格 in-between、HUD／icon、projectile／debris、pilot cut-in、BBox／gameplay review | engineering candidate |
 | 島田兵／藍盔一般敵 | `assets/enemies/blue-helmet-grunt` | 42 GIF | `bing` overlay、死亡碎片 gate | `shooter` 投射物／muzzle；`bingxs` 全部碎片；量產敵 family 與攻擊姿勢 | engineering prototype |
 | 量產敵 family／army 1–10 | `assets/enemies/army-family-p0-v1` | 522 GIF | army/1..10 exact-case、canvas、palette index 0 parity PASS | 每個 model 的獨立造型、逐格 in-between、shooter／muzzle、死亡碎片、BBox／attack-box review | engineering candidate |
 | Stage01 機械前哨 | `assets/environments/stage01-forest-outpost` | 4 GIF | 三層背景＋scan FX | 其餘關卡背景、前景、tile／wall 對位與每個 sprite props | engineering prototype |
