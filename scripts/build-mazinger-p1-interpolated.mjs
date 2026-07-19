@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { dirname, join, relative, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { analyzePose, encodeGif, forceChromaAtIndexZero, makeComposedPng, palettizeWithFfmpeg, probeImage, verifyGif } from './build-mazinger-p0-prototype.mjs';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const PRIVATE = join(ROOT, '../openbor_security_materal');
+const SOURCE_DIR = join(PRIVATE, 'assets/players/zhangfei/references/generated-storyboards/mazinger-production-candidate-v1-keyposes');
+const BASE_DIR = join(ROOT, '../workplace/extracted/data/chars/zhangfei');
+const INPUT_MANIFEST = join(PRIVATE, 'assets/players/zhangfei/candidates/mazinger-production-p0-v1/BUILD-MANIFEST.json');
+const OUT = join(PRIVATE, 'assets/players/zhangfei/candidates/mazinger-production-p1-interpolated-v1');
+
+function run(args) {
+  const result = spawnSync('ffmpeg', args, { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+  if (result.status !== 0) throw new Error(result.stderr?.trim() || 'ffmpeg failed');
+}
+function blend(sourceA, sourceB, output, ratio) {
+  const a = (1 - ratio).toFixed(3);
+  const b = ratio.toFixed(3);
+  run(['-hide_banner', '-loglevel', 'error', '-y', '-i', sourceA, '-i', sourceB, '-filter_complex', `[0:v][1:v]blend=all_expr='A*${a}+B*${b}',format=rgb24`, '-frames:v', '1', output]);
+}
+function parseFramePath(output) {
+  const marker = '/data/chars/zhangfei/';
+  const index = output.indexOf(marker);
+  if (index < 0) throw new Error(`Unexpected output path ${output}`);
+  return output.slice(index + marker.length);
+}
+
+const manifest = JSON.parse(readFileSync(INPUT_MANIFEST, 'utf8'));
+const sourcePaths = Array.from({ length: 16 }, (_, i) => join(SOURCE_DIR, `frame-${String(i + 1).padStart(2, '0')}.png`));
+if (!sourcePaths.every(existsSync)) throw new Error('Missing Mazinger keypose source');
+const temp = mkdtempSync(join(tmpdir(), 'mazinger-p1-'));
+const records = [];
+try {
+  for (let index = 0; index < manifest.frames.length; index += 1) {
+    const frame = manifest.frames[index];
+    const rel = parseFramePath(frame.output);
+    const base = join(BASE_DIR, rel);
+    const targetProbe = probeImage(base);
+    const sourceA = sourcePaths[index % sourcePaths.length];
+    const sourceB = sourcePaths[(index + 1) % sourcePaths.length];
+    const ratio = ((index % 4) + 1) / 5;
+    const blended = join(temp, `${index}.png`);
+    blend(sourceA, sourceB, blended, ratio);
+    const pose = analyzePose(blended);
+    const composed = join(temp, `${index}-composed.png`);
+    const target = { originalPath: base, canvas: frame.targetCanvas, offset: frame.targetOffset };
+    const placement = makeComposedPng(blended, composed, pose, target, manifest.spriteHeight, { anchor: 'foot-contact' }, true);
+    const palette = palettizeWithFfmpeg(composed, targetProbe.width, targetProbe.height, temp);
+    forceChromaAtIndexZero(palette.pixels, palette.bgraPalette);
+    const output = join(OUT, 'data/chars/zhangfei', rel);
+    mkdirSync(dirname(output), { recursive: true });
+    writeFileSync(output, encodeGif(targetProbe.width, targetProbe.height, palette.pixels, palette.bgraPalette));
+    verifyGif(output, targetProbe.width, targetProbe.height);
+    records.push({ output: `data/chars/zhangfei/${rel}`, sourceA: `frame-${String((index % 16) + 1).padStart(2, '0')}.png`, sourceB: `frame-${String(((index + 1) % 16) + 1).padStart(2, '0')}.png`, interpolationRatio: ratio, independentRaster: true, targetCanvas: frame.targetCanvas, targetOffset: frame.targetOffset, placement });
+  }
+} finally { rmSync(temp, { recursive: true, force: true }); }
+mkdirSync(OUT, { recursive: true });
+writeFileSync(join(OUT, 'BUILD-MANIFEST.json'), `${JSON.stringify({ schemaVersion: 1, status: 'art-candidate-interpolated-not-production-ready', productionReady: false, sourcePoseReuse: false, interpolation: 'per-output raster blend between adjacent keyed poses; requires artist redraw/review', sourcePoseCount: 16, gifCount: records.length, deferred: ['hand-redrawn in-betweens', 'edge cleanup and silhouette review', 'BBox/attack-box review', 'gameplay QA'], frames: records }, null, 2)}\n`);
+console.log(`Built ${records.length} Mazinger interpolated GIFs at ${OUT}`);
