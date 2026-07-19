@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
@@ -35,6 +35,11 @@ function blend(sourceA, sourceB, output, ratio) {
   const a = (1 - ratio).toFixed(3);
   const b = ratio.toFixed(3);
   run(['-hide_banner', '-loglevel', 'error', '-y', '-i', sourceA, '-i', sourceB, '-filter_complex', `[0:v]scale=313:313:force_original_aspect_ratio=decrease,pad=313:313:(ow-iw)/2:(oh-ih)/2:color=0xFC00FF[a];[1:v]scale=313:313:force_original_aspect_ratio=decrease,pad=313:313:(ow-iw)/2:(oh-ih)/2:color=0xFC00FF[b];[a][b]blend=all_expr='A*${a}+B*${b}',format=rgb24`, '-frames:v', '1', output]);
+}
+function markChromaCorner(path) {
+  const marked = `${path}.marked.png`;
+  run(['-hide_banner', '-loglevel', 'error', '-y', '-i', path, '-vf', 'drawbox=x=0:y=0:w=1:h=1:color=0xFC00FF:t=fill', '-frames:v', '1', marked]);
+  renameSync(marked, path);
 }
 function parseFramePath(output) {
   const marker = '/data/chars/';
@@ -106,8 +111,15 @@ try {
     const target = { originalPath: base, canvas: targetCanvas, offset: targetOffset };
     const spriteHeight = manifest.spriteHeight ?? (frame.placement?.scale ? frame.placement.scale * pose.crop.height : 96);
     const placement = makeComposedPng(blended, composed, pose, target, spriteHeight, { anchor: 'foot-contact' }, true);
-    const palette = palettizeWithFfmpeg(composed, targetProbe.width, targetProbe.height, temp);
-    forceChromaAtIndexZero(palette.pixels, palette.bgraPalette);
+    let palette = palettizeWithFfmpeg(composed, targetProbe.width, targetProbe.height, temp);
+    try {
+      forceChromaAtIndexZero(palette.pixels, palette.bgraPalette);
+    } catch (error) {
+      if (!String(error?.message).includes('does not contain exact #FC00FF')) throw error;
+      markChromaCorner(composed);
+      palette = palettizeWithFfmpeg(composed, targetProbe.width, targetProbe.height, temp);
+      forceChromaAtIndexZero(palette.pixels, palette.bgraPalette);
+    }
     const targetRel = relative(options.baseDir, base);
     const output = join(options.outputDir, 'data/chars', targetRel);
     mkdirSync(dirname(output), { recursive: true });
