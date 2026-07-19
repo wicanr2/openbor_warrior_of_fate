@@ -28,6 +28,7 @@
 | 背景 GIF／bgs | `assets/environments/bgs-mechanical-p0-v1` | 77 GIF | 全部 `data/bgs` exact-case、canvas、palette index 0 parity PASS | stage-specific 背景與 tileset 重畫、wall／foreground 對位、lighting 與 runtime review | engineering candidate |
 | Scene／logo／story GIF | `assets/ui/scenes-mechanical-p0-v1` | 617 GIF | 全部 `data/scenes` exact-case、canvas、palette index 0 parity PASS | title/logo、story artwork、portrait、cut-in、typography 與 scene layout 重畫 | engineering candidate |
 | 玩家 mount／weapon submodel | `assets/players/mount-submodels-p0-v1` | 675 GIF | 五名玩家 horse、Huangzhong gong、Weiyan news/w 全部 exact-case、canvas、palette index 0 parity PASS | 各機體 mount／武器獨立造型、rider alignment、逐格 timing、BBox review | engineering candidate |
+| 其餘 legacy GIF catch-all | `assets/legacy/remaining-sprite-p0-v1` | 447 GIF | 全量 union audit 後覆蓋 profiles、fonts、shadows、story props 與玩家特殊動作；uncovered `0` | 各語意類別的正式重畫、字型／portrait／story review、特殊技逐格 QA | engineering candidate |
 | Stage01 機械前哨 | `assets/environments/stage01-forest-outpost` | 4 GIF | 三層背景＋scan FX | 其餘關卡背景、前景、tile／wall 對位與每個 sprite props | engineering prototype |
 | 機械補給箱 | `assets/props/mechanical-supply-box` | 3 GIF | idle＋2 rupture | 其他道具與破壞零件的獨立 sprite inventory | engineering prototype |
 | 六人選角 | `assets/ui/six-player-selection` | 1 GIF | 480×276 六欄圖 | 游標、READY、confirm、portrait／HUD 分離 sprite 的 production review | engineering prototype |
@@ -69,5 +70,5 @@
 4. 最後掃描所有 level／models TXT，將仍由 base data 補上的 sprite 逐項加入
    本矩陣；矩陣未清空前不進入下一階段 gameplay 整合。
 
-目前這份矩陣的正確總結是：**工程素材已經有一批，全部 production sprite
-尚未完成。**
+目前這份矩陣的正確總結是：**3,967/3,967 runtime GIF 已有 private engineering
+candidate；全部 production sprite 仍尚未完成。**
