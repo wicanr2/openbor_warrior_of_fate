@@ -38,7 +38,7 @@ function blend(sourceA, sourceB, output, ratio) {
 }
 function markChromaCorner(path) {
   const marked = `${path}.marked.png`;
-  run(['-hide_banner', '-loglevel', 'error', '-y', '-i', path, '-vf', 'drawbox=x=0:y=0:w=1:h=1:color=0xFC00FF:t=fill', '-frames:v', '1', marked]);
+  run(['-hide_banner', '-loglevel', 'error', '-y', '-i', path, '-vf', 'drawbox=x=0:y=0:w=8:h=8:color=0xFC00FF:t=fill', '-frames:v', '1', marked]);
   renameSync(marked, path);
 }
 function parseFramePath(output) {
@@ -131,12 +131,12 @@ try {
     const placement = makeComposedPng(blended, composed, pose, target, spriteHeight, { anchor: 'foot-contact' }, true);
     let palette = palettizeWithFfmpeg(composed, targetProbe.width, targetProbe.height, temp);
     try {
-      forceChromaAtIndexZero(palette.pixels, palette.bgraPalette);
+      forceChromaAtIndexZero(palette.pixels, palette.bgraPalette, { allowMissing: true });
     } catch (error) {
       if (!String(error?.message).includes('does not contain exact #FC00FF')) throw error;
       markChromaCorner(composed);
       palette = palettizeWithFfmpeg(composed, targetProbe.width, targetProbe.height, temp);
-      forceChromaAtIndexZero(palette.pixels, palette.bgraPalette);
+      forceChromaAtIndexZero(palette.pixels, palette.bgraPalette, { allowMissing: true });
     }
     const targetRel = relative(options.baseDir, base);
     const outputRoot = basename(options.baseDir) === 'chars' ? 'data/chars' : 'data';

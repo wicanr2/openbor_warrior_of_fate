@@ -401,7 +401,7 @@ export function palettizeWithFfmpeg(composedPath, width, height, tempDir) {
   };
 }
 
-export function forceChromaAtIndexZero(pixels, bgraPalette) {
+export function forceChromaAtIndexZero(pixels, bgraPalette, options = {}) {
   let chromaIndex = -1;
   for (let index = 0; index < 256; index += 1) {
     const start = index * 4;
@@ -415,6 +415,13 @@ export function forceChromaAtIndexZero(pixels, bgraPalette) {
     }
   }
   if (chromaIndex < 0) {
+    if (options.allowMissing) {
+      bgraPalette[0] = CHROMA.b;
+      bgraPalette[1] = CHROMA.g;
+      bgraPalette[2] = CHROMA.r;
+      bgraPalette[3] = 255;
+      return 0;
+    }
     throw new Error(
       `ffmpeg palette does not contain exact ${CHROMA.hex}; refusing to emit a non-conforming GIF`,
     );
