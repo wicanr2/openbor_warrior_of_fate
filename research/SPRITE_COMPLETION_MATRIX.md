@@ -31,7 +31,7 @@
 | 其餘 legacy GIF catch-all | `assets/legacy/remaining-sprite-p1-interpolated-v1` | 447 GIF | 447 張獨立插值 raster；447/447 strict parity、canvas、palette index 0 PASS | 各語意類別的正式重畫、字型／portrait／story review、特殊技逐格 QA | interpolated candidate |
 | Stage01 機械前哨 | `assets/environments/stage01-forest-outpost/candidates/stage01-p1-v1` | 4 GIF | 三層背景＋scan FX overlay parity PASS | 其餘關卡背景、前景、tile／wall 對位與每個 sprite props | overlay-verified candidate |
 | 機械補給箱 | `assets/props/mechanical-supply-box/candidates/box-p1-v1` | 3 GIF | idle＋2 rupture overlay parity PASS | 其他道具與破壞零件的獨立 sprite inventory | overlay-verified candidate |
-| 六人選角 | `assets/ui/six-player-selection/candidates/six-selection-p1-v1` | 1 GIF | 480×276 六欄圖 overlay parity PASS | 游標、READY、confirm、portrait／HUD 分離 sprite 的 production review | overlay-verified candidate |
+| 六人選角 | `assets/ui/six-player-selection/candidates/six-selection-p1-v1` | 1 GIF | 480×276 六欄圖 overlay parity PASS；`SELECTION-SLOT-MANIFEST.json` 定義六個 80×276 slot | 游標、READY、confirm、portrait／HUD 分離 sprite 的 production review | overlay-verified candidate＋slot handoff |
 
 ## 尚沒有 production sprite package 的工作線
 
