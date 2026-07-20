@@ -12,7 +12,7 @@
 
 | 工作線 | private package | 目前 overlay | 目前證據 | 尚缺的 sprite 工作 | 狀態 |
 |---|---|---:|---|---|---|
-| 關羽／Getter／流龍馬 | `assets/players/guanyu` | 67 GIF | `getter-p1-interpolated-v1` 65 張獨立插值 raster；private `getter-v1` production-redraw seed 16/16 keyposes＋3 in-between seeds；strict、palette、canvas gate | 其餘手繪清線／in-between；`g1`–`g16` 騎乘／武器；受擊、死亡、BBox／attack-box review | interpolated candidate＋complete keypose seed＋in-between seeds |
+| 關羽／Getter／流龍馬 | `assets/players/guanyu` | 67 GIF | `getter-p1-interpolated-v1` 65 張獨立插值 raster；private `getter-v1` 16/16 keypose＋15 adjacent interpolation seed＋31 張 94×94 runtime GIF／BBox；strict、palette、canvas gate | 其餘手繪清線／in-between；`g1`–`g16` 騎乘／武器；受擊、死亡、attack-box gameplay review | interpolated candidate＋runtime keypose/in-between seed |
 | 張飛／無敵鐵金剛／兜甲兒 | `assets/players/zhangfei` | 44 GIF | P0 41 physical GIF coverage；`mazinger-production-p1-interpolated-v1` 已產出 41 張獨立插值 raster 並通過 parity；private `mazinger-v1` production redraw seed 16/16 keyposes＋3 in-between seeds | 其餘手繪清線／in-between、特殊技、抓投、倒地碎片、BBox review 與 2P palette | interpolated candidate＋complete keypose seed＋in-between seeds |
 | 趙雲／EVA／碇真嗣 | `assets/players/zhaoyun` | 84 GIF | `eva-p1-interpolated-v1` 82 張獨立插值 raster；derived source；private `eva-v1` production redraw seed 16/16 keyposes＋3 in-between seeds | P1／P2 特效與抓投、其餘手繪清線／in-between、武器／受擊逐格 review | derived interpolated candidate＋complete keypose seed＋in-between seeds |
 | 黃忠／RX-78／阿姆羅 | `assets/players/huangzhong` | 97 GIF | `rx78-p1-interpolated-v1` 73 張獨立插值 raster；derived source；private `rx78-v1` production redraw seed 16/16 keyposes | projectile flight／impact／muzzle、手繪清線、special／抓投／in-between | derived interpolated candidate＋complete keypose seed |
