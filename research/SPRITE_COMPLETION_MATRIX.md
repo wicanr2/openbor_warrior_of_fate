@@ -8,6 +8,11 @@
 路徑與畫布，但仍重用 key pose，不能算成 production sprite。公開 repo 只
 保存這張矩陣與總覽，不保存可直接重用的私有 GIF。
 
+2026-07-20 已對 private `references/production-redraw` 中由 manifest 可識別的
+runtime／FX／碎片 GIF 完成 strict scan：**351/351** 通過 manifest canvas、
+indexed palette、palette index 0 `#FC00FF` 與無 GIF transparency extension。
+這是格式／交接基線，不代表動作逐格或 gameplay review 已完成。
+
 ## 已有 private package，但尚未完成 production sprite
 
 | 工作線 | private package | 目前 overlay | 目前證據 | 尚缺的 sprite 工作 | 狀態 |
