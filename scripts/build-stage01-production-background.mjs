@@ -24,7 +24,7 @@ const LAYERS = [
 ];
 
 function usage() {
-  console.log(`Usage: node scripts/build-stage01-production-background.mjs --source SOURCE --output-dir DIR [--foreground-mask MASK]
+  console.log(`Usage: node scripts/build-stage01-production-background.mjs --source SOURCE --output-dir DIR [--foreground-source PNG] [--foreground-mask MASK]
 
 Generates original, visible Stage01 S2/panel/f.GIF layers. The foreground
 mask supplies only opacity; no original artwork is copied. All output GIFs
@@ -46,7 +46,7 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === '--help') { usage(); process.exit(0); }
     const key = argv[i];
-    if (!['--source', '--foreground-mask', '--output-dir'].includes(key) || !argv[i + 1]) {
+    if (!['--source', '--foreground-source', '--foreground-mask', '--output-dir'].includes(key) || !argv[i + 1]) {
       throw new Error(`Unknown or incomplete argument: ${key}`);
     }
     options[key.slice(2).replaceAll('-', '')] = resolve(argv[++i]);
@@ -55,6 +55,7 @@ function parseArgs(argv) {
     if (!options[key]) throw new Error(`Missing --${key.replace('foregroundmask', 'foreground-mask').replace('outputdir', 'output-dir')}`);
   }
   if (!existsSync(options.source)) throw new Error(`Missing source: ${options.source}`);
+  if (options.foregroundsource && !existsSync(options.foregroundsource)) throw new Error(`Missing foreground source: ${options.foregroundsource}`);
   if (options.foregroundmask && !existsSync(options.foregroundmask)) throw new Error(`Missing foreground mask: ${options.foregroundmask}`);
   return options;
 }
@@ -69,6 +70,19 @@ function composeLayer(canonical, mask, layer, output) {
   if (layer.mask) args.push('-i', mask);
   args.push('-filter_complex', filter, '-map', '[out]', '-frames:v', '1', output);
   command('ffmpeg', args);
+}
+
+function composeForegroundSource(source, layer, output) {
+  const { width, height } = layer;
+  // The source is wide but taller than the OpenBOR f layer. Keep its lower
+  // roots/rocks, where occlusion belongs, and reserve the central play lane.
+  const filter = [
+    `[0:v]scale=2172:724:flags=lanczos,crop=2172:244:0:480,scale=${width}:${height}:flags=lanczos,format=rgba,colorkey=0xFF00FF:0.40:0,geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':a='if(gt(r(X,Y),100)*gt(b(X,Y),100)*lt(g(X,Y),100),0,a(X,Y))',format=rgba[fg]`,
+    `color=c=${CHROMA}:s=${width}x${height},format=rgba[bg]`,
+    '[bg][fg]overlay=0:0:format=auto,format=rgb24[out]',
+  ].join(';');
+  command('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', source,
+    '-filter_complex', filter, '-map', '[out]', '-frames:v', '1', output]);
 }
 
 function encodeIndexed(png, output, layer, work) {
@@ -118,7 +132,10 @@ try {
   for (const layer of LAYERS) {
     const png = join(work, `${layer.file.replace('.', '_')}.png`);
     const output = join(options.outputdir, layer.file);
-    if (layer.mask && !options.foregroundmask) {
+    if (layer.mask && options.foregroundsource) {
+      composeForegroundSource(options.foregroundsource, layer, png);
+      encodeIndexed(png, output, layer, join(work, 'palette'));
+    } else if (layer.mask && !options.foregroundmask) {
       writeTransparentLayer(output, layer);
     } else {
       composeLayer(canonical, options.foregroundmask, layer, png);
@@ -131,7 +148,9 @@ try {
     status: 'original-visible-background-candidate-needs-runtime-review',
     productionReady: false,
     source: { filename: basename(options.source), sha256: sha256(options.source), canonicalCanvas: [CANONICAL.width, CANONICAL.height], originalGeneratedArt: true },
-    foregroundMask: options.foregroundmask
+    foreground: options.foregroundsource
+      ? { filename: basename(options.foregroundsource), use: 'original generated lower foreground; central lane intentionally clear' }
+      : options.foregroundmask
       ? { filename: basename(options.foregroundmask), use: 'opacity only; original pixels are not copied' }
       : { status: 'intentionally transparent until original foreground redraw is supplied' },
     chroma: { paletteIndex: 0, rgb: CHROMA, gifTransparencyExtension: false },
