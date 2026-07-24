@@ -73,3 +73,21 @@ gates.
 
 This is an integration pipeline, not a release claim. The reported Getter
 attack hang blocks a `playable` label even if assembly and load validation pass.
+
+## 2026-07-24 verification checkpoint
+
+The disposable assembly was rerun from the current public checkout and private
+overlay. `assemble-super-robot-overlay.mjs` produced 13 packages (527 overlay
+files), `prepare-openbor-smoke.mjs` produced `/tmp/robot-wof-super-robot-stage`,
+and `validate-super-robot-integration.mjs` passed all 9 targets: six playable
+models, the six-player select list, Stage 01, and the blue-helmet enemy.
+
+The Linux x86-64 OpenBOR v7533 binary was rebuilt in Docker from the pinned
+OpenBOR source (`/tmp/openbor-linux-docker/.../OpenBOR`). Running that binary
+with SDL dummy drivers reached `Loading models............... Done!` and
+`Object engine init........... Done!`; the log contained no fatal model/file
+load errors. The bounded process ended with the expected timeout status 124.
+The legacy module also prints animated-GIF warnings for `logob/51.gif`–`53.gif`
+and emits a known shutdown double-free after the load gate; these are runtime
+teardown/legacy-logo issues, not a failed target-model load. They remain open
+before calling the build playable or release-ready.
