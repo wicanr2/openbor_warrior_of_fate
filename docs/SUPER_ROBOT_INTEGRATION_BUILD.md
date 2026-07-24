@@ -43,6 +43,13 @@ node scripts/alias-model-case-in-stage.mjs \
   --stage-root /tmp/robot-wof-super-robot-stage \
   --model data/levels/NewWof/1/01.txt \
   --model data/chars/army/1/bing.txt
+
+# Route remaining Stage 01 human enemy spawn names to the approved robot grunt
+# in the disposable tree. Keep the original level in VisibleQA/ as evidence.
+node scripts/alias-stage-robot-roster.mjs \
+  --stage /tmp/robot-wof-super-robot-stage
+node scripts/validate-stage-robot-roster.mjs \
+  --stage /tmp/robot-wof-super-robot-stage
 ```
 
 All output is disposable and excluded from Git. Do not copy private source
@@ -80,7 +87,11 @@ The disposable assembly was rerun from the current public checkout and private
 overlay. `assemble-super-robot-overlay.mjs` produced 13 packages (527 overlay
 files), `prepare-openbor-smoke.mjs` produced `/tmp/robot-wof-super-robot-stage`,
 and `validate-super-robot-integration.mjs` passed all 9 targets: six playable
-models, the six-player select list, Stage 01, and the blue-helmet enemy.
+models, the six-player select list, Stage 01, and the blue-helmet enemy. The
+stage-only robot roster adapter then routed 39 legacy human enemy spawns
+(`man*`, `woman*`, `shooter`, `cap*`, `feifei`, `ybing`) to `bing`; its validator
+confirmed no such spawn names remain. This is intentionally a temporary shared
+grunt behavior, not a claim that distinct ranged/heavy enemy art is complete.
 
 The Linux x86-64 OpenBOR v7533 binary was rebuilt in Docker from the pinned
 OpenBOR source (`/tmp/openbor-linux-docker/.../OpenBOR`). Running that binary
