@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+// Validate private five- and six-slot character-selection overlays.
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { verifyGif } from './build-mazinger-p0-prototype.mjs';
+const av=process.argv.slice(2);const assets=resolve(av[av.indexOf('--assets')+1]||'');const manifestPath=resolve(av[av.indexOf('--manifest')+1]||join(assets,'SELECTION-MEDIUM-MANIFEST.json'));if(!assets||!existsSync(assets))throw new Error('Usage: --assets PRIVATE_ASSETS_DIR [--manifest OUTPUT_JSON]');
+const roots=[['five-player','ui/five-player-selection/overlay/data'],['six-player','ui/six-player-selection/overlay/data']];
+const packages=roots.map(([name,rel])=>{const path=join(assets,rel);if(!existsSync(path))throw new Error(`Missing ${rel}`);const files=[];function walk(d){for(const e of readdirSync(d,{withFileTypes:true})){const p=join(d,e.name);if(e.isDirectory())walk(p);else if(/\.(gif|GIF)$/.test(e.name))files.push(p)}}walk(path);const entries=files.sort().map(p=>{const b=readFileSync(p);const w=b.readUInt16LE(6),h=b.readUInt16LE(8);if(w<1||h<1||w>640||h>360)throw new Error(`Not medium selection canvas ${p} ${w}x${h}`);return {path:p.slice(path.length+1),canvas:[w,h],verification:verifyGif(p,w,h)}});return {name,gifCount:entries.length,files:entries}});
+const manifest={schemaVersion:1,status:'medium-ui-coverage',productionReady:false,totalGifCount:packages.reduce((n,p)=>n+p.gifCount,0),canvasBounds:{maxWidth:640,maxHeight:360},packages,deferred:['portrait/HUD separation','cursor/READY/confirm states','runtime selection QA']};mkdirSync(dirname(manifestPath),{recursive:true});writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);console.log(`Selection medium validation PASS: ${manifest.totalGifCount} GIFs`);
