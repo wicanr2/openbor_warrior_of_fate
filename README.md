@@ -120,6 +120,7 @@
 | [Background medium validator](scripts/validate-backgrounds-medium.mjs) | 逐檔驗證 private 長圖背景的 77 張 GIF，保留 OpenBOR 關卡所需的 4096×320 background canvas 上限。 |
 | [Legacy sprite medium validator](scripts/validate-legacy-sprites-medium.mjs) | 逐檔驗證 private legacy catch-all 的 447 張 GIF，包含特殊技、font、shadow、hole 與 story prop。 |
 | [Boss family medium validator](scripts/validate-boss-family-medium.mjs) | 逐檔驗證六型 Boss family 的 405 張 GIF 是否符合 640×360 medium Boss canvas。 |
+| [Playable overlay medium validator](scripts/validate-playable-overlays-medium.mjs) | 集中驗證六位 playable 與 Lidian Boss runtime overlay，共 530 張 medium GIF。 |
 | [趙雲 P0 成果展示圖產生器](scripts/build-zhaoyun-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、突刺、旋槍與倒地輸出建立 750×390 overview-only 成果圖。 |
 | [黃忠 P0 builder](scripts/build-huangzhong-p0-prototype.mjs) | 從 16 個主姿勢與 16 格 projectile／FX inventory 建立 active-player、HUD、8 個 projectile model、case fixes 與 build manifest。 |
 | [黃忠 P0 成果展示圖產生器](scripts/build-huangzhong-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、光子步槍、飛彈、倒地與 impact GIF 建立 750×430 overview-only 成果圖。 |

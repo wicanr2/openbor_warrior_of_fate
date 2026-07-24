@@ -4,6 +4,12 @@
 `TXT` 能載入，而是每一個要替換的 runtime GIF 都有概念來源、獨立可審查的
 姿勢、正確 canvas／Offset／腳底、精確洋紅鍵色，並完成逐格人工 review。
 
+Playable runtime aggregate：private `PLAYABLE-MEDIUM-MANIFEST.json` 已集中
+驗證 Getter、Mazinger、EVA、RX-78、Riftbeast、ν Gundam 與 Lidian Boss 共
+530 張 overlay GIF；全部符合 ≤640×360、indexed palette、index-0 `#FC00FF`
+與無 GIF transparency extension。這是尺寸／格式交接證據，不取代角色
+attack-box、HUD 與實機 gameplay review。
+
 目前私有素材包的多數狀態仍是 `engineering-prototype`：它們能讓工程驗證
 路徑與畫布，但仍重用 key pose，不能算成 production sprite。公開 repo 只
 保存這張矩陣與總覽，不保存可直接重用的私有 GIF。
