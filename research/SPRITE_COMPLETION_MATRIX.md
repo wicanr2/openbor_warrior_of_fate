@@ -10,6 +10,10 @@ Playable runtime aggregate：private `PLAYABLE-MEDIUM-MANIFEST.json` 已集中
 與無 GIF transparency extension。這是尺寸／格式交接證據，不取代角色
 attack-box、HUD 與實機 gameplay review。
 
+Portrait aggregate：private `PORTRAITS-MEDIUM-MANIFEST.json` 已驗證 39 張
+player／enemy／Boss icon GIF，含 1 張 army icon replacement；全部符合
+≤640×360、indexed palette、index-0 `#FC00FF` 與無 GIF transparency extension。
+
 目前私有素材包的多數狀態仍是 `engineering-prototype`：它們能讓工程驗證
 路徑與畫布，但仍重用 key pose，不能算成 production sprite。公開 repo 只
 保存這張矩陣與總覽，不保存可直接重用的私有 GIF。
