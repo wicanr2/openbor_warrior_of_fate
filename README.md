@@ -115,6 +115,7 @@
 | [Army family medium validator](scripts/validate-army-family-medium.mjs) | 逐檔驗證十型 army 的 522 張 GIF 是否在 medium canvas 上限內，並處理唯一超大 icon replacement。 |
 | [NPC family medium validator](scripts/validate-npc-family-medium.mjs) | 逐檔驗證 private NPC family 的 37 張 GIF 是否在 medium canvas 上限內，並輸出 strict manifest。 |
 | [Mount/weapon medium validator](scripts/validate-mount-submodels-medium.mjs) | 逐檔驗證 private mount/weapon 的 675 張 GIF，並處理兩張超大魏延武器 replacement。 |
+| [Misc FX medium validator](scripts/validate-misc-fx-medium.mjs) | 逐檔驗證 private 共用 FX 的 848 張 GIF，允許全螢幕效果使用 960×512 medium FX canvas。 |
 | [趙雲 P0 成果展示圖產生器](scripts/build-zhaoyun-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、突刺、旋槍與倒地輸出建立 750×390 overview-only 成果圖。 |
 | [黃忠 P0 builder](scripts/build-huangzhong-p0-prototype.mjs) | 從 16 個主姿勢與 16 格 projectile／FX inventory 建立 active-player、HUD、8 個 projectile model、case fixes 與 build manifest。 |
 | [黃忠 P0 成果展示圖產生器](scripts/build-huangzhong-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、光子步槍、飛彈、倒地與 impact GIF 建立 750×430 overview-only 成果圖。 |

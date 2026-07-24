@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+// Validate private shared FX with a larger medium canvas for fullscreen effects.
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join, relative, resolve } from 'node:path';
+import { verifyGif } from './build-mazinger-p0-prototype.mjs';
+const av=process.argv.slice(2);const root=resolve(av[av.indexOf('--overlay')+1]||'');const manifestPath=resolve(av[av.indexOf('--manifest')+1]||join(root,'FX-MEDIUM-MANIFEST.json'));if(!root||!existsSync(root))throw new Error('Usage: --overlay PRIVATE_FX_DIR [--manifest OUTPUT_JSON]');
+function files(d){return readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(join(d,e.name)):/\.(gif|GIF)$/.test(e.name)?[join(d,e.name)]:[])}
+const entries=files(root).sort().map(path=>{const b=readFileSync(path);if(b.toString('ascii',0,3)!=='GIF')throw new Error(`Not GIF: ${path}`);const w=b.readUInt16LE(6),h=b.readUInt16LE(8);if(w<1||h<1||w>960||h>512)throw new Error(`Not medium FX canvas ${relative(root,path)} ${w}x${h}`);return {path:relative(root,path),canvas:[w,h],verification:verifyGif(path,w,h)}});
+const manifest={schemaVersion:1,status:'medium-engineering-coverage',productionReady:false,gifCount:entries.length,canvasBounds:{maxWidth:960,maxHeight:512},source:'private assets/effects/misc-mechanical-fx-p0-v1/data',files:entries,deferred:['replace human gore vocabulary','effect timing','stage/player gameplay review']};mkdirSync(dirname(manifestPath),{recursive:true});writeFileSync(manifestPath,`${JSON.stringify(manifest,null,2)}\n`);console.log(`Misc FX medium validation PASS: ${entries.length} GIFs`);
