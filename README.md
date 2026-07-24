@@ -123,6 +123,7 @@
 | [Playable overlay medium validator](scripts/validate-playable-overlays-medium.mjs) | 集中驗證六位 playable 與 Lidian Boss runtime overlay，共 530 張 medium GIF。 |
 | [Selection medium validator](scripts/validate-selection-medium.mjs) | 驗證五人／六人選角 overlay 的 480×276 medium GIF 與 slot 交接 manifest。 |
 | [Portrait medium validator](scripts/validate-portraits-medium.mjs) | 集中驗證 player／enemy／Boss icon GIF，共 39 張 medium portrait。 |
+| [Medium coverage summary builder](scripts/build-medium-coverage-summary.mjs) | 彙整 private repo 全部 medium manifests；不複製 private 圖檔，只輸出可交接的 coverage 索引。 |
 | [趙雲 P0 成果展示圖產生器](scripts/build-zhaoyun-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、突刺、旋槍與倒地輸出建立 750×390 overview-only 成果圖。 |
 | [黃忠 P0 builder](scripts/build-huangzhong-p0-prototype.mjs) | 從 16 個主姿勢與 16 格 projectile／FX inventory 建立 active-player、HUD、8 個 projectile model、case fixes 與 build manifest。 |
 | [黃忠 P0 成果展示圖產生器](scripts/build-huangzhong-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、光子步槍、飛彈、倒地與 impact GIF 建立 750×430 overview-only 成果圖。 |

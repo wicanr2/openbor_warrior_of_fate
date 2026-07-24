@@ -14,6 +14,10 @@ Portrait aggregate：private `PORTRAITS-MEDIUM-MANIFEST.json` 已驗證 39 張
 player／enemy／Boss icon GIF，含 1 張 army icon replacement；全部符合
 ≤640×360、indexed palette、index-0 `#FC00FF` 與無 GIF transparency extension。
 
+全庫 medium 索引：private `MEDIUM-COVERAGE-SUMMARY.json` 收錄 14 份
+manifest、4,247 筆 manifest-level GIF entries（不同 aggregate 之間可能重疊；
+各分類 manifest 仍是逐檔權威證據）。
+
 目前私有素材包的多數狀態仍是 `engineering-prototype`：它們能讓工程驗證
 路徑與畫布，但仍重用 key pose，不能算成 production sprite。公開 repo 只
 保存這張矩陣與總覽，不保存可直接重用的私有 GIF。
