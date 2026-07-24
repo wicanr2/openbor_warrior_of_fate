@@ -23,6 +23,7 @@
 | [Docker 隔離 X11 visible QA](docs/DOCKER_VISIBLE_QA.md) | 在容器內以 Xvfb、xdotool、ffmpeg 執行可見 OpenBOR QA 並保存 MP4；不掛載 host X11 socket。 |
 | [Super Robot 整合建置](docs/SUPER_ROBOT_INTEGRATION_BUILD.md) | 將私有六名角色、選角、Stage01、敵兵與道具包依固定順序組成 disposable stage，並執行目標資產與 Docker 載入 gate。 |
 | [2026-07-16 runtime checkpoint](docs/RUNTIME_STATUS_2026-07-16.md) | 今日實跑的整合／可見 QA 證據、攻擊 hang 的正確判讀、尚未完成項目，以及下週可直接續跑的命令。 |
+| [2026-07-24 runtime checkpoint](docs/RUNTIME_STATUS_2026-07-24.md) | fresh v2 disposable stage、39 個 Stage01 robot roster 替換、50 秒 Docker X11 visible run 與 attack macro 證據；明確列出 teardown 與 animation assertion 尚未關閉。 |
 | [美術協作與交付手冊](docs/ARTIST_HANDOFF.md) | 多藝術家分工、私有／公開素材界線、每張圖的交付欄位、review state 與第一批 Mazinger 工作包。 |
 | [本機 raw-data smoke test](docs/LOCAL_SMOKE_TEST.md) | 建立不污染原始解包資料的 merged tree、修正 staging 大小寫並啟動 OpenBOR 驗證 overlay。 |
 | [Mazinger 私有資產對位產線](docs/PRIVATE_ASSET_PIPELINE.md) | 從本機 key pose 建立 basic 或 41-file full-P0 engineering prototype，強制 canvas、Offset 與 palette index 0。 |
