@@ -112,6 +112,7 @@
 | [Stage02 背景 builder](scripts/build-stage02-production-background.mjs) | 從 private 原創 panorama／foreground 產生 `bp.GIF`、`p.gif`、`f2.GIF`、`f1.GIF` 四層中等尺寸背景，並嚴格驗證洋紅鍵色與 canvas。 |
 | [藍盔小兵 medium builder](scripts/build-blue-helmet-medium.mjs) | 將 private 4×4 原創 storyboard 切成 16 張 150×120 中等尺寸 GIF，保留 index-0 `#FC00FF` 與 strict manifest。 |
 | [Cinder Ace Boss medium builder](scripts/build-cinder-ace-medium.mjs) | 將 private 原創 4×4 Boss storyboard 切成 16 張 180×144 中等尺寸 GIF，保留 index-0 `#FC00FF` 與 strict manifest。 |
+| [Army family medium validator](scripts/validate-army-family-medium.mjs) | 逐檔驗證十型 army 的 522 張 GIF 是否在 medium canvas 上限內，並處理唯一超大 icon replacement。 |
 | [趙雲 P0 成果展示圖產生器](scripts/build-zhaoyun-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、突刺、旋槍與倒地輸出建立 750×390 overview-only 成果圖。 |
 | [黃忠 P0 builder](scripts/build-huangzhong-p0-prototype.mjs) | 從 16 個主姿勢與 16 格 projectile／FX inventory 建立 active-player、HUD、8 個 projectile model、case fixes 與 build manifest。 |
 | [黃忠 P0 成果展示圖產生器](scripts/build-huangzhong-engineering-preview.mjs) | 從 private overlay 的 HUD、idle、光子步槍、飛彈、倒地與 impact GIF 建立 750×430 overview-only 成果圖。 |
